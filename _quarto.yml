@@ -5,7 +5,7 @@ website:
   favicon: _images/logos/favicon.png
   repo-url: "https://github.com/eu-cdse/documentation"
   repo-branch: "publish"
-  site-url: "https://documentation.dataspace.copernicus.eu/"
+  site-url: "https://worldcereal.github.io/"
   site-path: '/index.html'
   search:
     location: sidebar
