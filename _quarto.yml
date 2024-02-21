@@ -1,0 +1,45 @@
+project:
+  type: website
+
+website:
+  favicon: _images/logos/favicon.png
+  repo-url: "https://github.com/eu-cdse/documentation"
+  repo-branch: "publish"
+  site-url: "https://documentation.dataspace.copernicus.eu/"
+  site-path: '/index.html'
+  search:
+    location: sidebar
+    type: textbox
+    copy-button: true
+
+  navbar:
+    background: "#F1B821"
+    height: 50
+    foreground: "light"
+    logo-href: 'https://esa-worldcereal.org/'
+    pinned: true
+
+
+  page-navigation: true
+
+  title: "WorldCereal Documentation"
+
+
+  sidebar:
+    style: "floating"
+    collapse-level: 1
+    contents:
+      - href: index.md
+        text: Welcome
+      - section: "System design"
+        contents:
+          - href: design/extractions.qmd
+            text: Extractions
+
+
+format:
+  html:
+    toc: true
+    toc-depth: 4
+    page-layout: full
+

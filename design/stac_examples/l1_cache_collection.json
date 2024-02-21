@@ -1,0 +1,159 @@
+{
+  "description": "The Level 1 input data cache contains extracted samples of EO data. It's main use is model calibration, allowing faster iterations by providing a cache.",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          4.053457,
+          51.01616,
+          4.129008,
+          51.049831
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2020-05-01T00:00:00Z",
+          "2020-05-22T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "id": "L1_CACHE",
+  "license": "CC-BY-4.0",
+  "links": [],
+  "providers": [
+    {
+      "description": "This data was processed on an openEO backend maintained by VITO.",
+      "name": "VITO",
+      "processing:facility": "openEO Geotrellis backend",
+      "processing:software": {
+        "Geotrellis backend": "0.27.0a1"
+      },
+      "roles": [
+        "processor"
+      ]
+    }
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
+    "https://stac-extensions.github.io/file/v2.1.0/schema.json",
+    "https://stac-extensions.github.io/processing/v1.1.0/schema.json",
+    "https://stac-extensions.github.io/projection/v1.1.0/schema.json"
+  ],
+  "stac_version": "1.0.0",
+  "summaries": {
+    "constellation": [
+      "sentinel-2"
+    ],
+    "instruments": [
+      "msi"
+    ],
+    "gsd": [
+      10,
+      20,
+      60
+    ],
+    "platform": [
+      "sentinel-2a",
+      "sentinel-2b"
+    ]
+  },
+  "title": "WorldCereal Level 1 cache",
+  "type": "Collection",
+  "item_assets": {
+    "sentinel2": {
+      "gsd": 10,
+      "title": "Sentinel2",
+      "description": "Sentinel-2 bands",
+      "type": "application/x-netcdf",
+      "roles": [
+        "data"
+      ],
+      "proj:shape": [
+        64,
+        64
+      ],
+      "raster:bands": [
+        {
+          "name": "B01"
+        },
+        {
+          "name": "B02"
+        }
+      ],
+      "eo:bands": [
+        {
+          "name": "B01",
+          "common_name": "coastal",
+          "center_wavelength": 0.443,
+          "full_width_half_max": 0.027
+        },
+          {
+          "name": "B02",
+          "common_name": "blue",
+          "center_wavelength": 0.49,
+          "full_width_half_max": 0.098
+        },
+         {
+          "name": "B03",
+          "common_name": "green",
+          "center_wavelength": 0.56,
+          "full_width_half_max": 0.045
+        },
+        {
+          "name": "B04",
+          "common_name": "red",
+          "center_wavelength": 0.665,
+          "full_width_half_max": 0.038
+        },
+        {
+          "name": "B05",
+          "common_name": "rededge",
+          "center_wavelength": 0.704,
+          "full_width_half_max": 0.019
+        },
+        {
+          "name": "B06",
+          "common_name": "rededge",
+          "center_wavelength": 0.74,
+          "full_width_half_max": 0.018
+        },
+        {
+          "name": "B07",
+          "common_name": "rededge",
+          "center_wavelength": 0.783,
+          "full_width_half_max": 0.028
+        },
+        {
+          "name": "B08",
+          "common_name": "nir",
+          "center_wavelength": 0.842,
+          "full_width_half_max": 0.145
+        },
+        {
+          "name": "B8A",
+          "common_name": "nir08",
+          "center_wavelength": 0.865,
+          "full_width_half_max": 0.033
+        },
+        {
+          "name": "B11",
+          "common_name": "swir16",
+          "center_wavelength": 1.61,
+          "full_width_half_max": 0.143
+        },
+        {
+          "name": "B12",
+          "common_name": "swir22",
+          "center_wavelength": 2.19,
+          "full_width_half_max": 0.242
+        }
+
+      ]
+    },
+    "sentinel1": {},
+    "agera5": {}
+  }
+}
