@@ -209,6 +209,20 @@
           "name": "B02"
         }
       ],
+      "cube:variables": {
+        "B01": {"dimensions": ["time","y","x"],"type": "data"},
+        "B02": {"dimensions": ["time","y","x"],"type": "data"},
+        "B03": {"dimensions": ["time","y","x"],"type": "data"},
+        "B04": {"dimensions": ["time","y","x"],"type": "data"},
+        "B05": {"dimensions": ["time","y","x"],"type": "data"},
+        "B06": {"dimensions": ["time","y","x"],"type": "data"},
+        "B07": {"dimensions": ["time","y","x"],"type": "data"},
+        "B8A": {"dimensions": ["time","y","x"],"type": "data"},
+        "B08": {"dimensions": ["time","y","x"],"type": "data"},
+        "B11": {"dimensions": ["time","y","x"],"type": "data"},
+        "B12": {"dimensions": ["time","y","x"],"type": "data"},
+        "SCL": {"dimensions": ["time","y","x"],"type": "data"}
+      },
       "eo:bands": [
         {
           "name": "B01",
