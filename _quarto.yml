@@ -2,7 +2,6 @@ project:
   type: website
 
 website:
-  favicon: _images/logos/favicon.png
   repo-url: "https://github.com/eu-cdse/documentation"
   repo-branch: "publish"
   site-url: "https://worldcereal.github.io/"
@@ -33,8 +32,12 @@ website:
         text: Welcome
       - section: "System design"
         contents:
+          - href: design/reference_data_module.ipynb
+            text: Reference Data Module
           - href: design/extractions.qmd
             text: Extractions
+          - href: design/inference.ipynb
+            text: Inference
 
 
 format:
