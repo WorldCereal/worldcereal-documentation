@@ -4,7 +4,15 @@
 
 The first level cache is a collection of netCDF raster files, all with a fixed size of e.g. 64x64 pixels.
 
-#### First level cache requirements
+### Extraction workflow steps
+
+1. Get id of extraction to run
+2. For extraction id get point locations from RDM
+3. Use UDF to convert points into 64x64 patches
+
+
+
+### First level cache requirements
 
 1. netCDF assets need to link back to the sample from which they were generated.
 2. a 'Ground truth' asset contains the raster with ground truth info, meaning the croptype code.
