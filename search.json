@@ -4,28 +4,44 @@
     "href": "design/model_training.html",
     "title": "Preprocessing features",
     "section": "",
-    "text": "execute: enabled: true —"
+    "text": "execute: enabled: true —",
+    "crumbs": [
+      "System design",
+      "Training"
+    ]
   },
   {
     "objectID": "design/model_training.html#preprocessing-features",
     "href": "design/model_training.html#preprocessing-features",
     "title": "Preprocessing features",
     "section": "Preprocessing features",
-    "text": "Preprocessing features\nPreprocessing aim is to generate a 2D data structure (a table) that can go into catboost training.\n\nSampling point locations\nThe WorldCereal extractions cache consists of 64x64 pixel timeseries stored as netCDF files. As catboost is a 1D method, we need to sample those patches at point locations.\nIn the approach presented in the code block below, the original algorithm is translated into an openEO process graph. It is however also possible to come up with other approaches, for instance that sample the patches at point locations, and then perform a stratification step on the larger dataset.\n\nimport  openeo\nconnection = openeo.connect(\"openeo.dataspace.copernicus.eu\")\nground_truth = connection.load_stac(\"https://stac_catalog.com/ground_truth\")\n\nfrom   openeo import UDF\n1sampling_udf=UDF(code=\"\",runtime=\"Python\")\n\npolygons = {\"type\":\"FeatureCollection\"} #these would be the bounding boxes of the netCDF files, or in fact STAC item bboxes\n\nground_truth.apply_polygon(polygons,process=sampling_udf)\n\n\n1\n\nThis UDF should return points as geojson\n\n\n\n\n\n    \n    \n        \n    \n    \n\n\n\n\nExtracting point timeseries\n\nimport  openeo\nfrom    openeo.rest.mlmodel import MlModel\nfrom    openeo.processes import ProcessBuilder\n\nconnection = openeo.connect(\"openeo.dataspace.copernicus.eu\")\n1l2A = connection.load_stac(\"https://stac_catalog.com/SENTINEL2_L2A\").aggregate_temporal_period(period=\"month\",reducer=\"mean\")\nsentinel1 = connection.load_stac(\"https://stac_catalog.com/SENTINEL1_BS\")\nbs = sentinel1.aggregate_temporal_period(period=\"month\",reducer=\"mean\")\n\ntimesteps_cube = l2A.merge_cubes(bs).aggregate_spatial(geometries={\"type\":\"Point\"},reducer=\"mean\").save_result(format=\"Parquet\")\n2\n\ntimesteps_cube\n\n\n1\n\ninstead of aggregate_temporal, we’ll do more advanced compositing, such as max-NDVI\n\n2\n\nwe’ll need to add agera5 and dem bands\n\n\n\n\n\n    \n    \n        \n    \n    \n\n\n\n\nTraining workflow\nThe training workflow combines feature computation starting from monthly timesteps with catboost training.\n\nfrom    openeo import UDF\nfeature_udf=UDF(code=\"\",runtime=\"Python\") #load UDF to compute presto features based on monthly timeseries\nfeatures_cube = connection.load_url(\"timesteps.parquet\",format=\"Parquet\").apply_dimension(dimension='t',process=feature_udf,target_dimension='bands')\nml_model = features_cube.process(\"fit_catboost_model\")"
+    "text": "Preprocessing features\nPreprocessing aim is to generate a 2D data structure (a table) that can go into catboost training.\n\nSampling point locations\nThe WorldCereal extractions cache consists of 64x64 pixel timeseries stored as netCDF files. As catboost is a 1D method, we need to sample those patches at point locations.\nIn the approach presented in the code block below, the original algorithm is translated into an openEO process graph. It is however also possible to come up with other approaches, for instance that sample the patches at point locations, and then perform a stratification step on the larger dataset.\n\nimport  openeo\nconnection = openeo.connect(\"openeo.dataspace.copernicus.eu\")\nground_truth = connection.load_stac(\"https://stac_catalog.com/ground_truth\")\n\nfrom   openeo import UDF\n1sampling_udf=UDF(code=\"\",runtime=\"Python\")\n\npolygons = {\"type\":\"FeatureCollection\"} #these would be the bounding boxes of the netCDF files, or in fact STAC item bboxes\n\nground_truth.apply_polygon(polygons,process=sampling_udf)\n\n\n1\n\nThis UDF should return points as geojson\n\n\n\n\n\n    \n    \n        \n    \n    \n\n\n\n\nExtracting point timeseries\n\nimport  openeo\nfrom    openeo.rest.mlmodel import MlModel\nfrom    openeo.processes import ProcessBuilder\n\nconnection = openeo.connect(\"openeo.dataspace.copernicus.eu\")\n1l2A = connection.load_stac(\"https://stac_catalog.com/SENTINEL2_L2A\").aggregate_temporal_period(period=\"month\",reducer=\"mean\")\nsentinel1 = connection.load_stac(\"https://stac_catalog.com/SENTINEL1_BS\")\nbs = sentinel1.aggregate_temporal_period(period=\"month\",reducer=\"mean\")\n\ntimesteps_cube = l2A.merge_cubes(bs).aggregate_spatial(geometries={\"type\":\"Point\"},reducer=\"mean\").save_result(format=\"Parquet\")\n2\n\ntimesteps_cube\n\n\n1\n\ninstead of aggregate_temporal, we’ll do more advanced compositing, such as max-NDVI\n\n2\n\nwe’ll need to add agera5 and dem bands\n\n\n\n\n\n    \n    \n        \n    \n    \n\n\n\n\nTraining workflow\nThe training workflow combines feature computation starting from monthly timesteps with catboost training.\n\nfrom    openeo import UDF\nfeature_udf=UDF(code=\"\",runtime=\"Python\") #load UDF to compute presto features based on monthly timeseries\nfeatures_cube = connection.load_url(\"timesteps.parquet\",format=\"Parquet\").apply_dimension(dimension='t',process=feature_udf,target_dimension='bands')\nml_model = features_cube.process(\"fit_catboost_model\")",
+    "crumbs": [
+      "System design",
+      "Training"
+    ]
   },
   {
     "objectID": "design/model_training.html#extracting-private-samples",
     "href": "design/model_training.html#extracting-private-samples",
     "title": "Preprocessing features",
     "section": "Extracting private samples",
-    "text": "Extracting private samples\n\nsample_locations = connection.load_url(\"https://rdm.worldcereal.org/private_assets/absqdfjq_signed_url/private_data.parquet\")\n\nconnection.datacube_from_process(\"worldcereal_preprocessing_udp\").filter_spatial(sample_locations).save_result(format=\"Parquet\")"
+    "text": "Extracting private samples\n\nsample_locations = connection.load_url(\"https://rdm.worldcereal.org/private_assets/absqdfjq_signed_url/private_data.parquet\")\n\nconnection.datacube_from_process(\"worldcereal_preprocessing_udp\").filter_spatial(sample_locations).save_result(format=\"Parquet\")",
+    "crumbs": [
+      "System design",
+      "Training"
+    ]
   },
   {
     "objectID": "design/model_training.html#training-by-combining-private-public-samples",
     "href": "design/model_training.html#training-by-combining-private-public-samples",
     "title": "Preprocessing features",
     "section": "Training by combining private + public samples",
-    "text": "Training by combining private + public samples\nIn this usecase, the user wants to train a new model, by combining data. This should be possible by simply merging vector cubes that go into the training process.\nTODO"
+    "text": "Training by combining private + public samples\nIn this usecase, the user wants to train a new model, by combining data. This should be possible by simply merging vector cubes that go into the training process.\nTODO",
+    "crumbs": [
+      "System design",
+      "Training"
+    ]
   },
   {
     "objectID": "design/reference_data_module.html",
@@ -65,7 +81,7 @@
     "href": "index.html",
     "title": "ESA WorldCereal documentation portal",
     "section": "",
-    "text": "ESA WorldCereal documentation portal",
+    "text": "ESA WorldCereal documentation portal\nThis portal documents the design of the WorldCereal system.\nCode samples in this portal are meant to document the design, but in general are not working. As openEO code is relatively concise, they serve as workflow descriptions and to render workflow diagrams in the form of openEO process graphs.",
     "crumbs": [
       "Welcome"
     ]
@@ -95,9 +111,20 @@
   {
     "objectID": "design/inference.html",
     "href": "design/inference.html",
-    "title": "Worldcereal inference",
+    "title": "WorldCereal inference",
     "section": "",
-    "text": "execute: enabled: true —",
+    "text": "The pseudo code below outlines the general steps of the inference pipeline.\n\nimport  openeo\nfrom    openeo.rest.mlmodel import MlModel\nfrom    openeo.processes import ProcessBuilder\n\nconnection = openeo.connect(\"openeo.dataspace.copernicus.eu\")\n1l2A = connection.load_collection(\"SENTINEL2_L2A\").aggregate_temporal_period(period=\"month\",reducer=\"mean\")\nsentinel1 = connection.load_collection(\"SENTINEL1_GRD\")\nbs = sentinel1.sar_backscatter(coefficient=\"sigma0-ellipsoid\").resample_spatial(resolution=20).aggregate_temporal_period(period=\"month\",reducer=\"mean\")\n\n2\n\nfrom    openeo import UDF\nfeature_udf=UDF(code=\"\",runtime=\"Python\") #load UDF to compute presto features based on monthly timeseries\nfeatures_cube = l2A.merge_cubes(bs).apply_dimension(dimension='t',process=feature_udf,target_dimension='bands')\n\n\nmodel = MlModel.load_ml_model(connection=connection, id=\"http://myhost.com/my_catboost_stac_metadata.json\")\n\ncatboost_classifier = lambda data, context: ProcessBuilder.process(\"predict_catboost\",data=data, model=context)\nworldcereal_product = features_cube.reduce_dimension(dimension=\"bands\", reducer=catboost_classifier, context=model)\n\nworldcereal_product\n\n\n1\n\ninstead of aggregate_temporal, we’ll do more advanced compositing, such as max-NDVI\n\n2\n\nwe’ll need to add agera5 and dem bands",
+    "crumbs": [
+      "System design",
+      "Inference"
+    ]
+  },
+  {
+    "objectID": "design/inference.html#full-inference-workflwo",
+    "href": "design/inference.html#full-inference-workflwo",
+    "title": "WorldCereal inference",
+    "section": "",
+    "text": "The pseudo code below outlines the general steps of the inference pipeline.\n\nimport  openeo\nfrom    openeo.rest.mlmodel import MlModel\nfrom    openeo.processes import ProcessBuilder\n\nconnection = openeo.connect(\"openeo.dataspace.copernicus.eu\")\n1l2A = connection.load_collection(\"SENTINEL2_L2A\").aggregate_temporal_period(period=\"month\",reducer=\"mean\")\nsentinel1 = connection.load_collection(\"SENTINEL1_GRD\")\nbs = sentinel1.sar_backscatter(coefficient=\"sigma0-ellipsoid\").resample_spatial(resolution=20).aggregate_temporal_period(period=\"month\",reducer=\"mean\")\n\n2\n\nfrom    openeo import UDF\nfeature_udf=UDF(code=\"\",runtime=\"Python\") #load UDF to compute presto features based on monthly timeseries\nfeatures_cube = l2A.merge_cubes(bs).apply_dimension(dimension='t',process=feature_udf,target_dimension='bands')\n\n\nmodel = MlModel.load_ml_model(connection=connection, id=\"http://myhost.com/my_catboost_stac_metadata.json\")\n\ncatboost_classifier = lambda data, context: ProcessBuilder.process(\"predict_catboost\",data=data, model=context)\nworldcereal_product = features_cube.reduce_dimension(dimension=\"bands\", reducer=catboost_classifier, context=model)\n\nworldcereal_product\n\n\n1\n\ninstead of aggregate_temporal, we’ll do more advanced compositing, such as max-NDVI\n\n2\n\nwe’ll need to add agera5 and dem bands",
     "crumbs": [
       "System design",
       "Inference"
@@ -106,7 +133,7 @@
   {
     "objectID": "design/inference.html#exporting-results-to-workspace",
     "href": "design/inference.html#exporting-results-to-workspace",
-    "title": "Worldcereal inference",
+    "title": "WorldCereal inference",
     "section": "Exporting results to workspace",
     "text": "Exporting results to workspace\nWhen a product is ready, we want to store it in object storage and adjust stac metadata.\n\nstac_metadata = worldcereal_product.save_result(format=\"GTiff\")\nstac_metadata = connection.datacube_from_process(\"stac_update\",data = stac_metadata) #todo: add custom metadata\n\nconnection.datacube_from_process(\"export_workspace\",data = stac_metadata, workspace = \"my_workspace\", merge=\"pointer_to_worldcereal_collection\")",
     "crumbs": [
