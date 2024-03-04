@@ -20,16 +20,49 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./design/reference_data_module.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -65,6 +98,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -89,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -111,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
   </div>
 </li>
@@ -149,26 +185,351 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#esa-worldcereal-documentation-portal" id="toc-esa-worldcereal-documentation-portal" class="nav-link active" data-scroll-target="#esa-worldcereal-documentation-portal">ESA WorldCereal documentation portal</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 
 
 
-<section id="esa-worldcereal-documentation-portal" class="level1">
-<h1>ESA WorldCereal documentation portal</h1>
+<div id="initial_id" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-21T09:30:38.188849042Z&quot;,&quot;start_time&quot;:&quot;2024-02-21T09:30:38.176129038Z&quot;}" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> fsspec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="73db7681cb6fde10" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-21T09:59:35.557346375Z&quot;,&quot;start_time&quot;:&quot;2024-02-21T09:59:35.351981769Z&quot;}" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>pq_path <span class="op">=</span> <span class="st">"https://ewocstorage.blob.core.windows.net/collections/2021_PT_EUROCROP_POLY_110.parquet"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> fsspec.<span class="bu">open</span>(pq_path) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> gpd.read_parquet(<span class="bu">file</span>,columns<span class="op">=</span>[<span class="st">"geometry"</span>,<span class="st">"CT"</span>])</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>TypeError: read_table() got an unexpected keyword argument 'bbox'</code></pre>
+</div>
+</div>
+<div id="674a957b1e3f0dfb" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-21T10:00:53.172264293Z&quot;,&quot;start_time&quot;:&quot;2024-02-21T10:00:40.588547546Z&quot;}" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>gpd.read_file(<span class="bu">file</span>,columns<span class="op">=</span>[<span class="st">"geometry"</span>,<span class="st">"CT"</span>],bbox<span class="op">=</span>[<span class="op">-</span><span class="fl">9.5</span>,<span class="fl">38.5</span>,<span class="op">-</span><span class="fl">7.5</span>,<span class="fl">42.5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>ValueError: I/O operation on closed file.</code></pre>
+</div>
+</div>
+<div id="cb9adc79752d9c51" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-21T09:44:07.087030954Z&quot;,&quot;start_time&quot;:&quot;2024-02-21T09:43:16.148516555Z&quot;}" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> gpd.read_file(<span class="st">"https://ewocstorage.blob.core.windows.net/collections/2021_PT_EUROCROP_POLY_110.gpkg"</span>,columns<span class="op">=</span>[<span class="st">"geometry"</span>,<span class="st">"CT"</span>])</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>CPU times: user 24.4 s, sys: 235 ms, total: 24.6 s
+Wall time: 50.7 s</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<div>
+<div>
 
 
-</section>
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">OSA_CAMPAN</th>
+<th data-quarto-table-cell-role="th">OSA_ID</th>
+<th data-quarto-table-cell-role="th">OSA_NUM</th>
+<th data-quarto-table-cell-role="th">OSA_AREA</th>
+<th data-quarto-table-cell-role="th">PAR_ID</th>
+<th data-quarto-table-cell-role="th">CAT_OCU_SI</th>
+<th data-quarto-table-cell-role="th">CAT_OCU_DE</th>
+<th data-quarto-table-cell-role="th">CLA_OCU_SI</th>
+<th data-quarto-table-cell-role="th">CLA_OCU_DE</th>
+<th data-quarto-table-cell-role="th">ARV_NUM_OL</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">EC_org_n</th>
+<th data-quarto-table-cell-role="th">EC_trans_n</th>
+<th data-quarto-table-cell-role="th">EC_hcat_n</th>
+<th data-quarto-table-cell-role="th">EC_hcat_c</th>
+<th data-quarto-table-cell-role="th">LC</th>
+<th data-quarto-table-cell-role="th">CT</th>
+<th data-quarto-table-cell-role="th">sampleID</th>
+<th data-quarto-table-cell-role="th">IRR</th>
+<th data-quarto-table-cell-role="th">valtime</th>
+<th data-quarto-table-cell-role="th">geometry</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2021</td>
+<td>228.0</td>
+<td>1.0</td>
+<td>1636.0</td>
+<td>8999173.0</td>
+<td>SAG</td>
+<td>Superfície agrícola</td>
+<td>CTP-CA</td>
+<td>Culturas Temporárias</td>
+<td>0.0</td>
+<td>...</td>
+<td>MILHO</td>
+<td>CORN</td>
+<td>grain_maize_corn_popcorn</td>
+<td>3301010600</td>
+<td>11</td>
+<td>1200</td>
+<td>PT_2021_EC21_0</td>
+<td>0</td>
+<td>2021-06-01</td>
+<td>MULTIPOLYGON (((-8.54796 40.56554, -8.54796 40...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2021</td>
+<td>363.0</td>
+<td>1.0</td>
+<td>286.0</td>
+<td>9000369.0</td>
+<td>SAG</td>
+<td>Superfície agrícola</td>
+<td>CTP-CA</td>
+<td>Culturas Temporárias</td>
+<td>0.0</td>
+<td>...</td>
+<td>AVEIA</td>
+<td>OAT</td>
+<td>oats</td>
+<td>3301010500</td>
+<td>11</td>
+<td>1700</td>
+<td>PT_2021_EC21_1</td>
+<td>0</td>
+<td>2021-06-01</td>
+<td>MULTIPOLYGON (((-8.52352 40.55686, -8.52409 40...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2021</td>
+<td>372.0</td>
+<td>1.0</td>
+<td>2446.0</td>
+<td>9000438.0</td>
+<td>SAG</td>
+<td>Superfície agrícola</td>
+<td>VIN-VN</td>
+<td>Vinha</td>
+<td>0.0</td>
+<td>...</td>
+<td>VINHA</td>
+<td>VINEYARD</td>
+<td>vineyards_wine_vine_rebland_grapes</td>
+<td>3303060000</td>
+<td>12</td>
+<td>3300</td>
+<td>PT_2021_EC21_2</td>
+<td>0</td>
+<td>2021-06-01</td>
+<td>MULTIPOLYGON (((-8.52456 40.55538, -8.52456 40...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2021</td>
+<td>399.0</td>
+<td>1.0</td>
+<td>935.0</td>
+<td>8998747.0</td>
+<td>SAG</td>
+<td>Superfície agrícola</td>
+<td>CTP-CA</td>
+<td>Culturas Temporárias</td>
+<td>0.0</td>
+<td>...</td>
+<td>OUTRAS HORTÍCOLAS</td>
+<td>OTHER VEGETABLES</td>
+<td>fresh_vegetables</td>
+<td>3301070000</td>
+<td>11</td>
+<td>2000</td>
+<td>PT_2021_EC21_3</td>
+<td>0</td>
+<td>2021-06-01</td>
+<td>MULTIPOLYGON (((-8.52835 40.56835, -8.52833 40...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2021</td>
+<td>468.0</td>
+<td>1.0</td>
+<td>458.0</td>
+<td>8998275.0</td>
+<td>SAG</td>
+<td>Superfície agrícola</td>
+<td>CTP-CA</td>
+<td>Culturas Temporárias</td>
+<td>0.0</td>
+<td>...</td>
+<td>CONSOCIAÇÕES ANUAIS E OUTRAS CULT. FORRAG. ANUAIS</td>
+<td>ANNUAL AND OTHER CULT. FORAGE ANNUALS</td>
+<td>other_arable_land_crops</td>
+<td>3301990000</td>
+<td>11</td>
+<td>0</td>
+<td>PT_2021_EC21_4</td>
+<td>0</td>
+<td>2021-06-01</td>
+<td>MULTIPOLYGON (((-8.52781 40.57128, -8.52778 40...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">99995</td>
+<td>2021</td>
+<td>2084256.0</td>
+<td>1.0</td>
+<td>3395.0</td>
+<td>6523220.0</td>
+<td>SAG</td>
+<td>Superfície agrícola</td>
+<td>CTP-CA</td>
+<td>Culturas Temporárias</td>
+<td>0.0</td>
+<td>...</td>
+<td>POUSIO</td>
+<td>FALLOWING/ INTERCROPPING (INTERRUPTED CULTIVAT...</td>
+<td>fallow_land_not_crop</td>
+<td>3301110000</td>
+<td>10</td>
+<td>0</td>
+<td>PT_2021_EC21_99995</td>
+<td>0</td>
+<td>2021-06-01</td>
+<td>MULTIPOLYGON (((-6.46866 41.43669, -6.46842 41...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">99996</td>
+<td>2021</td>
+<td>2084257.0</td>
+<td>1.0</td>
+<td>4359.0</td>
+<td>6523921.0</td>
+<td>SFL</td>
+<td>Superfície florestal</td>
+<td>FFL-FL</td>
+<td>Espaço florestal arborizado</td>
+<td>0.0</td>
+<td>...</td>
+<td>NOT KNOWN</td>
+<td>NOT KNOWN</td>
+<td>not_known_and_other</td>
+<td>3399000000</td>
+<td>0</td>
+<td>0</td>
+<td>PT_2021_EC21_99996</td>
+<td>0</td>
+<td>2021-06-01</td>
+<td>MULTIPOLYGON (((-6.46797 41.43497, -6.46877 41...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">99997</td>
+<td>2021</td>
+<td>2084258.0</td>
+<td>1.0</td>
+<td>3001.0</td>
+<td>8340298.0</td>
+<td>SAG</td>
+<td>Superfície agrícola</td>
+<td>CTP-CA</td>
+<td>Culturas Temporárias</td>
+<td>0.0</td>
+<td>...</td>
+<td>MILHO</td>
+<td>CORN</td>
+<td>grain_maize_corn_popcorn</td>
+<td>3301010600</td>
+<td>11</td>
+<td>1200</td>
+<td>PT_2021_EC21_99997</td>
+<td>0</td>
+<td>2021-06-01</td>
+<td>MULTIPOLYGON (((-7.45134 41.73074, -7.45149 41...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">99998</td>
+<td>2021</td>
+<td>2084259.0</td>
+<td>1.0</td>
+<td>4373.0</td>
+<td>6521913.0</td>
+<td>SFL</td>
+<td>Superfície florestal</td>
+<td>FFL-FL</td>
+<td>Espaço florestal arborizado</td>
+<td>0.0</td>
+<td>...</td>
+<td>NOT KNOWN</td>
+<td>NOT KNOWN</td>
+<td>not_known_and_other</td>
+<td>3399000000</td>
+<td>0</td>
+<td>0</td>
+<td>PT_2021_EC21_99998</td>
+<td>0</td>
+<td>2021-06-01</td>
+<td>MULTIPOLYGON (((-6.47482 41.44217, -6.47482 41...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">99999</td>
+<td>2021</td>
+<td>2084261.0</td>
+<td>1.0</td>
+<td>3804.0</td>
+<td>6522005.0</td>
+<td>SFL</td>
+<td>Superfície florestal</td>
+<td>SAR-FL</td>
+<td>Superfície com Vegetação Arbustiva</td>
+<td>0.0</td>
+<td>...</td>
+<td>SUPERFÍCIE ARBUSTIVA NÃO PASTOREÁVEL</td>
+<td>NON-PASTEABLE BUSHING SURFACE</td>
+<td>wire_bush</td>
+<td>3303080700</td>
+<td>12</td>
+<td>9520</td>
+<td>PT_2021_EC21_99999</td>
+<td>0</td>
+<td>2021-06-01</td>
+<td>MULTIPOLYGON (((-6.47503 41.44182, -6.47503 41...</td>
+</tr>
+</tbody>
+</table>
+
+<p>100000 rows × 24 columns</p>
+</div>
+</div>
+</div>
+</div>
+
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -558,15 +919,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation column-body">
-  <div class="nav-page nav-page-previous">
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./design/reference_data_module.html" class="pagination-link" aria-label="Reference Data Module">
-        <span class="nav-page-text">Reference Data Module</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
