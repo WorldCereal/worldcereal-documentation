@@ -1,35 +1,31 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "ESA WorldCereal documentation portal",
+    "objectID": "design/model_training.html",
+    "href": "design/model_training.html",
+    "title": "Preprocessing features",
     "section": "",
-    "text": "ESA WorldCereal documentation portal",
-    "crumbs": [
-      "Welcome"
-    ]
+    "text": "execute: enabled: true —"
   },
   {
-    "objectID": "design/inference.html",
-    "href": "design/inference.html",
-    "title": "Worldcereal inference",
-    "section": "",
-    "text": "execute: enabled: true —",
-    "crumbs": [
-      "System design",
-      "Inference"
-    ]
+    "objectID": "design/model_training.html#preprocessing-features",
+    "href": "design/model_training.html#preprocessing-features",
+    "title": "Preprocessing features",
+    "section": "Preprocessing features",
+    "text": "Preprocessing features\nPreprocessing aim is to generate a 2D data structure (a table) that can go into catboost training.\n\nSampling point locations\nThe WorldCereal extractions cache consists of 64x64 pixel timeseries stored as netCDF files. As catboost is a 1D method, we need to sample those patches at point locations.\nIn the approach presented in the code block below, the original algorithm is translated into an openEO process graph. It is however also possible to come up with other approaches, for instance that sample the patches at point locations, and then perform a stratification step on the larger dataset.\n\nimport  openeo\nconnection = openeo.connect(\"openeo.dataspace.copernicus.eu\")\nground_truth = connection.load_stac(\"https://stac_catalog.com/ground_truth\")\n\nfrom   openeo import UDF\n1sampling_udf=UDF(code=\"\",runtime=\"Python\")\n\npolygons = {\"type\":\"FeatureCollection\"} #these would be the bounding boxes of the netCDF files, or in fact STAC item bboxes\n\nground_truth.apply_polygon(polygons,process=sampling_udf)\n\n\n1\n\nThis UDF should return points as geojson\n\n\n\n\n\n    \n    \n        \n    \n    \n\n\n\n\nExtracting point timeseries\n\nimport  openeo\nfrom    openeo.rest.mlmodel import MlModel\nfrom    openeo.processes import ProcessBuilder\n\nconnection = openeo.connect(\"openeo.dataspace.copernicus.eu\")\n1l2A = connection.load_stac(\"https://stac_catalog.com/SENTINEL2_L2A\").aggregate_temporal_period(period=\"month\",reducer=\"mean\")\nsentinel1 = connection.load_stac(\"https://stac_catalog.com/SENTINEL1_BS\")\nbs = sentinel1.aggregate_temporal_period(period=\"month\",reducer=\"mean\")\n\ntimesteps_cube = l2A.merge_cubes(bs).aggregate_spatial(geometries={\"type\":\"Point\"},reducer=\"mean\").save_result(format=\"Parquet\")\n2\n\ntimesteps_cube\n\n\n1\n\ninstead of aggregate_temporal, we’ll do more advanced compositing, such as max-NDVI\n\n2\n\nwe’ll need to add agera5 and dem bands\n\n\n\n\n\n    \n    \n        \n    \n    \n\n\n\n\nTraining workflow\nThe training workflow combines feature computation starting from monthly timesteps with catboost training.\n\nfrom    openeo import UDF\nfeature_udf=UDF(code=\"\",runtime=\"Python\") #load UDF to compute presto features based on monthly timeseries\nfeatures_cube = connection.load_url(\"timesteps.parquet\",format=\"Parquet\").apply_dimension(dimension='t',process=feature_udf,target_dimension='bands')\nml_model = features_cube.process(\"fit_catboost_model\")"
   },
   {
-    "objectID": "design/inference.html#exporting-results-to-workspace",
-    "href": "design/inference.html#exporting-results-to-workspace",
-    "title": "Worldcereal inference",
-    "section": "Exporting results to workspace",
-    "text": "Exporting results to workspace\nWhen a product is ready, we want to store it in object storage and adjust stac metadata.\n\nstac_metadata = worldcereal_product.save_result(format=\"GTiff\")\nstac_metadata = connection.datacube_from_process(\"stac_update\",data = stac_metadata) #todo: add custom metadata\n\nconnection.datacube_from_process(\"export_workspace\",data = stac_metadata, workspace = \"my_workspace\", merge=\"pointer_to_worldcereal_collection\")",
-    "crumbs": [
-      "System design",
-      "Inference"
-    ]
+    "objectID": "design/model_training.html#extracting-private-samples",
+    "href": "design/model_training.html#extracting-private-samples",
+    "title": "Preprocessing features",
+    "section": "Extracting private samples",
+    "text": "Extracting private samples\n\nsample_locations = connection.load_url(\"https://rdm.worldcereal.org/private_assets/absqdfjq_signed_url/private_data.parquet\")\n\nconnection.datacube_from_process(\"worldcereal_preprocessing_udp\").filter_spatial(sample_locations).save_result(format=\"Parquet\")"
+  },
+  {
+    "objectID": "design/model_training.html#training-by-combining-private-public-samples",
+    "href": "design/model_training.html#training-by-combining-private-public-samples",
+    "title": "Preprocessing features",
+    "section": "Training by combining private + public samples",
+    "text": "Training by combining private + public samples\nIn this usecase, the user wants to train a new model, by combining data. This should be possible by simply merging vector cubes that go into the training process.\nTODO"
   },
   {
     "objectID": "design/reference_data_module.html",
@@ -65,11 +61,14 @@
     ]
   },
   {
-    "objectID": "worldcereal_rdm.html",
-    "href": "worldcereal_rdm.html",
-    "title": "WorldCereal Documentation",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "ESA WorldCereal documentation portal",
     "section": "",
-    "text": "import geopandas as gpd\nimport fsspec\n\n\n%%time\npq_path = \"https://ewocstorage.blob.core.windows.net/collections/2021_PT_EUROCROP_POLY_110.parquet\"\nwith fsspec.open(pq_path) as file:\n    df = gpd.read_parquet(file,columns=[\"geometry\",\"CT\"])\ndf\n\nTypeError: read_table() got an unexpected keyword argument 'bbox'\n\n\n\n%%time\ngpd.read_file(file,columns=[\"geometry\",\"CT\"],bbox=[-9.5,38.5,-7.5,42.5])\n\nValueError: I/O operation on closed file.\n\n\n\n%%time\ndf2 = gpd.read_file(\"https://ewocstorage.blob.core.windows.net/collections/2021_PT_EUROCROP_POLY_110.gpkg\",columns=[\"geometry\",\"CT\"])\ndf2\n\nCPU times: user 24.4 s, sys: 235 ms, total: 24.6 s\nWall time: 50.7 s\n\n\n\n\n\n\n\n\n\n\nOSA_CAMPAN\nOSA_ID\nOSA_NUM\nOSA_AREA\nPAR_ID\nCAT_OCU_SI\nCAT_OCU_DE\nCLA_OCU_SI\nCLA_OCU_DE\nARV_NUM_OL\n...\nEC_org_n\nEC_trans_n\nEC_hcat_n\nEC_hcat_c\nLC\nCT\nsampleID\nIRR\nvaltime\ngeometry\n\n\n\n\n0\n2021\n228.0\n1.0\n1636.0\n8999173.0\nSAG\nSuperfície agrícola\nCTP-CA\nCulturas Temporárias\n0.0\n...\nMILHO\nCORN\ngrain_maize_corn_popcorn\n3301010600\n11\n1200\nPT_2021_EC21_0\n0\n2021-06-01\nMULTIPOLYGON (((-8.54796 40.56554, -8.54796 40...\n\n\n1\n2021\n363.0\n1.0\n286.0\n9000369.0\nSAG\nSuperfície agrícola\nCTP-CA\nCulturas Temporárias\n0.0\n...\nAVEIA\nOAT\noats\n3301010500\n11\n1700\nPT_2021_EC21_1\n0\n2021-06-01\nMULTIPOLYGON (((-8.52352 40.55686, -8.52409 40...\n\n\n2\n2021\n372.0\n1.0\n2446.0\n9000438.0\nSAG\nSuperfície agrícola\nVIN-VN\nVinha\n0.0\n...\nVINHA\nVINEYARD\nvineyards_wine_vine_rebland_grapes\n3303060000\n12\n3300\nPT_2021_EC21_2\n0\n2021-06-01\nMULTIPOLYGON (((-8.52456 40.55538, -8.52456 40...\n\n\n3\n2021\n399.0\n1.0\n935.0\n8998747.0\nSAG\nSuperfície agrícola\nCTP-CA\nCulturas Temporárias\n0.0\n...\nOUTRAS HORTÍCOLAS\nOTHER VEGETABLES\nfresh_vegetables\n3301070000\n11\n2000\nPT_2021_EC21_3\n0\n2021-06-01\nMULTIPOLYGON (((-8.52835 40.56835, -8.52833 40...\n\n\n4\n2021\n468.0\n1.0\n458.0\n8998275.0\nSAG\nSuperfície agrícola\nCTP-CA\nCulturas Temporárias\n0.0\n...\nCONSOCIAÇÕES ANUAIS E OUTRAS CULT. FORRAG. ANUAIS\nANNUAL AND OTHER CULT. FORAGE ANNUALS\nother_arable_land_crops\n3301990000\n11\n0\nPT_2021_EC21_4\n0\n2021-06-01\nMULTIPOLYGON (((-8.52781 40.57128, -8.52778 40...\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n99995\n2021\n2084256.0\n1.0\n3395.0\n6523220.0\nSAG\nSuperfície agrícola\nCTP-CA\nCulturas Temporárias\n0.0\n...\nPOUSIO\nFALLOWING/ INTERCROPPING (INTERRUPTED CULTIVAT...\nfallow_land_not_crop\n3301110000\n10\n0\nPT_2021_EC21_99995\n0\n2021-06-01\nMULTIPOLYGON (((-6.46866 41.43669, -6.46842 41...\n\n\n99996\n2021\n2084257.0\n1.0\n4359.0\n6523921.0\nSFL\nSuperfície florestal\nFFL-FL\nEspaço florestal arborizado\n0.0\n...\nNOT KNOWN\nNOT KNOWN\nnot_known_and_other\n3399000000\n0\n0\nPT_2021_EC21_99996\n0\n2021-06-01\nMULTIPOLYGON (((-6.46797 41.43497, -6.46877 41...\n\n\n99997\n2021\n2084258.0\n1.0\n3001.0\n8340298.0\nSAG\nSuperfície agrícola\nCTP-CA\nCulturas Temporárias\n0.0\n...\nMILHO\nCORN\ngrain_maize_corn_popcorn\n3301010600\n11\n1200\nPT_2021_EC21_99997\n0\n2021-06-01\nMULTIPOLYGON (((-7.45134 41.73074, -7.45149 41...\n\n\n99998\n2021\n2084259.0\n1.0\n4373.0\n6521913.0\nSFL\nSuperfície florestal\nFFL-FL\nEspaço florestal arborizado\n0.0\n...\nNOT KNOWN\nNOT KNOWN\nnot_known_and_other\n3399000000\n0\n0\nPT_2021_EC21_99998\n0\n2021-06-01\nMULTIPOLYGON (((-6.47482 41.44217, -6.47482 41...\n\n\n99999\n2021\n2084261.0\n1.0\n3804.0\n6522005.0\nSFL\nSuperfície florestal\nSAR-FL\nSuperfície com Vegetação Arbustiva\n0.0\n...\nSUPERFÍCIE ARBUSTIVA NÃO PASTOREÁVEL\nNON-PASTEABLE BUSHING SURFACE\nwire_bush\n3303080700\n12\n9520\nPT_2021_EC21_99999\n0\n2021-06-01\nMULTIPOLYGON (((-6.47503 41.44182, -6.47503 41...\n\n\n\n\n100000 rows × 24 columns"
+    "text": "ESA WorldCereal documentation portal",
+    "crumbs": [
+      "Welcome"
+    ]
   },
   {
     "objectID": "design/extractions.html",
@@ -94,31 +93,25 @@
     ]
   },
   {
-    "objectID": "design/model_training.html",
-    "href": "design/model_training.html",
-    "title": "Preprocessing features",
+    "objectID": "design/inference.html",
+    "href": "design/inference.html",
+    "title": "Worldcereal inference",
     "section": "",
-    "text": "execute: enabled: true —"
+    "text": "execute: enabled: true —",
+    "crumbs": [
+      "System design",
+      "Inference"
+    ]
   },
   {
-    "objectID": "design/model_training.html#preprocessing-features",
-    "href": "design/model_training.html#preprocessing-features",
-    "title": "Preprocessing features",
-    "section": "Preprocessing features",
-    "text": "Preprocessing features\nPreprocessing aim is to generate a 2D data structure (a table) that can go into catboost training.\n\nSampling point locations\nThe WorldCereal extractions cache consists of 64x64 pixel timeseries stored as netCDF files. As catboost is a 1D method, we need to sample those patches at point locations.\nIn the approach presented in the code block below, the original algorithm is translated into an openEO process graph. It is however also possible to come up with other approaches, for instance that sample the patches at point locations, and then perform a stratification step on the larger dataset.\n\nimport  openeo\nconnection = openeo.connect(\"openeo.dataspace.copernicus.eu\")\nground_truth = connection.load_stac(\"https://stac_catalog.com/ground_truth\")\n\nfrom   openeo import UDF\n1sampling_udf=UDF(code=\"\",runtime=\"Python\")\n\npolygons = {\"type\":\"FeatureCollection\"} #these would be the bounding boxes of the netCDF files, or in fact STAC item bboxes\n\nground_truth.apply_polygon(polygons,process=sampling_udf)\n\n\n1\n\nThis UDF should return points as geojson\n\n\n\n\n\n    \n    \n        \n    \n    \n\n\n\n\nExtracting point timeseries\n\nimport  openeo\nfrom    openeo.rest.mlmodel import MlModel\nfrom    openeo.processes import ProcessBuilder\n\nconnection = openeo.connect(\"openeo.dataspace.copernicus.eu\")\n1l2A = connection.load_stac(\"https://stac_catalog.com/SENTINEL2_L2A\").aggregate_temporal_period(period=\"month\",reducer=\"mean\")\nsentinel1 = connection.load_stac(\"https://stac_catalog.com/SENTINEL1_BS\")\nbs = sentinel1.aggregate_temporal_period(period=\"month\",reducer=\"mean\")\n\ntimesteps_cube = l2A.merge_cubes(bs).aggregate_spatial(geometries={\"type\":\"Point\"},reducer=\"mean\").save_result(format=\"Parquet\")\n2\n\ntimesteps_cube\n\n\n1\n\ninstead of aggregate_temporal, we’ll do more advanced compositing, such as max-NDVI\n\n2\n\nwe’ll need to add agera5 and dem bands\n\n\n\n\n\n    \n    \n        \n    \n    \n\n\n\n\nTraining workflow\nThe training workflow combines feature computation starting from monthly timesteps with catboost training.\n\nfrom    openeo import UDF\nfeature_udf=UDF(code=\"\",runtime=\"Python\") #load UDF to compute presto features based on monthly timeseries\nfeatures_cube = connection.load_url(\"timesteps.parquet\",format=\"Parquet\").apply_dimension(dimension='t',process=feature_udf,target_dimension='bands')\nml_model = features_cube.process(\"fit_catboost_model\")"
-  },
-  {
-    "objectID": "design/model_training.html#extracting-private-samples",
-    "href": "design/model_training.html#extracting-private-samples",
-    "title": "Preprocessing features",
-    "section": "Extracting private samples",
-    "text": "Extracting private samples\n\nsample_locations = connection.load_url(\"https://rdm.worldcereal.org/private_assets/absqdfjq_signed_url/private_data.parquet\")\n\nconnection.datacube_from_process(\"worldcereal_preprocessing_udp\").filter_spatial(sample_locations).save_result(format=\"Parquet\")"
-  },
-  {
-    "objectID": "design/model_training.html#training-by-combining-private-public-samples",
-    "href": "design/model_training.html#training-by-combining-private-public-samples",
-    "title": "Preprocessing features",
-    "section": "Training by combining private + public samples",
-    "text": "Training by combining private + public samples\nIn this usecase, the user wants to train a new model, by combining data. This should be possible by simply merging vector cubes that go into the training process.\nTODO"
+    "objectID": "design/inference.html#exporting-results-to-workspace",
+    "href": "design/inference.html#exporting-results-to-workspace",
+    "title": "Worldcereal inference",
+    "section": "Exporting results to workspace",
+    "text": "Exporting results to workspace\nWhen a product is ready, we want to store it in object storage and adjust stac metadata.\n\nstac_metadata = worldcereal_product.save_result(format=\"GTiff\")\nstac_metadata = connection.datacube_from_process(\"stac_update\",data = stac_metadata) #todo: add custom metadata\n\nconnection.datacube_from_process(\"export_workspace\",data = stac_metadata, workspace = \"my_workspace\", merge=\"pointer_to_worldcereal_collection\")",
+    "crumbs": [
+      "System design",
+      "Inference"
+    ]
   }
 ]
