@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <span class="navbar-title">WorldCereal Documentation</span>
     </a>
   </div>
-        <div class="quarto-navbar-tools">
+        <div class="quarto-navbar-tools tools-end">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -198,12 +198,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#preprocessing-features" id="toc-preprocessing-features" class="nav-link active" data-scroll-target="#preprocessing-features">Preprocessing features</a>
-  <ul>
-  <li><a href="#sampling-point-locations" id="toc-sampling-point-locations" class="nav-link" data-scroll-target="#sampling-point-locations">Sampling point locations</a></li>
+  <li><a href="#sampling-point-locations" id="toc-sampling-point-locations" class="nav-link active" data-scroll-target="#sampling-point-locations">Sampling point locations</a></li>
   <li><a href="#extracting-point-timeseries" id="toc-extracting-point-timeseries" class="nav-link" data-scroll-target="#extracting-point-timeseries">Extracting point timeseries</a></li>
   <li><a href="#training-workflow" id="toc-training-workflow" class="nav-link" data-scroll-target="#training-workflow">Training workflow</a></li>
-  </ul></li>
   <li><a href="#extracting-private-samples" id="toc-extracting-private-samples" class="nav-link" data-scroll-target="#extracting-private-samples">Extracting private samples</a></li>
   <li><a href="#training-by-combining-private-public-samples" id="toc-training-by-combining-private-public-samples" class="nav-link" data-scroll-target="#training-by-combining-private-public-samples">Training by combining private + public samples</a></li>
   </ul>
@@ -231,10 +228,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<hr>
-<p>execute: enabled: true —</p>
-<section id="preprocessing-features" class="level2">
-<h2 class="anchored" data-anchor-id="preprocessing-features">Preprocessing features</h2>
 <p>Preprocessing aim is to generate a 2D data structure (a table) that can go into catboost training.</p>
 <section id="sampling-point-locations" class="level3">
 <h3 class="anchored" data-anchor-id="sampling-point-locations">Sampling point locations</h3>
@@ -343,11 +336,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ml_model <span class="op">=</span> features_cube.process(<span class="st">"fit_catboost_model"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-</section>
 <section id="extracting-private-samples" class="level2">
 <h2 class="anchored" data-anchor-id="extracting-private-samples">Extracting private samples</h2>
-<div id="385ea9c09e30d61b" class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sample_locations <span class="op">=</span> connection.load_url(<span class="st">"https://rdm.worldcereal.org/private_assets/absqdfjq_signed_url/private_data.parquet"</span>)</span>
+<div id="385ea9c09e30d61b" class="cell" data-execute="false">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sample_locations <span class="op">=</span> connection.load_url(<span class="st">"https://rdm.worldcereal.org/private_assets/absqdfjq_signed_url/private_data.parquet"</span>, <span class="bu">format</span><span class="op">=</span><span class="st">"Parquet"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>connection.datacube_from_process(<span class="st">"worldcereal_preprocessing_udp"</span>).filter_spatial(sample_locations).save_result(<span class="bu">format</span><span class="op">=</span><span class="st">"Parquet"</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -441,6 +433,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/worldcereal\.github\.io\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -475,7 +485,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
