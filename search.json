@@ -1,12 +1,35 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "ESA WorldCereal documentation portal",
+    "objectID": "design/inference.html",
+    "href": "design/inference.html",
+    "title": "WorldCereal inference",
     "section": "",
-    "text": "ESA WorldCereal documentation portal\nThis portal documents the design of the WorldCereal system.\nCode samples in this portal are meant to document the design, but in general are not working. As openEO code is relatively concise, they serve as workflow descriptions and to render workflow diagrams in the form of openEO process graphs.",
+    "text": "The pseudo code below outlines the general steps of the inference pipeline.\n\nimport  openeo\nfrom    openeo.rest.mlmodel import MlModel\nfrom    openeo.processes import ProcessBuilder\n\nconnection = openeo.connect(\"openeo.dataspace.copernicus.eu\")\n1l2A = connection.load_collection(\"SENTINEL2_L2A\").aggregate_temporal_period(period=\"month\",reducer=\"mean\")\nsentinel1 = connection.load_collection(\"SENTINEL1_GRD\")\nbs = sentinel1.sar_backscatter(coefficient=\"sigma0-ellipsoid\").resample_spatial(resolution=20).aggregate_temporal_period(period=\"month\",reducer=\"mean\")\n\n2\n\nfrom    openeo import UDF\nfeature_udf=UDF(code=\"\",runtime=\"Python\") #load UDF to compute presto features based on monthly timeseries\nfeatures_cube = l2A.merge_cubes(bs).apply_dimension(dimension='t',process=feature_udf,target_dimension='bands')\n\n\nmodel = MlModel.load_ml_model(connection=connection, id=\"http://myhost.com/my_catboost_stac_metadata.json\")\n\ncatboost_classifier = lambda data, context: ProcessBuilder.process(\"predict_catboost\",data=data, model=context)\nworldcereal_product = features_cube.reduce_dimension(dimension=\"bands\", reducer=catboost_classifier, context=model)\n\nworldcereal_product\n\n\n1\n\ninstead of aggregate_temporal, we’ll do more advanced compositing, such as max-NDVI\n\n2\n\nwe’ll need to add agera5 and dem bands\n\n\n\n\n\n\n\n    \n    \n        \n    \n    \n\n\nFigure 1: The WorldCereal inference pipeline",
     "crumbs": [
-      "Welcome"
+      "System design",
+      "Inference"
+    ]
+  },
+  {
+    "objectID": "design/inference.html#full-inference-workflow",
+    "href": "design/inference.html#full-inference-workflow",
+    "title": "WorldCereal inference",
+    "section": "",
+    "text": "The pseudo code below outlines the general steps of the inference pipeline.\n\nimport  openeo\nfrom    openeo.rest.mlmodel import MlModel\nfrom    openeo.processes import ProcessBuilder\n\nconnection = openeo.connect(\"openeo.dataspace.copernicus.eu\")\n1l2A = connection.load_collection(\"SENTINEL2_L2A\").aggregate_temporal_period(period=\"month\",reducer=\"mean\")\nsentinel1 = connection.load_collection(\"SENTINEL1_GRD\")\nbs = sentinel1.sar_backscatter(coefficient=\"sigma0-ellipsoid\").resample_spatial(resolution=20).aggregate_temporal_period(period=\"month\",reducer=\"mean\")\n\n2\n\nfrom    openeo import UDF\nfeature_udf=UDF(code=\"\",runtime=\"Python\") #load UDF to compute presto features based on monthly timeseries\nfeatures_cube = l2A.merge_cubes(bs).apply_dimension(dimension='t',process=feature_udf,target_dimension='bands')\n\n\nmodel = MlModel.load_ml_model(connection=connection, id=\"http://myhost.com/my_catboost_stac_metadata.json\")\n\ncatboost_classifier = lambda data, context: ProcessBuilder.process(\"predict_catboost\",data=data, model=context)\nworldcereal_product = features_cube.reduce_dimension(dimension=\"bands\", reducer=catboost_classifier, context=model)\n\nworldcereal_product\n\n\n1\n\ninstead of aggregate_temporal, we’ll do more advanced compositing, such as max-NDVI\n\n2\n\nwe’ll need to add agera5 and dem bands\n\n\n\n\n\n\n\n    \n    \n        \n    \n    \n\n\nFigure 1: The WorldCereal inference pipeline",
+    "crumbs": [
+      "System design",
+      "Inference"
+    ]
+  },
+  {
+    "objectID": "design/inference.html#exporting-results-to-workspace",
+    "href": "design/inference.html#exporting-results-to-workspace",
+    "title": "WorldCereal inference",
+    "section": "Exporting results to workspace",
+    "text": "Exporting results to workspace\nWhen a product is ready, we want to store it in object storage and adjust stac metadata.\n\nstac_metadata = worldcereal_product.save_result(format=\"GTiff\")\nstac_metadata = connection.datacube_from_process(\"stac_update\",data = stac_metadata) #todo: add custom metadata\n\nconnection.datacube_from_process(\"export_workspace\",data = stac_metadata, workspace = \"my_workspace\", merge=\"pointer_to_worldcereal_collection\")\n\n\n\n\n    \n    \n        \n    \n    \n\n\nFigure 2: Workflow steps to export results to object storage",
+    "crumbs": [
+      "System design",
+      "Inference"
     ]
   },
   {
@@ -32,6 +55,49 @@
     ]
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "ESA WorldCereal documentation portal",
+    "section": "",
+    "text": "ESA WorldCereal documentation portal\nThis portal documents the design of the WorldCereal system.\nCode samples in this portal are meant to document the design, but in general are not working. As openEO code is relatively concise, they serve as workflow descriptions and to render workflow diagrams in the form of openEO process graphs.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "design/model_training.html",
+    "href": "design/model_training.html",
+    "title": "Preprocessing features",
+    "section": "",
+    "text": "Preprocessing aim is to generate a 2D data structure (a table) that can go into catboost training.",
+    "crumbs": [
+      "System design",
+      "Training"
+    ]
+  },
+  {
+    "objectID": "design/model_training.html#extracting-private-samples",
+    "href": "design/model_training.html#extracting-private-samples",
+    "title": "Preprocessing features",
+    "section": "Extracting private samples",
+    "text": "Extracting private samples\nFor this use case, we assume that the user wants to use a private reference dataset. It should be available at a ‘secret’ url, which can be a signed url provided by the reference data module. Multiple input formats are supported by openEO next to GeoParquet, but the input data needs to be harmonized.\nWe immediately extract a table at point locations, assuming that the cache of intermediate patches has less value for private data.\nThe WorldCereal preprocessing chain is assumed to be available as an openEO User Defined Process (UDP) called worldcereal_preprocessing_udp.\n\nsample_locations = connection.load_url(\"https://rdm.worldcereal.org/private_assets/absqdfjq_signed_url/private_data.parquet\", format=\"Parquet\")\n\nconnection.datacube_from_process(\"worldcereal_preprocessing_udp\").aggregate_spatial(sample_locations,reducer=\"first\").save_result(format=\"Parquet\")",
+    "crumbs": [
+      "System design",
+      "Training"
+    ]
+  },
+  {
+    "objectID": "design/model_training.html#training-by-combining-private-public-samples",
+    "href": "design/model_training.html#training-by-combining-private-public-samples",
+    "title": "Preprocessing features",
+    "section": "Training by combining private + public samples",
+    "text": "Training by combining private + public samples\nIn this usecase, the user wants to train a new model, by combining data. This should be possible by simply merging vector cubes that go into the training process.\nTODO",
+    "crumbs": [
+      "System design",
+      "Training"
+    ]
+  },
+  {
     "objectID": "design/extractions.html",
     "href": "design/extractions.html",
     "title": "WorldCereal Documentation",
@@ -51,72 +117,6 @@
     "crumbs": [
       "System design",
       "Extractions"
-    ]
-  },
-  {
-    "objectID": "design/inference.html",
-    "href": "design/inference.html",
-    "title": "WorldCereal inference",
-    "section": "",
-    "text": "The pseudo code below outlines the general steps of the inference pipeline.\n\nimport  openeo\nfrom    openeo.rest.mlmodel import MlModel\nfrom    openeo.processes import ProcessBuilder\n\nconnection = openeo.connect(\"openeo.dataspace.copernicus.eu\")\n1l2A = connection.load_collection(\"SENTINEL2_L2A\").aggregate_temporal_period(period=\"month\",reducer=\"mean\")\nsentinel1 = connection.load_collection(\"SENTINEL1_GRD\")\nbs = sentinel1.sar_backscatter(coefficient=\"sigma0-ellipsoid\").resample_spatial(resolution=20).aggregate_temporal_period(period=\"month\",reducer=\"mean\")\n\n2\n\nfrom    openeo import UDF\nfeature_udf=UDF(code=\"\",runtime=\"Python\") #load UDF to compute presto features based on monthly timeseries\nfeatures_cube = l2A.merge_cubes(bs).apply_dimension(dimension='t',process=feature_udf,target_dimension='bands')\n\n\nmodel = MlModel.load_ml_model(connection=connection, id=\"http://myhost.com/my_catboost_stac_metadata.json\")\n\ncatboost_classifier = lambda data, context: ProcessBuilder.process(\"predict_catboost\",data=data, model=context)\nworldcereal_product = features_cube.reduce_dimension(dimension=\"bands\", reducer=catboost_classifier, context=model)\n\nworldcereal_product\n\n\n1\n\ninstead of aggregate_temporal, we’ll do more advanced compositing, such as max-NDVI\n\n2\n\nwe’ll need to add agera5 and dem bands\n\n\n\n\n\n\n\n    \n    \n        \n    \n    \n\n\nFigure 1: The WorldCereal inference pipeline",
-    "crumbs": [
-      "System design",
-      "Inference"
-    ]
-  },
-  {
-    "objectID": "design/inference.html#full-inference-workflwo",
-    "href": "design/inference.html#full-inference-workflwo",
-    "title": "WorldCereal inference",
-    "section": "",
-    "text": "The pseudo code below outlines the general steps of the inference pipeline.\n\nimport  openeo\nfrom    openeo.rest.mlmodel import MlModel\nfrom    openeo.processes import ProcessBuilder\n\nconnection = openeo.connect(\"openeo.dataspace.copernicus.eu\")\n1l2A = connection.load_collection(\"SENTINEL2_L2A\").aggregate_temporal_period(period=\"month\",reducer=\"mean\")\nsentinel1 = connection.load_collection(\"SENTINEL1_GRD\")\nbs = sentinel1.sar_backscatter(coefficient=\"sigma0-ellipsoid\").resample_spatial(resolution=20).aggregate_temporal_period(period=\"month\",reducer=\"mean\")\n\n2\n\nfrom    openeo import UDF\nfeature_udf=UDF(code=\"\",runtime=\"Python\") #load UDF to compute presto features based on monthly timeseries\nfeatures_cube = l2A.merge_cubes(bs).apply_dimension(dimension='t',process=feature_udf,target_dimension='bands')\n\n\nmodel = MlModel.load_ml_model(connection=connection, id=\"http://myhost.com/my_catboost_stac_metadata.json\")\n\ncatboost_classifier = lambda data, context: ProcessBuilder.process(\"predict_catboost\",data=data, model=context)\nworldcereal_product = features_cube.reduce_dimension(dimension=\"bands\", reducer=catboost_classifier, context=model)\n\nworldcereal_product\n\n\n1\n\ninstead of aggregate_temporal, we’ll do more advanced compositing, such as max-NDVI\n\n2\n\nwe’ll need to add agera5 and dem bands\n\n\n\n\n\n\n\n    \n    \n        \n    \n    \n\n\nFigure 1: The WorldCereal inference pipeline",
-    "crumbs": [
-      "System design",
-      "Inference"
-    ]
-  },
-  {
-    "objectID": "design/inference.html#exporting-results-to-workspace",
-    "href": "design/inference.html#exporting-results-to-workspace",
-    "title": "WorldCereal inference",
-    "section": "Exporting results to workspace",
-    "text": "Exporting results to workspace\nWhen a product is ready, we want to store it in object storage and adjust stac metadata.\n\nstac_metadata = worldcereal_product.save_result(format=\"GTiff\")\nstac_metadata = connection.datacube_from_process(\"stac_update\",data = stac_metadata) #todo: add custom metadata\n\nconnection.datacube_from_process(\"export_workspace\",data = stac_metadata, workspace = \"my_workspace\", merge=\"pointer_to_worldcereal_collection\")\n\n\n\n\n    \n    \n        \n    \n    \n\n\nFigure 2: Workflow steps to export results to object storage",
-    "crumbs": [
-      "System design",
-      "Inference"
-    ]
-  },
-  {
-    "objectID": "design/model_training.html",
-    "href": "design/model_training.html",
-    "title": "Preprocessing features",
-    "section": "",
-    "text": "Preprocessing aim is to generate a 2D data structure (a table) that can go into catboost training.",
-    "crumbs": [
-      "System design",
-      "Training"
-    ]
-  },
-  {
-    "objectID": "design/model_training.html#extracting-private-samples",
-    "href": "design/model_training.html#extracting-private-samples",
-    "title": "Preprocessing features",
-    "section": "Extracting private samples",
-    "text": "Extracting private samples\n\nsample_locations = connection.load_url(\"https://rdm.worldcereal.org/private_assets/absqdfjq_signed_url/private_data.parquet\", format=\"Parquet\")\n\nconnection.datacube_from_process(\"worldcereal_preprocessing_udp\").filter_spatial(sample_locations).save_result(format=\"Parquet\")",
-    "crumbs": [
-      "System design",
-      "Training"
-    ]
-  },
-  {
-    "objectID": "design/model_training.html#training-by-combining-private-public-samples",
-    "href": "design/model_training.html#training-by-combining-private-public-samples",
-    "title": "Preprocessing features",
-    "section": "Training by combining private + public samples",
-    "text": "Training by combining private + public samples\nIn this usecase, the user wants to train a new model, by combining data. This should be possible by simply merging vector cubes that go into the training process.\nTODO",
-    "crumbs": [
-      "System design",
-      "Training"
     ]
   }
 ]

@@ -233,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="sampling-point-locations">Sampling point locations</h3>
 <p>The WorldCereal extractions cache consists of 64x64 pixel timeseries stored as netCDF files. As catboost is a 1D method, we need to sample those patches at point locations.</p>
 <p>In the approach presented in the code block below, the original algorithm is translated into an openEO process graph. It is however also possible to come up with other approaches, for instance that sample the patches at point locations, and then perform a stratification step on the larger dataset.</p>
-<div id="29173c18f90b745b" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-03-04T07:30:49.696642985Z&quot;,&quot;start_time&quot;:&quot;2024-03-04T07:30:49.271861543Z&quot;}" data-execution_count="3">
+<div id="29173c18f90b745b" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-03-13T08:22:41.173123234Z&quot;,&quot;start_time&quot;:&quot;2024-03-13T08:22:40.700315638Z&quot;}" data-execution_count="2">
 <div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span>  openeo</span>
 <span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>connection <span class="op">=</span> openeo.<span class="ex">connect</span>(<span class="st">"openeo.dataspace.copernicus.eu"</span>)</span>
 <span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a>ground_truth <span class="op">=</span> connection.load_stac(<span class="st">"https://stac_catalog.com/ground_truth"</span>)</span>
@@ -252,7 +252,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </dd>
 </dl>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="2">
 
     <script>
     if (!window.customElements || !window.customElements.get('openeo-model-builder')) {
@@ -269,7 +269,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
     </script>
     <openeo-model-builder>
-        <script type="application/json">{"id": "94f1776c9735465c8141e14ccd4f1c2f", "explicit-zoom": true, "height": "400px", "value": {"process_graph": {"loadstac1": {"process_id": "load_stac", "arguments": {"url": "https://stac_catalog.com/ground_truth"}}, "applypolygon1": {"process_id": "apply_polygon", "arguments": {"data": {"from_node": "loadstac1"}, "polygons": {"type": "FeatureCollection"}, "process": {"process_graph": {"runudf1": {"process_id": "run_udf", "arguments": {"data": {"from_parameter": "data"}, "runtime": "Python", "udf": ""}, "result": true}}}}, "result": true}}}}</script>
+        <script type="application/json">{"id": "0559c0791cc94b1398543d148e2f1e85", "explicit-zoom": true, "height": "400px", "value": {"process_graph": {"loadstac1": {"process_id": "load_stac", "arguments": {"url": "https://stac_catalog.com/ground_truth"}}, "applypolygon1": {"process_id": "apply_polygon", "arguments": {"data": {"from_node": "loadstac1"}, "polygons": {"type": "FeatureCollection"}, "process": {"process_graph": {"runudf1": {"process_id": "run_udf", "arguments": {"data": {"from_parameter": "data"}, "runtime": "Python", "udf": ""}, "result": true}}}}, "result": true}}}}</script>
     </openeo-model-builder>
     
 </div>
@@ -277,7 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="extracting-point-timeseries" class="level3">
 <h3 class="anchored" data-anchor-id="extracting-point-timeseries">Extracting point timeseries</h3>
-<div id="802c1041c125106b" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-03-01T13:58:14.099361454Z&quot;,&quot;start_time&quot;:&quot;2024-03-01T13:58:13.778478803Z&quot;}" data-execution_count="4">
+<div id="802c1041c125106b" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-03-13T08:22:45.963203939Z&quot;,&quot;start_time&quot;:&quot;2024-03-13T08:22:45.587642887Z&quot;}" data-execution_count="3">
 <div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span>  openeo</span>
 <span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span>    openeo.rest.mlmodel <span class="im">import</span> MlModel</span>
 <span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span>    openeo.processes <span class="im">import</span> ProcessBuilder</span>
@@ -303,7 +303,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </dd>
 </dl>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="3">
 
     <script>
     if (!window.customElements || !window.customElements.get('openeo-model-builder')) {
@@ -320,7 +320,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
     </script>
     <openeo-model-builder>
-        <script type="application/json">{"id": "e074904e5f264230b20b170c4e560066", "explicit-zoom": true, "height": "400px", "value": {"process_graph": {"loadstac1": {"process_id": "load_stac", "arguments": {"url": "https://stac_catalog.com/SENTINEL2_L2A"}}, "aggregatetemporalperiod1": {"process_id": "aggregate_temporal_period", "arguments": {"data": {"from_node": "loadstac1"}, "period": "month", "reducer": {"process_graph": {"mean1": {"process_id": "mean", "arguments": {"data": {"from_parameter": "data"}}, "result": true}}}}}, "loadstac2": {"process_id": "load_stac", "arguments": {"url": "https://stac_catalog.com/SENTINEL1_BS"}}, "aggregatetemporalperiod2": {"process_id": "aggregate_temporal_period", "arguments": {"data": {"from_node": "loadstac2"}, "period": "month", "reducer": {"process_graph": {"mean2": {"process_id": "mean", "arguments": {"data": {"from_parameter": "data"}}, "result": true}}}}}, "mergecubes1": {"process_id": "merge_cubes", "arguments": {"cube1": {"from_node": "aggregatetemporalperiod1"}, "cube2": {"from_node": "aggregatetemporalperiod2"}}}, "aggregatespatial1": {"process_id": "aggregate_spatial", "arguments": {"data": {"from_node": "mergecubes1"}, "geometries": {"type": "Point"}, "reducer": {"process_graph": {"mean3": {"process_id": "mean", "arguments": {"data": {"from_parameter": "data"}}, "result": true}}}}}, "saveresult1": {"process_id": "save_result", "arguments": {"data": {"from_node": "aggregatespatial1"}, "format": "Parquet", "options": {}}, "result": true}}}}</script>
+        <script type="application/json">{"id": "0b983af8590d4ef4be44c31ffd9b33fd", "explicit-zoom": true, "height": "400px", "value": {"process_graph": {"loadstac1": {"process_id": "load_stac", "arguments": {"url": "https://stac_catalog.com/SENTINEL2_L2A"}}, "aggregatetemporalperiod1": {"process_id": "aggregate_temporal_period", "arguments": {"data": {"from_node": "loadstac1"}, "period": "month", "reducer": {"process_graph": {"mean1": {"process_id": "mean", "arguments": {"data": {"from_parameter": "data"}}, "result": true}}}}}, "loadstac2": {"process_id": "load_stac", "arguments": {"url": "https://stac_catalog.com/SENTINEL1_BS"}}, "aggregatetemporalperiod2": {"process_id": "aggregate_temporal_period", "arguments": {"data": {"from_node": "loadstac2"}, "period": "month", "reducer": {"process_graph": {"mean2": {"process_id": "mean", "arguments": {"data": {"from_parameter": "data"}}, "result": true}}}}}, "mergecubes1": {"process_id": "merge_cubes", "arguments": {"cube1": {"from_node": "aggregatetemporalperiod1"}, "cube2": {"from_node": "aggregatetemporalperiod2"}}}, "aggregatespatial1": {"process_id": "aggregate_spatial", "arguments": {"data": {"from_node": "mergecubes1"}, "geometries": {"type": "Point"}, "reducer": {"process_graph": {"mean3": {"process_id": "mean", "arguments": {"data": {"from_parameter": "data"}}, "result": true}}}}}, "saveresult1": {"process_id": "save_result", "arguments": {"data": {"from_node": "aggregatespatial1"}, "format": "Parquet", "options": {}}, "result": true}}}}</script>
     </openeo-model-builder>
     
 </div>
@@ -329,20 +329,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="training-workflow" class="level3">
 <h3 class="anchored" data-anchor-id="training-workflow">Training workflow</h3>
 <p>The training workflow combines feature computation starting from monthly timesteps with catboost training.</p>
-<div id="ed847b34bc4cb3fd" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-03-01T13:58:31.366809129Z&quot;,&quot;start_time&quot;:&quot;2024-03-01T13:58:31.235032472Z&quot;}" data-execution_count="6">
+<p>The output is a model together with STAC metadata. The link to the STAC metadata of the model can be used by an inference workflow.</p>
+<div id="ed847b34bc4cb3fd" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-03-13T08:23:25.027508533Z&quot;,&quot;start_time&quot;:&quot;2024-03-13T08:23:24.982108186Z&quot;}" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span>    openeo <span class="im">import</span> UDF</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>feature_udf<span class="op">=</span>UDF(code<span class="op">=</span><span class="st">""</span>,runtime<span class="op">=</span><span class="st">"Python"</span>) <span class="co">#load UDF to compute presto features based on monthly timeseries</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>features_cube <span class="op">=</span> connection.load_url(<span class="st">"timesteps.parquet"</span>,<span class="bu">format</span><span class="op">=</span><span class="st">"Parquet"</span>).apply_dimension(dimension<span class="op">=</span><span class="st">'t'</span>,process<span class="op">=</span>feature_udf,target_dimension<span class="op">=</span><span class="st">'bands'</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ml_model <span class="op">=</span> features_cube.process(<span class="st">"fit_catboost_model"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ml_model <span class="op">=</span> features_cube.process(<span class="st">"fit_catboost_model"</span>, data<span class="op">=</span>features_cube)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>ml_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+
+    <script>
+    if (!window.customElements || !window.customElements.get('openeo-model-builder')) {
+        var el = document.createElement('script');
+        el.src = "https://cdn.jsdelivr.net/npm/@openeo/vue-components@2/assets/openeo.min.js";
+        document.head.appendChild(el);
+
+        var font = document.createElement('font');
+        font.as = "font";
+        font.type = "font/woff2";
+        font.crossOrigin = true;
+        font.href = "https://use.fontawesome.com/releases/v5.13.0/webfonts/fa-solid-900.woff2"
+        document.head.appendChild(font);
+    }
+    </script>
+    <openeo-model-builder>
+        <script type="application/json">{"id": "dca2cf3d23c94c62aaa7d8b3f88013d6", "explicit-zoom": true, "height": "400px", "value": {"process_graph": {"loadurl1": {"process_id": "load_url", "arguments": {"format": "Parquet", "url": "timesteps.parquet"}}, "applydimension1": {"process_id": "apply_dimension", "arguments": {"data": {"from_node": "loadurl1"}, "dimension": "t", "process": {"process_graph": {"runudf1": {"process_id": "run_udf", "arguments": {"data": {"from_parameter": "data"}, "runtime": "Python", "udf": ""}, "result": true}}}, "target_dimension": "bands"}}, "fitcatboostmodel1": {"process_id": "fit_catboost_model", "arguments": {"data": {"from_node": "applydimension1"}}, "result": true}}}}</script>
+    </openeo-model-builder>
+    
+</div>
 </div>
 </section>
 <section id="extracting-private-samples" class="level2">
 <h2 class="anchored" data-anchor-id="extracting-private-samples">Extracting private samples</h2>
-<div id="385ea9c09e30d61b" class="cell" data-execute="false">
+<p>For this use case, we assume that the user wants to use a private reference dataset. It should be available at a ‘secret’ url, which can be a signed url provided by the reference data module. Multiple input formats are supported by openEO next to GeoParquet, but the input data needs to be harmonized.</p>
+<p>We immediately extract a table at point locations, assuming that the cache of intermediate patches has less value for private data.</p>
+<p>The WorldCereal preprocessing chain is assumed to be available as an openEO User Defined Process (UDP) called <code>worldcereal_preprocessing_udp</code>.</p>
+<div id="385ea9c09e30d61b" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-03-13T08:29:17.502339434Z&quot;,&quot;start_time&quot;:&quot;2024-03-13T08:29:17.456900712Z&quot;}" data-execute="false" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sample_locations <span class="op">=</span> connection.load_url(<span class="st">"https://rdm.worldcereal.org/private_assets/absqdfjq_signed_url/private_data.parquet"</span>, <span class="bu">format</span><span class="op">=</span><span class="st">"Parquet"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>connection.datacube_from_process(<span class="st">"worldcereal_preprocessing_udp"</span>).filter_spatial(sample_locations).save_result(<span class="bu">format</span><span class="op">=</span><span class="st">"Parquet"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>connection.datacube_from_process(<span class="st">"worldcereal_preprocessing_udp"</span>).aggregate_spatial(sample_locations,reducer<span class="op">=</span><span class="st">"first"</span>).save_result(<span class="bu">format</span><span class="op">=</span><span class="st">"Parquet"</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+
+    <script>
+    if (!window.customElements || !window.customElements.get('openeo-model-builder')) {
+        var el = document.createElement('script');
+        el.src = "https://cdn.jsdelivr.net/npm/@openeo/vue-components@2/assets/openeo.min.js";
+        document.head.appendChild(el);
+
+        var font = document.createElement('font');
+        font.as = "font";
+        font.type = "font/woff2";
+        font.crossOrigin = true;
+        font.href = "https://use.fontawesome.com/releases/v5.13.0/webfonts/fa-solid-900.woff2"
+        document.head.appendChild(font);
+    }
+    </script>
+    <openeo-model-builder>
+        <script type="application/json">{"id": "468f54ca31c049ccac710f539fdd807d", "explicit-zoom": true, "height": "400px", "value": {"process_graph": {"worldcerealpreprocessingudp1": {"process_id": "worldcereal_preprocessing_udp", "arguments": {}}, "loadurl1": {"process_id": "load_url", "arguments": {"format": "Parquet", "url": "https://rdm.worldcereal.org/private_assets/absqdfjq_signed_url/private_data.parquet"}}, "aggregatespatial1": {"process_id": "aggregate_spatial", "arguments": {"data": {"from_node": "worldcerealpreprocessingudp1"}, "geometries": {"from_node": "loadurl1"}, "reducer": {"process_graph": {"first1": {"process_id": "first", "arguments": {"data": {"from_parameter": "data"}}, "result": true}}}}}, "saveresult1": {"process_id": "save_result", "arguments": {"data": {"from_node": "aggregatespatial1"}, "format": "Parquet", "options": {}}, "result": true}}}}</script>
+    </openeo-model-builder>
+    
+</div>
 </div>
 </section>
 <section id="training-by-combining-private-public-samples" class="level2">
