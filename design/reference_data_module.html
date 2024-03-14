@@ -204,6 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#table-example" id="toc-table-example" class="nav-link" data-scroll-target="#table-example">Table example</a></li>
   <li><a href="#required-api-calls" id="toc-required-api-calls" class="nav-link" data-scroll-target="#required-api-calls">Required API calls</a></li>
+  <li><a href="#private-datasets" id="toc-private-datasets" class="nav-link" data-scroll-target="#private-datasets">Private datasets</a></li>
   </ul></li>
   <li><a href="#reading-test-from-parquet" id="toc-reading-test-from-parquet" class="nav-link" data-scroll-target="#reading-test-from-parquet">Reading test from Parquet</a>
   <ul>
@@ -252,10 +253,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We propose the following database design:</p>
 <ul>
 <li>a 1 to * relationship between samples and stratification selection, as there can be multiple algorithms, or stratification runs.</li>
-<li>A ‘stratification_flag’ column with the id of the stratification run that selected the sample.</li>
+<li>A ‘stratification_code’ column with the id of the stratification run that selected the sample.</li>
 <li>A ‘stratification_timestamp’ column identifies when a sample was selected. The purpose is to identify newly added samples.</li>
 </ul>
 <p>For the stratification algorithm itself, we would like to use a discrete global grid, and more specifically H3. In certain cases, this grid can also replace geospatial queries. Hence for each sample, we would like to add the H3 index at level 5.</p>
+<p>Selected samples are exported to GeoParquet, for easy access via public url.</p>
 <section id="table-example" class="level4">
 <h4 class="anchored" data-anchor-id="table-example">Table example</h4>
 <p>An example table is shown below.</p>
@@ -304,6 +306,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Update call to set extraction status in bulk</li>
 </ul>
 <p>These calls can be done through an OGC Features request, or via GeoParquet. Further investigation below is performed to figure out the best approach.</p>
+</section>
+<section id="private-datasets" class="level4">
+<h4 class="anchored" data-anchor-id="private-datasets">Private datasets</h4>
+<p>For private reference data, we assume that we do not want to do stratification but rather use all the samples for extra training. This means that if it is made available on signed (secret) url, the processing module can retrieve the locations and extract points.</p>
 <section id="aggregated-statistics" class="level5">
 <h5 class="anchored" data-anchor-id="aggregated-statistics">Aggregated statistics</h5>
 <p>For the generation of statistics such as counts per croptype in H3 gridcells, the OGC Features API does not seem to include support. Hence we would need a background task that updates these statistics either on a fixed time schedule, or triggered by new ingestions in the RDM.</p>
