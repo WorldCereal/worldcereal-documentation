@@ -32,6 +32,8 @@ website:
         text: Welcome
       - section: "System design"
         contents:
+          - href: design/user_management.md
+            text: User Management
           - href: design/reference_data_module.ipynb
             text: Reference Data Module
           - href: design/extractions.qmd
