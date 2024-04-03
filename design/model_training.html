@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>WorldCereal Documentation - Preprocessing features</title>
+<title>WorldCereal Documentation - Training custom models</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -204,9 +204,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#sampling-point-locations" id="toc-sampling-point-locations" class="nav-link active" data-scroll-target="#sampling-point-locations">Sampling point locations</a></li>
+  <li><a href="#preprocessing-features" id="toc-preprocessing-features" class="nav-link active" data-scroll-target="#preprocessing-features">Preprocessing features</a>
+  <ul>
+  <li><a href="#sampling-point-locations" id="toc-sampling-point-locations" class="nav-link" data-scroll-target="#sampling-point-locations">Sampling point locations</a></li>
   <li><a href="#extracting-point-timeseries" id="toc-extracting-point-timeseries" class="nav-link" data-scroll-target="#extracting-point-timeseries">Extracting point timeseries</a></li>
   <li><a href="#training-workflow" id="toc-training-workflow" class="nav-link" data-scroll-target="#training-workflow">Training workflow</a></li>
+  </ul></li>
   <li><a href="#extracting-private-samples" id="toc-extracting-private-samples" class="nav-link" data-scroll-target="#extracting-private-samples">Extracting private samples</a></li>
   <li><a href="#training-by-combining-private-public-samples" id="toc-training-by-combining-private-public-samples" class="nav-link" data-scroll-target="#training-by-combining-private-public-samples">Training by combining private + public samples</a></li>
   </ul>
@@ -217,7 +220,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../design/user_management.html">System design</a></li><li class="breadcrumb-item"><a href="../design/model_training.html">Training</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Preprocessing features</h1>
+<h1 class="title">Training custom models</h1>
 </div>
 
 
@@ -234,6 +237,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>The user should be able to train models based on custom reference data. The preprocessing and feature computation approach remain the same as for standard model, but the model is simply retrained.</p>
+<p>Model training is also performed using openEO workflows. In principle, the full workflow could work from scratch, but in practice there’s a need to store and cache intermediate results. This reduces the cost of model training when multiple iterations are needed.</p>
+<p>The subsequent sections describe the various steps involved in model training.</p>
+<section id="preprocessing-features" class="level2">
+<h2 class="anchored" data-anchor-id="preprocessing-features">Preprocessing features</h2>
 <p>Preprocessing aim is to generate a 2D data structure (a table) that can go into catboost training.</p>
 <section id="sampling-point-locations" class="level3">
 <h3 class="anchored" data-anchor-id="sampling-point-locations">Sampling point locations</h3>
@@ -364,6 +372,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     
 </div>
 </div>
+</section>
 </section>
 <section id="extracting-private-samples" class="level2">
 <h2 class="anchored" data-anchor-id="extracting-private-samples">Extracting private samples</h2>

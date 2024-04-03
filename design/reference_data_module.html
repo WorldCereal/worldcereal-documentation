@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>WorldCereal Documentation - H3 indexing</title>
+<title>WorldCereal Documentation - Reference Data Management</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -205,7 +205,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#h3-examples" id="toc-h3-examples" class="nav-link active" data-scroll-target="#h3-examples">H3 examples</a></li>
+  <li><a href="#h3-indexing" id="toc-h3-indexing" class="nav-link active" data-scroll-target="#h3-indexing">H3 indexing</a>
+  <ul>
+  <li><a href="#h3-examples" id="toc-h3-examples" class="nav-link" data-scroll-target="#h3-examples">H3 examples</a></li>
+  </ul></li>
   <li><a href="#sample-stratification-in-the-rdm" id="toc-sample-stratification-in-the-rdm" class="nav-link" data-scroll-target="#sample-stratification-in-the-rdm">Sample stratification in the RDM</a>
   <ul>
   <li><a href="#table-example" id="toc-table-example" class="nav-link" data-scroll-target="#table-example">Table example</a></li>
@@ -224,7 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../design/user_management.html">System design</a></li><li class="breadcrumb-item"><a href="../design/reference_data_module.html">Reference Data Module</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">H3 indexing</h1>
+<h1 class="title">Reference Data Management</h1>
 </div>
 
 
@@ -241,6 +244,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="h3-indexing" class="level3">
+<h3 class="anchored" data-anchor-id="h3-indexing">H3 indexing</h3>
 <p>While the RDM is built on top of a PostGIS database, we more and more start to use H3 for fast geospatial lookup. H3 is a discrete global grid system, with some nice properties for cases like ours.</p>
 <p>One example use case is creating a heatmap showing distribution of samples for specific crop types over the world.</p>
 <p>H3 indexes can also be computed on the fly from the geometry, but a lot of operations can be made faster if they are performed on 64bit integers rather than geometries.</p>
@@ -251,6 +256,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>or in (Python)[https://uber.github.io/h3-py/intro.html#usage]:</p>
 <p><code>h3.latlng_to_cell(lat, lng, resolution)</code></p>
 <p>or other options: https://h3geo.org/docs/community/bindings</p>
+</section>
 </section>
 <section id="sample-stratification-in-the-rdm" class="level3">
 <h3 class="anchored" data-anchor-id="sample-stratification-in-the-rdm">Sample stratification in the RDM</h3>
