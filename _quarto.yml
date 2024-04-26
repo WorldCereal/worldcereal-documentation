@@ -1,6 +1,8 @@
 project:
   type: website
 
+bibliography: references.bib
+
 website:
   repo-url: "https://github.com/eu-cdse/documentation"
   repo-branch: "publish"
@@ -36,6 +38,8 @@ website:
             text: User Management
           - href: design/reference_data_module.ipynb
             text: Reference Data Module
+          - href: design/cloudnative_rdm.md
+            text: Cloud Native RDM
           - href: design/extractions.qmd
             text: Extractions
           - href: design/model_training.ipynb
