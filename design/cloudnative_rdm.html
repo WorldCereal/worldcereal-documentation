@@ -215,6 +215,7 @@ div.csl-indent {
   <li><a href="#high-level-design" id="toc-high-level-design" class="nav-link" data-scroll-target="#high-level-design">High-level design</a>
   <ul class="collapse">
   <li><a href="#private-collections" id="toc-private-collections" class="nav-link" data-scroll-target="#private-collections">Private collections</a></li>
+  <li><a href="#openeo-integration" id="toc-openeo-integration" class="nav-link" data-scroll-target="#openeo-integration">openEO integration</a></li>
   </ul></li>
   <li><a href="#use-case-explorations" id="toc-use-case-explorations" class="nav-link" data-scroll-target="#use-case-explorations">Use case explorations</a>
   <ul class="collapse">
@@ -317,6 +318,13 @@ div.csl-indent {
 <p>The second option is to make use of STAC collections that are not publicly accessible. This feature is being developed as part of the Terrascope STAC catalog.</p>
 <p>The security scheme applied here is very important, because when a GeoParquet file is protected by a complex scheme, tools like DuckDB may not be able to support easy reading over http. For instance, a typical OIDC flow is very complex, or else requires the user to get a bearer token, and then to somehow instruct DuckDB to set an HTTP header with that token when trying to access this specific GeoParquet file over http.</p>
 <p>The proposed solution would be to use url signing: https://github.com/stac-extensions/authentication?tab=readme-ov-file#url-signing This is also used by Microsoft Planetary Computer. It allows the user to generate a specific url that is valid for a limited time, which allows direct access over http.</p>
+</section>
+<section id="openeo-integration" class="level4">
+<h4 class="anchored" data-anchor-id="openeo-integration">openEO integration</h4>
+<p>To fully validate the design, proper integration options with other webservices should be explored. In the context of WorldCereal, services based on the openEO standard are most relevant.</p>
+<p>OpenEO already supports two predefined processes that may be relevant: - <code>load_stac</code> to load a vector cube from stac metadata - <code>load_url</code> to load a GeoParquet file from a url</p>
+<p>What is missing is a process that allows to filter a vector cube both on spatial region and on properties. Note that the concept of filter pushdown is very important, so the process definition should give backends the freedom to perform this type of optimization.</p>
+<p>We could also consider to allow SQL style queries on vector cubes, but note that some SQL functionality does overlap with other concepts in openEO.</p>
 </section>
 </section>
 <section id="use-case-explorations" class="level3">
