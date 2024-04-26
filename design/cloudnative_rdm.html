@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -29,8 +49,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../design/reference_data_module.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../design/extractions.html" rel="next">
+<link href="../design/reference_data_module.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -90,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../design/user_management.html">System design</a></li><li class="breadcrumb-item"><a href="../design/user_management.html">User Management</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../design/user_management.html">System design</a></li><li class="breadcrumb-item"><a href="../design/cloudnative_rdm.html">Cloud Native RDM</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -127,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../design/user_management.html" class="sidebar-item-text sidebar-link active">
+  <a href="../design/user_management.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">User Management</span></a>
   </div>
 </li>
@@ -139,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../design/cloudnative_rdm.html" class="sidebar-item-text sidebar-link">
+  <a href="../design/cloudnative_rdm.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Cloud Native RDM</span></a>
   </div>
 </li>
@@ -173,13 +193,29 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#authentication" id="toc-authentication" class="nav-link active" data-scroll-target="#authentication">Authentication</a></li>
-  <li><a href="#authorization" id="toc-authorization" class="nav-link" data-scroll-target="#authorization">Authorization</a>
+  <li><a href="#design-option-serverless-rdm" id="toc-design-option-serverless-rdm" class="nav-link active" data-scroll-target="#design-option-serverless-rdm">Design option: serverless RDM</a>
   <ul>
-  <li><a href="#viewing-demonstrator-datasets" id="toc-viewing-demonstrator-datasets" class="nav-link" data-scroll-target="#viewing-demonstrator-datasets">Viewing demonstrator datasets</a></li>
-  <li><a href="#data-dissemination" id="toc-data-dissemination" class="nav-link" data-scroll-target="#data-dissemination">Data dissemination</a></li>
-  <li><a href="#custom-processing" id="toc-custom-processing" class="nav-link" data-scroll-target="#custom-processing">Custom processing</a></li>
-  <li><a href="#reference-data-uploading" id="toc-reference-data-uploading" class="nav-link" data-scroll-target="#reference-data-uploading">Reference data uploading</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#purpose-scope" id="toc-purpose-scope" class="nav-link" data-scroll-target="#purpose-scope">Purpose &amp; scope</a></li>
+  <li><a href="#problem-statement" id="toc-problem-statement" class="nav-link" data-scroll-target="#problem-statement">Problem statement</a>
+  <ul class="collapse">
+  <li><a href="#data-provenance" id="toc-data-provenance" class="nav-link" data-scroll-target="#data-provenance">Data provenance</a></li>
+  <li><a href="#operational-costs" id="toc-operational-costs" class="nav-link" data-scroll-target="#operational-costs">Operational costs</a></li>
+  </ul></li>
+  <li><a href="#proposed-design" id="toc-proposed-design" class="nav-link" data-scroll-target="#proposed-design">Proposed design</a>
+  <ul class="collapse">
+  <li><a href="#geoparquet" id="toc-geoparquet" class="nav-link" data-scroll-target="#geoparquet">GeoParquet</a></li>
+  <li><a href="#duckdb" id="toc-duckdb" class="nav-link" data-scroll-target="#duckdb">DuckDB</a></li>
+  <li><a href="#overall-design" id="toc-overall-design" class="nav-link" data-scroll-target="#overall-design">Overall design</a>
+  <ul class="collapse">
+  <li><a href="#private-collections" id="toc-private-collections" class="nav-link" data-scroll-target="#private-collections">Private collections</a></li>
+  </ul></li>
+  <li><a href="#use-case-explorations" id="toc-use-case-explorations" class="nav-link" data-scroll-target="#use-case-explorations">Use case explorations</a>
+  <ul class="collapse">
+  <li><a href="#stratification" id="toc-stratification" class="nav-link" data-scroll-target="#stratification">Stratification</a></li>
+  <li><a href="#user-specific-model-training" id="toc-user-specific-model-training" class="nav-link" data-scroll-target="#user-specific-model-training">User specific model training</a></li>
+  </ul></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -190,40 +226,107 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="authentication" class="level1">
-<h1>Authentication</h1>
-<p>All authentication in WorldCereal is done via OIDC, the most widely adopted standard at this time, and also the standard used within various openEO deployments (openEO platform, CDSE). It was also used in phase 1 of the project.</p>
-<p>WorldCereal does not have a requirement to maintain a user credentials database, so we opt to rely on one or more external identity providers (IdP). This results in extra features such as Single Sign-On (SSO) and enhanced security. It also reduces the operational costs, which increases sustainability after project end.</p>
+<section id="design-option-serverless-rdm" class="level1">
+<h1>Design option: serverless RDM</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>This proposal outlines a potential design for the reference data module, that is based on cloud native file formats and serverless computing.</p>
+<p>This proposal should be seen as a summary of various ideas and technologies that have been proposed elsewhere <span class="citation" data-cites="ogc:cloudnative">(<a href="#ref-ogc:cloudnative" role="doc-biblioref">OGC 2017</a>)</span>, <span class="citation" data-cites="holmes:duckdb">(<a href="#ref-holmes:duckdb" role="doc-biblioref">Holmes 2023</a>)</span>, but applied to ESA WorldCereal context and the problem of managing large datasets of parcel data.</p>
 </section>
-<section id="authorization" class="level1">
-<h1>Authorization</h1>
-<p>Authorization rules are fairly limited, and depend on the use case and component.</p>
-<section id="viewing-demonstrator-datasets" class="level2">
-<h2 class="anchored" data-anchor-id="viewing-demonstrator-datasets">Viewing demonstrator datasets</h2>
-<p>The WorldCereal viewer can be used anonymously, no authorization needed.</p>
+<section id="purpose-scope" class="level2">
+<h2 class="anchored" data-anchor-id="purpose-scope">Purpose &amp; scope</h2>
+<p>This document explores an RDM design based on some relatively recent, but mature technologies. It is not meant to immediately replace the current webservice based RDM, as there is an important risk that we will still discover issues in the design that are currently unknown, while the RDM webservice in any case already exists.</p>
+<p>By providing this document, we aim to properly inform about available technologies and how they can be used. We believe this allows to gradually evolve the current setup, or to provide a complementary alternative.</p>
 </section>
-<section id="data-dissemination" class="level2">
-<h2 class="anchored" data-anchor-id="data-dissemination">Data dissemination</h2>
-<p>Global demonstrator products are free and open data. Strictly speaking no authorization is needed, but dissemination and catalog services may require authentication to prevent abuse.</p>
+<section id="problem-statement" class="level2">
+<h2 class="anchored" data-anchor-id="problem-statement">Problem statement</h2>
+<p>Reference data module holds a key position in terms of FAIR &amp; open science principles:</p>
+<section id="data-provenance" class="level3">
+<h3 class="anchored" data-anchor-id="data-provenance">Data provenance</h3>
+<p>Fair principle R1.2 https://www.go-fair.org/fair-principles/r1-2-metadata-associated-detailed-provenance/</p>
+<p>The RDM enables this by providing the reference data that was used to train models.</p>
 </section>
-<section id="custom-processing" class="level2">
-<h2 class="anchored" data-anchor-id="custom-processing">Custom processing</h2>
-<p>Users can launch jobs to train models or to generate products. This will be done via the CDSE openEO instance. In general, there’s two options here:</p>
+<section id="operational-costs" class="level3">
+<h3 class="anchored" data-anchor-id="operational-costs">Operational costs</h3>
+<p>For a module to be maintainable over a long time after the project, it is key to have a low operational cost. Operational costs are incurred by various factors, but a key point is that any open source component needs an update at some point. This is often triggered by the need to apply security patches, or to be able to implement small enhancements.</p>
+<p>Another cost factor is of course the number of virtual machines that are needed to run the module.</p>
+</section>
+</section>
+<section id="proposed-design" class="level2">
+<h2 class="anchored" data-anchor-id="proposed-design">Proposed design</h2>
+<p>The proposal can largely be seen as a logical evolution of the current design. It is triggered by a few technological advancements in the past year:</p>
 <ul>
-<li>The user has CDSE account, and uses CDSE public service directly. This option is already possible today, as it does not require anything special.</li>
-<li>The user uses the openEO UDPs, as onboarded into ESA NoR, and wants to run the service with NoR sponsoring. This option is foreseen to be supported by APEx, who wil handle integration with the (new) NoR. The IdP is still to be determined.</li>
+<li>GeoParquet as columnar, cloud-native data format.</li>
+<li>DuckDB: an in-memory database that allows to integrate SQL queries on Parquet files in client side scripts or the browser.</li>
 </ul>
+<p>The design is also triggered by a key observation that RDM data is not considered volatile. When new data is added to the RDM, once made public, that version of the data should stay where it is, without changing. Hence we can make technology choices that are optimized for this type of data.</p>
+<section id="geoparquet" class="level3">
+<h3 class="anchored" data-anchor-id="geoparquet">GeoParquet</h3>
+<p>GeoParquet is often referred to as a ‘columnar’ format. This section explains what this stands for and why it is relevant.</p>
+<p>Columnar simply refers to the fact that data is organized by column as opposed to by row. ‘Traditional’ SQL databases like PostGreSQL store data by row, which for instance allows to easily update all values in a row.</p>
+<p>Columnar storage was introduced to address the need for fast analytics queries. For instance, creating a histogram of all croptypes is much faster with columnar, because you only need to load a single column for such a query.</p>
+<p>Another important property is that GeoParquet is ‘cloud-native’. This usually refers to the simple property of being able to load parts of the data using an HTTP ‘Range’ request. This avoids a full download of the file, when only a small part is needed. This ability can replace a key function that is often performed by web services: reading only a small part of a larger database.</p>
+<p>GeoParquet is also a binary format, with internal compression. This means that file sizes are much smaller compared to for instance GeoJSON. Compression is of course only applied at chunk level, to retain the property of partial reads.</p>
 </section>
-<section id="reference-data-uploading" class="level2">
-<h2 class="anchored" data-anchor-id="reference-data-uploading">Reference data uploading</h2>
-<p>Users can upload reference data after logging in. Their reference data is either private or public, or private and shared with WorldCereal, but can not be shared with other users. This means that should simply be able to login, via the IdP. Currently Terrascope is used here as IdP. No custom authorization rules are needed.</p>
-<p>For RDM power users, the RDM should allow simple configuration of a limited set of users.</p>
+<section id="duckdb" class="level3">
+<h3 class="anchored" data-anchor-id="duckdb">DuckDB</h3>
+<p>DuckDB is an in-memory SQL engine that can run for instance as part of a Python script, or even in a web browser. It is built for speed, and can handle large datasets. It will utilize all available cpu’s, and in our tests could perform analytical queries on RDM data very fast.</p>
+<p>It support the spatial SQL extension that can also be found in PostGIS, and an H3 extension for working with H3 hexagons. This means that many of the API requests that are normally handled by a web service backed by a SQL database, can just as well be handled by DuckDB.</p>
+<p>The major advantage of client-side SQL is that you don’t need a server, drastically lowering resource and maintenance cost. Another key advantage, is that users can run any SQL query they like, without needing to ask for a new API endpoint.</p>
+</section>
+<section id="overall-design" class="level3">
+<h3 class="anchored" data-anchor-id="overall-design">Overall design</h3>
+<p>Based on these key components, the overall design is as follows:</p>
+<p>All data is stored as GeoParquet. Large files are partitioned by H3 index. This allows to very quickly find the datasets that are relevant for a specific AOI. Partitioning avoids overly large files that may still become problematic when being processed in a single call.</p>
+<p>STAC items can be made to point to the subfiles in a collection. This allows to use either STAC or GeoParquet partitioning to find required files.</p>
+<p>A STAC catalog is built to allow users to find the data they need. Both a static and dynamic catalog are relevant here. Static can be considered a ‘long term’ archive/backup that is always online. Dynamic web service based catalogs helps with discoverability and easy searching.</p>
+<p>Note that it’s even an option to use GeoParquet to store collection metadata as well: this allows to find the right collection very fast.</p>
+<section id="private-collections" class="level4">
+<h4 class="anchored" data-anchor-id="private-collections">Private collections</h4>
+<p>Worldcereal has a need for user-specific collections that are not generally discoverable or accessible.</p>
+<p>The most basic way in which this design supports such collections, is simply by letting those users manage the STAC and GeoParquet files themselves. There is no web service involved, so there is no need for complex access control and user management.</p>
+<p>The second option is to make use of STAC collections that are not publicly accessible. This feature is being developed as part of the Terrascope STAC catalog.</p>
+<p>The security scheme applied here is very important, because when a GeoParquet file is protected by a complex scheme, tools like DuckDB may not be able to support easy reading over http. For instance, a typical OIDC flow is very complex, or else requires the user to get a bearer token, and then to somehow instruct DuckDB to set an HTTP header with that token when trying to access this specific GeoParquet file over http.</p>
+<p>The proposed solution would be to use url signing: https://github.com/stac-extensions/authentication?tab=readme-ov-file#url-signing This is also used by Microsoft Planetary Computer. It allows the user to generate a specific url that is valid for a limited time, which allows direct access over http.</p>
+</section>
+</section>
+<section id="use-case-explorations" class="level3">
+<h3 class="anchored" data-anchor-id="use-case-explorations">Use case explorations</h3>
+<p>These sections validate the design in terms of specific use cases.</p>
+<section id="stratification" class="level4">
+<h4 class="anchored" data-anchor-id="stratification">Stratification</h4>
+<p>The stratification algorithm selects a subset of samples from the full RDM, to be used in model training. It is (normally) a location specific algorithm, as it is generally important to use samples that are properly spatially distributed.</p>
+<p>Hence a geospatial index is very important, which is why we propose to add H3 indices to the geoparquet files. By partitioning large (or all) files on this index, we effectively get a data structure that is optimized for spatial queries, without requiring a more complex index.</p>
+<p>The other problem is how to store the result of the algorithm. There’s a few options here:</p>
+<ol type="1">
+<li>add a column to all GeoParquet files, indicating if a sample is selected.</li>
+<li>Create a new geoparquet, containing indices of selected samples, allowing to perform a join.</li>
+<li>Create a new geoparquet, containing the selected subset with full information. (Or at least the information required for further processing.)</li>
+</ol>
+<p>In terms of performance, option number 3 is certainly attractive. It will however come at a storage cost, which is to be evaluated. It is also possible to combine option 3 with either 1 or 2, in the sense that a temporary file can be generated, and stored for the time that it is actively used.</p>
+</section>
+<section id="user-specific-model-training" class="level4">
+<h4 class="anchored" data-anchor-id="user-specific-model-training">User specific model training</h4>
+<p>For the public data, the extractions are already cached (in another GeoParquet). So openEO can load a vector cube containing extractions for public samples, based on a spatial region.+</p>
+<p>For user provided data, if the data is public, the caching mechanism should be triggered automatically.</p>
+<p>For user provided data, if the data is private, the user should invoke a workflow that generates point based extractions. The workflow will require the (signed) url of the private GeoParquet as input, and will generate a Geoparquet with extractions.</p>
+<p>For the training itself, the user loads 2 vector cubes (public and private extractions), and performs a merge_cubes before invoking the model training operation.</p>
 
 
+
+</section>
+</section>
 </section>
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-holmes:duckdb" class="csl-entry" role="listitem">
+Holmes, C. 2023. <span>“DuckDB.”</span> <a href="https://cloudnativegeo.org/blog/2023/09/duckdb-the-indispensable-geospatial-tool-you-didnt-know-you-were-missing/">https://cloudnativegeo.org/blog/2023/09/duckdb-the-indispensable-geospatial-tool-you-didnt-know-you-were-missing/</a>.
+</div>
+<div id="ref-ogc:cloudnative" class="csl-entry" role="listitem">
+OGC. 2017. <span>“OGC Cloud-Native Geospatial Technology.”</span> <a href="https://www.ogc.org/ogc-topics/cloud-native-geospatial/">https://www.ogc.org/ogc-topics/cloud-native-geospatial/</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -635,13 +738,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="Welcome">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Welcome</span>
+      <a href="../design/reference_data_module.html" class="pagination-link" aria-label="Reference Data Module">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Reference Data Module</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../design/reference_data_module.html" class="pagination-link" aria-label="Reference Data Module">
-        <span class="nav-page-text">Reference Data Module</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../design/extractions.html" class="pagination-link" aria-label="Extractions">
+        <span class="nav-page-text">Extractions</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
