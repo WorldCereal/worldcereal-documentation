@@ -169,6 +169,22 @@ https://github.com/stac-extensions/authentication?tab=readme-ov-file#url-signing
 This is also used by Microsoft Planetary Computer. It allows the user to generate a specific url that is valid for a limited time,
 which allows direct access over http. 
 
+#### openEO integration
+
+To fully validate the design, proper integration options with other webservices should be explored. In the context of
+WorldCereal, services based on the openEO standard are most relevant.
+
+OpenEO already supports two predefined processes that may be relevant:
+- `load_stac` to load a vector cube from stac metadata
+- `load_url` to load a GeoParquet file from a url
+
+What is missing is a process that allows to filter a vector cube both on spatial region and on properties. Note that 
+the concept of filter pushdown is very important, so the process definition should give backends the freedom to perform 
+this type of optimization. 
+
+We could also consider to allow SQL style queries on vector cubes, but note that some SQL functionality does overlap with
+other concepts in openEO.
+
 ### Use case explorations
 
 These sections validate the design in terms of specific use cases.
