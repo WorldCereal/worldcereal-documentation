@@ -17,16 +17,11 @@ still discover issues in the design that are currently unknown, while the RDM we
 By providing this document, we aim to properly inform about available technologies and how they can be used. We believe
 this allows to gradually evolve the current setup, or to provide a complementary alternative. 
 
-## Problem statement
+## Design drivers
 
-Reference data module holds a key position in terms of FAIR & open science principles:
+This section lists a number of key design drivers (or requirements) that have been considered in this design.
+FAIR & open science principles are a major driver in ESA WorldCereal, but also long term operational costs are an issue.
 
-### Data provenance
-
-Fair principle R1.2
-https://www.go-fair.org/fair-principles/r1-2-metadata-associated-detailed-provenance/
-
-The RDM enables this by providing the reference data that was used to train models.
 
 ### Operational costs
 
@@ -39,10 +34,54 @@ to apply security patches, or to be able to implement small enhancements.
 Another cost factor is of course the number of virtual machines that are needed to run
 the module.
 
+### Retrieving (meta)data over http
+
+FAIR principle [A1: (Meta)data are retrievable by their identifier using a standardised communication protocol](https://www.go-fair.org/fair-principles/metadata-retrievable-identifier-standardised-communication-protocol/) seems
+easy to support by using http. The question is however how we can ensure that http links remain valid over time.
+
+The 'cloud native' solution to this problem is to simply have static versions of data and metadata.
+
+So for instance:
+`https://worldcereal-rdm.geo-wiki.org/collections/static/2018beflandersfullpoly110.json`
+could point to a static json file containing STAC collection metadata. It would be relatively easy to maintain such a link
+in the longer term. 
+
+### Use of standards
+
+Fair principle [R1.3: (Meta)data meet domain-relevant community standards](https://www.go-fair.org/fair-principles/r1-3-metadata-meet-domain-relevant-community-standards/) 
+states that domain relevant community standards should be used to describe (meta)data.
+
+For the metadata, we propose the use of the STAC standard, complemented with specific extensions where relevant. The use
+of STAC makes it possible to effectively find reference data that is relevant for a specific area of interest.
+
+For the datasets, a real standard does not yet exist, but the GeoParquet format at least allows us to represent the geometry
+in a standardized manner.
+
+The use of the STAC label extension would allow us to describe the legend used by worldcereal in a machine readable way.
+
+### Data provenance
+
+Fair principle [R1.2: (Meta)data are associated with detailed provenance](
+https://www.go-fair.org/fair-principles/r1-2-metadata-associated-detailed-provenance/) requires that a dataset or model generated
+by a system like WorldCereal, can point to the source data that was used to generate it.
+
+The RDM enables this by providing the reference data that was used to train models. So the STAC metadata of a model, can 
+point to STAC metadata of reference data collections used to train the model. In STAC, this is typically done using links
+with a 'derived-from' relation type.
+
+
 ## Proposed design
 
-The proposal can largely be seen as a logical evolution of the current design. 
-It is triggered by a few technological advancements in the past year:
+The proposal can largely be seen as a logical evolution of the current design, combined with principles from cloud native
+geospatial.
+
+The first sentence of [@ogc:cloudnative] states:
+> Cloud-native geospatial offers many benefits to location data users ranging from decreasing the burden on data providers, to drastically lowering the costs of managing that data
+
+So the relationship with our own requirement to decrease operational costs should be clear.
+
+To make this general idea more specific, we point to a few technological advancements in the past years, that are also explained
+in the next sections:
 
 - GeoParquet as columnar, cloud-native data format. 
 - DuckDB: an in-memory database that allows to integrate SQL queries on Parquet files in client side scripts or the browser.
@@ -51,7 +90,9 @@ The design is also triggered by a key observation that RDM data is not considere
 When new data is added to the RDM, once made public, that version of the data should stay where it is, 
 without changing. Hence we can make technology choices that are optimized for this type of data.
 
-### GeoParquet
+### Used technologies
+
+#### GeoParquet
 
 GeoParquet is often referred to as a 'columnar' format. This section explains what this
 stands for and why it is relevant.
@@ -72,7 +113,7 @@ reading only a small part of a larger database.
 GeoParquet is also a binary format, with internal compression. This means that file sizes are much smaller compared
 to for instance GeoJSON. Compression is of course only applied at chunk level, to retain the property of partial reads.
 
-### DuckDB
+#### DuckDB
 
 DuckDB is an in-memory SQL engine that can run for instance as part of a Python script, or even in a web browser.
 It is built for speed, and can handle large datasets. It will utilize all available cpu's, and in our tests could
@@ -85,10 +126,14 @@ as well be handled by DuckDB.
 The major advantage of client-side SQL is that you don't need a server, drastically lowering resource and maintenance cost.
 Another key advantage, is that users can run any SQL query they like, without needing to ask for a new API endpoint.
 
+#### Technology experiments
 
-### Overall design
+Note that, to validate these technologies, we have effectively performed experiments using WorldCereal reference datasets.
+These experiments mainly confirmed the statements made above. 
 
-Based on these key components, the overall design is as follows:
+### High-level design
+
+Based on these key components, the high-level design is as follows:
 
 All data is stored as GeoParquet.
 Large files are partitioned by H3 index. This allows to very quickly find the datasets that are relevant for a specific AOI.
