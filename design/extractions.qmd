@@ -28,3 +28,40 @@ STAC extensions:
 ```json
 {{< include stac_examples/l1_cache_collection.json >}}
 ```
+
+
+### Cache updates
+
+The RDM needs to be queried for new collections on a regular basis, to discover new collections.
+
+#### Option 1: Nifi
+
+http fetch collections
+-> DetectDuplicate/DeduplicateRecord for fast duplicate dropping
+-> LookupRecord to check if we already know about the collection
+
+Query SQL
+
+New collections become flow files
+
+Per new collection, do job splitting.
+
+Continuously run job job manager on job splits.
+
+Monitoring: NiFi processors to send mail
+
+#### Option 2: Kubernetes cron job
+
+Kubernetes can schedule cron job, allowing to run Python script on a daily basis, detecting new collections.
+
+Monitoring: alertmanager
+
+
+
+
+Feature required: job manager write to Parquet on S3?
+Feature GFMap: write to workspace
+Or User Workspace with http access?
+Or as 'upcscaling service' pod in k8s?
+
+Dashboard:
