@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.4.554">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -214,6 +214,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#first-level-cache-requirements" id="toc-first-level-cache-requirements" class="nav-link" data-scroll-target="#first-level-cache-requirements">First level cache requirements</a>
   <ul class="collapse">
   <li><a href="#collection-metadata" id="toc-collection-metadata" class="nav-link" data-scroll-target="#collection-metadata">Collection metadata</a></li>
+  </ul></li>
+  <li><a href="#cache-updates" id="toc-cache-updates" class="nav-link" data-scroll-target="#cache-updates">Cache updates</a>
+  <ul class="collapse">
+  <li><a href="#option-1-nifi" id="toc-option-1-nifi" class="nav-link" data-scroll-target="#option-1-nifi">Option 1: Nifi</a></li>
+  <li><a href="#option-2-kubernetes-cron-job" id="toc-option-2-kubernetes-cron-job" class="nav-link" data-scroll-target="#option-2-kubernetes-cron-job">Option 2: Kubernetes cron job</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -568,6 +573,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"agera5"</span><span class="fu">:</span> <span class="fu">{}</span></span>
 <span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
 <span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="cache-updates" class="level3">
+<h3 class="anchored" data-anchor-id="cache-updates">Cache updates</h3>
+<p>The RDM needs to be queried for new collections on a regular basis, to discover new collections.</p>
+<section id="option-1-nifi" class="level4">
+<h4 class="anchored" data-anchor-id="option-1-nifi">Option 1: Nifi</h4>
+<p>http fetch collections -&gt; DetectDuplicate/DeduplicateRecord for fast duplicate dropping -&gt; LookupRecord to check if we already know about the collection</p>
+<p>Query SQL</p>
+<p>New collections become flow files</p>
+<p>Per new collection, do job splitting.</p>
+<p>Continuously run job job manager on job splits.</p>
+<p>Monitoring: NiFi processors to send mail</p>
+</section>
+<section id="option-2-kubernetes-cron-job" class="level4">
+<h4 class="anchored" data-anchor-id="option-2-kubernetes-cron-job">Option 2: Kubernetes cron job</h4>
+<p>Kubernetes can schedule cron job, allowing to run Python script on a daily basis, detecting new collections.</p>
+<p>Monitoring: alertmanager</p>
+<p>Feature required: job manager write to Parquet on S3? Feature GFMap: write to workspace Or User Workspace with http access? Or as ‘upcscaling service’ pod in k8s?</p>
+<p>Dashboard:</p>
 
 
 </section>

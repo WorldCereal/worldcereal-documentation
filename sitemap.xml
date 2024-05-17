@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://worldcereal.github.io/design/model_training.html</loc>
-    <lastmod>2024-04-26T07:51:33.415Z</lastmod>
-  </url>
-  <url>
-    <loc>https://worldcereal.github.io/design/extractions.html</loc>
-    <lastmod>2024-04-26T07:51:33.415Z</lastmod>
-  </url>
-  <url>
-    <loc>https://worldcereal.github.io/design/cloudnative_rdm.html</loc>
-    <lastmod>2024-04-26T07:51:33.415Z</lastmod>
-  </url>
-  <url>
     <loc>https://worldcereal.github.io/index.html</loc>
-    <lastmod>2024-04-26T07:51:33.415Z</lastmod>
-  </url>
-  <url>
-    <loc>https://worldcereal.github.io/design/inference.html</loc>
-    <lastmod>2024-04-26T07:52:19.675Z</lastmod>
+    <lastmod>2024-05-17T07:32:08.050Z</lastmod>
   </url>
   <url>
     <loc>https://worldcereal.github.io/design/user_management.html</loc>
-    <lastmod>2024-04-26T07:51:33.415Z</lastmod>
+    <lastmod>2024-05-17T07:32:08.050Z</lastmod>
+  </url>
+  <url>
+    <loc>https://worldcereal.github.io/design/extractions.html</loc>
+    <lastmod>2024-05-17T07:32:08.050Z</lastmod>
+  </url>
+  <url>
+    <loc>https://worldcereal.github.io/design/cloudnative_rdm.html</loc>
+    <lastmod>2024-05-17T07:32:08.050Z</lastmod>
+  </url>
+  <url>
+    <loc>https://worldcereal.github.io/design/model_training.html</loc>
+    <lastmod>2024-05-17T07:32:08.050Z</lastmod>
   </url>
   <url>
     <loc>https://worldcereal.github.io/design/reference_data_module.html</loc>
-    <lastmod>2024-04-26T07:51:33.415Z</lastmod>
+    <lastmod>2024-05-17T07:32:08.050Z</lastmod>
+  </url>
+  <url>
+    <loc>https://worldcereal.github.io/design/inference.html</loc>
+    <lastmod>2024-05-17T07:32:55.498Z</lastmod>
   </url>
 </urlset>
