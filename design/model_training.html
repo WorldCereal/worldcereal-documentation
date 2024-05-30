@@ -170,6 +170,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../design/processing_system.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Processing System</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../design/reference_data_module.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Reference Data Module</span></a>
   </div>
@@ -243,7 +249,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>The user should be able to train models based on custom reference data. The preprocessing and feature computation approach remain the same as for standard model, but the model is simply retrained.</p>
+<p>The user should be able to train models based on custom reference data. The preprocessing and feature computation approach remain the same as for standard model, but the model is simply retrained. This functionality will be offered in the form of a Python API, and supported by Jupyter notebooks, as part of the <code>WorldCereal Toolbox</code> component.</p>
 <p>Model training is also performed using openEO workflows. In principle, the full workflow could work from scratch, but in practice there’s a need to store and cache intermediate results. This reduces the cost of model training when multiple iterations are needed.</p>
 <p>The subsequent sections describe the various steps involved in model training.</p>
 <section id="preprocessing-features" class="level2">
