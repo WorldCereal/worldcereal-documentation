@@ -1,9 +1,39 @@
-<mxfile host="app.diagrams.net" modified="2024-05-30T11:05:14.173Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" version="24.4.9" etag="khjafr_Jbod0N5jbTz2e" type="github">
+<mxfile host="app.diagrams.net" modified="2024-05-30T11:22:35.307Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="Qup-LeQmbmLhOQ70kC3M" version="24.4.9" type="github">
   <diagram name="Pagina-1" id="FpdOKaVEmGjN1s4YDgUw">
-    <mxGraphModel>
+    <mxGraphModel dx="1562" dy="892" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="5dg4aIx_LSGrXTPdoegk-9" value="executes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5dg4aIx_LSGrXTPdoegk-1" target="5dg4aIx_LSGrXTPdoegk-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5dg4aIx_LSGrXTPdoegk-1" value="Upscaling Service&lt;br&gt;APEx" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffe6cc;shape=mxgraph.archimate3.service;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="351" y="530" width="126" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="5dg4aIx_LSGrXTPdoegk-2" value="openEO Federation&lt;br&gt;CDSE" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#fff2cc;shape=mxgraph.archimate3.application;appType=interface;archiType=square;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="339" y="620" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="5dg4aIx_LSGrXTPdoegk-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="5dg4aIx_LSGrXTPdoegk-1" target="5dg4aIx_LSGrXTPdoegk-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5dg4aIx_LSGrXTPdoegk-4" value="Algorithm hosting&lt;br&gt;APEx&lt;div&gt;&lt;br/&gt;&lt;/div&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffe6cc;shape=mxgraph.archimate3.service;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="170" y="527.5" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="5dg4aIx_LSGrXTPdoegk-8" value="stored on" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5dg4aIx_LSGrXTPdoegk-5" target="5dg4aIx_LSGrXTPdoegk-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5dg4aIx_LSGrXTPdoegk-5" value="WorldCereal&lt;br&gt;openEO UDPs" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#dae8fc;shape=mxgraph.archimate3.application;appType=passive;archiType=square;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="270" y="390" width="170" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="5dg4aIx_LSGrXTPdoegk-6" value="hosts" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="5dg4aIx_LSGrXTPdoegk-4" target="5dg4aIx_LSGrXTPdoegk-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5dg4aIx_LSGrXTPdoegk-7" value="version control&lt;br&gt;GitHub" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffe6cc;shape=mxgraph.archimate3.service;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="580" y="396.5" width="110" height="37" as="geometry" />
+        </mxCell>
+        <mxCell id="5dg4aIx_LSGrXTPdoegk-10" value="WorldCereal Toolbox&lt;br&gt;Python" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#dae8fc;shape=mxgraph.archimate3.application;appType=comp;archiType=square;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="270" y="250" width="170" height="60" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
