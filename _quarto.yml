@@ -36,6 +36,8 @@ website:
         contents:
           - href: design/user_management.md
             text: User Management
+          - href: design/processing_system.md
+            text: Processing System
           - href: design/reference_data_module.ipynb
             text: Reference Data Module
           - href: design/cloudnative_rdm.md
