@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>WorldCereal Documentation - Crop type map production</title>
+<title>WorldCereal Documentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,50 +20,15 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../design/model_training.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -99,9 +64,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -126,7 +88,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../design/user_management.html">System design</a></li><li class="breadcrumb-item"><a href="../design/inference.html">Inference</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -154,13 +116,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
  <span class="menu-text">System design</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../design/user_management.html" class="sidebar-item-text sidebar-link">
@@ -193,7 +155,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../design/inference.html" class="sidebar-item-text sidebar-link active">
+  <a href="../design/inference.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Inference</span></a>
   </div>
 </li>
@@ -209,142 +171,79 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#production-workflow" id="toc-production-workflow" class="nav-link active" data-scroll-target="#production-workflow">Production workflow</a></li>
-  <li><a href="#exporting-results-to-workspace" id="toc-exporting-results-to-workspace" class="nav-link" data-scroll-target="#exporting-results-to-workspace">Exporting results to workspace</a></li>
+  <li><a href="#openeo-based-processing" id="toc-openeo-based-processing" class="nav-link active" data-scroll-target="#openeo-based-processing">openEO based processing</a>
+  <ul>
+  <li><a href="#openeo-as-api" id="toc-openeo-as-api" class="nav-link" data-scroll-target="#openeo-as-api">openEO as API</a></li>
+  <li><a href="#cdse-as-processing-platform" id="toc-cdse-as-processing-platform" class="nav-link" data-scroll-target="#cdse-as-processing-platform">CDSE as processing platform</a></li>
+  </ul></li>
+  <li><a href="#stac-based-data-management" id="toc-stac-based-data-management" class="nav-link" data-scroll-target="#stac-based-data-management">STAC based data management</a>
+  <ul>
+  <li><a href="#processing-system-design" id="toc-processing-system-design" class="nav-link" data-scroll-target="#processing-system-design">Processing system design</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../design/user_management.html">System design</a></li><li class="breadcrumb-item"><a href="../design/inference.html">Inference</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Crop type map production</h1>
-</div>
 
 
 
-<div class="quarto-title-meta column-body">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="production-workflow" class="level2">
-<h2 class="anchored" data-anchor-id="production-workflow">Production workflow</h2>
-<p>WorldCereal products are generated by openEO workflows. The workflow requires a trained CatBoost model, which is a parameter because users may want to use their own models.</p>
-<p>The pseudo code below outlines the general steps of the inference pipeline.</p>
-<div id="cell-fig-inference" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-03-13T08:45:24.560223343Z&quot;,&quot;start_time&quot;:&quot;2024-03-13T08:45:23.969489173Z&quot;}" data-execution_count="1">
-<div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span>  openeo</span>
-<span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span>    openeo.rest.mlmodel <span class="im">import</span> MlModel</span>
-<span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span>    openeo.processes <span class="im">import</span> ProcessBuilder</span>
-<span id="annotated-cell-1-4"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-1-5"><a href="#annotated-cell-1-5" aria-hidden="true" tabindex="-1"></a>connection <span class="op">=</span> openeo.<span class="ex">connect</span>(<span class="st">"openeo.dataspace.copernicus.eu"</span>)</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-6" class="code-annotation-target"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a>l2A <span class="op">=</span> connection.load_collection(<span class="st">"SENTINEL2_L2A"</span>).aggregate_temporal_period(period<span class="op">=</span><span class="st">"month"</span>,reducer<span class="op">=</span><span class="st">"mean"</span>)</span>
-<span id="annotated-cell-1-7"><a href="#annotated-cell-1-7" aria-hidden="true" tabindex="-1"></a>sentinel1 <span class="op">=</span> connection.load_collection(<span class="st">"SENTINEL1_GRD"</span>)</span>
-<span id="annotated-cell-1-8"><a href="#annotated-cell-1-8" aria-hidden="true" tabindex="-1"></a>bs <span class="op">=</span> sentinel1.sar_backscatter(coefficient<span class="op">=</span><span class="st">"sigma0-ellipsoid"</span>).resample_spatial(resolution<span class="op">=</span><span class="dv">20</span>).aggregate_temporal_period(period<span class="op">=</span><span class="st">"month"</span>,reducer<span class="op">=</span><span class="st">"mean"</span>)</span>
-<span id="annotated-cell-1-9"><a href="#annotated-cell-1-9" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-10" class="code-annotation-target"><a href="#annotated-cell-1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-1-11"><a href="#annotated-cell-1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-1-12"><a href="#annotated-cell-1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span>    openeo <span class="im">import</span> UDF</span>
-<span id="annotated-cell-1-13"><a href="#annotated-cell-1-13" aria-hidden="true" tabindex="-1"></a>feature_udf<span class="op">=</span>UDF(code<span class="op">=</span><span class="st">""</span>,runtime<span class="op">=</span><span class="st">"Python"</span>) <span class="co">#load UDF to compute presto features based on monthly timeseries</span></span>
-<span id="annotated-cell-1-14"><a href="#annotated-cell-1-14" aria-hidden="true" tabindex="-1"></a>features_cube <span class="op">=</span> l2A.merge_cubes(bs).apply_dimension(dimension<span class="op">=</span><span class="st">'t'</span>,process<span class="op">=</span>feature_udf,target_dimension<span class="op">=</span><span class="st">'bands'</span>)</span>
-<span id="annotated-cell-1-15"><a href="#annotated-cell-1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-1-16"><a href="#annotated-cell-1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-1-17"><a href="#annotated-cell-1-17" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> MlModel.load_ml_model(connection<span class="op">=</span>connection, <span class="bu">id</span><span class="op">=</span><span class="st">"http://myhost.com/my_catboost_stac_metadata.json"</span>)</span>
-<span id="annotated-cell-1-18"><a href="#annotated-cell-1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-1-19"><a href="#annotated-cell-1-19" aria-hidden="true" tabindex="-1"></a>catboost_classifier <span class="op">=</span> <span class="kw">lambda</span> data, context: ProcessBuilder.process(<span class="st">"predict_catboost"</span>,data<span class="op">=</span>data, model<span class="op">=</span>context)</span>
-<span id="annotated-cell-1-20"><a href="#annotated-cell-1-20" aria-hidden="true" tabindex="-1"></a>worldcereal_product <span class="op">=</span> features_cube.reduce_dimension(dimension<span class="op">=</span><span class="st">"bands"</span>, reducer<span class="op">=</span>catboost_classifier, context<span class="op">=</span>model)</span>
-<span id="annotated-cell-1-21"><a href="#annotated-cell-1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-1-22"><a href="#annotated-cell-1-22" aria-hidden="true" tabindex="-1"></a>worldcereal_product</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-annotation">
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="6" data-code-annotation="1">instead of aggregate_temporal, we’ll do more advanced compositing, such as max-NDVI</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="10" data-code-annotation="2">we’ll need to add agera5 and dem bands</span>
-</dd>
-</dl>
-</div>
-<div id="fig-inference" class="cell-output cell-output-display quarto-figure quarto-figure-center quarto-float anchored" data-execution_count="1">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-inference-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-
-    <script>
-    if (!window.customElements || !window.customElements.get('openeo-model-builder')) {
-        var el = document.createElement('script');
-        el.src = "https://cdn.jsdelivr.net/npm/@openeo/vue-components@2/assets/openeo.min.js";
-        document.head.appendChild(el);
-
-        var font = document.createElement('font');
-        font.as = "font";
-        font.type = "font/woff2";
-        font.crossOrigin = true;
-        font.href = "https://use.fontawesome.com/releases/v5.13.0/webfonts/fa-solid-900.woff2"
-        document.head.appendChild(font);
-    }
-    </script>
-    <openeo-model-builder>
-        <script type="application/json">{"id": "534d64c231204b0582f76b991588904f", "explicit-zoom": true, "height": "400px", "value": {"process_graph": {"loadmlmodel1": {"process_id": "load_ml_model", "arguments": {"id": "http://myhost.com/my_catboost_stac_metadata.json"}}, "loadcollection1": {"process_id": "load_collection", "arguments": {"id": "SENTINEL2_L2A", "spatial_extent": null, "temporal_extent": null}}, "aggregatetemporalperiod1": {"process_id": "aggregate_temporal_period", "arguments": {"data": {"from_node": "loadcollection1"}, "period": "month", "reducer": {"process_graph": {"mean1": {"process_id": "mean", "arguments": {"data": {"from_parameter": "data"}}, "result": true}}}}}, "loadcollection2": {"process_id": "load_collection", "arguments": {"id": "SENTINEL1_GRD", "spatial_extent": null, "temporal_extent": null}}, "sarbackscatter1": {"process_id": "sar_backscatter", "arguments": {"coefficient": "sigma0-ellipsoid", "contributing_area": false, "data": {"from_node": "loadcollection2"}, "elevation_model": null, "ellipsoid_incidence_angle": false, "local_incidence_angle": false, "mask": false, "noise_removal": true}}, "resamplespatial1": {"process_id": "resample_spatial", "arguments": {"align": "upper-left", "data": {"from_node": "sarbackscatter1"}, "method": "near", "projection": null, "resolution": 20}}, "aggregatetemporalperiod2": {"process_id": "aggregate_temporal_period", "arguments": {"data": {"from_node": "resamplespatial1"}, "period": "month", "reducer": {"process_graph": {"mean2": {"process_id": "mean", "arguments": {"data": {"from_parameter": "data"}}, "result": true}}}}}, "mergecubes1": {"process_id": "merge_cubes", "arguments": {"cube1": {"from_node": "aggregatetemporalperiod1"}, "cube2": {"from_node": "aggregatetemporalperiod2"}}}, "applydimension1": {"process_id": "apply_dimension", "arguments": {"data": {"from_node": "mergecubes1"}, "dimension": "t", "process": {"process_graph": {"runudf1": {"process_id": "run_udf", "arguments": {"data": {"from_parameter": "data"}, "runtime": "Python", "udf": ""}, "result": true}}}, "target_dimension": "bands"}}, "reducedimension1": {"process_id": "reduce_dimension", "arguments": {"context": {"from_node": "loadmlmodel1"}, "data": {"from_node": "applydimension1"}, "dimension": "bands", "reducer": {"process_graph": {"predictcatboost1": {"process_id": "predict_catboost", "arguments": {"data": {"from_parameter": "data"}, "model": {"from_parameter": "context"}}, "result": true}}}}, "result": true}}}}</script>
-    </openeo-model-builder>
-    
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-inference-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: The WorldCereal inference pipeline
-</figcaption>
-</figure>
-</div>
-</div>
+<section id="openeo-based-processing" class="level1">
+<h1>openEO based processing</h1>
+<p>The architecture of WorldCereal phase II is based upon the guidelines provided by the ESA APEx project. The key goal is to build a system and processing workflows that can be used beyond the project lifetime.</p>
+<p>In accordance with the APEx framework, a few project specific choices have been made:</p>
+<ul>
+<li>openEO is selected as the standard in which processing workflows are described</li>
+<li>Copernicus Dataspace Ecosystem openEO federation is selected as the target platform</li>
+</ul>
+<section id="openeo-as-api" class="level2">
+<h2 class="anchored" data-anchor-id="openeo-as-api">openEO as API</h2>
+<p>WorldCereal selects openEO as processing standard, because it allows to express both the training and inference workflows in a high level manner. While in phase I, the consortium had to invest substantially in writing data access code, this is now handled by openEO.</p>
+<p>The use of openEO aids in generating results that follow FAIR data and open science principles. This is crucial to provide transparency and reproducibility of WorldCereal results. It will also make it very feasible for anyone to inspect workflows in a visual manner.</p>
 </section>
-<section id="exporting-results-to-workspace" class="level2">
-<h2 class="anchored" data-anchor-id="exporting-results-to-workspace">Exporting results to workspace</h2>
-<p>The openEO backend can store generated products directly in a custom object storage location. This is an optional step, but convenient when trying to avoid copying around files.</p>
-<p>Next to storing the file, it is also important to update and store the STAC metadata.</p>
-<div id="cell-fig-export" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-03-04T08:04:33.009206577Z&quot;,&quot;start_time&quot;:&quot;2024-03-04T08:04:32.971633277Z&quot;}" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>stac_metadata <span class="op">=</span> worldcereal_product.save_result(<span class="bu">format</span><span class="op">=</span><span class="st">"GTiff"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>stac_metadata <span class="op">=</span> connection.datacube_from_process(<span class="st">"stac_update"</span>,data <span class="op">=</span> stac_metadata) <span class="co">#todo: add custom metadata</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>connection.datacube_from_process(<span class="st">"export_workspace"</span>,data <span class="op">=</span> stac_metadata, workspace <span class="op">=</span> <span class="st">"my_workspace"</span>, merge<span class="op">=</span><span class="st">"pointer_to_worldcereal_collection"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="fig-export" class="cell-output cell-output-display quarto-figure quarto-figure-center quarto-float anchored" data-execution_count="2">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-export-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-
-    <script>
-    if (!window.customElements || !window.customElements.get('openeo-model-builder')) {
-        var el = document.createElement('script');
-        el.src = "https://cdn.jsdelivr.net/npm/@openeo/vue-components@2/assets/openeo.min.js";
-        document.head.appendChild(el);
-
-        var font = document.createElement('font');
-        font.as = "font";
-        font.type = "font/woff2";
-        font.crossOrigin = true;
-        font.href = "https://use.fontawesome.com/releases/v5.13.0/webfonts/fa-solid-900.woff2"
-        document.head.appendChild(font);
-    }
-    </script>
-    <openeo-model-builder>
-        <script type="application/json">{"id": "67012814d179401c9a624280dc59f417", "explicit-zoom": true, "height": "400px", "value": {"process_graph": {"loadmlmodel1": {"process_id": "load_ml_model", "arguments": {"id": "http://myhost.com/my_catboost_stac_metadata.json"}}, "loadcollection1": {"process_id": "load_collection", "arguments": {"id": "SENTINEL2_L2A", "spatial_extent": null, "temporal_extent": null}}, "aggregatetemporalperiod1": {"process_id": "aggregate_temporal_period", "arguments": {"data": {"from_node": "loadcollection1"}, "period": "month", "reducer": {"process_graph": {"mean1": {"process_id": "mean", "arguments": {"data": {"from_parameter": "data"}}, "result": true}}}}}, "loadcollection2": {"process_id": "load_collection", "arguments": {"id": "SENTINEL1_GRD", "spatial_extent": null, "temporal_extent": null}}, "sarbackscatter1": {"process_id": "sar_backscatter", "arguments": {"coefficient": "sigma0-ellipsoid", "contributing_area": false, "data": {"from_node": "loadcollection2"}, "elevation_model": null, "ellipsoid_incidence_angle": false, "local_incidence_angle": false, "mask": false, "noise_removal": true}}, "resamplespatial1": {"process_id": "resample_spatial", "arguments": {"align": "upper-left", "data": {"from_node": "sarbackscatter1"}, "method": "near", "projection": null, "resolution": 20}}, "aggregatetemporalperiod2": {"process_id": "aggregate_temporal_period", "arguments": {"data": {"from_node": "resamplespatial1"}, "period": "month", "reducer": {"process_graph": {"mean2": {"process_id": "mean", "arguments": {"data": {"from_parameter": "data"}}, "result": true}}}}}, "mergecubes1": {"process_id": "merge_cubes", "arguments": {"cube1": {"from_node": "aggregatetemporalperiod1"}, "cube2": {"from_node": "aggregatetemporalperiod2"}}}, "applydimension1": {"process_id": "apply_dimension", "arguments": {"data": {"from_node": "mergecubes1"}, "dimension": "t", "process": {"process_graph": {"runudf1": {"process_id": "run_udf", "arguments": {"data": {"from_parameter": "data"}, "runtime": "Python", "udf": ""}, "result": true}}}, "target_dimension": "bands"}}, "reducedimension1": {"process_id": "reduce_dimension", "arguments": {"context": {"from_node": "loadmlmodel1"}, "data": {"from_node": "applydimension1"}, "dimension": "bands", "reducer": {"process_graph": {"predictcatboost1": {"process_id": "predict_catboost", "arguments": {"data": {"from_parameter": "data"}, "model": {"from_parameter": "context"}}, "result": true}}}}}, "saveresult1": {"process_id": "save_result", "arguments": {"data": {"from_node": "reducedimension1"}, "format": "GTiff", "options": {}}}, "stacupdate1": {"process_id": "stac_update", "arguments": {"data": {"from_node": "saveresult1"}}}, "exportworkspace1": {"process_id": "export_workspace", "arguments": {"data": {"from_node": "stacupdate1"}, "merge": "pointer_to_worldcereal_collection", "workspace": "my_workspace"}, "result": true}}}}</script>
-    </openeo-model-builder>
-    
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-export-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Workflow steps to export results to object storage
-</figcaption>
+<section id="cdse-as-processing-platform" class="level2">
+<h2 class="anchored" data-anchor-id="cdse-as-processing-platform">CDSE as processing platform</h2>
+<p>The scalable processing needed to generate a global map is offered by the CDSE openEO federation. This includes the software to manage cloud resources, the software to parallelize workflows, disaster recovery across 2 datacenters, and the operational burden of monitoring the system.</p>
+<p>The CDSE open source deployment is described in more detail in the <a href="https://documentation.dataspace.copernicus.eu/APIs/openEO/openeo_deployment.html">CDSE openEO documentation</a>. The most important element is that CDSE components are required to maintain an uptime of 99.5% on a monthly basis. Lower uptimes are possible, but result in penalties for the platform operators. The contract also has a long lifetime, ensuring that WorldCereal workflows can be executed beyond the project lifetime.</p>
+<p>Finally, it is important to note that CDSE is the only EU platform that offers access to the full archives of Sentinel-2 L2A and Sentinel-1 GRD data. Hence, for global map production there are currently no alternatives, except for non-EU commercial cloud providers.</p>
+</section>
+</section>
+<section id="stac-based-data-management" class="level1">
+<h1>STAC based data management</h1>
+<p>The project handles a number of assets that need to be managed:</p>
+<ol type="1">
+<li>Final workflow output, in the form of GeoTiff raster files</li>
+<li>Raw EO data sampled over reference data locations and relevant time periods. Stored as netCDF.</li>
+<li>Reference data, stored as vector file (GeoJSON, GeoParquet)</li>
+<li>Trained models, stored as binary files</li>
+</ol>
+<p>A key design element, is that all these assets are described using STAC metadata. By ingesting the metadata into a STAC catalog, it can be discovered and visualized.</p>
+<p>The general design pattern for WorldCereal components is to read data from STAC and to again write it as STAC when generating derived assets. This is a very simple but powerful approach that allows WorldCereal components to be compatible with other external components that are also supporting STAC. Next to that, it is an important requirement for FAIR data principles.</p>
+<section id="processing-system-design" class="level2">
+<h2 class="anchored" data-anchor-id="processing-system-design">Processing system design</h2>
+<p>The design of the processing system is focused on 3 main use cases:</p>
+<ol type="1">
+<li>Generating maps based on existing models</li>
+<li>Training new models based on a user-defined selection of reference data</li>
+<li>Disseminating products</li>
+</ol>
+<p>These processes, and the links to various components are shown in the diagram below. Key operational components are supported by the CDSE and APEx projects, to ensure that the system remains operational beyond project lifetime.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./worldcereal_processing.svg" class="img-fluid figure-img"></p>
+<figcaption>Processing system</figcaption>
 </figure>
 </div>
-</div>
+<p>The <code>WorldCereal Toolbox</code> is an open source Python library and set of Jupyter notebooks, that can be used to train custom models. It offers a user-friendly API and easy example code, to make the process as easy as possible.</p>
+<p>This toolbox also contains other WorldCereal specific source code that was used to develop the system, or to generate openEO UDPs. It is based on <a href="https://github.com/Open-EO/openeo-gfmap">GFMap</a>, a general purpose, openEO-based, library for mapping applications.</p>
+<p>The <code>WorldCereal openEO UDPs</code> are user defined processes that encapsulate specific WorldCereal workflows. These workflows can be executed from generic tools such as the openEO web editor, and are hosted in APEx.</p>
+<p>The APEx <code>Algorithm hosting</code> service maintains a catalog of openEO UDPs, ensuring that they remain discoverable beyond the project lifetime, and allowing initiatives such as the ESA Stakeholder engagement facility to promote the use of WorldCereal services. The hosting service also runs regular benchmarks and tests, to be able to flag if an algorithm is no longer functional.</p>
+<p>The APEx <code>Upscaling service</code> allows to produce results over a larger area, based on openEO UDPs. This allows WorldCereal users to generate larger maps.</p>
+<p>The <code>STAC catalog</code> is used for dissemination and long term archiving of maps generated by the project. An openEO backend can export results directly to STAC, or this can be performed by the WorldCereal Toolbox.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -757,15 +656,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation column-body">
-  <div class="nav-page nav-page-previous">
-      <a href="../design/model_training.html" class="pagination-link" aria-label="Training">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Training</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

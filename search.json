@@ -87,6 +87,50 @@
     ]
   },
   {
+    "objectID": "design/model_training.html",
+    "href": "design/model_training.html",
+    "title": "Training custom models",
+    "section": "",
+    "text": "The user should be able to train models based on custom reference data. The preprocessing and feature computation approach remain the same as for standard model, but the model is simply retrained.\nModel training is also performed using openEO workflows. In principle, the full workflow could work from scratch, but in practice there’s a need to store and cache intermediate results. This reduces the cost of model training when multiple iterations are needed.\nThe subsequent sections describe the various steps involved in model training.",
+    "crumbs": [
+      "System design",
+      "Training"
+    ]
+  },
+  {
+    "objectID": "design/model_training.html#preprocessing-features",
+    "href": "design/model_training.html#preprocessing-features",
+    "title": "Training custom models",
+    "section": "Preprocessing features",
+    "text": "Preprocessing features\nPreprocessing aim is to generate a 2D data structure (a table) that can go into catboost training.\n\nSampling point locations\nThe WorldCereal extractions cache consists of 64x64 pixel timeseries stored as netCDF files. As catboost is a 1D method, we need to sample those patches at point locations.\nIn the approach presented in the code block below, the original algorithm is translated into an openEO process graph. It is however also possible to come up with other approaches, for instance that sample the patches at point locations, and then perform a stratification step on the larger dataset.\n\nimport  openeo\nconnection = openeo.connect(\"openeo.dataspace.copernicus.eu\")\nground_truth = connection.load_stac(\"https://stac_catalog.com/ground_truth\")\n\nfrom   openeo import UDF\n1sampling_udf=UDF(code=\"\",runtime=\"Python\")\n\npolygons = {\"type\":\"FeatureCollection\"} #these would be the bounding boxes of the netCDF files, or in fact STAC item bboxes\n\nground_truth.apply_polygon(polygons,process=sampling_udf)\n\n\n1\n\nThis UDF should return points as geojson\n\n\n\n\n\n    \n    \n        \n    \n    \n\n\n\n\nExtracting point timeseries\n\nimport  openeo\nfrom    openeo.rest.mlmodel import MlModel\nfrom    openeo.processes import ProcessBuilder\n\nconnection = openeo.connect(\"openeo.dataspace.copernicus.eu\")\n1l2A = connection.load_stac(\"https://stac_catalog.com/SENTINEL2_L2A\").aggregate_temporal_period(period=\"month\",reducer=\"mean\")\nsentinel1 = connection.load_stac(\"https://stac_catalog.com/SENTINEL1_BS\")\nbs = sentinel1.aggregate_temporal_period(period=\"month\",reducer=\"mean\")\n\ntimesteps_cube = l2A.merge_cubes(bs).aggregate_spatial(geometries={\"type\":\"Point\"},reducer=\"mean\").save_result(format=\"Parquet\")\n2\n\ntimesteps_cube\n\n\n1\n\ninstead of aggregate_temporal, we’ll do more advanced compositing, such as max-NDVI\n\n2\n\nwe’ll need to add agera5 and dem bands\n\n\n\n\n\n    \n    \n        \n    \n    \n\n\n\n\nTraining workflow\nThe training workflow combines feature computation starting from monthly timesteps with catboost training.\nThe output is a model together with STAC metadata. The link to the STAC metadata of the model can be used by an inference workflow.\n\nfrom    openeo import UDF\nfeature_udf=UDF(code=\"\",runtime=\"Python\") #load UDF to compute presto features based on monthly timeseries\nfeatures_cube = connection.load_url(\"timesteps.parquet\",format=\"Parquet\").apply_dimension(dimension='t',process=feature_udf,target_dimension='bands')\nml_model = features_cube.process(\"fit_catboost_model\", data=features_cube)\nml_model",
+    "crumbs": [
+      "System design",
+      "Training"
+    ]
+  },
+  {
+    "objectID": "design/model_training.html#extracting-private-samples",
+    "href": "design/model_training.html#extracting-private-samples",
+    "title": "Training custom models",
+    "section": "Extracting private samples",
+    "text": "Extracting private samples\nFor this use case, we assume that the user wants to use a private reference dataset. It should be available at a ‘secret’ url, which can be a signed url provided by the reference data module. Multiple input formats are supported by openEO next to GeoParquet, but the input data needs to be harmonized.\nWe immediately extract a table at point locations, assuming that the cache of intermediate patches has less value for private data.\nThe WorldCereal preprocessing chain is assumed to be available as an openEO User Defined Process (UDP) called worldcereal_preprocessing_udp.\n\nsample_locations = connection.load_url(\"https://rdm.worldcereal.org/private_assets/absqdfjq_signed_url/private_data.parquet\", format=\"Parquet\")\n\nconnection.datacube_from_process(\"worldcereal_preprocessing_udp\").aggregate_spatial(sample_locations,reducer=\"first\").save_result(format=\"Parquet\")",
+    "crumbs": [
+      "System design",
+      "Training"
+    ]
+  },
+  {
+    "objectID": "design/model_training.html#training-by-combining-private-public-samples",
+    "href": "design/model_training.html#training-by-combining-private-public-samples",
+    "title": "Training custom models",
+    "section": "Training by combining private + public samples",
+    "text": "Training by combining private + public samples\nIn this usecase, the user wants to train a new model, by combining data. This should be possible by simply merging vector cubes that go into the training process.\nTODO",
+    "crumbs": [
+      "System design",
+      "Training"
+    ]
+  },
+  {
     "objectID": "design/cloudnative_rdm.html",
     "href": "design/cloudnative_rdm.html",
     "title": "Design option: serverless RDM",
@@ -142,48 +186,32 @@
     ]
   },
   {
-    "objectID": "design/model_training.html",
-    "href": "design/model_training.html",
-    "title": "Training custom models",
+    "objectID": "design/processing_system.html",
+    "href": "design/processing_system.html",
+    "title": "openEO based processing",
     "section": "",
-    "text": "The user should be able to train models based on custom reference data. The preprocessing and feature computation approach remain the same as for standard model, but the model is simply retrained.\nModel training is also performed using openEO workflows. In principle, the full workflow could work from scratch, but in practice there’s a need to store and cache intermediate results. This reduces the cost of model training when multiple iterations are needed.\nThe subsequent sections describe the various steps involved in model training.",
-    "crumbs": [
-      "System design",
-      "Training"
-    ]
+    "text": "The architecture of WorldCereal phase II is based upon the guidelines provided by the ESA APEx project. The key goal is to build a system and processing workflows that can be used beyond the project lifetime.\nIn accordance with the APEx framework, a few project specific choices have been made:\n\nopenEO is selected as the standard in which processing workflows are described\nCopernicus Dataspace Ecosystem openEO federation is selected as the target platform\n\n\n\nWorldCereal selects openEO as processing standard, because it allows to express both the training and inference workflows in a high level manner. While in phase I, the consortium had to invest substantially in writing data access code, this is now handled by openEO.\nThe use of openEO aids in generating results that follow FAIR data and open science principles. This is crucial to provide transparency and reproducibility of WorldCereal results. It will also make it very feasible for anyone to inspect workflows in a visual manner.\n\n\n\nThe scalable processing needed to generate a global map is offered by the CDSE openEO federation. This includes the software to manage cloud resources, the software to parallelize workflows, disaster recovery across 2 datacenters, and the operational burden of monitoring the system.\nThe CDSE open source deployment is described in more detail in the CDSE openEO documentation. The most important element is that CDSE components are required to maintain an uptime of 99.5% on a monthly basis. Lower uptimes are possible, but result in penalties for the platform operators. The contract also has a long lifetime, ensuring that WorldCereal workflows can be executed beyond the project lifetime.\nFinally, it is important to note that CDSE is the only EU platform that offers access to the full archives of Sentinel-2 L2A and Sentinel-1 GRD data. Hence, for global map production there are currently no alternatives, except for non-EU commercial cloud providers."
   },
   {
-    "objectID": "design/model_training.html#preprocessing-features",
-    "href": "design/model_training.html#preprocessing-features",
-    "title": "Training custom models",
-    "section": "Preprocessing features",
-    "text": "Preprocessing features\nPreprocessing aim is to generate a 2D data structure (a table) that can go into catboost training.\n\nSampling point locations\nThe WorldCereal extractions cache consists of 64x64 pixel timeseries stored as netCDF files. As catboost is a 1D method, we need to sample those patches at point locations.\nIn the approach presented in the code block below, the original algorithm is translated into an openEO process graph. It is however also possible to come up with other approaches, for instance that sample the patches at point locations, and then perform a stratification step on the larger dataset.\n\nimport  openeo\nconnection = openeo.connect(\"openeo.dataspace.copernicus.eu\")\nground_truth = connection.load_stac(\"https://stac_catalog.com/ground_truth\")\n\nfrom   openeo import UDF\n1sampling_udf=UDF(code=\"\",runtime=\"Python\")\n\npolygons = {\"type\":\"FeatureCollection\"} #these would be the bounding boxes of the netCDF files, or in fact STAC item bboxes\n\nground_truth.apply_polygon(polygons,process=sampling_udf)\n\n\n1\n\nThis UDF should return points as geojson\n\n\n\n\n\n    \n    \n        \n    \n    \n\n\n\n\nExtracting point timeseries\n\nimport  openeo\nfrom    openeo.rest.mlmodel import MlModel\nfrom    openeo.processes import ProcessBuilder\n\nconnection = openeo.connect(\"openeo.dataspace.copernicus.eu\")\n1l2A = connection.load_stac(\"https://stac_catalog.com/SENTINEL2_L2A\").aggregate_temporal_period(period=\"month\",reducer=\"mean\")\nsentinel1 = connection.load_stac(\"https://stac_catalog.com/SENTINEL1_BS\")\nbs = sentinel1.aggregate_temporal_period(period=\"month\",reducer=\"mean\")\n\ntimesteps_cube = l2A.merge_cubes(bs).aggregate_spatial(geometries={\"type\":\"Point\"},reducer=\"mean\").save_result(format=\"Parquet\")\n2\n\ntimesteps_cube\n\n\n1\n\ninstead of aggregate_temporal, we’ll do more advanced compositing, such as max-NDVI\n\n2\n\nwe’ll need to add agera5 and dem bands\n\n\n\n\n\n    \n    \n        \n    \n    \n\n\n\n\nTraining workflow\nThe training workflow combines feature computation starting from monthly timesteps with catboost training.\nThe output is a model together with STAC metadata. The link to the STAC metadata of the model can be used by an inference workflow.\n\nfrom    openeo import UDF\nfeature_udf=UDF(code=\"\",runtime=\"Python\") #load UDF to compute presto features based on monthly timeseries\nfeatures_cube = connection.load_url(\"timesteps.parquet\",format=\"Parquet\").apply_dimension(dimension='t',process=feature_udf,target_dimension='bands')\nml_model = features_cube.process(\"fit_catboost_model\", data=features_cube)\nml_model",
-    "crumbs": [
-      "System design",
-      "Training"
-    ]
+    "objectID": "design/processing_system.html#openeo-as-api",
+    "href": "design/processing_system.html#openeo-as-api",
+    "title": "openEO based processing",
+    "section": "",
+    "text": "WorldCereal selects openEO as processing standard, because it allows to express both the training and inference workflows in a high level manner. While in phase I, the consortium had to invest substantially in writing data access code, this is now handled by openEO.\nThe use of openEO aids in generating results that follow FAIR data and open science principles. This is crucial to provide transparency and reproducibility of WorldCereal results. It will also make it very feasible for anyone to inspect workflows in a visual manner."
   },
   {
-    "objectID": "design/model_training.html#extracting-private-samples",
-    "href": "design/model_training.html#extracting-private-samples",
-    "title": "Training custom models",
-    "section": "Extracting private samples",
-    "text": "Extracting private samples\nFor this use case, we assume that the user wants to use a private reference dataset. It should be available at a ‘secret’ url, which can be a signed url provided by the reference data module. Multiple input formats are supported by openEO next to GeoParquet, but the input data needs to be harmonized.\nWe immediately extract a table at point locations, assuming that the cache of intermediate patches has less value for private data.\nThe WorldCereal preprocessing chain is assumed to be available as an openEO User Defined Process (UDP) called worldcereal_preprocessing_udp.\n\nsample_locations = connection.load_url(\"https://rdm.worldcereal.org/private_assets/absqdfjq_signed_url/private_data.parquet\", format=\"Parquet\")\n\nconnection.datacube_from_process(\"worldcereal_preprocessing_udp\").aggregate_spatial(sample_locations,reducer=\"first\").save_result(format=\"Parquet\")",
-    "crumbs": [
-      "System design",
-      "Training"
-    ]
+    "objectID": "design/processing_system.html#cdse-as-processing-platform",
+    "href": "design/processing_system.html#cdse-as-processing-platform",
+    "title": "openEO based processing",
+    "section": "",
+    "text": "The scalable processing needed to generate a global map is offered by the CDSE openEO federation. This includes the software to manage cloud resources, the software to parallelize workflows, disaster recovery across 2 datacenters, and the operational burden of monitoring the system.\nThe CDSE open source deployment is described in more detail in the CDSE openEO documentation. The most important element is that CDSE components are required to maintain an uptime of 99.5% on a monthly basis. Lower uptimes are possible, but result in penalties for the platform operators. The contract also has a long lifetime, ensuring that WorldCereal workflows can be executed beyond the project lifetime.\nFinally, it is important to note that CDSE is the only EU platform that offers access to the full archives of Sentinel-2 L2A and Sentinel-1 GRD data. Hence, for global map production there are currently no alternatives, except for non-EU commercial cloud providers."
   },
   {
-    "objectID": "design/model_training.html#training-by-combining-private-public-samples",
-    "href": "design/model_training.html#training-by-combining-private-public-samples",
-    "title": "Training custom models",
-    "section": "Training by combining private + public samples",
-    "text": "Training by combining private + public samples\nIn this usecase, the user wants to train a new model, by combining data. This should be possible by simply merging vector cubes that go into the training process.\nTODO",
-    "crumbs": [
-      "System design",
-      "Training"
-    ]
+    "objectID": "design/processing_system.html#processing-system-design",
+    "href": "design/processing_system.html#processing-system-design",
+    "title": "openEO based processing",
+    "section": "Processing system design",
+    "text": "Processing system design\nThe design of the processing system is focused on 3 main use cases:\n\nGenerating maps based on existing models\nTraining new models based on a user-defined selection of reference data\nDisseminating products\n\nThese processes, and the links to various components are shown in the diagram below. Key operational components are supported by the CDSE and APEx projects, to ensure that the system remains operational beyond project lifetime.\n\n\n\nProcessing system\n\n\nThe WorldCereal Toolbox is an open source Python library and set of Jupyter notebooks, that can be used to train custom models. It offers a user-friendly API and easy example code, to make the process as easy as possible.\nThis toolbox also contains other WorldCereal specific source code that was used to develop the system, or to generate openEO UDPs. It is based on GFMap, a general purpose, openEO-based, library for mapping applications.\nThe WorldCereal openEO UDPs are user defined processes that encapsulate specific WorldCereal workflows. These workflows can be executed from generic tools such as the openEO web editor, and are hosted in APEx.\nThe APEx Algorithm hosting service maintains a catalog of openEO UDPs, ensuring that they remain discoverable beyond the project lifetime, and allowing initiatives such as the ESA Stakeholder engagement facility to promote the use of WorldCereal services. The hosting service also runs regular benchmarks and tests, to be able to flag if an algorithm is no longer functional.\nThe APEx Upscaling service allows to produce results over a larger area, based on openEO UDPs. This allows WorldCereal users to generate larger maps.\nThe STAC catalog is used for dissemination and long term archiving of maps generated by the project. An openEO backend can export results directly to STAC, or this can be performed by the WorldCereal Toolbox."
   },
   {
     "objectID": "design/reference_data_module.html",
