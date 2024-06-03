@@ -213,8 +213,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#extractions-cache" id="toc-extractions-cache" class="nav-link active" data-scroll-target="#extractions-cache">Extractions cache</a>
+  <li><a href="#model-training-eo-data-management" id="toc-model-training-eo-data-management" class="nav-link active" data-scroll-target="#model-training-eo-data-management">Model training EO data management</a>
   <ul>
+  <li><a href="#extractions-cache" id="toc-extractions-cache" class="nav-link" data-scroll-target="#extractions-cache">Extractions cache</a>
+  <ul class="collapse">
   <li><a href="#first-level-cache" id="toc-first-level-cache" class="nav-link" data-scroll-target="#first-level-cache">First level cache</a></li>
   <li><a href="#extraction-workflow-steps" id="toc-extraction-workflow-steps" class="nav-link" data-scroll-target="#extraction-workflow-steps">Extraction workflow steps</a></li>
   <li><a href="#first-level-cache-requirements" id="toc-first-level-cache-requirements" class="nav-link" data-scroll-target="#first-level-cache-requirements">First level cache requirements</a>
@@ -227,6 +229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#option-2-kubernetes-cron-job" id="toc-option-2-kubernetes-cron-job" class="nav-link" data-scroll-target="#option-2-kubernetes-cron-job">Option 2: Kubernetes cron job</a></li>
   </ul></li>
   </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -236,6 +239,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<section id="model-training-eo-data-management" class="level1">
+<h1>Model training EO data management</h1>
+<p>To effectively train models, we need very fast access to the input data at the locations where ground truth information is available. The WorldCereal classifier is primarily looking at the time-series for multiple bands per pixel. The native Sentinel earth observation data archives are not stored in a format that enables fast time series access. For instance, a Sentinel-2 product uses internal chunks of 1000x1000 pixels, while for training we need only a few 64x64 pixel chunks. Hence, a lot of unnecessary data is read from relatively slow storage when constructing such a timeseries.</p>
+<p>A more favourable model is thus to generate files that contain the full timeseries and all bands for a given sensor. A single read operation can then load a full year worth of EO data for a location where reference data is available.</p>
+<p>What the training step requires is analysis-ready data, which in the case of WorldCereal currently means single-pixel, cloud-free monthly composites. As there currently does not yet exist a consensus on how to best generate this analysis-ready data. The design choice was made to store the data in 2 formats:</p>
+<ol type="1">
+<li>Raster files containing 64x64 pixel chunks of raw EO data observations, minimal cloud-screening.</li>
+<li>Parquet files containing analysis-ready pixel timeseries, with all input bands and the ground-truth label.</li>
+</ol>
+<p>Having these two formats enables experimentation at both preprocessing level, and the level of model tuning on ARD data. If at some point the spatial context of a pixel is taken into account, this information is also available.</p>
+<p>In the sections below, this general design is detailed further. We generally refer to the locally stored EO data as ‘the extractions’, because they are extracts from the main EO archive.</p>
 <section id="extractions-cache" class="level2">
 <h2 class="anchored" data-anchor-id="extractions-cache">Extractions cache</h2>
 <section id="first-level-cache" class="level3">
@@ -583,7 +597,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="cache-updates" class="level3">
 <h3 class="anchored" data-anchor-id="cache-updates">Cache updates</h3>
-<p>The RDM needs to be queried for new collections on a regular basis, to discover new collections.</p>
+<p>The RDM needs to be queried for new collections on a regular basis, to discover new collections. Whenever a new collection is available in the RDM, we want the extraction workflow to automatically update the cache, allowing users to train models efficiently on all data available in the RDM.</p>
 <section id="option-1-nifi" class="level4">
 <h4 class="anchored" data-anchor-id="option-1-nifi">Option 1: Nifi</h4>
 <p>http fetch collections -&gt; DetectDuplicate/DeduplicateRecord for fast duplicate dropping -&gt; LookupRecord to check if we already know about the collection</p>
@@ -601,6 +615,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Dashboard:</p>
 
 
+</section>
 </section>
 </section>
 </section>
