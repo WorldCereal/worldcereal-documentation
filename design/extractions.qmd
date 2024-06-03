@@ -1,3 +1,27 @@
+# Model training EO data management
+
+To effectively train models, we need very fast access to the input data at the locations where ground truth information
+is available. The WorldCereal classifier is primarily looking at the time-series for multiple bands per pixel.
+The native Sentinel earth observation data archives are not stored in a format that enables fast time series access. For
+instance, a Sentinel-2 product uses internal chunks of 1000x1000 pixels, while for training we need only a few 64x64 pixel
+chunks. Hence, a lot of unnecessary data is read from relatively slow storage when constructing such a timeseries.
+
+A more favourable model is thus to generate files that contain the full timeseries and all bands for a given sensor. A single
+read operation can then load a full year worth of EO data for a location where reference data is available.
+
+What the training step requires is analysis-ready data, which in the case of WorldCereal currently means single-pixel, cloud-free monthly composites.
+As there currently does not yet exist a consensus on how to best generate this analysis-ready data. The design choice was
+made to store the data in 2 formats:
+
+1. Raster files containing 64x64 pixel chunks of raw EO data observations, minimal cloud-screening.
+2. Parquet files containing analysis-ready pixel timeseries, with all input bands and the ground-truth label.
+
+Having these two formats enables experimentation at both preprocessing level, and the level of model tuning on ARD data.
+If at some point the spatial context of a pixel is taken into account, this information is also available.
+
+In the sections below, this general design is detailed further. We generally refer to the locally stored EO data as 'the extractions',
+because they are extracts from the main EO archive.
+
 ## Extractions cache
 
 ### First level cache
@@ -32,7 +56,10 @@ STAC extensions:
 
 ### Cache updates
 
-The RDM needs to be queried for new collections on a regular basis, to discover new collections.
+The RDM needs to be queried for new collections on a regular basis, to discover new collections. Whenever a new collection
+is available in the RDM, we want the extraction workflow to automatically update the cache, allowing users to train models
+efficiently on all data available in the RDM.
+
 
 #### Option 1: Nifi
 
