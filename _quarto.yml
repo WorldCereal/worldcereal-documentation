@@ -32,6 +32,10 @@ website:
     contents:
       - href: index.md
         text: Welcome
+      - section: "Usage"
+        contents:
+          - href: usage/processing_api.md
+            text: Processing API
       - section: "System design"
         contents:
           - href: design/user_management.md
