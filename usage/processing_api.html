@@ -277,8 +277,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"python-memory"</span>: <span class="st">"2g"</span>,</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"udf-dependency-archives"</span>: [<span class="st">"https://artifactory.vgt.vito.be/artifactory/auxdata-public/openeo/onnx_dependencies_1.16.3.zip#onnx_deps"</span>]</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>job <span class="op">=</span> cropmap.save_result(<span class="st">"GTiff"</span>).create_job()</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>job <span class="op">=</span> cropmap.save_result(<span class="st">"GTiff"</span>).create_job(title<span class="op">=</span><span class="st">"worldcereal inference demo"</span>)</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>job.start()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The job has two main parameters:</p>
+<ul>
+<li><code>spatial_extent</code> is a bounding box definition, which should be below 400km² (20x20km)</li>
+<li><code>temporal_extent</code> is a list of two dates, spanning exactly 1 year. The end date should correspond to the end of the growing season in the area of interest.</li>
+</ul>
 <p>Once the job has started, you can use the interface available at <a href="https://openeo.dataspace.copernicus.eu">https://openeo.dataspace.copernicus.eu</a> to monitor it, or use the Python API.</p>
 </section>
 <section id="rest-api" class="level2">
