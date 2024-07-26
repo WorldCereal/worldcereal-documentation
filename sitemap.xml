@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://worldcereal.github.io/design/reference_data_module.html</loc>
-    <lastmod>2024-06-26T10:41:46.904Z</lastmod>
-  </url>
-  <url>
-    <loc>https://worldcereal.github.io/design/user_management.html</loc>
-    <lastmod>2024-06-26T10:41:46.904Z</lastmod>
+    <loc>https://worldcereal.github.io/index.html</loc>
+    <lastmod>2024-07-26T13:56:01.849Z</lastmod>
   </url>
   <url>
     <loc>https://worldcereal.github.io/design/inference.html</loc>
-    <lastmod>2024-06-26T10:42:30.680Z</lastmod>
+    <lastmod>2024-07-26T13:56:45.489Z</lastmod>
   </url>
   <url>
     <loc>https://worldcereal.github.io/design/cloudnative_rdm.html</loc>
-    <lastmod>2024-06-26T10:41:46.904Z</lastmod>
-  </url>
-  <url>
-    <loc>https://worldcereal.github.io/usage/processing_api.html</loc>
-    <lastmod>2024-06-26T10:41:46.904Z</lastmod>
-  </url>
-  <url>
-    <loc>https://worldcereal.github.io/index.html</loc>
-    <lastmod>2024-06-26T10:41:46.904Z</lastmod>
-  </url>
-  <url>
-    <loc>https://worldcereal.github.io/design/extractions.html</loc>
-    <lastmod>2024-06-26T10:41:46.904Z</lastmod>
+    <lastmod>2024-07-26T13:56:01.849Z</lastmod>
   </url>
   <url>
     <loc>https://worldcereal.github.io/design/processing_system.html</loc>
-    <lastmod>2024-06-26T10:41:46.904Z</lastmod>
+    <lastmod>2024-07-26T13:56:01.849Z</lastmod>
+  </url>
+  <url>
+    <loc>https://worldcereal.github.io/usage/processing_api.html</loc>
+    <lastmod>2024-07-26T13:56:01.849Z</lastmod>
   </url>
   <url>
     <loc>https://worldcereal.github.io/design/model_training.html</loc>
-    <lastmod>2024-06-26T10:41:46.904Z</lastmod>
+    <lastmod>2024-07-26T13:56:01.849Z</lastmod>
+  </url>
+  <url>
+    <loc>https://worldcereal.github.io/design/extractions.html</loc>
+    <lastmod>2024-07-26T13:56:01.849Z</lastmod>
+  </url>
+  <url>
+    <loc>https://worldcereal.github.io/design/reference_data_module.html</loc>
+    <lastmod>2024-07-26T13:56:01.849Z</lastmod>
+  </url>
+  <url>
+    <loc>https://worldcereal.github.io/design/user_management.html</loc>
+    <lastmod>2024-07-26T13:56:01.849Z</lastmod>
   </url>
 </urlset>

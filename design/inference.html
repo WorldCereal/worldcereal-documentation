@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>WorldCereal Documentation - Crop type map production</title>
+<title>Crop type map production – WorldCereal Documentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -123,13 +123,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../design/user_management.html">System design</a></li><li class="breadcrumb-item"><a href="../design/inference.html">Inference</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -154,9 +154,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Usage</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -171,9 +171,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">System design</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -314,7 +314,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </dd>
 </dl>
 </div>
-<div id="fig-inference" class="cell-output cell-output-display quarto-figure quarto-figure-center quarto-float anchored" data-execution_count="1">
+<div id="fig-inference" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="1">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-inference-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 
@@ -333,7 +333,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
     </script>
     <openeo-model-builder>
-        <script type="application/json">{"id": "4a7af8558294464c8eaaf9a2a9b4ee15", "explicit-zoom": true, "height": "400px", "value": {"process_graph": {"loadmlmodel1": {"process_id": "load_ml_model", "arguments": {"id": "http://myhost.com/my_catboost_stac_metadata.json"}}, "loadcollection1": {"process_id": "load_collection", "arguments": {"id": "SENTINEL2_L2A", "spatial_extent": null, "temporal_extent": null}}, "aggregatetemporalperiod1": {"process_id": "aggregate_temporal_period", "arguments": {"data": {"from_node": "loadcollection1"}, "period": "month", "reducer": {"process_graph": {"mean1": {"process_id": "mean", "arguments": {"data": {"from_parameter": "data"}}, "result": true}}}}}, "loadcollection2": {"process_id": "load_collection", "arguments": {"id": "SENTINEL1_GRD", "spatial_extent": null, "temporal_extent": null}}, "sarbackscatter1": {"process_id": "sar_backscatter", "arguments": {"coefficient": "sigma0-ellipsoid", "contributing_area": false, "data": {"from_node": "loadcollection2"}, "elevation_model": null, "ellipsoid_incidence_angle": false, "local_incidence_angle": false, "mask": false, "noise_removal": true}}, "resamplespatial1": {"process_id": "resample_spatial", "arguments": {"align": "upper-left", "data": {"from_node": "sarbackscatter1"}, "method": "near", "projection": null, "resolution": 20}}, "aggregatetemporalperiod2": {"process_id": "aggregate_temporal_period", "arguments": {"data": {"from_node": "resamplespatial1"}, "period": "month", "reducer": {"process_graph": {"mean2": {"process_id": "mean", "arguments": {"data": {"from_parameter": "data"}}, "result": true}}}}}, "mergecubes1": {"process_id": "merge_cubes", "arguments": {"cube1": {"from_node": "aggregatetemporalperiod1"}, "cube2": {"from_node": "aggregatetemporalperiod2"}}}, "applydimension1": {"process_id": "apply_dimension", "arguments": {"data": {"from_node": "mergecubes1"}, "dimension": "t", "process": {"process_graph": {"runudf1": {"process_id": "run_udf", "arguments": {"data": {"from_parameter": "data"}, "runtime": "Python", "udf": ""}, "result": true}}}, "target_dimension": "bands"}}, "reducedimension1": {"process_id": "reduce_dimension", "arguments": {"context": {"from_node": "loadmlmodel1"}, "data": {"from_node": "applydimension1"}, "dimension": "bands", "reducer": {"process_graph": {"predictcatboost1": {"process_id": "predict_catboost", "arguments": {"data": {"from_parameter": "data"}, "model": {"from_parameter": "context"}}, "result": true}}}}, "result": true}}}}</script>
+        <script type="application/json">{"id": "39a26872605c410f828241f78c6dc757", "explicit-zoom": true, "height": "400px", "value": {"process_graph": {"loadmlmodel1": {"process_id": "load_ml_model", "arguments": {"id": "http://myhost.com/my_catboost_stac_metadata.json"}}, "loadcollection1": {"process_id": "load_collection", "arguments": {"id": "SENTINEL2_L2A", "spatial_extent": null, "temporal_extent": null}}, "aggregatetemporalperiod1": {"process_id": "aggregate_temporal_period", "arguments": {"data": {"from_node": "loadcollection1"}, "period": "month", "reducer": {"process_graph": {"mean1": {"process_id": "mean", "arguments": {"data": {"from_parameter": "data"}}, "result": true}}}}}, "loadcollection2": {"process_id": "load_collection", "arguments": {"id": "SENTINEL1_GRD", "spatial_extent": null, "temporal_extent": null}}, "sarbackscatter1": {"process_id": "sar_backscatter", "arguments": {"coefficient": "sigma0-ellipsoid", "contributing_area": false, "data": {"from_node": "loadcollection2"}, "elevation_model": null, "ellipsoid_incidence_angle": false, "local_incidence_angle": false, "mask": false, "noise_removal": true}}, "resamplespatial1": {"process_id": "resample_spatial", "arguments": {"align": "upper-left", "data": {"from_node": "sarbackscatter1"}, "method": "near", "projection": null, "resolution": 20}}, "aggregatetemporalperiod2": {"process_id": "aggregate_temporal_period", "arguments": {"data": {"from_node": "resamplespatial1"}, "period": "month", "reducer": {"process_graph": {"mean2": {"process_id": "mean", "arguments": {"data": {"from_parameter": "data"}}, "result": true}}}}}, "mergecubes1": {"process_id": "merge_cubes", "arguments": {"cube1": {"from_node": "aggregatetemporalperiod1"}, "cube2": {"from_node": "aggregatetemporalperiod2"}}}, "applydimension1": {"process_id": "apply_dimension", "arguments": {"data": {"from_node": "mergecubes1"}, "dimension": "t", "process": {"process_graph": {"runudf1": {"process_id": "run_udf", "arguments": {"data": {"from_parameter": "data"}, "runtime": "Python", "udf": ""}, "result": true}}}, "target_dimension": "bands"}}, "reducedimension1": {"process_id": "reduce_dimension", "arguments": {"context": {"from_node": "loadmlmodel1"}, "data": {"from_node": "applydimension1"}, "dimension": "bands", "reducer": {"process_graph": {"predictcatboost1": {"process_id": "predict_catboost", "arguments": {"data": {"from_parameter": "data"}, "model": {"from_parameter": "context"}}, "result": true}}}}, "result": true}}}}</script>
     </openeo-model-builder>
     
 </div>
@@ -353,7 +353,7 @@ Figure&nbsp;1: The WorldCereal inference pipeline
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>stac_metadata <span class="op">=</span> connection.datacube_from_process(<span class="st">"stac_update"</span>,data <span class="op">=</span> stac_metadata) <span class="co">#todo: add custom metadata</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>connection.datacube_from_process(<span class="st">"export_workspace"</span>,data <span class="op">=</span> stac_metadata, workspace <span class="op">=</span> <span class="st">"my_workspace"</span>, merge<span class="op">=</span><span class="st">"pointer_to_worldcereal_collection"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="fig-export" class="cell-output cell-output-display quarto-figure quarto-figure-center quarto-float anchored" data-execution_count="2">
+<div id="fig-export" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="2">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-export-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 
@@ -372,7 +372,7 @@ Figure&nbsp;1: The WorldCereal inference pipeline
     }
     </script>
     <openeo-model-builder>
-        <script type="application/json">{"id": "24a0778040614f4b8a3899408badb8c1", "explicit-zoom": true, "height": "400px", "value": {"process_graph": {"loadmlmodel1": {"process_id": "load_ml_model", "arguments": {"id": "http://myhost.com/my_catboost_stac_metadata.json"}}, "loadcollection1": {"process_id": "load_collection", "arguments": {"id": "SENTINEL2_L2A", "spatial_extent": null, "temporal_extent": null}}, "aggregatetemporalperiod1": {"process_id": "aggregate_temporal_period", "arguments": {"data": {"from_node": "loadcollection1"}, "period": "month", "reducer": {"process_graph": {"mean1": {"process_id": "mean", "arguments": {"data": {"from_parameter": "data"}}, "result": true}}}}}, "loadcollection2": {"process_id": "load_collection", "arguments": {"id": "SENTINEL1_GRD", "spatial_extent": null, "temporal_extent": null}}, "sarbackscatter1": {"process_id": "sar_backscatter", "arguments": {"coefficient": "sigma0-ellipsoid", "contributing_area": false, "data": {"from_node": "loadcollection2"}, "elevation_model": null, "ellipsoid_incidence_angle": false, "local_incidence_angle": false, "mask": false, "noise_removal": true}}, "resamplespatial1": {"process_id": "resample_spatial", "arguments": {"align": "upper-left", "data": {"from_node": "sarbackscatter1"}, "method": "near", "projection": null, "resolution": 20}}, "aggregatetemporalperiod2": {"process_id": "aggregate_temporal_period", "arguments": {"data": {"from_node": "resamplespatial1"}, "period": "month", "reducer": {"process_graph": {"mean2": {"process_id": "mean", "arguments": {"data": {"from_parameter": "data"}}, "result": true}}}}}, "mergecubes1": {"process_id": "merge_cubes", "arguments": {"cube1": {"from_node": "aggregatetemporalperiod1"}, "cube2": {"from_node": "aggregatetemporalperiod2"}}}, "applydimension1": {"process_id": "apply_dimension", "arguments": {"data": {"from_node": "mergecubes1"}, "dimension": "t", "process": {"process_graph": {"runudf1": {"process_id": "run_udf", "arguments": {"data": {"from_parameter": "data"}, "runtime": "Python", "udf": ""}, "result": true}}}, "target_dimension": "bands"}}, "reducedimension1": {"process_id": "reduce_dimension", "arguments": {"context": {"from_node": "loadmlmodel1"}, "data": {"from_node": "applydimension1"}, "dimension": "bands", "reducer": {"process_graph": {"predictcatboost1": {"process_id": "predict_catboost", "arguments": {"data": {"from_parameter": "data"}, "model": {"from_parameter": "context"}}, "result": true}}}}}, "saveresult1": {"process_id": "save_result", "arguments": {"data": {"from_node": "reducedimension1"}, "format": "GTiff", "options": {}}}, "stacupdate1": {"process_id": "stac_update", "arguments": {"data": {"from_node": "saveresult1"}}}, "exportworkspace1": {"process_id": "export_workspace", "arguments": {"data": {"from_node": "stacupdate1"}, "merge": "pointer_to_worldcereal_collection", "workspace": "my_workspace"}, "result": true}}}}</script>
+        <script type="application/json">{"id": "9f36eda8b2cb4ceb81565a40860ab8d4", "explicit-zoom": true, "height": "400px", "value": {"process_graph": {"loadmlmodel1": {"process_id": "load_ml_model", "arguments": {"id": "http://myhost.com/my_catboost_stac_metadata.json"}}, "loadcollection1": {"process_id": "load_collection", "arguments": {"id": "SENTINEL2_L2A", "spatial_extent": null, "temporal_extent": null}}, "aggregatetemporalperiod1": {"process_id": "aggregate_temporal_period", "arguments": {"data": {"from_node": "loadcollection1"}, "period": "month", "reducer": {"process_graph": {"mean1": {"process_id": "mean", "arguments": {"data": {"from_parameter": "data"}}, "result": true}}}}}, "loadcollection2": {"process_id": "load_collection", "arguments": {"id": "SENTINEL1_GRD", "spatial_extent": null, "temporal_extent": null}}, "sarbackscatter1": {"process_id": "sar_backscatter", "arguments": {"coefficient": "sigma0-ellipsoid", "contributing_area": false, "data": {"from_node": "loadcollection2"}, "elevation_model": null, "ellipsoid_incidence_angle": false, "local_incidence_angle": false, "mask": false, "noise_removal": true}}, "resamplespatial1": {"process_id": "resample_spatial", "arguments": {"align": "upper-left", "data": {"from_node": "sarbackscatter1"}, "method": "near", "projection": null, "resolution": 20}}, "aggregatetemporalperiod2": {"process_id": "aggregate_temporal_period", "arguments": {"data": {"from_node": "resamplespatial1"}, "period": "month", "reducer": {"process_graph": {"mean2": {"process_id": "mean", "arguments": {"data": {"from_parameter": "data"}}, "result": true}}}}}, "mergecubes1": {"process_id": "merge_cubes", "arguments": {"cube1": {"from_node": "aggregatetemporalperiod1"}, "cube2": {"from_node": "aggregatetemporalperiod2"}}}, "applydimension1": {"process_id": "apply_dimension", "arguments": {"data": {"from_node": "mergecubes1"}, "dimension": "t", "process": {"process_graph": {"runudf1": {"process_id": "run_udf", "arguments": {"data": {"from_parameter": "data"}, "runtime": "Python", "udf": ""}, "result": true}}}, "target_dimension": "bands"}}, "reducedimension1": {"process_id": "reduce_dimension", "arguments": {"context": {"from_node": "loadmlmodel1"}, "data": {"from_node": "applydimension1"}, "dimension": "bands", "reducer": {"process_graph": {"predictcatboost1": {"process_id": "predict_catboost", "arguments": {"data": {"from_parameter": "data"}, "model": {"from_parameter": "context"}}, "result": true}}}}}, "saveresult1": {"process_id": "save_result", "arguments": {"data": {"from_node": "reducedimension1"}, "format": "GTiff", "options": {}}}, "stacupdate1": {"process_id": "stac_update", "arguments": {"data": {"from_node": "saveresult1"}}}, "exportworkspace1": {"process_id": "export_workspace", "arguments": {"data": {"from_node": "stacupdate1"}, "merge": "pointer_to_worldcereal_collection", "workspace": "my_workspace"}, "result": true}}}}</script>
     </openeo-model-builder>
     
 </div>
@@ -422,18 +422,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -465,7 +454,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/worldcereal\.github\.io\/");
@@ -473,7 +484,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
