@@ -46,9 +46,14 @@ job_options =  {
     "python-memory": "2g",
     "udf-dependency-archives": ["https://artifactory.vgt.vito.be/artifactory/auxdata-public/openeo/onnx_dependencies_1.16.3.zip#onnx_deps"]
 }
-job = cropmap.save_result("GTiff").create_job()
+job = cropmap.save_result("GTiff").create_job(title="worldcereal inference demo")
 job.start()
 ```
+
+The job has two main parameters:
+
+- `spatial_extent` is a bounding box definition, which should be below 400km² (20x20km)
+- `temporal_extent` is a list of two dates, spanning exactly 1 year. The end date should correspond to the end of the growing season in the area of interest. 
 
 Once the job has started, you can use the interface available at [https://openeo.dataspace.copernicus.eu](https://openeo.dataspace.copernicus.eu)
 to monitor it, or use the Python API.
