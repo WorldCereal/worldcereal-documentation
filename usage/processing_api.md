@@ -26,48 +26,28 @@ The following example shows a code sample on how to execute a WorldCereal workfl
 import openeo
 
 # Setup parameters
-aoi = {
-    "type": "Polygon",
-    "coordinates": [
-        [
-            [
-                5.179324150085449,
-                51.2498689148547
-            ],
-            [
-                5.178744792938232,
-                51.24672597710759
-            ],
-            [
-                5.185289382934569,
-                51.24504696935156
-            ],
-            [
-                5.18676996231079,
-                51.245342479161295
-            ],
-            [
-                5.187370777130127,
-                51.24918393390799
-            ],
-            [
-                5.179324150085449,
-                51.2498689148547
-            ]
-        ]
-    ]
-}
-date = '2020-06-01'
+spatial_extent = {"west":664000, "south":5611134, "east": 684000, "north":5631134}
+temporal_extent = ["2020-11-01","2021-10-31"]
 
 # Setup connection with OpenEO
 eoconn = openeo.connect("openeofed.dataspace.copernicus.eu").authenticate_oidc()
 
 # Create a processing graph from the worldcereal-inference process using an active openEO connection
-cropmap = eoconn.datacube_from_process("worldcereal_inference", namespace="https://github.com/ESA-APEx/apex_algorithms/raw/main/openeo_udp/worldcereal_inference.json", bbox=aoi)
+cropmap = eoconn.datacube_from_process(
+    "worldcereal_inference", 
+    namespace="https://github.com/ESA-APEx/apex_algorithms/raw/main/openeo_udp/worldcereal_inference.json", 
+    spatial_extent=spatial_extent,
+    temporal_extent=temporal_extent)
 
 # Execute the OpenEO request as a batch job
-cropmap_job = cropmap.send_job()
-cropmap_job.start_and_wait().get_results()
+job_options =  { 
+    "driver-memory": "4g",
+    "executor-memory": "1g",
+    "python-memory": "2g",
+    "udf-dependency-archives": ["https://artifactory.vgt.vito.be/artifactory/auxdata-public/openeo/onnx_dependencies_1.16.3.zip#onnx_deps"]
+}
+job = cropmap.save_result("GTiff").create_job()
+job.start()
 ```
 
 Once the job has started, you can use the interface available at [https://openeo.dataspace.copernicus.eu](https://openeo.dataspace.copernicus.eu)
@@ -99,20 +79,25 @@ Content-Length: 4587
                 "process_id": "worldcereal_inference",
                 "namespace": "https://github.com/ESA-APEx/apex_algorithms/raw/main/openeo_udp/worldcereal_inference.json",
                 "arguments": {
-                    "bbox": {
+                    "spatial_extent": {
                         "west": 5.15183687210083,
                         "east": 5.153381824493408,
                         "south": 51.18192559252128,
                         "north": 51.18469636040683,
                         "crs": "EPSG:4326"
-                    }
+                    },
+                    "temporal_extent": [
+                        "2020-11-01",
+                        "2021-10-31"
+                    ]
                 },
                 "result": true
             }
         }
     },
     "driver-memory": "4g",
-    "executor-memoryOverhead": "4g",
+    "executor-memory": "1g",
+    "python-memory": "2g",
     "udf-dependency-archives": [
         "https://artifactory.vgt.vito.be/artifactory/auxdata-public/openeo/onnx_dependencies_1.16.3.zip#onnx_deps"
     ]
