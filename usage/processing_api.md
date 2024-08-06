@@ -26,7 +26,7 @@ The following example shows a code sample on how to execute a WorldCereal workfl
 import openeo
 
 # Setup parameters
-spatial_extent = {"west":664000, "south":5611134, "east": 684000, "north":5631134}
+spatial_extent = {"west":664000, "south":5611134, "east": 684000, "north":5631134, "crs":"EPSG:32631"}
 temporal_extent = ["2020-11-01","2021-10-31"]
 
 # Setup connection with OpenEO
@@ -46,7 +46,7 @@ job_options =  {
     "python-memory": "2g",
     "udf-dependency-archives": ["https://artifactory.vgt.vito.be/artifactory/auxdata-public/openeo/onnx_dependencies_1.16.3.zip#onnx_deps"]
 }
-job = cropmap.save_result("GTiff").create_job(title="worldcereal inference demo")
+job = cropmap.save_result("GTiff").create_job(title="worldcereal inference demo",job_options=job_options)
 job.start()
 ```
 
