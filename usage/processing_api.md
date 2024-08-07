@@ -43,6 +43,7 @@ cropmap = eoconn.datacube_from_process(
 job_options =  { 
     "driver-memory": "4g",
     "executor-memory": "1g",
+    "executor-memoryOverhead": "1g",
     "python-memory": "2g",
     "udf-dependency-archives": ["https://artifactory.vgt.vito.be/artifactory/auxdata-public/openeo/onnx_dependencies_1.16.3.zip#onnx_deps"]
 }
@@ -102,6 +103,7 @@ Content-Length: 4587
     },
     "driver-memory": "4g",
     "executor-memory": "1g",
+    "executor-memoryOverhead": "1g",
     "python-memory": "2g",
     "udf-dependency-archives": [
         "https://artifactory.vgt.vito.be/artifactory/auxdata-public/openeo/onnx_dependencies_1.16.3.zip#onnx_deps"
@@ -120,6 +122,12 @@ Content-Length: 0
 
 ```
 
-This call will return 202 if successfull. Now you can use other parts of the API to monitor the job,
+This call will return 202 if successfully. Now you can use other parts of the API to monitor the job,
 request logs, result metadata or data itself.
+
+## Cost estimate
+
+The cost of a run for a 20x20km should be around 100 credits, but may fluctuate by up to 20 credits depending on the input data
+available in the processing area. Please report unexpected fluctuations, as this may indicate a problem with the processing.
+
 
