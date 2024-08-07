@@ -234,6 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#client-libraries" id="toc-client-libraries" class="nav-link" data-scroll-target="#client-libraries">Client libraries</a></li>
   <li><a href="#rest-api" id="toc-rest-api" class="nav-link" data-scroll-target="#rest-api">REST API</a></li>
+  <li><a href="#cost-estimate" id="toc-cost-estimate" class="nav-link" data-scroll-target="#cost-estimate">Cost estimate</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -274,11 +275,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>job_options <span class="op">=</span>  { </span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"driver-memory"</span>: <span class="st">"4g"</span>,</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"executor-memory"</span>: <span class="st">"1g"</span>,</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"python-memory"</span>: <span class="st">"2g"</span>,</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"udf-dependency-archives"</span>: [<span class="st">"https://artifactory.vgt.vito.be/artifactory/auxdata-public/openeo/onnx_dependencies_1.16.3.zip#onnx_deps"</span>]</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>job <span class="op">=</span> cropmap.save_result(<span class="st">"GTiff"</span>).create_job(title<span class="op">=</span><span class="st">"worldcereal inference demo"</span>,job_options<span class="op">=</span>job_options)</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>job.start()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"executor-memoryOverhead"</span>: <span class="st">"1g"</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"python-memory"</span>: <span class="st">"2g"</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"udf-dependency-archives"</span>: [<span class="st">"https://artifactory.vgt.vito.be/artifactory/auxdata-public/openeo/onnx_dependencies_1.16.3.zip#onnx_deps"</span>]</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>job <span class="op">=</span> cropmap.save_result(<span class="st">"GTiff"</span>).create_job(title<span class="op">=</span><span class="st">"worldcereal inference demo"</span>,job_options<span class="op">=</span>job_options)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>job.start()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The job has two main parameters:</p>
 <ul>
 <li><code>spatial_extent</code> is a bounding box definition, which should be below 400km² (20x20km)</li>
@@ -334,6 +336,7 @@ Content-Length: 4587
     },
     "driver-memory": "4g",
     "executor-memory": "1g",
+    "executor-memoryOverhead": "1g",
     "python-memory": "2g",
     "udf-dependency-archives": [
         "https://artifactory.vgt.vito.be/artifactory/auxdata-public/openeo/onnx_dependencies_1.16.3.zip#onnx_deps"
@@ -345,7 +348,11 @@ Host: openeo.dataspace.copernicus.eu
 Authorization: Bearer basic//basic.cHJvag==
 Content-Length: 0
 </code></pre>
-<p>This call will return 202 if successfull. Now you can use other parts of the API to monitor the job, request logs, result metadata or data itself.</p>
+<p>This call will return 202 if successfully. Now you can use other parts of the API to monitor the job, request logs, result metadata or data itself.</p>
+</section>
+<section id="cost-estimate" class="level2">
+<h2 class="anchored" data-anchor-id="cost-estimate">Cost estimate</h2>
+<p>The cost of a run for a 20x20km should be around 100 credits, but may fluctuate by up to 20 credits depending on the input data available in the processing area. Please report unexpected fluctuations, as this may indicate a problem with the processing.</p>
 
 
 </section>
