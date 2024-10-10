@@ -1,4 +1,9 @@
+
 # ESA WorldCereal documentation portal
+
+
+![](./images/WorldCereal_Icon.jpg)
+
 
 The [WorldCereal project](https://esa-worldcereal.org/en) aims to offer a processing system allowing anyone to train and apply custom cropland and/or crop type detection models using open Earth Observation (EO) data. 
 
