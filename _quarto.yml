@@ -36,22 +36,6 @@ website:
         contents:
           - href: usage/processing_api.md
             text: Processing API
-      - section: "System design"
-        contents:
-          - href: design/user_management.md
-            text: User Management
-          - href: design/processing_system.md
-            text: Processing System
-          - href: design/reference_data_module.ipynb
-            text: Reference Data Module
-          - href: design/cloudnative_rdm.md
-            text: Cloud Native RDM
-          - href: design/extractions.qmd
-            text: Extractions
-          - href: design/model_training.ipynb
-            text: Training
-          - href: design/inference.ipynb
-            text: Inference
 
 
 format:
