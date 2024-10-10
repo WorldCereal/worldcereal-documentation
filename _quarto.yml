@@ -32,10 +32,55 @@ website:
     contents:
       - href: index.md
         text: Welcome
-      - section: "Usage"
+
+      - section: "Introduction"
         contents:
-          - href: usage/processing_api.md
-            text: Processing API
+          - href: intro/how_started.md
+            text: How it all started
+          - href: intro/purpose_scope.md
+            text: Purpose and Scope
+          - href: intro/system_overview.md
+            text: System Overview
+          - href: intro/versioning.md
+            text: Versioning and Release Notes
+   
+      - section: "Reference Data Module (RDM)"
+        contents:
+          - href: rdm/overview.md
+            text: Overview
+          - href: rdm/explore.md
+            text: Explore and Retrieve Data
+          - href: rdm/upload.md
+            text: Upload Your Data
+          - href: rdm/publish.md
+            text: Publish Your Data
+
+      - section: "Processing System"
+        contents:
+          - href: processing/overview.md
+            text: Overview
+          - href: processing/supported.md
+            text: Currently Supported Features
+          - href: processing/planned.md
+            text: Planned Features and Upgrades
+          - href: processing/usage_cloud.md
+            text: Usage of the Cloud System
+          - href: processing/usage_standalone.md
+            text: Usage of the Standalone System
+      
+      - section: "Visualization and Dissemination Module (VDM)"
+        contents:
+          - href: vdm/overview.md
+            text: Overview
+          - href: vdm/visualize.md
+            text: Visualizing Global Products
+          - href: vdm/launch.md
+            text: Launch Processing Jobs
+          - href: vdm/planned.md
+            text: Planned Features and Upgrades
+      
+      - href: support.md
+        text: Support and Resources     
 
 
 format:
