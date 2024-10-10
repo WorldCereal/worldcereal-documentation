@@ -18,7 +18,6 @@ The WorldCereal project is executed by a consortium of six partners, lead by [VI
 
 and funded by the European Space Agency (ESA)
 
-![](./images/ESA_logo_2020_Deep.png)
-
-
-
+<div>
+<img src="./images/ESA_logo_2020_Deep.png" width="200"/>
+</div>
