@@ -1,5 +1,27 @@
 [
   {
+    "objectID": "intro/versioning.html",
+    "href": "intro/versioning.html",
+    "title": "WorldCereal Documentation",
+    "section": "",
+    "text": "&lt; empty &gt;",
+    "crumbs": [
+      "Introduction",
+      "Versioning and Release Notes"
+    ]
+  },
+  {
+    "objectID": "intro/how_started.html",
+    "href": "intro/how_started.html",
+    "title": "WorldCereal Documentation",
+    "section": "",
+    "text": "Accurate estimates on cropped area, crop type distributions and irrigation practices play an important role in guiding policy decisions related to food & water security. In 2023, the WorldCereal consortium released the first set of high-resolution, global and season-specific cropland, crop type and irrigation maps for the year 2021, thereby demonstrating both the scientific and technical feasibility of such a challenging undertaking.\n\n\n\nWorldCereal 2021 temporary crop extent map, resampled to ~0.004 ° resolution. Each pixel contains a number between 0 and 100, indicating the fractional cover of temporary crops within that pixel.\nBased on the success of this first phase of the project, the consortium now continues to open up the processing system to the world, powered by the Copernicus Data Space Ecosystem and OpenEO.\nDiscover more about the specific objectives and activities of this second phase of the project.",
+    "crumbs": [
+      "Introduction",
+      "How it all started"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "ESA WorldCereal documentation portal",
@@ -7,6 +29,50 @@
     "text": "ESA WorldCereal documentation portal\nThe WorldCereal project aims to offer a processing system allowing anyone to train and apply custom cropland and/or crop type detection models using open Earth Observation (EO) data.\nThis documentation portal aims to provide:\n\nRelevant background information about the design of the system and implemented workflows\nPractical and step-by-step guidelines on how to use the processing system\n\nIn the INTRODUCTION section, we provide insights into the origin and scope of the system, as well as an overview of the functionalities of the different system components. The other sections are each devoted to a different system component, containing both conceptual and practical information required to get you started.\nAny remaining questions? Reach out to us through our dedicated USER FORUM!\nThe WorldCereal project is executed by a consortium of six partners, lead by VITO Remote Sensing:\n\nand funded by the European Space Agency (ESA)",
     "crumbs": [
       "Welcome"
+    ]
+  },
+  {
+    "objectID": "vdm/overview.html",
+    "href": "vdm/overview.html",
+    "title": "WorldCereal Documentation",
+    "section": "",
+    "text": "&lt; empty &gt;",
+    "crumbs": [
+      "Visualization and Dissemination Module (VDM)",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "vdm/launch.html",
+    "href": "vdm/launch.html",
+    "title": "WorldCereal Documentation",
+    "section": "",
+    "text": "The Visualization and Disseminaton Module will host specific user interfaces allowing our users to launch their processing jobs with just a few clicks.\nThis feature is currently still under development…",
+    "crumbs": [
+      "Visualization and Dissemination Module (VDM)",
+      "Launch Processing Jobs"
+    ]
+  },
+  {
+    "objectID": "rdm/upload.html",
+    "href": "rdm/upload.html",
+    "title": "WorldCereal Documentation",
+    "section": "",
+    "text": "Introduction\nGuidelines on data collection (important features of the data + best practices)\nUploading through User Interface (you need terrascope account!) –&gt; Refer to demo video!\nUsing your data in the processing module - Refer to previous section on retrieving private samples - (Refer to next section on input data extractions)",
+    "crumbs": [
+      "Reference Data Module (RDM)",
+      "Upload Your Data"
+    ]
+  },
+  {
+    "objectID": "rdm/overview.html",
+    "href": "rdm/overview.html",
+    "title": "WorldCereal Documentation",
+    "section": "",
+    "text": "Definition of in-situ reference data for crop mapping Technical background of RDM list of main functionalities –&gt; refer to more detailed sections",
+    "crumbs": [
+      "Reference Data Module (RDM)",
+      "Overview"
     ]
   },
   {
@@ -143,6 +209,71 @@
     "text": "The proposal can largely be seen as a logical evolution of the current design, combined with principles from cloud native geospatial.\nThe first sentence of (OGC 2017) states: &gt; Cloud-native geospatial offers many benefits to location data users ranging from decreasing the burden on data providers, to drastically lowering the costs of managing that data\nSo the relationship with our own requirement to decrease operational costs should be clear.\nTo make this general idea more specific, we point to a few technological advancements in the past years, that are also explained in the next sections:\n\nGeoParquet as columnar, cloud-native data format.\nDuckDB: an in-memory database that allows to integrate SQL queries on Parquet files in client side scripts or the browser.\n\nThe design is also triggered by a key observation that RDM data is not considered volatile. When new data is added to the RDM, once made public, that version of the data should stay where it is, without changing. Hence we can make technology choices that are optimized for this type of data.\n\n\n\n\nGeoParquet is often referred to as a ‘columnar’ format. This section explains what this stands for and why it is relevant.\nColumnar simply refers to the fact that data is organized by column as opposed to by row. ‘Traditional’ SQL databases like PostGreSQL store data by row, which for instance allows to easily update all values in a row.\nColumnar storage was introduced to address the need for fast analytics queries. For instance, creating a histogram of all croptypes is much faster with columnar, because you only need to load a single column for such a query.\nAnother important property is that GeoParquet is ‘cloud-native’. This usually refers to the simple property of being able to load parts of the data using an HTTP ‘Range’ request. This avoids a full download of the file, when only a small part is needed. This ability can replace a key function that is often performed by web services: reading only a small part of a larger database.\nGeoParquet is also a binary format, with internal compression. This means that file sizes are much smaller compared to for instance GeoJSON. Compression is of course only applied at chunk level, to retain the property of partial reads.\n\n\n\nDuckDB is an in-memory SQL engine that can run for instance as part of a Python script, or even in a web browser. It is built for speed, and can handle large datasets. It will utilize all available cpu’s, and in our tests could perform analytical queries on RDM data very fast.\nIt support the spatial SQL extension that can also be found in PostGIS, and an H3 extension for working with H3 hexagons. This means that many of the API requests that are normally handled by a web service backed by a SQL database, can just as well be handled by DuckDB.\nThe major advantage of client-side SQL is that you don’t need a server, drastically lowering resource and maintenance cost. Another key advantage, is that users can run any SQL query they like, without needing to ask for a new API endpoint.\n\n\n\nNote that, to validate these technologies, we have effectively performed experiments using WorldCereal reference datasets. These experiments mainly confirmed the statements made above.\n\n\n\n\nBased on these key components, the high-level design is as follows:\nAll data is stored as GeoParquet. Large files are partitioned by H3 index. This allows to very quickly find the datasets that are relevant for a specific AOI. Partitioning avoids overly large files that may still become problematic when being processed in a single call.\nSTAC items can be made to point to the subfiles in a collection. This allows to use either STAC or GeoParquet partitioning to find required files.\nA STAC catalog is built to allow users to find the data they need. Both a static and dynamic catalog are relevant here. Static can be considered a ‘long term’ archive/backup that is always online. Dynamic web service based catalogs helps with discoverability and easy searching.\nNote that it’s even an option to use GeoParquet to store collection metadata as well: this allows to find the right collection very fast.\n\n\nWorldcereal has a need for user-specific collections that are not generally discoverable or accessible.\nThe most basic way in which this design supports such collections, is simply by letting those users manage the STAC and GeoParquet files themselves. There is no web service involved, so there is no need for complex access control and user management.\nThe second option is to make use of STAC collections that are not publicly accessible. This feature is being developed as part of the Terrascope STAC catalog.\nThe security scheme applied here is very important, because when a GeoParquet file is protected by a complex scheme, tools like DuckDB may not be able to support easy reading over http. For instance, a typical OIDC flow is very complex, or else requires the user to get a bearer token, and then to somehow instruct DuckDB to set an HTTP header with that token when trying to access this specific GeoParquet file over http.\nThe proposed solution would be to use url signing: https://github.com/stac-extensions/authentication?tab=readme-ov-file#url-signing This is also used by Microsoft Planetary Computer. It allows the user to generate a specific url that is valid for a limited time, which allows direct access over http.\n\n\n\nTo fully validate the design, proper integration options with other webservices should be explored. In the context of WorldCereal, services based on the openEO standard are most relevant.\nOpenEO already supports two predefined processes that may be relevant: - load_stac to load a vector cube from stac metadata - load_url to load a GeoParquet file from a url\nWhat is missing is a process that allows to filter a vector cube both on spatial region and on properties. Note that the concept of filter pushdown is very important, so the process definition should give backends the freedom to perform this type of optimization.\nWe could also consider to allow SQL style queries on vector cubes, but note that some SQL functionality does overlap with other concepts in openEO.\n\n\n\n\nThese sections validate the design in terms of specific use cases.\n\n\nThe stratification algorithm selects a subset of samples from the full RDM, to be used in model training. It is (normally) a location specific algorithm, as it is generally important to use samples that are properly spatially distributed.\nHence a geospatial index is very important, which is why we propose to add H3 indices to the geoparquet files. By partitioning large (or all) files on this index, we effectively get a data structure that is optimized for spatial queries, without requiring a more complex index.\nThe other problem is how to store the result of the algorithm. There’s a few options here:\n\nadd a column to all GeoParquet files, indicating if a sample is selected.\nCreate a new geoparquet, containing indices of selected samples, allowing to perform a join.\nCreate a new geoparquet, containing the selected subset with full information. (Or at least the information required for further processing.)\n\nIn terms of performance, option number 3 is certainly attractive. It will however come at a storage cost, which is to be evaluated. It is also possible to combine option 3 with either 1 or 2, in the sense that a temporary file can be generated, and stored for the time that it is actively used.\n\n\n\nFor the public data, the extractions are already cached (in another GeoParquet). So openEO can load a vector cube containing extractions for public samples, based on a spatial region.+\nFor user provided data, if the data is public, the caching mechanism should be triggered automatically.\nFor user provided data, if the data is private, the user should invoke a workflow that generates point based extractions. The workflow will require the (signed) url of the private GeoParquet as input, and will generate a Geoparquet with extractions.\nFor the training itself, the user loads 2 vector cubes (public and private extractions), and performs a merge_cubes before invoking the model training operation."
   },
   {
+    "objectID": "processing/planned.html",
+    "href": "processing/planned.html",
+    "title": "WorldCereal Documentation",
+    "section": "",
+    "text": "&lt; empty &gt;",
+    "crumbs": [
+      "Processing System",
+      "Planned Features and Upgrades"
+    ]
+  },
+  {
+    "objectID": "processing/supported.html",
+    "href": "processing/supported.html",
+    "title": "WorldCereal Documentation",
+    "section": "",
+    "text": "&lt; empty &gt;",
+    "crumbs": [
+      "Processing System",
+      "Currently Supported Features"
+    ]
+  },
+  {
+    "objectID": "support.html",
+    "href": "support.html",
+    "title": "WorldCereal Documentation",
+    "section": "",
+    "text": "Did not find an answer to your question on this portal?\nVisit our user forum to start a discussion!\n\n\nIn need of more details on a particular topic?\nThe WorldCereal project also organizes different courses, both online and face-to-face. All information on these courses can be found on our dedicated training website.\nOur project website also hosts links to our scientific publications and project reports.",
+    "crumbs": [
+      "Support and Resources"
+    ]
+  },
+  {
+    "objectID": "processing/usage_standalone.html",
+    "href": "processing/usage_standalone.html",
+    "title": "WorldCereal Documentation",
+    "section": "",
+    "text": "&lt; empty &gt;",
+    "crumbs": [
+      "Processing System",
+      "Usage of the Standalone System"
+    ]
+  },
+  {
+    "objectID": "processing/overview.html",
+    "href": "processing/overview.html",
+    "title": "WorldCereal Documentation",
+    "section": "",
+    "text": "&lt; empty &gt;",
+    "crumbs": [
+      "Processing System",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "processing/usage_cloud.html",
+    "href": "processing/usage_cloud.html",
+    "title": "WorldCereal Documentation",
+    "section": "",
+    "text": "&lt; empty &gt;",
+    "crumbs": [
+      "Processing System",
+      "Usage of the Cloud System"
+    ]
+  },
+  {
     "objectID": "design/extractions.html",
     "href": "design/extractions.html",
     "title": "Model training EO data management",
@@ -199,47 +330,97 @@
     "text": "Reading test from Parquet\n\n%%time\nimport geopandas as gpd\nimport fsspec\npq_path = \"https://ewocstorage.blob.core.windows.net/collections/2021_PT_EUROCROP_POLY_110.parquet\"\nwith fsspec.open(pq_path) as file:\n    df = gpd.read_parquet(file,columns=[\"geometry\",\"CT\"])\ndf\n\nCPU times: user 909 ms, sys: 305 ms, total: 1.21 s\nWall time: 17.3 s\n\n\n\n\n\n\n\n\n\ngeometry\nCT\n\n\n\n\n0\nMULTIPOLYGON (((-8.54796 40.56554, -8.54942 40...\n1200\n\n\n1\nMULTIPOLYGON (((-8.52352 40.55686, -8.52352 40...\n1700\n\n\n2\nMULTIPOLYGON (((-8.52456 40.55538, -8.52454 40...\n3300\n\n\n3\nMULTIPOLYGON (((-8.52835 40.56835, -8.52837 40...\n2000\n\n\n4\nMULTIPOLYGON (((-8.52781 40.57128, -8.52814 40...\n0\n\n\n...\n...\n...\n\n\n99995\nMULTIPOLYGON (((-6.46866 41.43669, -6.46832 41...\n0\n\n\n99996\nMULTIPOLYGON (((-6.46797 41.43497, -6.46778 41...\n0\n\n\n99997\nMULTIPOLYGON (((-7.45134 41.73074, -7.45134 41...\n1200\n\n\n99998\nMULTIPOLYGON (((-6.47482 41.44217, -6.47480 41...\n0\n\n\n99999\nMULTIPOLYGON (((-6.47503 41.44182, -6.47504 41...\n9520\n\n\n\n\n100000 rows × 2 columns\n\n\n\n\ndf.groupby(['CT']).count()\n\n\n\n\n\n\n\n\ngeometry\n\n\nCT\n\n\n\n\n\n0\n37673\n\n\n1100\n191\n\n\n1200\n4475\n\n\n1300\n271\n\n\n1500\n69\n\n\n...\n...\n\n\n9300\n10\n\n\n9320\n3\n\n\n9500\n8\n\n\n9520\n971\n\n\n9920\n4\n\n\n\n\n61 rows × 1 columns\n\n\n\n\n%%time\nimport duckdb\ndb = duckdb.connect()\ndb.execute('select count(*) from read_parquet(\"https://ewocstorage.blob.core.windows.net/collections/2021_PT_EUROCROP_POLY_110.parquet\")').fetchall()\n\nCPU times: user 255 ms, sys: 4.75 ms, total: 260 ms\nWall time: 294 ms\n\n\n[(100000,)]\n\n\n\n%%time \ndb.query('select CT,count(*) from read_parquet(\"https://ewocstorage.blob.core.windows.net/collections/2021_PT_EUROCROP_POLY_110.parquet\") GROUP BY CT').to_df()\n\nCPU times: user 48.1 ms, sys: 17.3 ms, total: 65.3 ms\nWall time: 597 ms\n\n\n\n\n\n\n\n\n\nCT\ncount_star()\n\n\n\n\n0\n9100\n21039\n\n\n1\n2000\n1976\n\n\n2\n3530\n153\n\n\n3\n7100\n188\n\n\n4\n4380\n11\n\n\n...\n...\n...\n\n\n56\n1200\n4475\n\n\n57\n9520\n971\n\n\n58\n7300\n16\n\n\n59\n2190\n1\n\n\n60\n3490\n4\n\n\n\n\n61 rows × 2 columns\n\n\n\n\ndb.execute('INSTALL spatial;LOAD spatial;')\n\n&lt;duckdb.duckdb.DuckDBPyConnection at 0x70e94825ff30&gt;\n\n\n\n%%time\ndb.query('select ST_centroid(ST_GeomFromWKB(geometry)) from read_parquet(\"https://ewocstorage.blob.core.windows.net/collections/2021_PT_EUROCROP_POLY_110.parquet\") USING SAMPLE 100 ROWS ').to_df()\n\n\n\n\nCPU times: user 4.88 s, sys: 92.6 ms, total: 4.97 s\nWall time: 11.8 s\n\n\n\n\n\n\n\n\n\nst_centroid(st_geomfromwkb(geometry))\n\n\n\n\n0\n[0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,...\n\n\n1\n[0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,...\n\n\n2\n[0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,...\n\n\n3\n[0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,...\n\n\n4\n[0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,...\n\n\n...\n...\n\n\n95\n[0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,...\n\n\n96\n[0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,...\n\n\n97\n[0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,...\n\n\n98\n[0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,...\n\n\n99\n[0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,...\n\n\n\n\n100 rows × 1 columns\n\n\n\n\nGeoParquet vs OGC Features\nAs shown above, both DuckDB and GeoPandas can efficiently handle Parquet files of 100k items stored on https. With parquet as interface, data scientists can write complex queries in a language they know (Pandas, SQL, …).\nWhen looking at OGC features, it seems there are hardly any libraries available. Some basic support in GDAL seems to be the best option to connect with it. To benefit from server side processing power, the most comfortable option seems to write CQL filters. OGC Features does not support aggregation, so a ‘group by’ operation is not supported.\nNote: GeoParquet is on track to be adopted as an OGC standard, hence satisfies standardization requirements."
   },
   {
+    "objectID": "rdm/explore.html",
+    "href": "rdm/explore.html",
+    "title": "WorldCereal Documentation",
+    "section": "",
+    "text": "Introduction\nUsing User Interface –&gt; Refer to demo video!\nUsing API –&gt; Refer to notebooks (according to J. Dries, there is an option to render notebooks directly in the portal!)\nNote on private data (need terrascope login) –&gt; refer to data upload (next section)",
+    "crumbs": [
+      "Reference Data Module (RDM)",
+      "Explore and Retrieve Data"
+    ]
+  },
+  {
+    "objectID": "rdm/publish.html",
+    "href": "rdm/publish.html",
+    "title": "WorldCereal Documentation",
+    "section": "",
+    "text": "Publishing Reference Data (through moderator)",
+    "crumbs": [
+      "Reference Data Module (RDM)",
+      "Publish Your Data"
+    ]
+  },
+  {
     "objectID": "usage/processing_api.html",
     "href": "usage/processing_api.html",
     "title": "openEO based processing",
     "section": "",
-    "text": "This section explains advanced usage of the processing APIs. It explains how to work with Python and HTTP REST based APIs to run WorldCereal processing. This is meant for developers looking to integrate these workflows into their own applications.\nThe WorldCereal system makes use of the Copernicus Dataspace Ecosystem openEO API. This use of this is fully documented on the CDSE website.\nWe refer to this documentation for more advanced questions and for getting a basic understanding of openEO, but we also include concrete examples on this page, to avoid learning the full openEO API, which is quite extensive.\nMore specifically, WorldCereal workflows are offered as openEO user defined processes, that should be invoked via batch jobs.\n\n\nOpenEO provides client libraries to support the creation and execution of JavaScript, Python and R services. The full client libraries documentation is available on the official OpenEO support pages: * JavaScript * Python * R\nThe following example shows a code sample on how to execute a WorldCereal workflow through the OpenEO Python Client.\nimport openeo\n\n# Setup parameters\nspatial_extent = {\"west\":664000, \"south\":5611134, \"east\": 684000, \"north\":5631134, \"crs\":\"EPSG:32631\"}\ntemporal_extent = [\"2020-11-01\",\"2021-10-31\"]\n\n# Setup connection with OpenEO\neoconn = openeo.connect(\"openeofed.dataspace.copernicus.eu\").authenticate_oidc()\n\n# Create a processing graph from the worldcereal-inference process using an active openEO connection\ncropmap = eoconn.datacube_from_process(\n    \"worldcereal_inference\", \n    namespace=\"https://github.com/ESA-APEx/apex_algorithms/raw/main/openeo_udp/worldcereal_inference.json\", \n    spatial_extent=spatial_extent,\n    temporal_extent=temporal_extent)\n\n# Execute the OpenEO request as a batch job\njob_options =  { \n    \"driver-memory\": \"4g\",\n    \"executor-memory\": \"1g\",\n    \"executor-memoryOverhead\": \"1g\",\n    \"python-memory\": \"2g\",\n    \"udf-dependency-archives\": [\"https://artifactory.vgt.vito.be/artifactory/auxdata-public/openeo/onnx_dependencies_1.16.3.zip#onnx_deps\"]\n}\njob = cropmap.save_result(\"GTiff\").create_job(title=\"worldcereal inference demo\",job_options=job_options)\njob.start()\nThe job has two main parameters:\n\nspatial_extent is a bounding box definition, which should be below 400km² (20x20km)\ntemporal_extent is a list of two dates, spanning exactly 1 year. The end date should correspond to the end of the growing season in the area of interest.\n\nOnce the job has started, you can use the interface available at https://openeo.dataspace.copernicus.eu to monitor it, or use the Python API.\n\n\n\nOpenEO provides a fully documented REST API. The API can also be used to integrate WorldCereal jobs into your application if the client libraries are not suitable. The documentation is available at:\n\n\n\nOpenEO\n\n\n\n\nhttps://openeo.org/documentation/1.0/developers/api/reference.html\n\n\n\nThe following example showcases how to use the OpenEO API to execute a request for a WorldCereal service:\nPOST /openeo/1.2/jobs HTTP/1.1\nHost: openeo.dataspace.copernicus.eu\nContent-Type: application/json\nAuthorization: Bearer basic//basic.cHJvag==\nContent-Length: 4587\n{\n    \"title\": \"Your custom WorldCereal job\",\n    \"process\": {\n        \"id\": \"cropmap\",\n        \"process_graph\": {\n            \"biopar1\": {\n                \"process_id\": \"worldcereal_inference\",\n                \"namespace\": \"https://github.com/ESA-APEx/apex_algorithms/raw/main/openeo_udp/worldcereal_inference.json\",\n                \"arguments\": {\n                    \"spatial_extent\": {\n                        \"west\": 5.15183687210083,\n                        \"east\": 5.153381824493408,\n                        \"south\": 51.18192559252128,\n                        \"north\": 51.18469636040683,\n                        \"crs\": \"EPSG:4326\"\n                    },\n                    \"temporal_extent\": [\n                        \"2020-11-01\",\n                        \"2021-10-31\"\n                    ]\n                },\n                \"result\": true\n            }\n        }\n    },\n    \"driver-memory\": \"4g\",\n    \"executor-memory\": \"1g\",\n    \"executor-memoryOverhead\": \"1g\",\n    \"python-memory\": \"2g\",\n    \"udf-dependency-archives\": [\n        \"https://artifactory.vgt.vito.be/artifactory/auxdata-public/openeo/onnx_dependencies_1.16.3.zip#onnx_deps\"\n    ]\n}\nThe response of this call will be a json object containing an ‘id’ property. This property is the job id that you can use in the subsequent call to start the job:\nPOST /openeo/1.2/jobs/{job_id}/results HTTP/1.1\nHost: openeo.dataspace.copernicus.eu\nAuthorization: Bearer basic//basic.cHJvag==\nContent-Length: 0\n\nThis call will return 202 if successfully. Now you can use other parts of the API to monitor the job, request logs, result metadata or data itself.\n\n\n\nThe cost of a run for a 20x20km should be around 100 credits, but may fluctuate by up to 20 credits depending on the input data available in the processing area. Please report unexpected fluctuations, as this may indicate a problem with the processing.",
-    "crumbs": [
-      "Usage",
-      "Processing API"
-    ]
+    "text": "This section explains advanced usage of the processing APIs. It explains how to work with Python and HTTP REST based APIs to run WorldCereal processing. This is meant for developers looking to integrate these workflows into their own applications.\nThe WorldCereal system makes use of the Copernicus Dataspace Ecosystem openEO API. This use of this is fully documented on the CDSE website.\nWe refer to this documentation for more advanced questions and for getting a basic understanding of openEO, but we also include concrete examples on this page, to avoid learning the full openEO API, which is quite extensive.\nMore specifically, WorldCereal workflows are offered as openEO user defined processes, that should be invoked via batch jobs.\n\n\nOpenEO provides client libraries to support the creation and execution of JavaScript, Python and R services. The full client libraries documentation is available on the official OpenEO support pages: * JavaScript * Python * R\nThe following example shows a code sample on how to execute a WorldCereal workflow through the OpenEO Python Client.\nimport openeo\n\n# Setup parameters\nspatial_extent = {\"west\":664000, \"south\":5611134, \"east\": 684000, \"north\":5631134, \"crs\":\"EPSG:32631\"}\ntemporal_extent = [\"2020-11-01\",\"2021-10-31\"]\n\n# Setup connection with OpenEO\neoconn = openeo.connect(\"openeofed.dataspace.copernicus.eu\").authenticate_oidc()\n\n# Create a processing graph from the worldcereal-inference process using an active openEO connection\ncropmap = eoconn.datacube_from_process(\n    \"worldcereal_inference\", \n    namespace=\"https://github.com/ESA-APEx/apex_algorithms/raw/main/openeo_udp/worldcereal_inference.json\", \n    spatial_extent=spatial_extent,\n    temporal_extent=temporal_extent)\n\n# Execute the OpenEO request as a batch job\njob_options =  { \n    \"driver-memory\": \"4g\",\n    \"executor-memory\": \"1g\",\n    \"executor-memoryOverhead\": \"1g\",\n    \"python-memory\": \"2g\",\n    \"udf-dependency-archives\": [\"https://artifactory.vgt.vito.be/artifactory/auxdata-public/openeo/onnx_dependencies_1.16.3.zip#onnx_deps\"]\n}\njob = cropmap.save_result(\"GTiff\").create_job(title=\"worldcereal inference demo\",job_options=job_options)\njob.start()\nThe job has two main parameters:\n\nspatial_extent is a bounding box definition, which should be below 400km² (20x20km)\ntemporal_extent is a list of two dates, spanning exactly 1 year. The end date should correspond to the end of the growing season in the area of interest.\n\nOnce the job has started, you can use the interface available at https://openeo.dataspace.copernicus.eu to monitor it, or use the Python API.\n\n\n\nOpenEO provides a fully documented REST API. The API can also be used to integrate WorldCereal jobs into your application if the client libraries are not suitable. The documentation is available at:\n\n\n\nOpenEO\n\n\n\n\nhttps://openeo.org/documentation/1.0/developers/api/reference.html\n\n\n\nThe following example showcases how to use the OpenEO API to execute a request for a WorldCereal service:\nPOST /openeo/1.2/jobs HTTP/1.1\nHost: openeo.dataspace.copernicus.eu\nContent-Type: application/json\nAuthorization: Bearer basic//basic.cHJvag==\nContent-Length: 4587\n{\n    \"title\": \"Your custom WorldCereal job\",\n    \"process\": {\n        \"id\": \"cropmap\",\n        \"process_graph\": {\n            \"biopar1\": {\n                \"process_id\": \"worldcereal_inference\",\n                \"namespace\": \"https://github.com/ESA-APEx/apex_algorithms/raw/main/openeo_udp/worldcereal_inference.json\",\n                \"arguments\": {\n                    \"spatial_extent\": {\n                        \"west\": 5.15183687210083,\n                        \"east\": 5.153381824493408,\n                        \"south\": 51.18192559252128,\n                        \"north\": 51.18469636040683,\n                        \"crs\": \"EPSG:4326\"\n                    },\n                    \"temporal_extent\": [\n                        \"2020-11-01\",\n                        \"2021-10-31\"\n                    ]\n                },\n                \"result\": true\n            }\n        }\n    },\n    \"driver-memory\": \"4g\",\n    \"executor-memory\": \"1g\",\n    \"executor-memoryOverhead\": \"1g\",\n    \"python-memory\": \"2g\",\n    \"udf-dependency-archives\": [\n        \"https://artifactory.vgt.vito.be/artifactory/auxdata-public/openeo/onnx_dependencies_1.16.3.zip#onnx_deps\"\n    ]\n}\nThe response of this call will be a json object containing an ‘id’ property. This property is the job id that you can use in the subsequent call to start the job:\nPOST /openeo/1.2/jobs/{job_id}/results HTTP/1.1\nHost: openeo.dataspace.copernicus.eu\nAuthorization: Bearer basic//basic.cHJvag==\nContent-Length: 0\n\nThis call will return 202 if successfully. Now you can use other parts of the API to monitor the job, request logs, result metadata or data itself.\n\n\n\nThe cost of a run for a 20x20km should be around 100 credits, but may fluctuate by up to 20 credits depending on the input data available in the processing area. Please report unexpected fluctuations, as this may indicate a problem with the processing."
   },
   {
     "objectID": "usage/processing_api.html#client-libraries",
     "href": "usage/processing_api.html#client-libraries",
     "title": "openEO based processing",
     "section": "",
-    "text": "OpenEO provides client libraries to support the creation and execution of JavaScript, Python and R services. The full client libraries documentation is available on the official OpenEO support pages: * JavaScript * Python * R\nThe following example shows a code sample on how to execute a WorldCereal workflow through the OpenEO Python Client.\nimport openeo\n\n# Setup parameters\nspatial_extent = {\"west\":664000, \"south\":5611134, \"east\": 684000, \"north\":5631134, \"crs\":\"EPSG:32631\"}\ntemporal_extent = [\"2020-11-01\",\"2021-10-31\"]\n\n# Setup connection with OpenEO\neoconn = openeo.connect(\"openeofed.dataspace.copernicus.eu\").authenticate_oidc()\n\n# Create a processing graph from the worldcereal-inference process using an active openEO connection\ncropmap = eoconn.datacube_from_process(\n    \"worldcereal_inference\", \n    namespace=\"https://github.com/ESA-APEx/apex_algorithms/raw/main/openeo_udp/worldcereal_inference.json\", \n    spatial_extent=spatial_extent,\n    temporal_extent=temporal_extent)\n\n# Execute the OpenEO request as a batch job\njob_options =  { \n    \"driver-memory\": \"4g\",\n    \"executor-memory\": \"1g\",\n    \"executor-memoryOverhead\": \"1g\",\n    \"python-memory\": \"2g\",\n    \"udf-dependency-archives\": [\"https://artifactory.vgt.vito.be/artifactory/auxdata-public/openeo/onnx_dependencies_1.16.3.zip#onnx_deps\"]\n}\njob = cropmap.save_result(\"GTiff\").create_job(title=\"worldcereal inference demo\",job_options=job_options)\njob.start()\nThe job has two main parameters:\n\nspatial_extent is a bounding box definition, which should be below 400km² (20x20km)\ntemporal_extent is a list of two dates, spanning exactly 1 year. The end date should correspond to the end of the growing season in the area of interest.\n\nOnce the job has started, you can use the interface available at https://openeo.dataspace.copernicus.eu to monitor it, or use the Python API.",
-    "crumbs": [
-      "Usage",
-      "Processing API"
-    ]
+    "text": "OpenEO provides client libraries to support the creation and execution of JavaScript, Python and R services. The full client libraries documentation is available on the official OpenEO support pages: * JavaScript * Python * R\nThe following example shows a code sample on how to execute a WorldCereal workflow through the OpenEO Python Client.\nimport openeo\n\n# Setup parameters\nspatial_extent = {\"west\":664000, \"south\":5611134, \"east\": 684000, \"north\":5631134, \"crs\":\"EPSG:32631\"}\ntemporal_extent = [\"2020-11-01\",\"2021-10-31\"]\n\n# Setup connection with OpenEO\neoconn = openeo.connect(\"openeofed.dataspace.copernicus.eu\").authenticate_oidc()\n\n# Create a processing graph from the worldcereal-inference process using an active openEO connection\ncropmap = eoconn.datacube_from_process(\n    \"worldcereal_inference\", \n    namespace=\"https://github.com/ESA-APEx/apex_algorithms/raw/main/openeo_udp/worldcereal_inference.json\", \n    spatial_extent=spatial_extent,\n    temporal_extent=temporal_extent)\n\n# Execute the OpenEO request as a batch job\njob_options =  { \n    \"driver-memory\": \"4g\",\n    \"executor-memory\": \"1g\",\n    \"executor-memoryOverhead\": \"1g\",\n    \"python-memory\": \"2g\",\n    \"udf-dependency-archives\": [\"https://artifactory.vgt.vito.be/artifactory/auxdata-public/openeo/onnx_dependencies_1.16.3.zip#onnx_deps\"]\n}\njob = cropmap.save_result(\"GTiff\").create_job(title=\"worldcereal inference demo\",job_options=job_options)\njob.start()\nThe job has two main parameters:\n\nspatial_extent is a bounding box definition, which should be below 400km² (20x20km)\ntemporal_extent is a list of two dates, spanning exactly 1 year. The end date should correspond to the end of the growing season in the area of interest.\n\nOnce the job has started, you can use the interface available at https://openeo.dataspace.copernicus.eu to monitor it, or use the Python API."
   },
   {
     "objectID": "usage/processing_api.html#rest-api",
     "href": "usage/processing_api.html#rest-api",
     "title": "openEO based processing",
     "section": "",
-    "text": "OpenEO provides a fully documented REST API. The API can also be used to integrate WorldCereal jobs into your application if the client libraries are not suitable. The documentation is available at:\n\n\n\nOpenEO\n\n\n\n\nhttps://openeo.org/documentation/1.0/developers/api/reference.html\n\n\n\nThe following example showcases how to use the OpenEO API to execute a request for a WorldCereal service:\nPOST /openeo/1.2/jobs HTTP/1.1\nHost: openeo.dataspace.copernicus.eu\nContent-Type: application/json\nAuthorization: Bearer basic//basic.cHJvag==\nContent-Length: 4587\n{\n    \"title\": \"Your custom WorldCereal job\",\n    \"process\": {\n        \"id\": \"cropmap\",\n        \"process_graph\": {\n            \"biopar1\": {\n                \"process_id\": \"worldcereal_inference\",\n                \"namespace\": \"https://github.com/ESA-APEx/apex_algorithms/raw/main/openeo_udp/worldcereal_inference.json\",\n                \"arguments\": {\n                    \"spatial_extent\": {\n                        \"west\": 5.15183687210083,\n                        \"east\": 5.153381824493408,\n                        \"south\": 51.18192559252128,\n                        \"north\": 51.18469636040683,\n                        \"crs\": \"EPSG:4326\"\n                    },\n                    \"temporal_extent\": [\n                        \"2020-11-01\",\n                        \"2021-10-31\"\n                    ]\n                },\n                \"result\": true\n            }\n        }\n    },\n    \"driver-memory\": \"4g\",\n    \"executor-memory\": \"1g\",\n    \"executor-memoryOverhead\": \"1g\",\n    \"python-memory\": \"2g\",\n    \"udf-dependency-archives\": [\n        \"https://artifactory.vgt.vito.be/artifactory/auxdata-public/openeo/onnx_dependencies_1.16.3.zip#onnx_deps\"\n    ]\n}\nThe response of this call will be a json object containing an ‘id’ property. This property is the job id that you can use in the subsequent call to start the job:\nPOST /openeo/1.2/jobs/{job_id}/results HTTP/1.1\nHost: openeo.dataspace.copernicus.eu\nAuthorization: Bearer basic//basic.cHJvag==\nContent-Length: 0\n\nThis call will return 202 if successfully. Now you can use other parts of the API to monitor the job, request logs, result metadata or data itself.",
-    "crumbs": [
-      "Usage",
-      "Processing API"
-    ]
+    "text": "OpenEO provides a fully documented REST API. The API can also be used to integrate WorldCereal jobs into your application if the client libraries are not suitable. The documentation is available at:\n\n\n\nOpenEO\n\n\n\n\nhttps://openeo.org/documentation/1.0/developers/api/reference.html\n\n\n\nThe following example showcases how to use the OpenEO API to execute a request for a WorldCereal service:\nPOST /openeo/1.2/jobs HTTP/1.1\nHost: openeo.dataspace.copernicus.eu\nContent-Type: application/json\nAuthorization: Bearer basic//basic.cHJvag==\nContent-Length: 4587\n{\n    \"title\": \"Your custom WorldCereal job\",\n    \"process\": {\n        \"id\": \"cropmap\",\n        \"process_graph\": {\n            \"biopar1\": {\n                \"process_id\": \"worldcereal_inference\",\n                \"namespace\": \"https://github.com/ESA-APEx/apex_algorithms/raw/main/openeo_udp/worldcereal_inference.json\",\n                \"arguments\": {\n                    \"spatial_extent\": {\n                        \"west\": 5.15183687210083,\n                        \"east\": 5.153381824493408,\n                        \"south\": 51.18192559252128,\n                        \"north\": 51.18469636040683,\n                        \"crs\": \"EPSG:4326\"\n                    },\n                    \"temporal_extent\": [\n                        \"2020-11-01\",\n                        \"2021-10-31\"\n                    ]\n                },\n                \"result\": true\n            }\n        }\n    },\n    \"driver-memory\": \"4g\",\n    \"executor-memory\": \"1g\",\n    \"executor-memoryOverhead\": \"1g\",\n    \"python-memory\": \"2g\",\n    \"udf-dependency-archives\": [\n        \"https://artifactory.vgt.vito.be/artifactory/auxdata-public/openeo/onnx_dependencies_1.16.3.zip#onnx_deps\"\n    ]\n}\nThe response of this call will be a json object containing an ‘id’ property. This property is the job id that you can use in the subsequent call to start the job:\nPOST /openeo/1.2/jobs/{job_id}/results HTTP/1.1\nHost: openeo.dataspace.copernicus.eu\nAuthorization: Bearer basic//basic.cHJvag==\nContent-Length: 0\n\nThis call will return 202 if successfully. Now you can use other parts of the API to monitor the job, request logs, result metadata or data itself."
   },
   {
     "objectID": "usage/processing_api.html#cost-estimate",
     "href": "usage/processing_api.html#cost-estimate",
     "title": "openEO based processing",
     "section": "",
-    "text": "The cost of a run for a 20x20km should be around 100 credits, but may fluctuate by up to 20 credits depending on the input data available in the processing area. Please report unexpected fluctuations, as this may indicate a problem with the processing.",
+    "text": "The cost of a run for a 20x20km should be around 100 credits, but may fluctuate by up to 20 credits depending on the input data available in the processing area. Please report unexpected fluctuations, as this may indicate a problem with the processing."
+  },
+  {
+    "objectID": "vdm/visualize.html",
+    "href": "vdm/visualize.html",
+    "title": "WorldCereal Documentation",
+    "section": "",
+    "text": "&lt; empty &gt;",
     "crumbs": [
-      "Usage",
-      "Processing API"
+      "Visualization and Dissemination Module (VDM)",
+      "Visualizing Global Products"
+    ]
+  },
+  {
+    "objectID": "vdm/planned.html",
+    "href": "vdm/planned.html",
+    "title": "WorldCereal Documentation",
+    "section": "",
+    "text": "&lt; empty &gt;",
+    "crumbs": [
+      "Visualization and Dissemination Module (VDM)",
+      "Planned Features and Upgrades"
+    ]
+  },
+  {
+    "objectID": "intro/purpose_scope.html",
+    "href": "intro/purpose_scope.html",
+    "title": "WorldCereal Documentation",
+    "section": "",
+    "text": "&lt; empty &gt;",
+    "crumbs": [
+      "Introduction",
+      "Purpose and Scope"
+    ]
+  },
+  {
+    "objectID": "intro/system_overview.html",
+    "href": "intro/system_overview.html",
+    "title": "WorldCereal Documentation",
+    "section": "",
+    "text": "&lt; empty &gt;",
+    "crumbs": [
+      "Introduction",
+      "System Overview"
     ]
   }
 ]

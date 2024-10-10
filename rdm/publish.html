@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>processing_api – WorldCereal Documentation</title>
+<title>publish – WorldCereal Documentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -63,6 +29,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../processing/overview.html" rel="next">
+<link href="../rdm/upload.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -122,7 +90,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rdm/overview.html">Reference Data Module (RDM)</a></li><li class="breadcrumb-item"><a href="../rdm/publish.html">Publish Your Data</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -185,13 +153,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Reference Data Module (RDM)</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../rdm/overview.html" class="sidebar-item-text sidebar-link">
@@ -212,7 +180,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../rdm/publish.html" class="sidebar-item-text sidebar-link">
+  <a href="../rdm/publish.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Publish Your Data</span></a>
   </div>
 </li>
@@ -305,138 +273,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#openeo-based-processing" id="toc-openeo-based-processing" class="nav-link active" data-scroll-target="#openeo-based-processing">openEO based processing</a>
-  <ul>
-  <li><a href="#client-libraries" id="toc-client-libraries" class="nav-link" data-scroll-target="#client-libraries">Client libraries</a></li>
-  <li><a href="#rest-api" id="toc-rest-api" class="nav-link" data-scroll-target="#rest-api">REST API</a></li>
-  <li><a href="#cost-estimate" id="toc-cost-estimate" class="nav-link" data-scroll-target="#cost-estimate">Cost estimate</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 
 
 
-<section id="openeo-based-processing" class="level1">
-<h1>openEO based processing</h1>
-<p>This section explains advanced usage of the processing APIs. It explains how to work with Python and HTTP REST based APIs to run WorldCereal processing. This is meant for developers looking to integrate these workflows into their own applications.</p>
-<p>The WorldCereal system makes use of the Copernicus Dataspace Ecosystem openEO API. This use of this is fully documented on the <a href="https://documentation.dataspace.copernicus.eu/APIs/openEO/openEO.html">CDSE website</a>.</p>
-<p>We refer to this documentation for more advanced questions and for getting a basic understanding of openEO, but we also include concrete examples on this page, to avoid learning the full openEO API, which is quite extensive.</p>
-<p>More specifically, WorldCereal workflows are offered as openEO <a href="https://openeo.org/documentation/1.0/developers/api/reference.html#tag/User-Defined-Processes">user defined processes</a>, that should be invoked via <a href="https://openeo.org/documentation/1.0/developers/api/reference.html#tag/Batch-Jobs">batch jobs</a>.</p>
-<section id="client-libraries" class="level2">
-<h2 class="anchored" data-anchor-id="client-libraries">Client libraries</h2>
-<p>OpenEO provides client libraries to support the creation and execution of JavaScript, Python and R services. The full client libraries documentation is available on the official OpenEO support pages: * <a href="https://openeo.org/documentation/1.0/javascript/">JavaScript</a> * <a href="https://openeo.org/documentation/1.0/python/">Python</a> * <a href="https://openeo.org/documentation/1.0/r/">R</a></p>
-<p>The following example shows a code sample on how to execute a WorldCereal workflow through the OpenEO Python Client.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> openeo</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup parameters</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>spatial_extent <span class="op">=</span> {<span class="st">"west"</span>:<span class="dv">664000</span>, <span class="st">"south"</span>:<span class="dv">5611134</span>, <span class="st">"east"</span>: <span class="dv">684000</span>, <span class="st">"north"</span>:<span class="dv">5631134</span>, <span class="st">"crs"</span>:<span class="st">"EPSG:32631"</span>}</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>temporal_extent <span class="op">=</span> [<span class="st">"2020-11-01"</span>,<span class="st">"2021-10-31"</span>]</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup connection with OpenEO</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>eoconn <span class="op">=</span> openeo.<span class="ex">connect</span>(<span class="st">"openeofed.dataspace.copernicus.eu"</span>).authenticate_oidc()</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a processing graph from the worldcereal-inference process using an active openEO connection</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>cropmap <span class="op">=</span> eoconn.datacube_from_process(</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"worldcereal_inference"</span>, </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    namespace<span class="op">=</span><span class="st">"https://github.com/ESA-APEx/apex_algorithms/raw/main/openeo_udp/worldcereal_inference.json"</span>, </span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    spatial_extent<span class="op">=</span>spatial_extent,</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    temporal_extent<span class="op">=</span>temporal_extent)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute the OpenEO request as a batch job</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>job_options <span class="op">=</span>  { </span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"driver-memory"</span>: <span class="st">"4g"</span>,</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"executor-memory"</span>: <span class="st">"1g"</span>,</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"executor-memoryOverhead"</span>: <span class="st">"1g"</span>,</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"python-memory"</span>: <span class="st">"2g"</span>,</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"udf-dependency-archives"</span>: [<span class="st">"https://artifactory.vgt.vito.be/artifactory/auxdata-public/openeo/onnx_dependencies_1.16.3.zip#onnx_deps"</span>]</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>job <span class="op">=</span> cropmap.save_result(<span class="st">"GTiff"</span>).create_job(title<span class="op">=</span><span class="st">"worldcereal inference demo"</span>,job_options<span class="op">=</span>job_options)</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>job.start()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The job has two main parameters:</p>
-<ul>
-<li><code>spatial_extent</code> is a bounding box definition, which should be below 400km² (20x20km)</li>
-<li><code>temporal_extent</code> is a list of two dates, spanning exactly 1 year. The end date should correspond to the end of the growing season in the area of interest.</li>
-</ul>
-<p>Once the job has started, you can use the interface available at <a href="https://openeo.dataspace.copernicus.eu">https://openeo.dataspace.copernicus.eu</a> to monitor it, or use the Python API.</p>
-</section>
-<section id="rest-api" class="level2">
-<h2 class="anchored" data-anchor-id="rest-api">REST API</h2>
-<p>OpenEO provides a fully documented REST API. The API can also be used to integrate WorldCereal jobs into your application if the client libraries are not suitable. The documentation is available at:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>OpenEO</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>https://openeo.org/documentation/1.0/developers/api/reference.html</td>
-</tr>
-</tbody>
-</table>
-<p>The following example showcases how to use the OpenEO API to execute a request for a WorldCereal service:</p>
-<pre class="curl"><code>POST /openeo/1.2/jobs HTTP/1.1
-Host: openeo.dataspace.copernicus.eu
-Content-Type: application/json
-Authorization: Bearer basic//basic.cHJvag==
-Content-Length: 4587
-{
-    "title": "Your custom WorldCereal job",
-    "process": {
-        "id": "cropmap",
-        "process_graph": {
-            "biopar1": {
-                "process_id": "worldcereal_inference",
-                "namespace": "https://github.com/ESA-APEx/apex_algorithms/raw/main/openeo_udp/worldcereal_inference.json",
-                "arguments": {
-                    "spatial_extent": {
-                        "west": 5.15183687210083,
-                        "east": 5.153381824493408,
-                        "south": 51.18192559252128,
-                        "north": 51.18469636040683,
-                        "crs": "EPSG:4326"
-                    },
-                    "temporal_extent": [
-                        "2020-11-01",
-                        "2021-10-31"
-                    ]
-                },
-                "result": true
-            }
-        }
-    },
-    "driver-memory": "4g",
-    "executor-memory": "1g",
-    "executor-memoryOverhead": "1g",
-    "python-memory": "2g",
-    "udf-dependency-archives": [
-        "https://artifactory.vgt.vito.be/artifactory/auxdata-public/openeo/onnx_dependencies_1.16.3.zip#onnx_deps"
-    ]
-}</code></pre>
-<p>The response of this call will be a json object containing an ‘id’ property. This property is the job id that you can use in the subsequent call to <a href="https://openeo.org/documentation/1.0/developers/api/reference.html#tag/Batch-Jobs/operation/start-job">start the job</a>:</p>
-<pre class="curl"><code>POST /openeo/1.2/jobs/{job_id}/results HTTP/1.1
-Host: openeo.dataspace.copernicus.eu
-Authorization: Bearer basic//basic.cHJvag==
-Content-Length: 0
-</code></pre>
-<p>This call will return 202 if successfully. Now you can use other parts of the API to monitor the job, request logs, result metadata or data itself.</p>
-</section>
-<section id="cost-estimate" class="level2">
-<h2 class="anchored" data-anchor-id="cost-estimate">Cost estimate</h2>
-<p>The cost of a run for a 20x20km should be around 100 credits, but may fluctuate by up to 20 credits depending on the input data available in the processing area. Please report unexpected fluctuations, as this may indicate a problem with the processing.</p>
+<p>Publishing Reference Data (through moderator)</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -859,6 +707,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation column-page-right">
+  <div class="nav-page nav-page-previous">
+      <a href="../rdm/upload.html" class="pagination-link" aria-label="Upload Your Data">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Upload Your Data</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../processing/overview.html" class="pagination-link" aria-label="Overview">
+        <span class="nav-page-text">Overview</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
