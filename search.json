@@ -334,7 +334,7 @@
     "href": "rdm/explore.html",
     "title": "Introduction",
     "section": "",
-    "text": "To generate accurate cropland and crop type maps, high quality reference data is indispensable for both training classification algorithms and validation of the final products. Therefore, WorldCereal would like to engage with global agricultural community to stimulate and facilitate opening and sharing of reference data.\n\n\n\n\n\nWorldCereal RDM quick tutorial\n\n\nUsing API –&gt; Refer to notebooks (according to J. Dries, there is an option to render notebooks directly in the portal!)\n\n\nCHeckout note\nNote on private data (need terrascope login) –&gt; refer to data upload (next section)",
+    "text": "To generate accurate cropland and crop type maps, high quality reference data is indispensable for both training classification algorithms and validation of the final products. Therefore, WorldCereal would like to engage with global agricultural community to stimulate and facilitate opening and sharing of reference data.\n\n\n\n\n\nWorldCereal RDM quick tutorial\n\n\nClick to watch video in youtube",
     "crumbs": [
       "Reference Data Module (RDM)",
       "Explore and Retrieve Data"
@@ -345,7 +345,7 @@
     "href": "rdm/explore.html#explore-user-interface",
     "title": "Introduction",
     "section": "",
-    "text": "WorldCereal RDM quick tutorial\n\n\nUsing API –&gt; Refer to notebooks (according to J. Dries, there is an option to render notebooks directly in the portal!)\n\n\nCHeckout note\nNote on private data (need terrascope login) –&gt; refer to data upload (next section)",
+    "text": "WorldCereal RDM quick tutorial\n\n\nClick to watch video in youtube",
     "crumbs": [
       "Reference Data Module (RDM)",
       "Explore and Retrieve Data"
