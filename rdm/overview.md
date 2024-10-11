@@ -12,13 +12,23 @@ All this functionality is available through an intuitive user interface and a mo
 
 
 ## Overview
-![1](https://github.com/user-attachments/assets/24bbdee1-316c-4fe0-9c4f-e8ac7d1160b2)
+
+<iframe src="https://esa-worldcereal.org/sites/worldcereal/files/styles/colorbox_teaser_600_/public/WorldCereal_ConceptFIG_V2_2_website.jpg_0.png?itok=UWywTcKK"></iframe>
 
 ## Harmonization
 
-Worldcereal follows standardised legends
+Worldcereal follows standardised legends and procedures to prepare harmonized datasets. Below are the list of documents explaining the different procedures.
 
-
+1. Croptype legends
 <iframe src="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_crop_legend_ui_v2_20240709.pdf" width="100%" height="1000px"></iframe>
+
+2. Irrigation status legends
+<iframe src="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_irrigation_legend_ui_v2_20240709.pdf" width="100%" height="1000px"></iframe>
+
+3. Observation Date
+<iframe src="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_DerivingValidityTime_v1_1.pdf" width="100%" height="1000px"></iframe>
+
+4. Confidence score calculations
+<iframe src="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_ConfidenceScoreCalculations_v1_1.pdf" width="100%" height="1000px"></iframe>
 
 
