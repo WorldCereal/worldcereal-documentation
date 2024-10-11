@@ -87,6 +87,17 @@
     ]
   },
   {
+    "objectID": "rdm/overview.html#harmonization",
+    "href": "rdm/overview.html#harmonization",
+    "title": "Reference Data Module",
+    "section": "Harmonization",
+    "text": "Harmonization\nWorldcereal follows standardised legends",
+    "crumbs": [
+      "Reference Data Module (RDM)",
+      "Overview"
+    ]
+  },
+  {
     "objectID": "design/processing_system.html",
     "href": "design/processing_system.html",
     "title": "openEO based processing",
