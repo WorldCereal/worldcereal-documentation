@@ -67,9 +67,20 @@
   {
     "objectID": "rdm/overview.html",
     "href": "rdm/overview.html",
-    "title": "WorldCereal Documentation",
+    "title": "Reference Data Module",
     "section": "",
     "text": "Definition of in-situ reference data for crop mapping Technical background of RDM list of main functionalities –&gt; refer to more detailed sections",
+    "crumbs": [
+      "Reference Data Module (RDM)",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "rdm/overview.html#overview",
+    "href": "rdm/overview.html#overview",
+    "title": "Reference Data Module",
+    "section": "Overview",
+    "text": "Overview\n\n\n\n1",
     "crumbs": [
       "Reference Data Module (RDM)",
       "Overview"
