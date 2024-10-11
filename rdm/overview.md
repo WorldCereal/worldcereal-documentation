@@ -13,7 +13,8 @@ All this functionality is available through an intuitive user interface and a mo
 
 ## Overview
 
-<iframe src="https://esa-worldcereal.org/sites/worldcereal/files/styles/colorbox_teaser_600_/public/WorldCereal_ConceptFIG_V2_2_website.jpg_0.png?itok=UWywTcKK"> </iframe>
+<iframe src="https://raw.githubusercontent.com/WorldCereal/ewoc_rdm_demo_api/refs/heads/main/1.png"> </iframe>
+
 
 ## Harmonization
 
