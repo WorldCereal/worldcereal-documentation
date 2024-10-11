@@ -80,7 +80,7 @@
     "href": "rdm/overview.html#overview",
     "title": "Reference Data Module",
     "section": "Overview",
-    "text": "Overview\n\n\n\n1",
+    "text": "Overview",
     "crumbs": [
       "Reference Data Module (RDM)",
       "Overview"
@@ -91,7 +91,7 @@
     "href": "rdm/overview.html#harmonization",
     "title": "Reference Data Module",
     "section": "Harmonization",
-    "text": "Harmonization\nWorldcereal follows standardised legends",
+    "text": "Harmonization\nWorldcereal follows standardised legends and procedures to prepare harmonized datasets. Below are the list of documents explaining the different procedures.\n\nCroptype legends \nIrrigation status legends \nObservation Date \nConfidence score calculations",
     "crumbs": [
       "Reference Data Module (RDM)",
       "Overview"
