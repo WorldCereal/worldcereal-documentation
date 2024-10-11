@@ -281,8 +281,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul>
   <li><a href="#explore-user-interface" id="toc-explore-user-interface" class="nav-link" data-scroll-target="#explore-user-interface">Explore User Interface</a></li>
-  <li><a href="#how-to-access-public-datasets" id="toc-how-to-access-public-datasets" class="nav-link" data-scroll-target="#how-to-access-public-datasets">How to Access Public Datasets</a></li>
-  <li><a href="#how-to-access-user-private-datasets" id="toc-how-to-access-user-private-datasets" class="nav-link" data-scroll-target="#how-to-access-user-private-datasets">How to Access User Private Datasets</a></li>
+  <li><a href="#how-to-retrieve-public-datasets" id="toc-how-to-retrieve-public-datasets" class="nav-link" data-scroll-target="#how-to-retrieve-public-datasets">How to Retrieve Public Datasets</a></li>
+  <li><a href="#how-to-retrieve-user-private-datasets" id="toc-how-to-retrieve-user-private-datasets" class="nav-link" data-scroll-target="#how-to-retrieve-user-private-datasets">How to Retrieve User Private Datasets</a></li>
   <li><a href="#swagger-api-documentation" id="toc-swagger-api-documentation" class="nav-link" data-scroll-target="#swagger-api-documentation">Swagger API Documentation</a></li>
   </ul></li>
   </ul>
@@ -296,7 +296,83 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>To generate accurate cropland and crop type maps, high quality reference data is indispensable for both training classification algorithms and validation of the final products. Therefore, WorldCereal would like to engage with global agricultural community to stimulate and facilitate opening and sharing of reference data.</p>
+<p>The WorldCereal Reference Data Module (RDM) is a outcome of collaborative approach to build a reference data store on label data which can be used for crop and irrigation related model training and validation. The products generated support worldwide crop monitoring. In the RDM we have two types of data storage:</p>
+<ol type="1">
+<li>Consortium data store</li>
+<li>Community data store</li>
+</ol>
+<p>Data sets in both data stores can be set to be publicly available or private. Data sets that are inside the consortium data storage have been collected, harmonized, and maintained by expert moderators (project partners) and have been made available to the public according their governing data licenses. Private datasets in consortium datastore will be available only for products generation.</p>
+<p>The Data sets that are in the Community data storage are harmonized and uploaded by Community users. The uploaded data sets can be made public with appropriate licenses and will be reviewed by moderators before being published. Private user data sets will be available only for the owner of such data sets and will not be shared for use by other users or consortium for product generation until the owner decides to make the data public. The owner decides who will be allowed to use data and under what restrictions.<br>
+User can choose from below license types.</p>
+<table>
+<tbody><tr>
+<th>
+License types*
+</th>
+<th>
+Remarks
+</th>
+</tr>
+<tr>
+<td>
+CC0
+</td>
+<td>
+No Rights Reserved
+</td>
+</tr>
+<tr>
+<td>
+CC BY
+</td>
+<td>
+Attribution
+</td>
+</tr>
+<tr>
+<td>
+CC BY-SA
+</td>
+<td>
+Attribution-ShareAlike
+</td>
+</tr>
+<tr>
+<td>
+CC BY-NC
+</td>
+<td>
+Attribution-NonCommercial
+</td>
+</tr>
+<tr>
+<td>
+CC BY-NC-SA
+</td>
+<td>
+Attribution-NonCommercial-ShareAlike
+</td>
+</tr>
+<tr>
+<td>
+Private
+</td>
+<td>
+Only accessible for the owner
+</td>
+</tr>
+<tr>
+<td>
+Other
+</td>
+<td>
+To be defined by the owner
+</td>
+</tr>
+</tbody></table>
+<ul>
+<li><a href="https://creativecommons.org/share-your-work/cclicenses/">See Creative Commons licenses</a></li>
+</ul>
 <section id="explore-user-interface" class="level2">
 <h2 class="anchored" data-anchor-id="explore-user-interface">Explore User Interface</h2>
 <div class="quarto-figure quarto-figure-center">
@@ -307,13 +383,13 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>Click to watch video in youtube</p>
 </section>
-<section id="how-to-access-public-datasets" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-access-public-datasets">How to Access Public Datasets</h2>
+<section id="how-to-retrieve-public-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-retrieve-public-datasets">How to Retrieve Public Datasets</h2>
 <iframe src="https://nbviewer.jupyter.org/github/WorldCereal/ewoc_rdm_demo_api/blob/main/rdmApiDemo.ipynb" width="100%" height="1000px">
 </iframe>
 </section>
-<section id="how-to-access-user-private-datasets" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-access-user-private-datasets">How to Access User Private Datasets</h2>
+<section id="how-to-retrieve-user-private-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-retrieve-user-private-datasets">How to Retrieve User Private Datasets</h2>
 <iframe src="https://nbviewer.jupyter.org/github/WorldCereal/ewoc_rdm_demo_api/blob/main/rdmApiUserDatasetsDemo.ipynb" width="100%" height="1000px">
 </iframe>
 </section>
