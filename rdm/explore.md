@@ -54,10 +54,12 @@ User can choose from below license types.
 Click to watch video in youtube
 
 ## How to Retrieve Public Datasets
+RDM provides REST APIs to access data. To access public datasets no user login is required. Below python notebook demonstrates how to access public datasets along with search functionatities
 <iframe src="https://nbviewer.jupyter.org/github/WorldCereal/ewoc_rdm_demo_api/blob/main/rdmApiDemo.ipynb" width="100%" height="1000px"></iframe>
 
 
 ## How to Retrieve User Private Datasets
+To access user uploaded private datasets through APIs, credentials are required. These credential are the same as were used during upload of the datasets. Below python notebook demonstrates how to get user private datasets
 <iframe src="https://nbviewer.jupyter.org/github/WorldCereal/ewoc_rdm_demo_api/blob/main/rdmApiUserDatasetsDemo.ipynb" width="100%" height="1000px"></iframe>
 
 
