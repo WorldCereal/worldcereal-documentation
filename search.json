@@ -354,9 +354,20 @@
   {
     "objectID": "rdm/publish.html",
     "href": "rdm/publish.html",
-    "title": "WorldCereal Documentation",
+    "title": "Publishing Reference Data (through moderator)",
     "section": "",
-    "text": "Publishing Reference Data (through moderator)",
+    "text": "Users can contribute to worldcereal reference data by sharing their datasets with the consortium.\nWorldCereal supports the general movement towards data sharing and open science. Please check the below link to learn more about WorldCereal’s view on opening reference data to society (https://esa-worldcereal.org/en/situ-data-global-crop-mapping).\n\n\nThis workflow is under development, In the meantime of you would like to contribute to consortium, please send a mail to ewoc-rdm@iiasa.ac.at",
+    "crumbs": [
+      "Reference Data Module (RDM)",
+      "Publish Your Data"
+    ]
+  },
+  {
+    "objectID": "rdm/publish.html#workflow-is-under-development",
+    "href": "rdm/publish.html#workflow-is-under-development",
+    "title": "Publishing Reference Data (through moderator)",
+    "section": "",
+    "text": "This workflow is under development, In the meantime of you would like to contribute to consortium, please send a mail to ewoc-rdm@iiasa.ac.at",
     "crumbs": [
       "Reference Data Module (RDM)",
       "Publish Your Data"
