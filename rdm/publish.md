@@ -5,5 +5,5 @@ WorldCereal supports the general movement towards data sharing and open science.
 
 
 ## Workflow is Under Development!
-This workflow is under development, In the meantime of you would like to contribute to consortium, please send a mail to ewoc-rdm@iiasa.ac.at
+This workflow is under development, In the meantime if you would like to contribute to consortium, please send a mail to ewoc-rdm@iiasa.ac.at
 
