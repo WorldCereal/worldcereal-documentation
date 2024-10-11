@@ -11,11 +11,6 @@ The RDM hosts datasets from various providers with standardized metadata and att
 All this functionality is available through an intuitive user interface and a more advanced API service. The Reference Data Module is linked to the WorldCereal classification system through means of a STAC catalogue, which is queried automatically during classification model training. Through this initiative the WorldCereal consortium aims to foster open data sharing within the agricultural monitoring community.  
 
 
-## Overview
-
-<iframe src="https://raw.githubusercontent.com/WorldCereal/ewoc_rdm_demo_api/refs/heads/main/1.png"> </iframe>
-
-
 ## Harmonization
 
 Worldcereal follows standardised legends and procedures to prepare harmonized datasets. Below are the list of documents explaining the different procedures.
