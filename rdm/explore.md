@@ -6,16 +6,15 @@ To generate accurate cropland and crop type maps, high quality reference data is
 
 [![WorldCereal RDM quick tutorial](https://img.youtube.com/vi/CmiNBUeM5WI/hqdefault.jpg)](https://www.youtube.com/watch?v=CmiNBUeM5WI&t=91s)
 
+Click to watch video in youtube
 
-Using API
---> Refer to notebooks (according to J. Dries, there is an option to render notebooks directly in the portal!)
-
-
-<iframe src="https://nbviewer.jupyter.org/github/WorldCereal/ewoc_rdm_demo_api/blob/main/rdmApiDemo.ipynb" width="100%" height="600px"></iframe>
+## How to Access Public Datasets
+<iframe src="https://nbviewer.jupyter.org/github/WorldCereal/ewoc_rdm_demo_api/blob/main/rdmApiDemo.ipynb" width="100%" height="1000px"></iframe>
 
 
-CHeckout [note](https://nbviewer.jupyter.org/github/WorldCereal/ewoc_rdm_demo_api/blob/main/rdmApiDemo.ipynb)
+## How to Access User Private Datasets
+<iframe src="https://nbviewer.jupyter.org/github/WorldCereal/ewoc_rdm_demo_api/blob/main/rdmApiUserDatasetsDemo.ipynb" width="100%" height="1000px"></iframe>
 
-Note on private data (need terrascope login) --> refer to data upload (next section)
 
-<iframe src="https://nbviewer.jupyter.org/github/WorldCereal/ewoc_rdm_demo_api/blob/main/rdmApiUserDatasetsDemo.ipynb" width="100%" height="600px"></iframe>
+## Swagger API Documentation
+<iframe src="https://ewoc-rdm-api.iiasa.ac.at/swagger/index.html" width="100%" height="1000px"></iframe>
