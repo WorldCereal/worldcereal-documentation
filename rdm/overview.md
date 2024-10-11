@@ -14,3 +14,11 @@ All this functionality is available through an intuitive user interface and a mo
 ## Overview
 ![1](https://github.com/user-attachments/assets/24bbdee1-316c-4fe0-9c4f-e8ac7d1160b2)
 
+## Harmonization
+
+Worldcereal follows standardised legends
+
+
+<iframe src="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_crop_legend_ui_v2_20240709.pdf" width="100%" height="1000px"></iframe>
+
+
