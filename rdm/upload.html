@@ -287,6 +287,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#step-3-dataset-upload" id="toc-step-3-dataset-upload" class="nav-link" data-scroll-target="#step-3-dataset-upload">Step 3: Dataset Upload</a></li>
   </ul></li>
   <li><a href="#automated-harmonization-and-upload" id="toc-automated-harmonization-and-upload" class="nav-link" data-scroll-target="#automated-harmonization-and-upload">Automated harmonization and Upload</a></li>
+  <li><a href="#using-your-data-in-the-processing-module" id="toc-using-your-data-in-the-processing-module" class="nav-link" data-scroll-target="#using-your-data-in-the-processing-module">Using your data in the processing module</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -309,27 +310,27 @@ ul.task-list li input[type="checkbox"] {
 <p>////////// Jeroen comments ///////////////</p>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>To generate accurate cropland and crop type maps, high quality reference data is indispensable for both training classification algorithms and validation of the final products. Therefore, WorldCereal would like to engage with global agricultural community to stimulate and facilitate opening and sharing of reference data</p>
-<p>Users can upload their datasets in their area of interest or data poor regions to generate custom products</p>
+<p>To generate accurate cropland and crop type maps, high quality reference data is indispensable for both training classification algorithms and validation of the final products. Therefore, WorldCereal would like to engage with global agricultural community to stimulate and facilitate opening and sharing of reference data.</p>
+<p>Users can upload their datasets in their area of interest or data poor regions to generate high quality custom product maps.</p>
 <section id="uploading-through-user-interface-you-need-terrascope-account" class="level2">
 <h2 class="anchored" data-anchor-id="uploading-through-user-interface-you-need-terrascope-account">Uploading through User Interface (you need terrascope account!)</h2>
-<p>User can upload the datasets using the RDM website, We provide a intuitive and AI assisted workflow to facilitate fast upload of user datasets</p>
+<p>User can upload the datasets using the RDM website, We provide a intuitive and AI assisted workflow to facilitate fast upload of user datasets. This requires terrascope login which also provides options to login using social media acccounts.</p>
 <section id="step-1-dataset-qualification-check" class="level3">
 <h3 class="anchored" data-anchor-id="step-1-dataset-qualification-check">Step 1: Dataset Qualification Check</h3>
 <p>The dataset must adhere to certain formats and contain minimum attributes. User must answer the following questions to ease the dataset upload process.<br>
-1. Does your dataset have spatial geometry?<br>
-2. Does your dataset cover years 2017 onwards?<br>
-3. Does your dataset have information on observation time?(date or season/year or year)</p>
-<p>If the answer for all the above questions is “yes” then the datset is qualified to be uploaded in RDM and used in the generation of the product. These checks are mainly to prevent errors later.</p>
+1. Dataset should have spatial geometry.<br>
+2. Dataset must cover years 2017 onwards.<br>
+3. Dataset should have information on observation time.(date or season/year or year)</p>
+<p>If the answer for all the above questions is “yes” then the datset is qualified to be uploaded in RDM and can used in the generation of the products. These checks are mainly to prevent errors later and facilitate easy product generation.</p>
 </section>
 <section id="step-2-dataset-upload-guidelines" class="level3">
 <h3 class="anchored" data-anchor-id="step-2-dataset-upload-guidelines">Step 2: Dataset Upload Guidelines</h3>
-<p>Prepare the dataset according to below mentioned steps to upload successfully.<br>
-1. Supported Dataset Format.</p>
-<pre><code>Supported file formats: Shapefile, GeoPackage and GeoParquet.  
-Co-ordinate system should be EPSG 4326 (WGS_84 lat/lon).  
-Language: English.  </code></pre>
-<ol start="2" type="1">
+<p>Prepare the dataset according to below mentioned steps to upload successfully.</p>
+<ol type="1">
+<li><p>Supported Dataset Format.</p>
+<p>Supported file formats: Shapefile, GeoPackage and GeoParquet.<br>
+Co-ordinate system should be EPSG 4326 (WGS_84 lat/lon).<br>
+Language: English.</p></li>
 <li><p>Dataset Naming.</p>
 <p>Select an appropriate name for your dataset. Refer to this document for guidelines.</p></li>
 <li><p>WorldCereal Crop Type Legend.</p>
@@ -361,6 +362,10 @@ Dataset attribute must be Date type.</p></li>
 <li><p>Harmonization: This is last step before dataset is harmonized to worldcereal standards and assimilated into the store.</p></li>
 </ol>
 <p>The uploaded user dataset will be availabe to user as private dataset and will not be shared with either other users or with consortium yet. To share with consortium with suitable license users can select the “share with consortium” option available in the user dataset details page.</p>
+</section>
+<section id="using-your-data-in-the-processing-module" class="level2">
+<h2 class="anchored" data-anchor-id="using-your-data-in-the-processing-module">Using your data in the processing module</h2>
+<p>Users can use the uploaded datasets to train the modules in the processing module, Refer <a href="https://github.com/WorldCereal/worldcereal-documentation/blob/main/rdm/explore.md#how-to-retrieve-user-private-datasets">How to Retrieve User Private Datasets</a> in Explore page.</p>
 
 
 </section>
