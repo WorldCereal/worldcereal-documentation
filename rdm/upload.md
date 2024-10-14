@@ -16,25 +16,26 @@ Using your data in the processing module
 
 # Introduction
 
-To generate accurate cropland and crop type maps, high quality reference data is indispensable for both training classification algorithms and validation of the final products. Therefore, WorldCereal would like to engage with global agricultural community to stimulate and facilitate opening and sharing of reference data  
+To generate accurate cropland and crop type maps, high quality reference data is indispensable for both training classification algorithms and validation of the final products. Therefore, WorldCereal would like to engage with global agricultural community to stimulate and facilitate opening and sharing of reference data.  
 
-Users can upload their datasets in their area of interest or data poor regions to generate custom products  
+Users can upload their datasets in their area of interest or data poor regions to generate high quality custom product maps.  
 
 ## Uploading through User Interface (you need terrascope account!) 
-User can upload the datasets using the RDM website, We provide a intuitive and AI assisted workflow to facilitate fast upload of user datasets
+User can upload the datasets using the RDM website, We provide a intuitive and AI assisted workflow to facilitate fast upload of user datasets. This requires terrascope login which also provides options to login using social media acccounts.  
 
 ### Step 1: Dataset Qualification Check
 
 The dataset must adhere to certain formats and contain minimum attributes. User must answer the following questions to ease the dataset upload process.  
-1. Does your dataset have spatial geometry?  
-2. Does your dataset cover years 2017 onwards?  
-3. Does your dataset have information on observation time?(date or season/year or year)
+1. Dataset should have spatial geometry.  
+2. Dataset must cover years 2017 onwards.  
+3. Dataset should have information on observation time.(date or season/year or year)
 
-If the answer for all the above questions is "yes" then the datset is qualified to be uploaded in RDM and used in the generation of the product. These checks are mainly to prevent errors later.  
+If the answer for all the above questions is "yes" then the datset is qualified to be uploaded in RDM and can used in the generation of the products. These checks are mainly to prevent errors later and facilitate easy product generation.  
 
 ### Step 2: Dataset Upload Guidelines
 
 Prepare the dataset according to below mentioned steps to upload successfully.  
+
 1. Supported Dataset Format.  
   
     Supported file formats: Shapefile, GeoPackage and GeoParquet.  
@@ -80,3 +81,8 @@ After the file is uploaded successfully the RDM processes the file and automatic
 3. Harmonization: This is last step before dataset is harmonized to worldcereal standards and assimilated into the store.  
 
 The uploaded user dataset will be availabe to user as private dataset and will not be shared with either other users or with consortium yet. To share with consortium with suitable license users can select the "share with consortium" option available in the user dataset details page.  
+
+
+## Using your data in the processing module  
+
+Users can use the uploaded datasets to train the modules in the processing module, Refer [How to Retrieve User Private Datasets](https://github.com/WorldCereal/worldcereal-documentation/blob/main/rdm/explore.md#how-to-retrieve-user-private-datasets) in Explore page.  
