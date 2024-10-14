@@ -85,4 +85,4 @@ The uploaded user dataset will be availabe to user as private dataset and will n
 
 ## Using your data in the processing module  
 
-Users can use the uploaded datasets to train the modules in the processing module, Refer [How to Retrieve User Private Datasets](https://github.com/WorldCereal/worldcereal-documentation/blob/main/rdm/explore.md#how-to-retrieve-user-private-datasets) in Explore page.  
+Users can use the uploaded datasets to train the modules in the processing module, Refer [How to Retrieve User Private Datasets](https://worldcereal.github.io/worldcereal-documentation/rdm/explore.html#how-to-retrieve-user-private-datasets) in Explore page.  
