@@ -273,21 +273,100 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul>
+  <li><a href="#uploading-through-user-interface-you-need-terrascope-account" id="toc-uploading-through-user-interface-you-need-terrascope-account" class="nav-link" data-scroll-target="#uploading-through-user-interface-you-need-terrascope-account">Uploading through User Interface (you need terrascope account!)</a>
+  <ul class="collapse">
+  <li><a href="#step-1-dataset-qualification-check" id="toc-step-1-dataset-qualification-check" class="nav-link" data-scroll-target="#step-1-dataset-qualification-check">Step 1: Dataset Qualification Check</a></li>
+  <li><a href="#step-2-dataset-upload-guidelines" id="toc-step-2-dataset-upload-guidelines" class="nav-link" data-scroll-target="#step-2-dataset-upload-guidelines">Step 2: Dataset Upload Guidelines</a></li>
+  <li><a href="#step-3-dataset-upload" id="toc-step-3-dataset-upload" class="nav-link" data-scroll-target="#step-3-dataset-upload">Step 3: Dataset Upload</a></li>
+  </ul></li>
+  <li><a href="#automated-harmonization-and-upload" id="toc-automated-harmonization-and-upload" class="nav-link" data-scroll-target="#automated-harmonization-and-upload">Automated harmonization and Upload</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 
 
 
+<p>////////// Jeroen comments ///////////////</p>
 <p>Introduction</p>
-<p>Guidelines on data collection (important features of the data + best practices)</p>
-<p>Uploading through User Interface (you need terrascope account!) –&gt; Refer to demo video!</p>
-<p>Using your data in the processing module - Refer to previous section on retrieving private samples - (Refer to next section on input data extractions)</p>
+<p>Guidelines on data collection<br>
+(important features of the data + best practices)</p>
+<p>Uploading through User Interface (you need terrascope account!)<br>
+–&gt; Refer to demo video!</p>
+<p>Using your data in the processing module<br>
+- Refer to previous section on retrieving private samples<br>
+- (Refer to next section on input data extractions)</p>
+<p>////////// Jeroen comments ///////////////</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>To generate accurate cropland and crop type maps, high quality reference data is indispensable for both training classification algorithms and validation of the final products. Therefore, WorldCereal would like to engage with global agricultural community to stimulate and facilitate opening and sharing of reference data</p>
+<p>Users can upload their datasets in their area of interest or data poor regions to generate custom products</p>
+<section id="uploading-through-user-interface-you-need-terrascope-account" class="level2">
+<h2 class="anchored" data-anchor-id="uploading-through-user-interface-you-need-terrascope-account">Uploading through User Interface (you need terrascope account!)</h2>
+<p>User can upload the datasets using the RDM website, We provide a intuitive and AI assisted workflow to facilitate fast upload of user datasets</p>
+<section id="step-1-dataset-qualification-check" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-dataset-qualification-check">Step 1: Dataset Qualification Check</h3>
+<p>The dataset must adhere to certain formats and contain minimum attributes. User must answer the following questions to ease the dataset upload process.<br>
+1. Does your dataset have spatial geometry?<br>
+2. Does your dataset cover years 2017 onwards?<br>
+3. Does your dataset have information on observation time?(date or season/year or year)</p>
+<p>If the answer for all the above questions is “yes” then the datset is qualified to be uploaded in RDM and used in the generation of the product. These checks are mainly to prevent errors later.</p>
+</section>
+<section id="step-2-dataset-upload-guidelines" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-dataset-upload-guidelines">Step 2: Dataset Upload Guidelines</h3>
+<p>Prepare the dataset according to below mentioned steps to upload successfully.<br>
+1. Supported Dataset Format.</p>
+<pre><code>Supported file formats: Shapefile, GeoPackage and GeoParquet.  
+Co-ordinate system should be EPSG 4326 (WGS_84 lat/lon).  
+Language: English.  </code></pre>
+<ol start="2" type="1">
+<li><p>Dataset Naming.</p>
+<p>Select an appropriate name for your dataset. Refer to this document for guidelines.</p></li>
+<li><p>WorldCereal Crop Type Legend.</p>
+<p>Crop type or land cover labels in your dataset need to be converted to the WorldCereal crop type legend to ensure compatibility with other datasets. You will be asked to select the dataset attribute containing the original labels. You will be guided to map these labels to the official WorldCereal crop type legend.<br>
+Dataset attribute must be String or Integer type.</p></li>
+</ol>
+<p>4 Validity Time.</p>
+<pre><code>You will be asked to select the dataset attribute that contains the observation date for each individual sample. As an alternative, you will have the possibility to define one observation date for all observations.  
+Dataset attribute must be Date type.  </code></pre>
+<ol start="5" type="1">
+<li><p>Irrigation Status (optional).</p>
+<p>You will be asked to select the dataset attribute containing information on irrigation (if present). You will be guided to map the original irrigation labels to the WorldCereal irrigation legend. Dataset attribute must be String or Integer type.</p></li>
+</ol>
+</section>
+<section id="step-3-dataset-upload" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-dataset-upload">Step 3: Dataset Upload</h3>
+<p>Next step is to upload the dataset, for this we need the following basic information</p>
+<ol type="1">
+<li>Title: Full title describing the dataset.</li>
+<li>Dataset ID: Consisting of min 3 and max 40 alphanumeric lower case characters, e.g.&nbsp;2024kenyacopernicus4geoglam. For datasets to be shared with other users, we encourage to use our dataset naming convention. Note that unsupported characters will be automatically removed.</li>
+<li>File: Dataset file in geoparquet (parquet) or geopackage(gpkg) or shape file (zipped)</li>
+</ol>
+<p>After the file is uploaded successfully the RDM processes the file and automatically harmonizes and adds it to community store as private dataset</p>
+</section>
+</section>
+<section id="automated-harmonization-and-upload" class="level2">
+<h2 class="anchored" data-anchor-id="automated-harmonization-and-upload">Automated harmonization and Upload</h2>
+<ol type="1">
+<li><p>Attribute Extraction: In this step RDM extract all the attribute names available in the uploaded dataset except geometry. This attribute list is presented to user to choose which attribute need to be selected for crop type, irrigation(optional) and observation date mapping</p></li>
+<li><p>Attribute Mapping: In this step user is shown the AI based mapping done in RDM for Crop type and Irrigation. User can either accept the mapping or modify them if needed.</p></li>
+<li><p>Harmonization: This is last step before dataset is harmonized to worldcereal standards and assimilated into the store.</p></li>
+</ol>
+<p>The uploaded user dataset will be availabe to user as private dataset and will not be shared with either other users or with consortium yet. To share with consortium with suitable license users can select the “share with consortium” option available in the user dataset details page.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -710,7 +789,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation column-page-right">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../rdm/explore.html" class="pagination-link" aria-label="Explore and Retrieve Data">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Explore and Retrieve Data</span>
