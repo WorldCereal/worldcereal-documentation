@@ -50,11 +50,11 @@ Prepare the dataset according to below mentioned steps to upload successfully.
     Crop type or land cover labels in your dataset need to be converted to the WorldCereal crop type legend to ensure compatibility with other datasets. You will be asked to select the dataset attribute containing the original labels. You will be guided to map these labels to the official WorldCereal crop type legend.    
     Dataset attribute must be String or Integer type.  
 
- 4 Validity Time.    
+4. Validity Time.  
  
     You will be asked to select the dataset attribute that contains the observation date for each individual sample. As an alternative, you will have the possibility to define one observation date for all observations.  
     Dataset attribute must be Date type.  
-    
+
 5. Irrigation Status (optional).  
 
     You will be asked to select the dataset attribute containing information on irrigation (if present). You will be guided to map the original irrigation labels to the WorldCereal irrigation legend.
