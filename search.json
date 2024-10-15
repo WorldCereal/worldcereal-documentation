@@ -503,9 +503,9 @@
   {
     "objectID": "intro/system_overview.html",
     "href": "intro/system_overview.html",
-    "title": "WorldCereal Documentation",
+    "title": "An overview of the WorldCereal system",
     "section": "",
-    "text": "&lt; empty &gt;",
+    "text": "An overview of the WorldCereal system\n\n\n\nHigh-level overview of the different modules of the WorldCereal processing system and how they are interlinked.",
     "crumbs": [
       "Introduction",
       "System Overview"
