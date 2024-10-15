@@ -17,16 +17,12 @@ All this functionality is available through an intuitive user interface and a mo
 
 Worldcereal follows standardised legends and procedures to prepare harmonized datasets. Below are the list of documents explaining the different procedures.
 
-1. Croptype legends
-<iframe src="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_crop_legend_ui_v2_20240709.pdf" width="100%" height="1000px"></iframe>
+1. [Croptype legends](https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_crop_legend_ui_v2_20240709.pdf)
 
-2. Irrigation status legends
-<iframe src="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_irrigation_legend_ui_v2_20240709.pdf" width="100%" height="1000px"></iframe>
+2. [Irrigation status legends](https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_irrigation_legend_ui_v2_20240709.pdf)
 
-3. Observation Date
-<iframe src="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_DerivingValidityTime_v1_1.pdf" width="100%" height="1000px"></iframe>
+3. [Observation Date](https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_DerivingValidityTime_v1_1.pdf)
 
-4. Confidence score calculations
-<iframe src="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_ConfidenceScoreCalculations_v1_1.pdf" width="100%" height="1000px"></iframe>
+4. [Confidence score calculations](https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_ConfidenceScoreCalculations_v1_1.pdf)
 
 
