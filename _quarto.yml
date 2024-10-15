@@ -76,8 +76,6 @@ website:
             text: Visualizing Global Products
           - href: vdm/launch.md
             text: Launch Processing Jobs
-          - href: vdm/planned.md
-            text: Planned Features and Upgrades
       
       - href: support.md
         text: Support and Resources     
