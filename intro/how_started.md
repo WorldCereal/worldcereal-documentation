@@ -1,3 +1,6 @@
+# How it all started
+
+
 Accurate estimates on cropped area, crop type distributions and irrigation practices play an important role in guiding policy decisions related to food & water security. In 2023, the WorldCereal consortium released the first set of high-resolution, global and season-specific [cropland, crop type and irrigation maps](https://esa-worldcereal.org/en/products/global-maps) for the year 2021, thereby demonstrating both the scientific and technical feasibility of such a challenging undertaking.
 
 <div>

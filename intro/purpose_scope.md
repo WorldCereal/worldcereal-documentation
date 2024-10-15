@@ -1,3 +1,6 @@
+# Purpose and Scope of the WorldCereal system
+
+
 Having access to reliable cropland and crop type masks is an important prerequisite for any agricultural monitoring activity, e.g.
 - crop yield estimation
 - damage assessment of (natural) disasters
