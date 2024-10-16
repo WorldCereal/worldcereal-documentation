@@ -55,7 +55,7 @@ website:
           - href: rdm/publish.md
             text: Publish Your Data
 
-      - section: "Processing System"
+      - section: "Processing Module (PM)"
         contents:
           - href: processing/overview.md
             text: Overview
