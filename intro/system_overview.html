@@ -270,6 +270,12 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#conceptual-design-of-the-system" id="toc-conceptual-design-of-the-system" class="nav-link" data-scroll-target="#conceptual-design-of-the-system">Conceptual design of the system</a></li>
   <li><a href="#current-features-of-the-worldcereal-system" id="toc-current-features-of-the-worldcereal-system" class="nav-link" data-scroll-target="#current-features-of-the-worldcereal-system">Current features of the WorldCereal system</a></li>
+  <li><a href="#planned-features-of-the-worldcereal-system" id="toc-planned-features-of-the-worldcereal-system" class="nav-link" data-scroll-target="#planned-features-of-the-worldcereal-system">Planned features of the WorldCereal system</a>
+  <ul class="collapse">
+  <li><a href="#reference-data-module" id="toc-reference-data-module" class="nav-link" data-scroll-target="#reference-data-module">Reference Data Module</a></li>
+  <li><a href="#processing-module" id="toc-processing-module" class="nav-link" data-scroll-target="#processing-module">Processing Module</a></li>
+  <li><a href="#visualization-and-dissemination-module" id="toc-visualization-and-dissemination-module" class="nav-link" data-scroll-target="#visualization-and-dissemination-module">Visualization and Dissemination Module</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -284,6 +290,17 @@ ul.task-list li input[type="checkbox"] {
 <h1>An overview of the WorldCereal system</h1>
 <section id="conceptual-design-of-the-system" class="level2">
 <h2 class="anchored" data-anchor-id="conceptual-design-of-the-system">Conceptual design of the system</h2>
+<div style="text-align: justify">
+<p>The WorldCereal system is designed to guarantee the cost-efficient production of land cover and crop type products at local, regional and global scale.<br> It is composed of three main modules, as illustrated in the Figure below:<br><br></p>
+<ul>
+<li><a href="../rdm/overview.html"><strong>Reference Data Module (RDM)</strong></a><br> Hosting harmonized in-situ reference data &amp; metadata - aiming at supporting a cooperative approach of sharing reference data relevant for crop monitoring. Data shared by the user can either remain private, be shared with the WorldCereal consortium or made fully publicly available.<br><br></li>
+<li><a href="../processing/overview.html"><strong>Processing Module (PM)</strong></a><br> Includes all the workflows that allow the training and application of classification algorithms based on Earth Observation and ancillary data sources. This typically includes data fetching, pre-processing, feature computation, classification model training, inference and post-processing.<br><br></li>
+<li><a href="../vdm/overview.html"><strong>Visualization &amp; Dissemination Module (VDM)</strong></a><br> Developed as an interactive web-based platform based on open-source components letting users generate and explore WorldCereal products.<br><br></li>
+</ul>
+<p>The interfaces between the modules are based on API for flexibility and efficiency reasons.</p>
+<p>Users can interact with the system either through the RDM, for visualizing or contributing reference data, or through the VDM, to launch processing jobs or visualize global WorldCereal products.<br></p>
+<p><em>Please note that the Processing Module is currently not accessible through the VDM. More information on how to use the Processing Module can be found on its dedicated set of pages.</em></p>
+</div>
 <p align="center">
 <img src="../images/WorldCereal_system.png" alt="system" width="600">
 </p><figcaption>
@@ -299,19 +316,43 @@ ul.task-list li input[type="checkbox"] {
 <li>Explore and download harmonized in-situ reference data</li>
 <li>Upload and harmonize your own in-situ reference data</li>
 </ul>
-<p><a href="../vdm/overview.html">Visualizaton and Dissemination Module</a></p>
-<ul>
-<li>Explore the global WorldCereal products for 2021</li>
-<li>Consult country statistics based on the global products</li>
-</ul>
 <p><a href="../processing/overview.html">Processing Module</a></p>
 <ul>
 <li>Generate a cropland extent map using our pre-trained cropland model for your area and year of interest</li>
 <li>Train and apply a custom cropland classification model for your area and year of interest</li>
 <li>Train and apply a custom crop type classificaiton model for your area, season and crop types of interest</li>
 </ul>
+<p><a href="../vdm/overview.html">Visualizaton and Dissemination Module</a></p>
+<ul>
+<li>Explore the global WorldCereal products for 2021</li>
+<li>Consult country statistics based on the global products</li>
+</ul>
+</section>
+<section id="planned-features-of-the-worldcereal-system" class="level2">
+<h2 class="anchored" data-anchor-id="planned-features-of-the-worldcereal-system">Planned features of the WorldCereal system</h2>
+<section id="reference-data-module" class="level3">
+<h3 class="anchored" data-anchor-id="reference-data-module">Reference Data Module</h3>
+<ul>
+<li>Increased guidance of the user to publish private datasets (share with either the WorldCereal consortium or with the whole community).</li>
+</ul>
+</section>
+<section id="processing-module" class="level3">
+<h3 class="anchored" data-anchor-id="processing-module">Processing Module</h3>
+<ul>
+<li>Ability to use uploaded in-situ reference data to train your custom models.</li>
+<li>The default cropland model will continuously be updated, based on new training data being added to the system.</li>
+<li>Also the construction of default crop type models is ongoing.</li>
+</ul>
+</section>
+<section id="visualization-and-dissemination-module" class="level3">
+<h3 class="anchored" data-anchor-id="visualization-and-dissemination-module">Visualization and Dissemination Module</h3>
+<ul>
+<li>User interface that allows you to download (parts of) the global WorldCereal products.</li>
+<li>User interface that allows you to launch a training or inference run in the Processing Module.</li>
+</ul>
 
 
+</section>
 </section>
 </section>
 
