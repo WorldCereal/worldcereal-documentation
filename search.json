@@ -432,9 +432,31 @@
   {
     "objectID": "rdm/publish.html",
     "href": "rdm/publish.html",
-    "title": "Publishing Reference Data (through moderator)",
+    "title": "Publishing Reference Data",
     "section": "",
-    "text": "Users can contribute to worldcereal reference data by sharing their datasets with the consortium.\nWorldCereal supports the general movement towards data sharing and open science. Please check the below link to learn more about WorldCereal’s view on opening reference data to society (https://esa-worldcereal.org/en/situ-data-global-crop-mapping).\n\n\nThis workflow is under development, In the meantime if you would like to contribute to consortium, please send a mail to ewoc-rdm@iiasa.ac.at",
+    "text": "Throught the RDM, users can publish their uploaded reference data to make it available to others.\nUpon sharing, users can choose to convert their private dataset into:, we make a distinction between: - A restricted dataset: users decide to share their dataset only with the WorldCereal consortium, but NOT with the general public. This way, the consortium can use this dataset to improve their default cropland and crop type models for your area of interest!\n\nA fully open dataset: users share their dataset with the entire community, meaning anybody can view, download and use this dataset in their crop mapping applications.\n\nWorldCereal supports the general movement towards data sharing and open science. Please check the below link to learn more about WorldCereal’s view on opening reference data to society (https://esa-worldcereal.org/en/situ-data-global-crop-mapping).\n\n\n\n\n\nBefore an uploaded dataset can be published, it undergoes thorough checks by a WorldCereal data moderator.\nThe moderator: - checks whether all required metadata has been completed - computes and assigns a confidence score to the entire dataset based on a quality assessment accounting for spatial, temporal and thematic accuracy\nConfidence scores are computed based on a pre-defined protocol, depending on the type of the dataset. This protocol can be consulted here: Confidence score calculations\n\n\n\n\n\nWe are currently working on a guided workflow within the RDM to facilitate data publication. In the meantime, if you would like to share your data with the consortium or public, please get in touch through ewoc-rdm@iiasa.ac.at",
+    "crumbs": [
+      "Reference Data Module (RDM)",
+      "Publish Your Data"
+    ]
+  },
+  {
+    "objectID": "rdm/publish.html#the-concept",
+    "href": "rdm/publish.html#the-concept",
+    "title": "Publishing Reference Data",
+    "section": "",
+    "text": "Throught the RDM, users can publish their uploaded reference data to make it available to others.\nUpon sharing, users can choose to convert their private dataset into:, we make a distinction between: - A restricted dataset: users decide to share their dataset only with the WorldCereal consortium, but NOT with the general public. This way, the consortium can use this dataset to improve their default cropland and crop type models for your area of interest!\n\nA fully open dataset: users share their dataset with the entire community, meaning anybody can view, download and use this dataset in their crop mapping applications.\n\nWorldCereal supports the general movement towards data sharing and open science. Please check the below link to learn more about WorldCereal’s view on opening reference data to society (https://esa-worldcereal.org/en/situ-data-global-crop-mapping).",
+    "crumbs": [
+      "Reference Data Module (RDM)",
+      "Publish Your Data"
+    ]
+  },
+  {
+    "objectID": "rdm/publish.html#practical-implications",
+    "href": "rdm/publish.html#practical-implications",
+    "title": "Publishing Reference Data",
+    "section": "",
+    "text": "Before an uploaded dataset can be published, it undergoes thorough checks by a WorldCereal data moderator.\nThe moderator: - checks whether all required metadata has been completed - computes and assigns a confidence score to the entire dataset based on a quality assessment accounting for spatial, temporal and thematic accuracy\nConfidence scores are computed based on a pre-defined protocol, depending on the type of the dataset. This protocol can be consulted here: Confidence score calculations",
     "crumbs": [
       "Reference Data Module (RDM)",
       "Publish Your Data"
@@ -443,9 +465,9 @@
   {
     "objectID": "rdm/publish.html#workflow-is-under-development",
     "href": "rdm/publish.html#workflow-is-under-development",
-    "title": "Publishing Reference Data (through moderator)",
+    "title": "Publishing Reference Data",
     "section": "",
-    "text": "This workflow is under development, In the meantime if you would like to contribute to consortium, please send a mail to ewoc-rdm@iiasa.ac.at",
+    "text": "We are currently working on a guided workflow within the RDM to facilitate data publication. In the meantime, if you would like to share your data with the consortium or public, please get in touch through ewoc-rdm@iiasa.ac.at",
     "crumbs": [
       "Reference Data Module (RDM)",
       "Publish Your Data"
