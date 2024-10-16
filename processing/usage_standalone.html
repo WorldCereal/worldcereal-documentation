@@ -90,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../processing/overview.html">Processing System</a></li><li class="breadcrumb-item"><a href="../processing/usage_standalone.html">Usage of the Standalone System</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../processing/overview.html">Processing Module (PM)</a></li><li class="breadcrumb-item"><a href="../processing/usage_standalone.html">Usage of the Standalone System</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -189,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Processing System</span></a>
+ <span class="menu-text">Processing Module (PM)</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -267,18 +267,36 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#stand-alone-version-of-the-system" id="toc-stand-alone-version-of-the-system" class="nav-link active" data-scroll-target="#stand-alone-version-of-the-system">Stand-alone version of the system</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 
 
 
-<p>&lt; empty &gt;</p>
+<section id="stand-alone-version-of-the-system" class="level1">
+<h1>Stand-alone version of the system</h1>
+<div style="text-align: justify">
+<p>By default, the new WorldCereal system will be offered as a <a href="../processing/usage_cloud.html">cloud-based processing system</a>. Interested users will however have the possibility to implement and run the system locally (on-premise) in stand-alone mode. This will require the users to start the OpenEO backend using a <strong>Docker container</strong> to guarantee a consistent environment. The local workflows can be preconfigured with remote STAC catalogs for EO data access, or the user can configure own collections that are exposed via STAC metadata. This should allow a user with profound IT skills to set up the system locally with limited effort.<br><br></p>
+<p>At present, this feature is not available yet…</p>
+</div>
+<p align="center">
+<img src="../images/under_construction.png" alt="constr" width="200">
+</p>
+<div style="text-align: justify">
+<p>Towards the end of the WorldCereal project (2026) there will be the possibility for a few dedicated users to apply for a face-to-face training course on how to install and run the system in stand-alone mode. Interested users can always reach out to us through the <a href="https://esa-worldcereal.org/en/contact"><strong>contact form</strong></a> on our website to discuss further options.</p>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -701,7 +719,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation column-page-right">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../processing/usage_cloud.html" class="pagination-link" aria-label="Usage of the Cloud System">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Usage of the Cloud System</span>

@@ -238,7 +238,7 @@
     "section": "",
     "text": "&lt; empty &gt;",
     "crumbs": [
-      "Processing System",
+      "Processing Module (PM)",
       "Usage of the Cloud System"
     ]
   },
@@ -249,18 +249,18 @@
     "section": "",
     "text": "&lt; empty &gt;",
     "crumbs": [
-      "Processing System",
+      "Processing Module (PM)",
       "Overview"
     ]
   },
   {
     "objectID": "processing/usage_standalone.html",
     "href": "processing/usage_standalone.html",
-    "title": "WorldCereal Documentation",
+    "title": "Stand-alone version of the system",
     "section": "",
-    "text": "&lt; empty &gt;",
+    "text": "Stand-alone version of the system\n\nBy default, the new WorldCereal system will be offered as a cloud-based processing system. Interested users will however have the possibility to implement and run the system locally (on-premise) in stand-alone mode. This will require the users to start the OpenEO backend using a Docker container to guarantee a consistent environment. The local workflows can be preconfigured with remote STAC catalogs for EO data access, or the user can configure own collections that are exposed via STAC metadata. This should allow a user with profound IT skills to set up the system locally with limited effort.\nAt present, this feature is not available yet…\n\n\n\n\n\nTowards the end of the WorldCereal project (2026) there will be the possibility for a few dedicated users to apply for a face-to-face training course on how to install and run the system in stand-alone mode. Interested users can always reach out to us through the contact form on our website to discuss further options.",
     "crumbs": [
-      "Processing System",
+      "Processing Module (PM)",
       "Usage of the Standalone System"
     ]
   },
@@ -281,7 +281,7 @@
     "section": "",
     "text": "&lt; empty &gt;",
     "crumbs": [
-      "Processing System",
+      "Processing Module (PM)",
       "Currently Supported Features"
     ]
   },
@@ -292,7 +292,7 @@
     "section": "",
     "text": "&lt; empty &gt;",
     "crumbs": [
-      "Processing System",
+      "Processing Module (PM)",
       "Planned Features and Upgrades"
     ]
   },
