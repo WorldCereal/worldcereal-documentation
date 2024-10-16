@@ -1,19 +1,3 @@
-////////// Jeroen comments ///////////////  
-  
-Introduction  
-
-Guidelines on data collection  
-(important features of the data + best practices)  
-
-Uploading through User Interface (you need terrascope account!)  
--->	Refer to demo video!  
-
-Using your data in the processing module  
--	Refer to previous section on retrieving private samples  
--	(Refer to next section on input data extractions)  
-
-////////// Jeroen comments ///////////////
-
 # Introduction
 
 To generate accurate cropland and crop type maps, high quality reference data is indispensable for both training classification algorithms and validation of the final products. Therefore, WorldCereal would like to engage with global agricultural community to stimulate and facilitate opening and sharing of reference data.  
