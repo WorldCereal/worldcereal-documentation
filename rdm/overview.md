@@ -1,9 +1,3 @@
-//////Jeroen comments //////
-Definition of in-situ reference data for crop mapping  
-Technical background of RDM  
-list of main functionalities --> refer to more detailed sections  
-////// Jeroen comments //////   
-
 # Reference Data Module
 
 Availability of high-quality in-situ reference data remains one of the few bottlenecks for training and validating accurate cropland/crop type classification models. The WorldCereal Reference Data Module (RDM) is an online application that hosts a global collection of harmonized and curated in-situ reference datasets on land cover and crop type, freely accessible to anyone.   
