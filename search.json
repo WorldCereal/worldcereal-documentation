@@ -36,7 +36,95 @@
     "href": "vdm/visualize.html",
     "title": "How to use the VDM for product exploration?",
     "section": "",
-    "text": "How to use the VDM for product exploration?",
+    "text": "Welcome to the WorldCereal visualisation portal. This guide will walk you through basic features and functions.",
+    "crumbs": [
+      "Visualization and Dissemination Module (VDM)",
+      "Visualizing Global Products"
+    ]
+  },
+  {
+    "objectID": "vdm/visualize.html#header",
+    "href": "vdm/visualize.html#header",
+    "title": "How to use the VDM for product exploration?",
+    "section": "Header",
+    "text": "Header\n\n  \n\nThe header offers you basic navigation tools within the application. From left to right:\nProject Logo & Title - Go back to the portal homepage.\nESA Logo - Link to the ESA home page.\nConfiguration - Open configuration panel for Map toolbar.\nTour - Start the application tour.",
+    "crumbs": [
+      "Visualization and Dissemination Module (VDM)",
+      "Visualizing Global Products"
+    ]
+  },
+  {
+    "objectID": "vdm/visualize.html#map-window",
+    "href": "vdm/visualize.html#map-window",
+    "title": "How to use the VDM for product exploration?",
+    "section": "Map window",
+    "text": "Map window\n\n  \n\nMap - Main window to visualise WorldCereal products and supporting datasets.\nProduct Tag - Get the metadata information for the displayed product and define basic visualisation parameters.\nMinimap - See the location of current Area of Interest (AOI) on the global map.\nMap toolbar - Open tools for controlling the map window.",
+    "crumbs": [
+      "Visualization and Dissemination Module (VDM)",
+      "Visualizing Global Products"
+    ]
+  },
+  {
+    "objectID": "vdm/visualize.html#multiple-map-windows",
+    "href": "vdm/visualize.html#multiple-map-windows",
+    "title": "How to use the VDM for product exploration?",
+    "section": "Multiple map windows",
+    "text": "Multiple map windows\n\n  \n\nCompare data from multiple maps side by side by opening multiple map windows and adding different products to each of them.\nAdd map - Opens a new map window.\nCompare - Creates a slider between the map windows that enables comparison of the maps.\nClose - Closes the map window.",
+    "crumbs": [
+      "Visualization and Dissemination Module (VDM)",
+      "Visualizing Global Products"
+    ]
+  },
+  {
+    "objectID": "vdm/visualize.html#active-map-window",
+    "href": "vdm/visualize.html#active-map-window",
+    "title": "How to use the VDM for product exploration?",
+    "section": "Active map window",
+    "text": "Active map window\n\n  \n\nTo add products to the new map window, click on it first to make it active. Active maps are indicated by a yellow dashed border.",
+    "crumbs": [
+      "Visualization and Dissemination Module (VDM)",
+      "Visualizing Global Products"
+    ]
+  },
+  {
+    "objectID": "vdm/visualize.html#product-timeline",
+    "href": "vdm/visualize.html#product-timeline",
+    "title": "How to use the VDM for product exploration?",
+    "section": "Product timeline",
+    "text": "Product timeline\n\n  \n\nScroll through the list of products that overlap with the current Area of Interest (AOI) and add them to the map by clicking on the corresponding bar. Identify the Agro-Ecological Zone (AEZ) and the season to which each product belongs. Make a visual check of the duration of the season. With your mouse cursor in the bounds of the timeline, use the mouse wheel to zoom in and out.",
+    "crumbs": [
+      "Visualization and Dissemination Module (VDM)",
+      "Visualizing Global Products"
+    ]
+  },
+  {
+    "objectID": "vdm/visualize.html#filters",
+    "href": "vdm/visualize.html#filters",
+    "title": "How to use the VDM for product exploration?",
+    "section": "Filters",
+    "text": "Filters\n\n  \n\nSelect product categories and seasons to display in the timeline.",
+    "crumbs": [
+      "Visualization and Dissemination Module (VDM)",
+      "Visualizing Global Products"
+    ]
+  },
+  {
+    "objectID": "vdm/visualize.html#map-window-1",
+    "href": "vdm/visualize.html#map-window-1",
+    "title": "How to use the VDM for product exploration?",
+    "section": "Map window",
+    "text": "Map window\n\n  \n\nThe map window displays a map of administrative units (countries and regions) for which statistical figures are available. Click on the map to select a country or region. Ctrl + click to add more countries or regions to the comparison chart.",
+    "crumbs": [
+      "Visualization and Dissemination Module (VDM)",
+      "Visualizing Global Products"
+    ]
+  },
+  {
+    "objectID": "vdm/visualize.html#statistics-panel",
+    "href": "vdm/visualize.html#statistics-panel",
+    "title": "How to use the VDM for product exploration?",
+    "section": "Statistics panel",
+    "text": "Statistics panel\n\n  \n\nDefine parameters and generate custom charts to present statistics derived from WorldCereal products.\nProduct - Select product for statistical exploration.\nPeriod - Select period for statistical exploration.\nLevel - Switch between global and country level.\nCountries - Select countries or regions for statistical exploration. Selected areas are highlighted in the map window.",
     "crumbs": [
       "Visualization and Dissemination Module (VDM)",
       "Visualizing Global Products"
