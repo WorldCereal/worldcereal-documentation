@@ -266,11 +266,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#reference-data-module" id="toc-reference-data-module" class="nav-link active" data-scroll-target="#reference-data-module">Reference Data Module</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a>
-  <ul>
-  <li><a href="#harmonization" id="toc-harmonization" class="nav-link" data-scroll-target="#harmonization">Harmonization</a></li>
-  </ul></li>
+  <li><a href="#reference-data-module-overview" id="toc-reference-data-module-overview" class="nav-link active" data-scroll-target="#reference-data-module-overview">Reference Data Module: overview</a></li>
   </ul>
 </nav>
     </div>
@@ -280,32 +276,33 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="reference-data-module" class="level1">
-<h1>Reference Data Module</h1>
+<section id="reference-data-module-overview" class="level1">
+<h1>Reference Data Module: overview</h1>
+<div style="text-align: justify">
 <p>Availability of high-quality in-situ reference data remains one of the few bottlenecks for training and validating accurate cropland/crop type classification models. The <a href="https://ewoc-rdm-ui.iiasa.ac.at/">WorldCereal Reference Data Module (RDM)</a> is an online application that hosts a global collection of harmonized and curated in-situ reference datasets on land cover and crop type, freely accessible to anyone.</p>
-<p>The RDM hosts datasets from various providers with standardized metadata and attributes mapped to a unified crop type legend. Built-in automated data quality checks and careful curation performed by WorldCereal data moderators ensure high and transparent data quality. Through the RDM, users can view, query, download, contribute and share in-situ reference data.</p>
+<p>The RDM hosts datasets from various providers with standardized metadata and attributes mapped to a unified crop type legend. Built-in automated data quality checks and careful curation performed by WorldCereal data moderators ensure high and transparent data quality. Through the RDM, users can view, query, download, contribute and share in-situ reference data. An extensive set of automated tools takes care of data harmonization to the WorldCereal standards, thereby effectively taking away most of the burden from the user.</p>
 <p>All this functionality is available through an intuitive user interface and a more advanced API service. The Reference Data Module is linked to the WorldCereal classification system through means of a STAC catalogue, which is queried automatically during classification model training. Through this initiative the WorldCereal consortium aims to foster open data sharing within the agricultural monitoring community.</p>
+</div>
 <p align="center">
 <img src="../images/ref_data_overview.jpg" alt="constr" width="500">
 </p><figcaption>
 Generic framework on in-situ reference data employed in WorldCereal.
 </figcaption>
 <p></p>
-</section>
-<section id="section" class="level1">
-<h1></h1>
-<section id="harmonization" class="level2">
-<h2 class="anchored" data-anchor-id="harmonization">Harmonization</h2>
-<p>Worldcereal follows standardised legends and procedures to prepare harmonized datasets. Below are the list of documents explaining the different procedures.</p>
-<ol type="1">
-<li><p><a href="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_crop_legend_ui_v2_20240709.pdf">Croptype legends</a></p></li>
-<li><p><a href="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_irrigation_legend_ui_v2_20240709.pdf">Irrigation status legends</a></p></li>
-<li><p><a href="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_DerivingValidityTime_v1_1.pdf">Observation Date</a></p></li>
-<li><p><a href="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_ConfidenceScoreCalculations_v1_1.pdf">Confidence score calculations</a></p></li>
-</ol>
+<div style="text-align: justify">
+<p><em>More information on this framework in:<br> Boogaard, H., Pratihast, A.K., Laso Bayas, J.C., Karanam, S., Fritz, S., Van Tricht, K., Degerickx, J. and Gilliams, S., 2023. Building a community-based open harmonised reference data repository for global crop mapping. Plos one, 18(7), p.e0287731.</em></p>
+</div>
+<div style="text-align: justify">
+<p><strong>Read more about the different aspects of reference data and the Reference Data Module on the following dedicated pages:</strong><br><br></p>
+<ul>
+<li><a href="./refdata.md"><strong>Definition and harmonization of in-situ reference data</strong></a></li>
+<li><a href="../rdm/explore.html"><strong>How to explore and retrieve data from the RDM?</strong></a></li>
+<li><a href="../rdm/upload.html"><strong>How to upload data to the RDM?</strong></a></li>
+<li><a href="../rdm/publish.html"><strong>How to publish your data (share your data with others)?</strong></a></li>
+</ul>
+</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
