@@ -395,7 +395,7 @@
     "href": "rdm/overview.html",
     "title": "Reference Data Module",
     "section": "",
-    "text": "//////Jeroen comments ////// Definition of in-situ reference data for crop mapping\nTechnical background of RDM\nlist of main functionalities –&gt; refer to more detailed sections\n////// Jeroen comments //////",
+    "text": "Availability of high-quality in-situ reference data remains one of the few bottlenecks for training and validating accurate cropland/crop type classification models. The WorldCereal Reference Data Module (RDM) is an online application that hosts a global collection of harmonized and curated in-situ reference datasets on land cover and crop type, freely accessible to anyone.\nThe RDM hosts datasets from various providers with standardized metadata and attributes mapped to a unified crop type legend. Built-in automated data quality checks and careful curation performed by WorldCereal data moderators ensure high and transparent data quality. Through the RDM, users can view, query, download, contribute and share in-situ reference data.\nAll this functionality is available through an intuitive user interface and a more advanced API service. The Reference Data Module is linked to the WorldCereal classification system through means of a STAC catalogue, which is queried automatically during classification model training. Through this initiative the WorldCereal consortium aims to foster open data sharing within the agricultural monitoring community.\n\n\nWorldcereal follows standardised legends and procedures to prepare harmonized datasets. Below are the list of documents explaining the different procedures.\n\nCroptype legends\nIrrigation status legends\nObservation Date\nConfidence score calculations",
     "crumbs": [
       "Reference Data Module (RDM)",
       "Overview"
@@ -405,8 +405,8 @@
     "objectID": "rdm/overview.html#harmonization",
     "href": "rdm/overview.html#harmonization",
     "title": "Reference Data Module",
-    "section": "Harmonization",
-    "text": "Harmonization\nWorldcereal follows standardised legends and procedures to prepare harmonized datasets. Below are the list of documents explaining the different procedures.\n\nCroptype legends\nIrrigation status legends\nObservation Date\nConfidence score calculations",
+    "section": "",
+    "text": "Worldcereal follows standardised legends and procedures to prepare harmonized datasets. Below are the list of documents explaining the different procedures.\n\nCroptype legends\nIrrigation status legends\nObservation Date\nConfidence score calculations",
     "crumbs": [
       "Reference Data Module (RDM)",
       "Overview"
