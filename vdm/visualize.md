@@ -3,7 +3,7 @@
 
 <p align="center">
   <a href="https://vdm.esa-worldcereal.org/" target="_blank">
-    <img src="../images/vdm/title.PNG" alt="VDM" width="1000"/>
+    <img src="../images/vdm/title.png" alt="VDM" width="1000"/>
   </a>
 </p>
 
@@ -14,7 +14,7 @@ This guide will walk you through basic features and functions.
 
 <p align="center">
   <a href="https://vdm.esa-worldcereal.org/" target="_blank">
-    <img src="../images/vdm/tiles.PNG" alt="VDM" width="1000"/>
+    <img src="../images/vdm/tiles.png" alt="VDM" width="1000"/>
   </a>
 </p>
 
@@ -30,7 +30,7 @@ Access different visualisation templates by clicking on the appropriate tiles.
 
 <p align="center">
   <a href="https://vdm.esa-worldcereal.org/" target="_blank">
-    <img src="../images/vdm/detailed_exploration.PNG" alt="VDM" width="1000"/>
+    <img src="../images/vdm/detailed_exploration.png" alt="VDM" width="1000"/>
   </a>
 </p>
 
@@ -40,7 +40,7 @@ Explore all individual products based on Agro-Ecological Zones (AEZ) with this m
 
 <p align="center">
 	<a href="https://vdm.esa-worldcereal.org/" target="_blank">
-	  <img src="../images/vdm/detailed_exploration_header.PNG" alt="VDM" width="1000"/>
+	  <img src="../images/vdm/detailed_exploration_header.png" alt="VDM" width="1000"/>
 	</a>
 </p>
 
@@ -58,7 +58,7 @@ The header offers you basic navigation tools within the application. From left t
 
 <p align="center">
 	<a href="https://vdm.esa-worldcereal.org/" target="_blank">
-	  <img src="../images/vdm/detailed_exploration_map_window.PNG" alt="VDM" width="1000"/>
+	  <img src="../images/vdm/detailed_exploration_map_window.png" alt="VDM" width="1000"/>
 	</a>
 </p>
 
@@ -74,7 +74,7 @@ The header offers you basic navigation tools within the application. From left t
 
 <p align="center">
 	<a href="https://vdm.esa-worldcereal.org/" target="_blank">
-	  <img src="../images/vdm/detailed_exploration_multiple_maps.PNG" alt="VDM" width="1000"/>
+	  <img src="../images/vdm/detailed_exploration_multiple_maps.png" alt="VDM" width="1000"/>
 	</a>
 </p>
 
@@ -90,7 +90,7 @@ Compare data from multiple maps side by side by opening multiple map windows and
 
 <p align="center">
 	<a href="https://vdm.esa-worldcereal.org/" target="_blank">
-	  <img src="../images/vdm/detailed_exploration_active_map.PNG" alt="VDM" width="1000"/>
+	  <img src="../images/vdm/detailed_exploration_active_map.png" alt="VDM" width="1000"/>
 	</a>
 </p>
 
@@ -100,7 +100,7 @@ To add products to the new map window, click on it first to make it active. Acti
 
 <p align="center">
 	<a href="https://vdm.esa-worldcereal.org/" target="_blank">
-	  <img src="../images/vdm/detailed_exploration_product_timeline.PNG" alt="VDM" width="1000"/>
+	  <img src="../images/vdm/detailed_exploration_product_timeline.png" alt="VDM" width="1000"/>
 	</a>
 </p>
 
@@ -113,7 +113,7 @@ With your mouse cursor in the bounds of the timeline, use the mouse wheel to zoo
 
 <p align="center">
 	<a href="https://vdm.esa-worldcereal.org/" target="_blank">
-	  <img src="../images/vdm/detailed_exploration_filters.PNG" alt="VDM" width="1000"/>
+	  <img src="../images/vdm/detailed_exploration_filters.png" alt="VDM" width="1000"/>
 	</a>
 </p>
 
@@ -123,7 +123,7 @@ Select product categories and seasons to display in the timeline.
 
 <p align="center">
   <a href="https://vdm.esa-worldcereal.org/" target="_blank">
-    <img src="../images/vdm/global_view.PNG" alt="VDM" width="1000"/>
+    <img src="../images/vdm/global_view.png" alt="VDM" width="1000"/>
   </a>
 </p>
 
@@ -133,7 +133,7 @@ Explore all WorldCereal products grouped by product categories and individual se
 
 <p align="center">
   <a href="https://vdm.esa-worldcereal.org/" target="_blank">
-    <img src="../images/vdm/statistics_view.PNG" alt="VDM" width="1000"/>
+    <img src="../images/vdm/statistics_view.png" alt="VDM" width="1000"/>
   </a>
 </p>
 
@@ -143,7 +143,7 @@ Analyze a range of statistics derived from WorldCereal products using this mappi
 
 <p align="center">
 	<a href="https://vdm.esa-worldcereal.org/" target="_blank">
-	  <img src="../images/vdm/statistics_view_map_window.PNG" alt="VDM" width="1000"/>
+	  <img src="../images/vdm/statistics_view_map_window.png" alt="VDM" width="1000"/>
 	</a>
 </p>
 
@@ -155,7 +155,7 @@ Click on the map to select a country or region.<br>
 
 <p align="center">
 	<a href="https://vdm.esa-worldcereal.org/" target="_blank">
-	  <img src="../images/vdm/statistics_view_statistics_panel.PNG" alt="VDM" width="1000"/>
+	  <img src="../images/vdm/statistics_view_statistics_panel.png" alt="VDM" width="1000"/>
 	</a>
 </p>
 
