@@ -41,8 +41,6 @@ website:
             text: Purpose and Scope
           - href: intro/system_overview.md
             text: System Overview
-          - href: intro/versioning.md
-            text: Versioning and Release Notes
    
       - section: "Reference Data Module (RDM)"
         contents:
