@@ -1,8 +1,10 @@
+# Support and additional resources
+
 
 #### Did not find an answer to your question on this portal?
 
 <div style="text-align: justify">
-Visit our [user forum](https://forum.esa-worldcereal.org/) to start a discussion!<br><br>
+Visit our [user forum](https://forum.esa-worldcereal.org/) to start a discussion!<br>
 
 In case you encountered an error during execution of a processing job on OpenEO, please post your question on the [OpenEO section of the Copernicus Data Space Ecosystem forum](https://forum.dataspace.copernicus.eu/c/openeo/28).
 </div>
