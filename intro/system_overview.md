@@ -4,8 +4,15 @@
 ## Conceptual design of the system
 
 <div style="text-align: justify">
-The WorldCereal system is designed to guarantee the cost-efficient production of land cover and crop type products at local, regional and global scale.<br>
-It is composed of three main modules, as illustrated in the Figure below:<br><br>
+The WorldCereal system is designed to guarantee the cost-efficient production of land cover and crop type products at local, regional and global scale. It is composed of three main modules, as illustrated in the Figure below:<br><br>
+</div>
+
+<p align="center">
+<img src="../images/WorldCereal_system.png" alt="system" width="600"/>
+<figcaption>*High-level overview of the different modules of the WorldCereal processing system and how they are interlinked.*</figcaption>
+</p>
+
+<div style="text-align: justify">
 
 - [**Reference Data Module (RDM)**](../rdm/overview.md)<br>
 Hosting harmonized in-situ reference data & metadata - aiming at supporting a cooperative approach of sharing reference data relevant for crop monitoring. Data shared by the user can either remain private, be shared with the WorldCereal consortium or made fully publicly available.<br><br>
@@ -19,14 +26,7 @@ The interfaces between the modules are based on API for flexibility and efficien
 Users can interact with the system either through the RDM, for visualizing or contributing reference data, or through the VDM, to launch processing jobs or visualize global WorldCereal products.<br>
 
 *Please note that the Processing Module is currently not accessible through the VDM. More information on how to use the Processing Module can be found on its dedicated set of pages.*
-
 </div>
-
-<p align="center">
-<img src="../images/WorldCereal_system.png" alt="system" width="600"/>
-<figcaption>*High-level overview of the different modules of the WorldCereal processing system and how they are interlinked.*</figcaption>
-</p>
-
 
 ## Current features of the WorldCereal system
 
