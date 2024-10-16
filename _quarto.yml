@@ -46,6 +46,8 @@ website:
         contents:
           - href: rdm/overview.md
             text: Overview
+          - href: rdm/refdata.md
+            text: Reference Data Harmonization
           - href: rdm/explore.md
             text: Explore and Retrieve Data
           - href: rdm/upload.md
