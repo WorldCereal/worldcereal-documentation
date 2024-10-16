@@ -272,9 +272,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <li><a href="#uploading-user-datasets-to-the-rdm" id="toc-uploading-user-datasets-to-the-rdm" class="nav-link active" data-scroll-target="#uploading-user-datasets-to-the-rdm">Uploading user datasets to the RDM</a>
   <ul>
-  <li><a href="#uploading-through-user-interface-you-need-terrascope-account" id="toc-uploading-through-user-interface-you-need-terrascope-account" class="nav-link" data-scroll-target="#uploading-through-user-interface-you-need-terrascope-account">Uploading through User Interface (you need terrascope account!)</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#uploading-through-user-interface" id="toc-uploading-through-user-interface" class="nav-link" data-scroll-target="#uploading-through-user-interface">Uploading through User Interface</a>
   <ul class="collapse">
   <li><a href="#step-1-dataset-qualification-check" id="toc-step-1-dataset-qualification-check" class="nav-link" data-scroll-target="#step-1-dataset-qualification-check">Step 1: Dataset Qualification Check</a></li>
   <li><a href="#step-2-dataset-upload-guidelines" id="toc-step-2-dataset-upload-guidelines" class="nav-link" data-scroll-target="#step-2-dataset-upload-guidelines">Step 2: Dataset Upload Guidelines</a></li>
@@ -292,23 +293,35 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
+<section id="uploading-user-datasets-to-the-rdm" class="level1">
+<h1>Uploading user datasets to the RDM</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<div style="text-align: justify">
 <p>To generate accurate cropland and crop type maps, high quality reference data is indispensable for both training classification algorithms and validation of the final products. Therefore, WorldCereal would like to engage with global agricultural community to stimulate and facilitate opening and sharing of reference data.</p>
-<p>Users can upload their datasets in their area of interest or data poor regions to generate high quality custom product maps.</p>
-<section id="uploading-through-user-interface-you-need-terrascope-account" class="level2">
-<h2 class="anchored" data-anchor-id="uploading-through-user-interface-you-need-terrascope-account">Uploading through User Interface (you need terrascope account!)</h2>
-<p>User can upload the datasets using the RDM website, We provide a intuitive and AI assisted workflow to facilitate fast upload of user datasets. This requires terrascope login which also provides options to login using social media acccounts.</p>
+<p>Users can upload their datasets in their area of interest or in data poor regions to contribute to high quality global WorldCereal products, or generate their own custom, high quality maps.</p>
+</div>
+</section>
+<section id="uploading-through-user-interface" class="level2">
+<h2 class="anchored" data-anchor-id="uploading-through-user-interface">Uploading through User Interface</h2>
+<div style="text-align: justify">
+<p><em>Note that in order to be able to upload your dataset, you need to sign up for a <a href="https://terrascope.be/en">Terrascope</a> account. This is completely free of charge!</em><br></p>
+<p>A user can upload a dataset using the RDM website. We provide an intuitive and AI assisted workflow to facilitate fast upload and harmonization of user datasets.</p>
+<p>Please check out our tutorial video which guides you through this procedure step-by-step:</p>
+<p>For completeness, the different steps have also been documented below.</p>
+</div>
 <section id="step-1-dataset-qualification-check" class="level3">
 <h3 class="anchored" data-anchor-id="step-1-dataset-qualification-check">Step 1: Dataset Qualification Check</h3>
-<p>The dataset must adhere to certain formats and contain minimum attributes. User must answer the following questions to ease the dataset upload process.<br>
-1. Dataset should have spatial geometry.<br>
+<div style="text-align: justify">
+<p>The dataset must adhere to certain formats and contain minimum attributes. The user must ensure the dataset meets the following requirements before being able to continue:<br> 1. Dataset should have spatial geometry.<br>
 2. Dataset must cover years 2017 onwards.<br>
-3. Dataset should have information on observation time.(date or season/year or year)</p>
-<p>If the answer for all the above questions is “yes” then the datset is qualified to be uploaded in RDM and can used in the generation of the products. These checks are mainly to prevent errors later and facilitate easy product generation.</p>
+3. Dataset should have information on observation time.</p>
+<p>If the answer for all the above questions is “yes” then the datset is qualified to be uploaded to the RDM. These checks are mainly to prevent errors later and ensure the data can be used for training/validating crop models.</p>
+</div>
 </section>
 <section id="step-2-dataset-upload-guidelines" class="level3">
 <h3 class="anchored" data-anchor-id="step-2-dataset-upload-guidelines">Step 2: Dataset Upload Guidelines</h3>
+<div style="text-align: justify">
 <p>Prepare the dataset according to below mentioned steps to upload successfully.</p>
 <ol type="1">
 <li><p>Supported Dataset Format.</p>
@@ -316,40 +329,48 @@ ul.task-list li input[type="checkbox"] {
 Co-ordinate system should be EPSG 4326 (WGS_84 lat/lon).<br>
 Language: English.</p></li>
 <li><p>Dataset Naming.</p>
-<p>Select an appropriate name for your dataset. Refer to this document for guidelines.</p></li>
+<p>Select an appropriate name for your dataset. Refer to <a href="../rdm/refdata.html#dataset-naming-convention">this section</a> for guidelines.</p></li>
 <li><p>WorldCereal Crop Type Legend.</p>
-<p>Crop type or land cover labels in your dataset need to be converted to the WorldCereal crop type legend to ensure compatibility with other datasets. You will be asked to select the dataset attribute containing the original labels. You will be guided to map these labels to the official WorldCereal crop type legend.<br>
+<p>Crop type or land cover labels in your dataset need to be converted to the <a href="../rdm/refdata.html#hierarchical-land-covercrop-type-legend">WorldCereal crop type legend</a> to ensure compatibility with other datasets. You will be asked to select the dataset attribute containing the original labels. You will be guided to map these labels to the official WorldCereal crop type legend.<br>
 Dataset attribute must be String or Integer type.</p></li>
 <li><p>Validity Time.</p>
-<p>You will be asked to select the dataset attribute that contains the observation date for each individual sample. As an alternative, you will have the possibility to define one observation date for all observations.<br>
-Dataset attribute must be Date type.</p></li>
+<p>You will be asked to select the dataset attribute that contains the observation date for each individual sample. As an alternative, you will have the possibility to define one observation date for all observations. Refer to <a href="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_DerivingValidityTime_v1_1.pdf">this document</a> for specific guidelines. Dataset attribute must be Date type.</p></li>
 <li><p>Irrigation Status (optional).</p>
-<p>You will be asked to select the dataset attribute containing information on irrigation (if present). You will be guided to map the original irrigation labels to the WorldCereal irrigation legend. Dataset attribute must be String or Integer type.</p></li>
+<p>You will be asked to select the dataset attribute containing information on irrigation (if present). You will be guided to map the original irrigation labels to the <a href="../rdm/refdata.html#irrigation-status-legend">WorldCereal irrigation legend</a>. Dataset attribute must be String or Integer type.</p></li>
 </ol>
+</div>
 </section>
 <section id="step-3-dataset-upload" class="level3">
 <h3 class="anchored" data-anchor-id="step-3-dataset-upload">Step 3: Dataset Upload</h3>
-<p>Next step is to upload the dataset, for this we need the following basic information</p>
+<div style="text-align: justify">
+<p>Next step is to upload the dataset, for this we need the following basic information:</p>
 <ol type="1">
 <li>Title: Full title describing the dataset.</li>
 <li>Dataset ID: Consisting of min 3 and max 40 alphanumeric lower case characters, e.g.&nbsp;2024kenyacopernicus4geoglam. For datasets to be shared with other users, we encourage to use our dataset naming convention. Note that unsupported characters will be automatically removed.</li>
 <li>File: Dataset file in geoparquet (parquet) or geopackage(gpkg) or shape file (zipped)</li>
 </ol>
-<p>After the file is uploaded successfully the RDM processes the file and automatically harmonizes and adds it to community store as private dataset</p>
+<p>After the file is uploaded successfully the RDM processes the file and automatically harmonizes and adds it to the community store as a fully private dataset.</p>
+</div>
 </section>
 </section>
 <section id="automated-harmonization-and-upload" class="level2">
 <h2 class="anchored" data-anchor-id="automated-harmonization-and-upload">Automated harmonization and Upload</h2>
+<div style="text-align: justify">
+<p>Here we shortly describe the different steps the data goes through during automated harmonization:</p>
 <ol type="1">
-<li><p>Attribute Extraction: In this step RDM extract all the attribute names available in the uploaded dataset except geometry. This attribute list is presented to user to choose which attribute need to be selected for crop type, irrigation(optional) and observation date mapping</p></li>
-<li><p>Attribute Mapping: In this step user is shown the AI based mapping done in RDM for Crop type and Irrigation. User can either accept the mapping or modify them if needed.</p></li>
-<li><p>Harmonization: This is last step before dataset is harmonized to worldcereal standards and assimilated into the store.</p></li>
+<li><p>Attribute Extraction: In this step RDM extract all the attribute names available in the uploaded dataset except geometry. This attribute list is presented to the user to choose which attribute needs to be selected for crop type, irrigation(optional) and observation date mapping.</p></li>
+<li><p>Attribute Mapping: In this step the user is shown the AI based mapping done in RDM for Crop type and Irrigation. User can either accept the suggested mappings or modify them if needed.</p></li>
+<li><p>Harmonization: This is last step before the dataset is harmonized to WorldCereal standards and assimilated into the community store.</p></li>
 </ol>
-<p>The uploaded user dataset will be availabe to user as private dataset and will not be shared with either other users or with consortium yet. To share with consortium with suitable license users can select the “share with consortium” option available in the user dataset details page.</p>
+<p>The uploaded user dataset will be availabe to the user as a private dataset and will not be shared with either other users or with the consortium yet. To share with the consortium with suitable license users can select the “share with consortium” option available in the user dataset details page. Refer to <a href="../rdm/publish.html">this specific page</a> for more details on dataset publication.</p>
+</div>
 </section>
 <section id="using-your-data-in-the-processing-module" class="level2">
 <h2 class="anchored" data-anchor-id="using-your-data-in-the-processing-module">Using your data in the processing module</h2>
-<p>Users can use the uploaded datasets to train the modules in the processing module, Refer <a href="https://worldcereal.github.io/worldcereal-documentation/rdm/explore.html#how-to-retrieve-user-private-datasets">How to Retrieve User Private Datasets</a> in Explore page.</p>
+<div style="text-align: justify">
+<p>Users will be able to use the uploaded datasets to train cropland/crop type models in the processing module.</p>
+<p>More details on this will be added once this functionality is fully operational.</p>
+</div>
 
 
 </section>
