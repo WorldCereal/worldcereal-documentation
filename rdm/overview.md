@@ -31,3 +31,9 @@ Boogaard, H., Pratihast, A.K., Laso Bayas, J.C., Karanam, S., Fritz, S., Van Tri
 
 </div>
 
+
+<p align="center">
+<img src="../images/RDM_overview.jpg" alt="constr" width="500"/>
+<figcaption>Visual representation of how in-situ reference data travels through the RDM.</figcaption>
+</p>
+
