@@ -59,10 +59,6 @@ website:
         contents:
           - href: processing/overview.md
             text: Overview
-          - href: processing/supported.md
-            text: Currently Supported Features
-          - href: processing/planned.md
-            text: Planned Features and Upgrades
           - href: processing/usage_cloud.md
             text: Usage of the Cloud System
           - href: processing/usage_standalone.md
