@@ -314,9 +314,12 @@ ul.task-list li input[type="checkbox"] {
 <section id="step-1-dataset-qualification-check" class="level3">
 <h3 class="anchored" data-anchor-id="step-1-dataset-qualification-check">Step 1: Dataset Qualification Check</h3>
 <div style="text-align: justify">
-<p>The dataset must adhere to certain formats and contain minimum attributes. The user must ensure the dataset meets the following requirements before being able to continue:<br> 1. Dataset should have spatial geometry.<br>
-2. Dataset must cover years 2017 onwards.<br>
-3. Dataset should have information on observation time.</p>
+<p>The dataset must adhere to certain formats and contain minimum attributes. The user must ensure the dataset meets the following requirements before being able to continue:<br></p>
+<ol type="1">
+<li><p>Dataset should have spatial geometry.</p></li>
+<li><p>Dataset must cover years 2017 onwards.</p></li>
+<li><p>Dataset should have information on observation time.</p></li>
+</ol>
 <p>If the answer for all the above questions is “yes” then the datset is qualified to be uploaded to the RDM. These checks are mainly to prevent errors later and ensure the data can be used for training/validating crop models.</p>
 </div>
 </section>
@@ -346,9 +349,9 @@ Dataset attribute must be String or Integer type.</p></li>
 <div style="text-align: justify">
 <p>Next step is to upload the dataset, for this we need the following basic information:</p>
 <ol type="1">
-<li>Title: Full title describing the dataset.</li>
-<li>Dataset ID: Consisting of min 3 and max 40 alphanumeric lower case characters, e.g.&nbsp;2024kenyacopernicus4geoglam. For datasets to be shared with other users, we encourage to use our dataset naming convention. Note that unsupported characters will be automatically removed.</li>
-<li>File: Dataset file in geoparquet (parquet) or geopackage(gpkg) or shape file (zipped)</li>
+<li><p>Title: Full title describing the dataset.</p></li>
+<li><p>Dataset ID: Consisting of min 3 and max 40 alphanumeric lower case characters, e.g.&nbsp;2024kenyacopernicus4geoglam. For datasets to be shared with other users, we encourage to use our dataset naming convention. Note that unsupported characters will be automatically removed.</p></li>
+<li><p>File: Dataset file in geoparquet (parquet) or geopackage(gpkg) or shape file (zipped)</p></li>
 </ol>
 <p>After the file is uploaded successfully the RDM processes the file and automatically harmonizes and adds it to the community store as a fully private dataset.</p>
 </div>
