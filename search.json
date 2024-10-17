@@ -77,6 +77,17 @@
     ]
   },
   {
+    "objectID": "vdm/launch.html#login",
+    "href": "vdm/launch.html#login",
+    "title": "Launching WorldCereal processing jobs through user interfaces",
+    "section": "Login",
+    "text": "Login\nTo be able to use the tool, you need to login first.",
+    "crumbs": [
+      "Visualization and Dissemination Module (VDM)",
+      "Launch Processing Jobs"
+    ]
+  },
+  {
     "objectID": "vdm/launch.html#list-of-processes",
     "href": "vdm/launch.html#list-of-processes",
     "title": "Launching WorldCereal processing jobs through user interfaces",
