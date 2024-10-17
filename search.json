@@ -334,22 +334,14 @@
     "href": "processing/supported.html",
     "title": "WorldCereal Documentation",
     "section": "",
-    "text": "&lt; empty &gt;",
-    "crumbs": [
-      "Processing Module (PM)",
-      "Currently Supported Features"
-    ]
+    "text": "&lt; empty &gt;"
   },
   {
     "objectID": "processing/planned.html",
     "href": "processing/planned.html",
     "title": "WorldCereal Documentation",
     "section": "",
-    "text": "&lt; empty &gt;",
-    "crumbs": [
-      "Processing Module (PM)",
-      "Planned Features and Upgrades"
-    ]
+    "text": "&lt; empty &gt;"
   },
   {
     "objectID": "design/cloudnative_rdm.html",
