@@ -260,7 +260,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#how-to-use-the-cloud-based-processing-module" id="toc-how-to-use-the-cloud-based-processing-module" class="nav-link active" data-scroll-target="#how-to-use-the-cloud-based-processing-module">How to use the cloud-based processing module?</a></li>
+  <li><a href="#cloud-based-processing" id="toc-cloud-based-processing" class="nav-link active" data-scroll-target="#cloud-based-processing">Cloud-based processing</a>
+  <ul>
+  <li><a href="#powered-by-openeo-and-the-copernicus-data-space-ecosystem" id="toc-powered-by-openeo-and-the-copernicus-data-space-ecosystem" class="nav-link" data-scroll-target="#powered-by-openeo-and-the-copernicus-data-space-ecosystem">Powered by OpenEO and the Copernicus Data Space Ecosystem</a></li>
+  <li><a href="#how-to-access-the-cloud-based-processing-module" id="toc-how-to-access-the-cloud-based-processing-module" class="nav-link" data-scroll-target="#how-to-access-the-cloud-based-processing-module">How to access the cloud-based processing module?</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -270,15 +274,32 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="how-to-use-the-cloud-based-processing-module" class="level1">
-<h1>How to use the cloud-based processing module?</h1>
+<section id="cloud-based-processing" class="level1">
+<h1>Cloud-based processing</h1>
+<section id="powered-by-openeo-and-the-copernicus-data-space-ecosystem" class="level2">
+<h2 class="anchored" data-anchor-id="powered-by-openeo-and-the-copernicus-data-space-ecosystem">Powered by OpenEO and the Copernicus Data Space Ecosystem</h2>
+<div style="text-align: justify">
+<p>WorldCereal selects <a href="https://openeo.org/">openEO</a> as processing standard, because it allows to express both the training and inference workflows in a high-level manner. The use of openEO aids in generating results that follow FAIR data and open science principles. This is crucial to provide transparency and reproducibility of WorldCereal results. It will also make it very feasible for anyone to inspect workflows in a visual manner.</p>
+<p>The scalable processing needed to generate a regional to global maps is offered by the CDSE openEO federation. This includes the software to manage cloud resources, the software to parallelize workflows, disaster recovery across two datacenters, and the operational burden of monitoring the system.<br></p>
+<p>The CDSE open-source deployment is described in more detail in the <a href="https://documentation.dataspace.copernicus.eu/APIs/openEO/openeo_deployment.html">CDSE openEO documentation</a>. The most important element is that CDSE components are required to maintain an uptime of 99.5% on a monthly basis. Lower uptimes are possible, but result in penalties for the platform operators. The contract also has a long lifetime, ensuring that WorldCereal workflows can be executed beyond the project lifetime.<br></p>
+<p>Finally, it is important to note that CDSE is the only EU platform that offers access to the full archives of Sentinel-2 L2A and Sentinel-1 GRD data.</p>
+</div>
+</section>
+<section id="how-to-access-the-cloud-based-processing-module" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-access-the-cloud-based-processing-module">How to access the cloud-based processing module?</h2>
 <div style="text-align: justify">
 <p>Currently the Processing Module can be accessed through a series of Jupyter Notebooks, hosted on our public GitHub Repository.</p>
 <p>A user has the choice to run these notebooks:<br> - on VITO’s Terrascope platform, where everything you need is pre-installed for you<br> - locally on your own system, after installing the worldcereal-classificaiton repository and associated Python environment<br></p>
 <p>Detailed instructions on how to get started, can be found in this <a href="https://github.com/WorldCereal/worldcereal-classification/blob/main/README.md">README</a> file.</p>
 </div>
+<div style="text-align: justify">
+<p>Here is an example of a Jypyter Notebook showing how to generate a cropland map using the default WorldCereal cropland model:</p>
+</div>
+<iframe src="../images/worldcereal_v1_demo_default_cropland.html" style="width:100%; height:400px; border:none; overflow:auto;">
+</iframe>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
