@@ -322,9 +322,20 @@
   {
     "objectID": "processing/overview.html",
     "href": "processing/overview.html",
-    "title": "WorldCereal Documentation",
+    "title": "The WorldCereal Processing Module",
     "section": "",
-    "text": "&lt; empty &gt;",
+    "text": "The WorldCereal Processing Module has been designed to generate custom cropland and crop type maps, anywhere on the globe. Users can either use our default models or train a custom classification model, finetuned for their region, time and crops of interest.\nThe figure below provides a full conceptual overview of the Processing Module:\n\n\n\n\nGeneric workflow employed by the WorldCereal Processing Module.\n\n\n\nIn short, the Processing Module deals with the following steps: - Fetching Earth Observation (EO) and ancillary input data needed for training/inference - Pre-processing the fetched time series and ensuring all inputs are resampled to 10 m resolution - Using the Presto deep learning framework to compute classification features, based on the extracted inputs - Training a custom CatBoost classification model - Applying a trained (or default) model on an area and season of interest - Spatially cleaning the model predictions and associated class probabilities\n\nNOTE: more details on the individual components of the processing module will be added here…",
+    "crumbs": [
+      "Processing Module (PM)",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "processing/overview.html#generic-overview",
+    "href": "processing/overview.html#generic-overview",
+    "title": "The WorldCereal Processing Module",
+    "section": "",
+    "text": "The WorldCereal Processing Module has been designed to generate custom cropland and crop type maps, anywhere on the globe. Users can either use our default models or train a custom classification model, finetuned for their region, time and crops of interest.\nThe figure below provides a full conceptual overview of the Processing Module:\n\n\n\n\nGeneric workflow employed by the WorldCereal Processing Module.\n\n\n\nIn short, the Processing Module deals with the following steps: - Fetching Earth Observation (EO) and ancillary input data needed for training/inference - Pre-processing the fetched time series and ensuring all inputs are resampled to 10 m resolution - Using the Presto deep learning framework to compute classification features, based on the extracted inputs - Training a custom CatBoost classification model - Applying a trained (or default) model on an area and season of interest - Spatially cleaning the model predictions and associated class probabilities\n\nNOTE: more details on the individual components of the processing module will be added here…",
     "crumbs": [
       "Processing Module (PM)",
       "Overview"

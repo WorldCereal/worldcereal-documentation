@@ -255,18 +255,46 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-worldcereal-processing-module" id="toc-the-worldcereal-processing-module" class="nav-link active" data-scroll-target="#the-worldcereal-processing-module">The WorldCereal Processing Module</a>
+  <ul>
+  <li><a href="#generic-overview" id="toc-generic-overview" class="nav-link" data-scroll-target="#generic-overview">Generic overview</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 
 
 
-<p>&lt; empty &gt;</p>
+<section id="the-worldcereal-processing-module" class="level1">
+<h1>The WorldCereal Processing Module</h1>
+<section id="generic-overview" class="level2">
+<h2 class="anchored" data-anchor-id="generic-overview">Generic overview</h2>
+<div style="text-align: justify">
+<p>The WorldCereal Processing Module has been designed to generate custom cropland and crop type maps, anywhere on the globe. Users can either use our default models or train a custom classification model, finetuned for their region, time and crops of interest.</p>
+<p>The figure below provides a full conceptual overview of the Processing Module:</p>
+</div>
+<p align="center">
+<img src="../images/pm_overview.png" alt="pm-overview" width="500">
+</p><figcaption>
+Generic workflow employed by the WorldCereal Processing Module.
+</figcaption>
+<p></p>
+<div style="text-align: justify">
+<p>In short, the Processing Module deals with the following steps:<br> - Fetching Earth Observation (EO) and ancillary input data needed for training/inference<br> - Pre-processing the fetched time series and ensuring all inputs are resampled to 10 m resolution<br> - Using the Presto deep learning framework to compute classification features, based on the extracted inputs<br> - Training a custom CatBoost classification model<br> - Applying a trained (or default) model on an area and season of interest<br> - Spatially cleaning the model predictions and associated class probabilities<br></p>
+</div>
+<p><em>NOTE: more details on the individual components of the processing module will be added here…</em></p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -689,7 +717,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation column-page-right">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../rdm/publish.html" class="pagination-link" aria-label="Publish Your Data">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Publish Your Data</span>
