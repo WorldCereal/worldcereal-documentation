@@ -60,6 +60,8 @@ Users can interact with the system either through the RDM, for visualizing or co
 - Ability to use uploaded in-situ reference data to train your custom models.
 - The default cropland model will continuously be updated, based on new training data being added to the system.
 - Also the construction of default crop type models is ongoing.
+- Training of crop type models in a hierarchical way.
+- Onboarding of the processing system in the ESA Network of Resources.
 
 ### Visualization and Dissemination Module
 
