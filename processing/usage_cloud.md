@@ -29,7 +29,7 @@ Detailed instructions on how to get started, can be found in this [README](https
 </div>
 
 <div style="text-align: justify">
-Here is an example of a Jypyter Notebook showing how to generate a cropland map using the default WorldCereal cropland model:
+Here is an example of a Jupyter Notebook showing how to generate a cropland map using the default WorldCereal cropland model:
 </div>
 
 <iframe src="../images/worldcereal_v1_demo_default_cropland.html" style="width:100%; height:400px; border:none; overflow:auto;"></iframe>
