@@ -1,9 +1,7 @@
 # Launching WorldCereal processing jobs through user interfaces
-
+Soon-to-be-released
 
 The Visualization and Disseminaton Module will host specific user interfaces allowing our users to launch their processing jobs with just a few clicks.
-
-#### This feature is currently still under development...
 
 # How to launch download job
 ## Login
@@ -30,29 +28,29 @@ As step one, select which product you want to download
 <img src="../images/vdm/processes/create-download-process-step1.2.png" alt="constr" width="700"/>
 </p>
 
-confirm your selection and continue to next step
+Confirm your selection and continue to next step
 <p align="center">
 <img src="../images/vdm/processes/create-download-process-step1.3.png" alt="constr" width="700"/>
 </p>
 
 ### Step 2
-choose area of interest, set time range and output format and continue to next step
+Choose area of interest, set time range and output format and continue to next step
 <p align="center">
 <img src="../images/vdm/processes/create-download-process-step2.png" alt="constr" width="700"/>
 </p>
 
 ### Step 3
-check if everything is correct...
+Check if everything is correct
 <p align="center">
 <img src="../images/vdm/processes/create-download-process-step3.1.png" alt="constr" width="700"/>
 </p>
 
-and start your new download process
+Start your new download process
 <p align="center">
 <img src="../images/vdm/processes/create-download-process-step3.2.png" alt="constr" width="700"/>
 </p>
 
-once, your download process is started, you will be redirected to list of processes, where you can monitor status of your new process
+Once, your download process is started, you will be redirected to list of processes, where you can monitor status of your new process
 <p align="center">
 <img src="../images/vdm/processes/list-of-processes1.2.png" alt="constr" width="700"/>
 </p>
