@@ -289,9 +289,9 @@
   {
     "objectID": "processing/usage_cloud.html",
     "href": "processing/usage_cloud.html",
-    "title": "WorldCereal Documentation",
+    "title": "How to use the cloud-based processing module?",
     "section": "",
-    "text": "&lt; empty &gt;",
+    "text": "How to use the cloud-based processing module?\n\nCurrently the Processing Module can be accessed through a series of Jupyter Notebooks, hosted on our public GitHub Repository.\nA user has the choice to run these notebooks: - on VITO’s Terrascope platform, where everything you need is pre-installed for you - locally on your own system, after installing the worldcereal-classificaiton repository and associated Python environment\nDetailed instructions on how to get started, can be found in this README file.",
     "crumbs": [
       "Processing Module (PM)",
       "Usage of the Cloud System"
