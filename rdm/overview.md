@@ -10,7 +10,7 @@ All this functionality is available through an intuitive user interface and a mo
 </div>
 
 <p align="center">
-<img src="../images/ref_data_overview.jpg" alt="constr" width="500"/>
+<img src="../images/ref_data_overview.jpg" alt="refdata" width="500"/>
 <figcaption>Generic framework on in-situ reference data employed in WorldCereal.</figcaption>
 </p>
 
@@ -33,7 +33,7 @@ Boogaard, H., Pratihast, A.K., Laso Bayas, J.C., Karanam, S., Fritz, S., Van Tri
 
 
 <p align="center">
-<img src="../images/RDM_overview.jpg" alt="constr" width="500"/>
+<img src="../images/RDM_overview.png" alt="rdm" width="500"/>
 <figcaption>Visual representation of how in-situ reference data travels through the RDM.</figcaption>
 </p>
 
