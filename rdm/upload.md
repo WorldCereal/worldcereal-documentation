@@ -26,9 +26,13 @@ For completeness, the different steps have also been documented below.
 
 <div style="text-align: justify">
 The dataset must adhere to certain formats and contain minimum attributes. The user must ensure the dataset meets the following requirements before being able to continue:<br>
-1. Dataset should have spatial geometry.  
-2. Dataset must cover years 2017 onwards.  
-3. Dataset should have information on observation time.
+
+
+  1. Dataset should have spatial geometry.
+
+  2. Dataset must cover years 2017 onwards.
+
+  3. Dataset should have information on observation time.
 
 If the answer for all the above questions is "yes" then the datset is qualified to be uploaded to the RDM. These checks are mainly to prevent errors later and ensure the data can be used for training/validating crop models.  
 </div> 
@@ -70,8 +74,10 @@ Prepare the dataset according to below mentioned steps to upload successfully.
 
  Next step is to upload the dataset, for this we need the following basic information:
 
- 1. Title: Full title describing the dataset.
- 2. Dataset ID: Consisting of min 3 and max 40 alphanumeric lower case characters, e.g. 2024kenyacopernicus4geoglam. For datasets to be shared with other users, we encourage to use our dataset naming convention. Note that unsupported characters will be automatically removed.
+ 1. Title: Full title describing the dataset.  
+
+ 2. Dataset ID: Consisting of min 3 and max 40 alphanumeric lower case characters, e.g. 2024kenyacopernicus4geoglam. For datasets to be shared with other users, we encourage to use our dataset naming convention. Note that unsupported characters will be automatically removed.  
+
  3. File: Dataset file in geoparquet (parquet) or geopackage(gpkg) or shape file (zipped)  
 
 After the file is uploaded successfully the RDM processes the file and automatically harmonizes and adds it to the community store as a fully private dataset.
