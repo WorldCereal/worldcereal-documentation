@@ -1,9 +1,9 @@
 # Launching WorldCereal processing jobs through user interfaces
-Soon-to-be-released
 
 The Visualization and Disseminaton Module will host specific user interfaces allowing our users to launch their processing jobs with just a few clicks.
 
 # How to launch download job
+Soon-to-be-released
 ## Login
 To be able to use the tool, you need to login first.
 <p align="center">
