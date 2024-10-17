@@ -89,7 +89,15 @@ Here we shortly describe the different steps the data goes through during automa
 3. Harmonization: This is last step before the dataset is harmonized to WorldCereal standards and assimilated into the community store.  
 
 The uploaded user dataset will be availabe to the user as a private dataset and will not be shared with either other users or with the consortium yet. To share with the consortium with suitable license users can select the "share with consortium" option available in the user dataset details page. Refer to [this specific page](./publish.md) for more details on dataset publication. 
-</div> 
+</div>
+
+## Webiste User Dataset upload demo
+
+<video controls width="100%" height="360">
+  <source src="[[path/to/your/videofile.mp4](https://ewocstorage.blob.core.windows.net/data/ewoc_userdatasetUpload.mp4)](https://ewocstorage.blob.core.windows.net/data/ewoc_userdatasetUpload.mp4)" type="video/mp4">
+  Your browser does not support the video element.
+</video>
+
 
 ## Using your data in the processing module  
 
