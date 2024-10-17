@@ -93,10 +93,7 @@ The uploaded user dataset will be availabe to the user as a private dataset and 
 
 ## Webiste User Dataset upload demo
 
-<video controls width="100%" height="360">
-  <source src="[[path/to/your/videofile.mp4](https://ewocstorage.blob.core.windows.net/data/ewoc_userdatasetUpload.mp4)](https://ewocstorage.blob.core.windows.net/data/ewoc_userdatasetUpload.mp4)" type="video/mp4">
-  Your browser does not support the video element.
-</video>
+[Click to watch the video.](https://ewocstorage.blob.core.windows.net/data/ewoc_userdatasetUpload.mp4)
 
 
 ## Using your data in the processing module  
