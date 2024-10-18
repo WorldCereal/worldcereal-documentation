@@ -1,24 +1,31 @@
 # Launching WorldCereal processing jobs through user interfaces
 
+## Introduction
+<div style="text-align: justify">
 The Visualization and Disseminaton Module will host specific user interfaces allowing our users to launch their processing jobs with just a few clicks.
+</div>
 
-# How to launch download job
-Soon-to-be-released
+## How to launch a product download job
+**Soon-to-be-released**
 
-## Login
+<div style="text-align: justify">
+Use this feature to download the [WorldCereal global products for 2021](https://esa-worldcereal.org/en/products/global-maps) for your area and season of interest.
+</div>
+
+### Login
 To be able to use the tool, you need to login first.
 <p align="center">
 <img src="../images/vdm/processes/login.png" alt="constr" width="700"/>
 </p>
 
-## List of processes
+### List of processes
 Here you can find all your processes
 <p align="center">
 <img src="../images/vdm/processes/list-of-processes1.1.png" alt="constr" width="700"/>
 </p>
 
-## Creation of new process
-### Step 1
+### Creation of new process
+#### Step 1
 On this page, you can create you new download process
 <p align="center">
 <img src="../images/vdm/processes/create-download-process-step1.1.png" alt="constr" width="700"/>
@@ -34,13 +41,13 @@ Confirm your selection and continue to next step
 <img src="../images/vdm/processes/create-download-process-step1.3.png" alt="constr" width="700"/>
 </p>
 
-### Step 2
+#### Step 2
 Choose area of interest, set time range and output format and continue to next step
 <p align="center">
 <img src="../images/vdm/processes/create-download-process-step2.png" alt="constr" width="700"/>
 </p>
 
-### Step 3
+#### Step 3
 Check if everything is correct
 <p align="center">
 <img src="../images/vdm/processes/create-download-process-step3.1.png" alt="constr" width="700"/>
