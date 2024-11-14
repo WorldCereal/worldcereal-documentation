@@ -308,6 +308,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="dataset-naming-convention" class="level3">
 <h3 class="anchored" data-anchor-id="dataset-naming-convention">Dataset naming convention</h3>
 <div style="text-align: justify">
+<p>We use the geoparquet format to store harmonized reference datasets.</p>
 <p>A reference dataset name is typically compiled of 5 elements:<br></p>
 <ul>
 <li><p><strong>Year</strong>: Primary year of the dataset (Example: 2020)<br><br></p></li>
@@ -341,20 +342,110 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="dataset-attributes">Dataset attributes</h3>
 <div style="text-align: justify">
 <p>Each harmonized vector file contains the following data attributes:<br></p>
-<ul>
-<li><p><strong>ewoc_code</strong> (int64): Land cover and crop type label according to the <a href="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_crop_legend_ui_v2_20240709.pdf">hierarchical WorldCereal legend</a>. This label is composed of 5 numeric parts, put together in one number.<br> Example: 1111020036<br><br></p></li>
-<li><p><strong>irrigation_status</strong> (int32): 3-digit code indicating presence and type of irrigation. See the <a href="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_irrigation_legend_ui_v2_20240709.pdf">irrigation legend</a>.<br> Example: 213<br><br></p></li>
-<li><p><strong>valid_time</strong> (date, format YYYY-MM-DD): A specific date for which the observation is valid. In case an exact observation date is not known, it should be derived from information regarding the year and season in which the data was collected. See <a href="(https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_DerivingValidityTime_v1_1.pdf)">this document</a> for guidelines.<br> Example: Datetime(2020-10-01)<br><br></p></li>
-<li><p><strong>sample_id</strong> (string): Unique ID for each individual sample. In order to guarantee ID uniqueness, this ID is typically composed by the name of the dataset, followed by an underscore and a sample ID. In case the original dataset contains unique sample IDs, these can be adopted for this last part during the harmonization procedure.<br> Example: 2019_BEL_vito-potato_POINT_101_AABD23<br><br></p></li>
-<li><p><strong>index</strong> (int64): Unique sample ID<br> Example: 1<br><br></p></li>
-<li><p><strong>quality_score_lc</strong> (int32): A quality score ranging from 0 to 100 indicating the inherent quality of the sample with respect to its landcover label. Usually the values are between 50 (low) and 100 (high). See also <a href="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_ConfidenceScoreCalculations_v1_1.pdf">Confidence score calculations</a><br> Example: 80<br><br></p></li>
-<li><p><strong>quality_score_ct</strong> (int32): A quality score ranging from 0 to 100 indicating the inherent quality of the sample with respect to its crop type label. Usually the values are between 50 (low) and 100 (high). See also <a href="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_ConfidenceScoreCalculations_v1_1.pdf">Confidence score calculations</a><br> Example: 80<br><br></p></li>
-<li><p><strong>extract</strong> (int32): In case of very large datasets, it is simply not feasible to use ALL samples for model training/validation, as for each sample the associated input data need to be fetched, which can become quite costly. Therefore, this attribute indicates whether or not for this sample an extraction of model inputs should be done. The higher the value, the more priority this sample has for launching the extractions pipeline.<br> Example: 1 (lowest priority)<br><br></p></li>
-<li><p><strong>h3_l3_cell</strong> (string): ID of the h3 cell (used for sub-sampling) at level 3 resolution.<br> Example: <br><br></p></li>
-<li><p><strong>sampling_ewoc_code</strong> (int64): <br><br></p></li>
-<li><p><strong>h3_best_res_cell</strong> (string): <br><br></p></li>
-<li><p><strong>distance_to_nearest_road</strong> (double): Distance in meter to nearest road based on OSM data layers. Optional, in case spatial accuracy of FO data have been calculated.<br> Example: 268.32 <br><br></p></li>
-</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Attrbute Name</th>
+<th>Type</th>
+<th>Required?</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>sample_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>2019_BEL_vito-potato_POINT_101-AABD23</td>
+<td>Unique ID for each individual sample. In order to guarantee ID uniqueness, this ID is typically composed by the name of the dataset, followed by a hyphen and a sample ID.</td>
+</tr>
+<tr class="even">
+<td>ewoc_code</td>
+<td>int64</td>
+<td>Yes</td>
+<td>1111020036</td>
+<td>Land cover and crop type label according to the <a href="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_crop_legend_ui_v2_20240709.pdf">hierarchical WorldCereal legend</a>. This label is composed of 5 numeric parts, put together in one number.</td>
+</tr>
+<tr class="odd">
+<td>valid_time</td>
+<td>datetime (YYYY-MM-DD)</td>
+<td>Yes</td>
+<td>2020-10-01</td>
+<td>A specific date for which the observation is valid. See <a href="(https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_DerivingValidityTime_v1_1.pdf)">this document</a> for more information.</td>
+</tr>
+<tr class="even">
+<td>irrigation_status</td>
+<td>int32</td>
+<td>Yes</td>
+<td>213</td>
+<td>3-digit code indicating presence and type of irrigation. See the <a href="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_irrigation_legend_ui_v2_20240709.pdf">irrigation legend</a> for more information.</td>
+</tr>
+<tr class="odd">
+<td>extract</td>
+<td>int32</td>
+<td>Yes</td>
+<td>3</td>
+<td>In case of very large datasets, it is simply not feasible to use ALL samples for model training/validation, as for each sample the associated input data need to be fetched, which can become quite costly. Therefore, this attribute indicates whether or not for this sample an extraction of model inputs should be done. The higher the value, the more priority this sample has for launching the extractions pipeline.</td>
+</tr>
+<tr class="even">
+<td>quality_score_lc</td>
+<td>int32</td>
+<td>No</td>
+<td>50</td>
+<td>A quality score ranging from 0 to 100 indicating the inherent quality of the sample with respect to its land cover label. See also <a href="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_ConfidenceScoreCalculations_v1_1.pdf">Confidence score calculations</a></td>
+</tr>
+<tr class="odd">
+<td>quality_score_ct</td>
+<td>int32</td>
+<td>No</td>
+<td>50</td>
+<td>A quality score ranging from 0 to 100 indicating the inherent quality of the sample with respect to its crop type label. See also <a href="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_ConfidenceScoreCalculations_v1_1.pdf">Confidence score calculations</a></td>
+</tr>
+<tr class="even">
+<td>h3_l3_cell</td>
+<td>string</td>
+<td>No</td>
+<td>823967fffffffff</td>
+<td>ID of the h3 cell (used for sub-sampling) at level 3 resolution.</td>
+</tr>
+<tr class="odd">
+<td>image_time</td>
+<td>datetime</td>
+<td>No</td>
+<td>2020-10-01 (YYYY-MM-DD)</td>
+<td>If dataset generated through interpretation of imagery: timing of the imagery used to identify land cover/crop type label.</td>
+</tr>
+<tr class="even">
+<td>number_validations</td>
+<td>int</td>
+<td>No</td>
+<td>46</td>
+<td>If dataset generated through interpretation of imagery: number of people having reviewed this observation.</td>
+</tr>
+<tr class="odd">
+<td>type_validation</td>
+<td>string</td>
+<td>No</td>
+<td>Expert</td>
+<td>If dataset generated through interpretation of imagery: type of validation used to determine land cover/crop type label (either Expert, NonExpert or Both)</td>
+</tr>
+<tr class="even">
+<td>agreement</td>
+<td>int</td>
+<td>No</td>
+<td>5</td>
+<td>If dataset generated through interpretation of imagery: number of people agreeing</td>
+</tr>
+<tr class="odd">
+<td>disagreement</td>
+<td>int</td>
+<td>No</td>
+<td>2</td>
+<td>If dataset generated through interpretation of imagery: number of people disagreeing</td>
+</tr>
+</tbody>
+</table>
 </div>
 </section>
 </section>
