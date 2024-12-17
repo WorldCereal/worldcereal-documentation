@@ -87,7 +87,7 @@ Our legend has been based mainly on crop characteristics as can be observed by r
 
 In conclusion, the proposed detailed, dynamic and hierarchical legend allows ample flexibility to the user of the system in terms of customized model training and application.
 
-The current legend can be consulted through [**this link**](https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_crop_legend_ui_v2_20240709.pdf).
+The current legend can be consulted through [**this link**](https://artifactory.vgt.vito.be/artifactory/auxdata-public/worldcereal//legend/WorldCereal_LC_CT_legend_latest.csv).
 
 </div>
 
@@ -106,7 +106,7 @@ Each harmonized vector file contains the following data attributes:<br>
 | Attrbute Name | Type | Required? | Example | Description |
 | ------------- | --------------- | --------------- | --------------- |--------------- |
 | sample_id | string | Yes | 2019_BEL_vito-potato_POINT_101-AABD23 | Unique ID for each individual sample. In order to guarantee ID uniqueness, this ID is typically composed by the name of the dataset, followed by a hyphen and a sample ID. |
-| ewoc_code | int64 | Yes | 1111020036 | Land cover and crop type label according to the [hierarchical WorldCereal legend](https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_crop_legend_ui_v2_20240709.pdf). This label is composed of 5 numeric parts, put together in one number.  |
+| ewoc_code | int64 | Yes | 1111020036 | Land cover and crop type label according to the [hierarchical WorldCereal legend](https://artifactory.vgt.vito.be/artifactory/auxdata-public/worldcereal//legend/WorldCereal_LC_CT_legend_latest.csv). This label is composed of 5 numeric parts, put together in one number.  |
 | valid_time | datetime (YYYY-MM-DD) | Yes | 2020-10-01 | A specific date for which the observation is valid. See [this document](https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_DerivingValidityTime_v1_1.pdf) for more information. |
 | irrigation_status | int32 | Yes | 213 | 3-digit code indicating presence and type of irrigation. See the [irrigation legend](https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_irrigation_legend_ui_v2_20240709.pdf) for more information. |
 | extract | int32 | Yes | 3 | In case of very large datasets, it is simply not feasible to use ALL samples for model training/validation, as for each sample the associated input data need to be fetched, which can become quite costly. Therefore, this attribute indicates whether or not for this sample an extraction of model inputs should be done. The higher the value, the more priority this sample has for launching the extractions pipeline. |
