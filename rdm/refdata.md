@@ -87,7 +87,9 @@ Our legend has been based mainly on crop characteristics as can be observed by r
 
 In conclusion, the proposed detailed, dynamic and hierarchical legend allows ample flexibility to the user of the system in terms of customized model training and application.
 
-The current legend can be consulted through [**this link**](https://artifactory.vgt.vito.be/artifactory/auxdata-public/worldcereal//legend/WorldCereal_LC_CT_legend_latest.csv).
+The current legend can be consulted through the following links:<br>
+[**CSV version**](https://artifactory.vgt.vito.be/artifactory/auxdata-public/worldcereal//legend/WorldCereal_LC_CT_legend_latest.csv)<br>
+[**PDF version**](https://artifactory.vgt.vito.be/artifactory/auxdata-public/worldcereal//legend/WorldCereal_LC_CT_legend_latest.pdf)<br>
 
 </div>
 
