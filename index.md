@@ -19,6 +19,8 @@ In the Introduction section, we provide insights into the origin and scope of th
 
 Any remaining questions? Reach out to us through our dedicated [USER FORUM](https://forum.esa-worldcereal.org/)!
 
+Stay informed about our activities by subscribing to our [newsletter](https://esa-worldcereal.org/en#subscribe).
+
 
 The WorldCereal project is executed by a consortium of six partners, lead by [VITO Remote Sensing](https://remotesensing.vito.be/):
 </div>
