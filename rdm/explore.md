@@ -62,18 +62,30 @@ Click the following image to watch our video tutorial on data exploration:
 
 ## Retrieve data through API
 
-The RDM provides REST APIs to access data.
+The RDM provides REST APIs to access data.<br>
+The WorldCereal processing module makes use of these REST APIs to request reference data prior to training crop classification algorithms.<br>
 
-### How to Retrieve Public Datasets
+### RDM demo notebook
+In [this Jupyter notebook](https://github.com/WorldCereal/worldcereal-classification/blob/main/notebooks/worldcereal_RDM_demo.ipynb) we have implemented some user-friendly functionalities in Python allowing anyone to find, query, inspect and download entire datasets, metadata and individual observations.
+The notebook teaches you the practical skills needed to interact with reference data, representing the first step towards building your own crop type models.
+
+The notebook includes instructions on how to run the notebook without the need for installing anything to your local system.
+
+
+### Other resources
+
+In case you would like to learn more about the underlying API functionalities, here are some additional resources for you to consider:
+
+- **Jupyter notebook on how to access public datasets**
 
 <div style="text-align: justify">
-To access public datasets no user login is required. The following Python notebook demonstrates how to access public datasets, along with different data filtering options:<br>
+More detailed insights into how API requests are constructed to access public datasets.<br>
 </div> 
 
 <iframe src="https://nbviewer.jupyter.org/github/WorldCereal/ewoc_rdm_demo_api/blob/main/rdmApiDemo.ipynb" width="100%" height="1000px"></iframe>
 
 
-### How to Retrieve User Private Datasets
+- **Jupyter notebook on how to access private datasets**
 
 <div style="text-align: justify">
 To access user uploaded private datasets through APIs, credentials are required. These credentials are the same as those that were used during [upload of the datasets](./upload.md). The following Python notebook demonstrates how to get user private datasets:
@@ -82,7 +94,7 @@ To access user uploaded private datasets through APIs, credentials are required.
 <iframe src="https://nbviewer.jupyter.org/github/WorldCereal/ewoc_rdm_demo_api/blob/main/rdmApiUserDatasetsDemo.ipynb" width="100%" height="1000px"></iframe>
 
 
-### Swagger API Documentation
+- **Swagger API Documentation**
 
 <div style="text-align: justify">
 Full documentation on the different API requests can be found on our dedicated Swagger page:
