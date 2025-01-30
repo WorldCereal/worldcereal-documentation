@@ -2,7 +2,7 @@
 
 
 <div style="text-align: justify">
-Availability of high-quality in-situ reference data remains one of the few bottlenecks for training and validating accurate cropland/crop type classification models. The [WorldCereal Reference Data Module (RDM)](https://ewoc-rdm-ui.iiasa.ac.at/) is an online application that hosts a global collection of harmonized and curated in-situ reference datasets on land cover and crop type, freely accessible to anyone.   
+Availability of high-quality in-situ reference data remains one of the few bottlenecks for training and validating accurate cropland/crop type classification models. The [WorldCereal Reference Data Module (RDM)](https://rdm.esa-worldcereal.org/) is an online application that hosts a global collection of harmonized and curated in-situ reference datasets on land cover and crop type, freely accessible to anyone.   
 
 The RDM hosts datasets from various providers with standardized metadata and attributes mapped to a unified crop type legend. Built-in automated data quality checks and careful curation performed by WorldCereal data moderators ensure high and transparent data quality. Through the RDM, users can view, query, download, contribute and share in-situ reference data. An extensive set of automated tools takes care of data harmonization to the WorldCereal standards, thereby effectively taking away most of the burden from the user.
 

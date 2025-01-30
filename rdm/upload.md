@@ -59,7 +59,7 @@ Prepare the dataset according to below mentioned steps to upload successfully.
 
 4. Validity Time.  
  
-    You will be asked to select the dataset attribute that contains the observation date for each individual sample. As an alternative, you will have the possibility to define one observation date for all observations. Refer to [this document](https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_DerivingValidityTime_v1_1.pdf) for specific guidelines.
+    You will be asked to select the dataset attribute that contains the observation date for each individual sample. As an alternative, you will have the possibility to define one observation date for all observations. Refer to [this document](https://rdm.esa-worldcereal.org/details/WorldCereal_DerivingValidityTime_v1_1.pdf) for specific guidelines.
     Dataset attribute must be Date type.  
 
 5. Irrigation Status (optional).  

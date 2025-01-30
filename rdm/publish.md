@@ -26,7 +26,7 @@ The moderator:<br>
 - checks whether all required metadata has been completed<br>
 - computes and assigns a confidence score to the entire dataset based on a quality assessment accounting for spatial, temporal and thematic accuracy<br>
 
-Confidence scores are computed based on a pre-defined protocol, depending on the type of the dataset. This protocol can be consulted here: [Confidence score calculations](https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_ConfidenceScoreCalculations_v1_1.pdf)
+Confidence scores are computed based on a pre-defined protocol, depending on the type of the dataset. This protocol can be consulted here: [Confidence score calculations](https://rdm.esa-worldcereal.org/details/WorldCereal_ConfidenceScoreCalculations_v1_1.pdf)
 
 </div>
 

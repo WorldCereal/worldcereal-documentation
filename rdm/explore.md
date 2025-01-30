@@ -53,7 +53,7 @@ User can choose from below license types.
 
 ## Explore data through our User Interface
 
-The interactive RDM user interface for data exploration can be accessed [here](https://ewoc-rdm-ui.iiasa.ac.at/map).<br>
+The interactive RDM user interface for data exploration can be accessed [here](https://rdm.esa-worldcereal.org/map).<br>
 
 Click the following image to watch our video tutorial on data exploration:
 
