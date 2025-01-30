@@ -294,7 +294,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="harmonization">Harmonization</h2>
 <div style="text-align: justify">
 <p>Reference data is typically available in different formats depending on the source of the dataset. To ensure multiple reference datasets can be readily combined and can serve as input for a dedicated calibration/validation task, all datasets entering the Reference Data Module should adhere to the same (meta)data standards and formats.<br><br></p>
-<p>In practice, this means:<br> - Each dataset should be named according to a <a href="#dataset-naming-convention"><strong>standardized naming convention</strong></a>, so the origin and contents of the dataset are immediately clear to the user.<br><br> - Each dataset should be documented according to a <strong>standardized metadata structure</strong>, again to enable easy retrieval of information related to origin, history, content and access right of the data. To ensure maximum interoperability with other geospatial data portals and specifically allow easy data discovery, the STAC metadata format has been adopted to document each individual dataset. Click <a href="https://ewoc-rdm-ui.iiasa.ac.at/collections/2018asremelgadopoly111"><strong>HERE</strong></a> to see an example of the type of metadata that is collected for each harmonized and publicly available dataset. <br><br> - The land cover/crop type labels in each dataset should be defined according to the same <a href="#hierarchical-land-covercrop-type-legend"><strong>generic and hierarchical land cover / crop type legend</strong></a>.<br><br> - Each dataset should contain the same list of <a href="#dataset-attributes"><strong>standardized data attributes</strong></a> and each attribute should adhere to predefined formatting standards.<br><br></p>
+<p>In practice, this means:<br> - Each dataset should be named according to a <a href="#dataset-naming-convention"><strong>standardized naming convention</strong></a>, so the origin and contents of the dataset are immediately clear to the user.<br><br> - Each dataset should be documented according to a <strong>standardized metadata structure</strong>, again to enable easy retrieval of information related to origin, history, content and access right of the data. To ensure maximum interoperability with other geospatial data portals and specifically allow easy data discovery, the STAC metadata format has been adopted to document each individual dataset. Click <a href="https://rdm.esa-worldcereal.org/collections/2018_as_cawaproject_poly_111"><strong>HERE</strong></a> to see an example of the type of metadata that is collected for each harmonized and publicly available dataset. <br><br> - The land cover/crop type labels in each dataset should be defined according to the same <a href="#hierarchical-land-covercrop-type-legend"><strong>generic and hierarchical land cover / crop type legend</strong></a>.<br><br> - Each dataset should contain the same list of <a href="#dataset-attributes"><strong>standardized data attributes</strong></a> and each attribute should adhere to predefined formatting standards.<br><br></p>
 </div>
 <p>To illustrate this harmonization procedure, the next two figures show a screenshot of a dataset (publicly available in the RDM):</p>
 <p><strong>(a) Before harmonization</strong></p>
@@ -372,7 +372,7 @@ ul.task-list li input[type="checkbox"] {
 <td>datetime (YYYY-MM-DD)</td>
 <td>Yes</td>
 <td>2020-10-01</td>
-<td>A specific date for which the observation is valid. See <a href="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_DerivingValidityTime_v1_1.pdf">this document</a> for more information.</td>
+<td>A specific date for which the observation is valid. See <a href="https://rdm.esa-worldcereal.org/details/WorldCereal_DerivingValidityTime_v1_1.pdf">this document</a> for more information.</td>
 </tr>
 <tr class="even">
 <td>irrigation_status</td>
@@ -393,14 +393,14 @@ ul.task-list li input[type="checkbox"] {
 <td>int32</td>
 <td>No</td>
 <td>50</td>
-<td>A quality score ranging from 0 to 100 indicating the inherent quality of the sample with respect to its land cover label. See also <a href="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_ConfidenceScoreCalculations_v1_1.pdf">Confidence score calculations</a></td>
+<td>A quality score ranging from 0 to 100 indicating the inherent quality of the sample with respect to its land cover label. See also <a href="https://rdm.esa-worldcereal.org/details/WorldCereal_ConfidenceScoreCalculations_v1_1.pdf">Confidence score calculations</a></td>
 </tr>
 <tr class="odd">
 <td>quality_score_ct</td>
 <td>int32</td>
 <td>No</td>
 <td>50</td>
-<td>A quality score ranging from 0 to 100 indicating the inherent quality of the sample with respect to its crop type label. See also <a href="https://ewoc-rdm-ui.iiasa.ac.at/details/WorldCereal_ConfidenceScoreCalculations_v1_1.pdf">Confidence score calculations</a></td>
+<td>A quality score ranging from 0 to 100 indicating the inherent quality of the sample with respect to its crop type label. See also <a href="https://rdm.esa-worldcereal.org/details/WorldCereal_ConfidenceScoreCalculations_v1_1.pdf">Confidence score calculations</a></td>
 </tr>
 <tr class="even">
 <td>h3_l3_cell</td>
