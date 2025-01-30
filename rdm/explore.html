@@ -266,9 +266,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#explore-data-through-our-user-interface" id="toc-explore-data-through-our-user-interface" class="nav-link" data-scroll-target="#explore-data-through-our-user-interface">Explore data through our User Interface</a></li>
   <li><a href="#retrieve-data-through-api" id="toc-retrieve-data-through-api" class="nav-link" data-scroll-target="#retrieve-data-through-api">Retrieve data through API</a>
   <ul class="collapse">
-  <li><a href="#how-to-retrieve-public-datasets" id="toc-how-to-retrieve-public-datasets" class="nav-link" data-scroll-target="#how-to-retrieve-public-datasets">How to Retrieve Public Datasets</a></li>
-  <li><a href="#how-to-retrieve-user-private-datasets" id="toc-how-to-retrieve-user-private-datasets" class="nav-link" data-scroll-target="#how-to-retrieve-user-private-datasets">How to Retrieve User Private Datasets</a></li>
-  <li><a href="#swagger-api-documentation" id="toc-swagger-api-documentation" class="nav-link" data-scroll-target="#swagger-api-documentation">Swagger API Documentation</a></li>
+  <li><a href="#rdm-demo-notebook" id="toc-rdm-demo-notebook" class="nav-link" data-scroll-target="#rdm-demo-notebook">RDM demo notebook</a></li>
+  <li><a href="#other-resources" id="toc-other-resources" class="nav-link" data-scroll-target="#other-resources">Other resources</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -377,25 +376,34 @@ To be defined by the owner
 </section>
 <section id="retrieve-data-through-api" class="level2">
 <h2 class="anchored" data-anchor-id="retrieve-data-through-api">Retrieve data through API</h2>
-<p>The RDM provides REST APIs to access data.</p>
-<section id="how-to-retrieve-public-datasets" class="level3">
-<h3 class="anchored" data-anchor-id="how-to-retrieve-public-datasets">How to Retrieve Public Datasets</h3>
+<p>The RDM provides REST APIs to access data.<br> The WorldCereal processing module makes use of these REST APIs to request reference data prior to training crop classification algorithms.<br></p>
+<section id="rdm-demo-notebook" class="level3">
+<h3 class="anchored" data-anchor-id="rdm-demo-notebook">RDM demo notebook</h3>
+<p>In <a href="https://github.com/WorldCereal/worldcereal-classification/blob/main/notebooks/worldcereal_RDM_demo.ipynb">this Jupyter notebook</a> we have implemented some user-friendly functionalities in Python allowing anyone to find, query, inspect and download entire datasets, metadata and individual observations. The notebook teaches you the practical skills needed to interact with reference data, representing the first step towards building your own crop type models.</p>
+<p>The notebook includes instructions on how to run the notebook without the need for installing anything to your local system.</p>
+</section>
+<section id="other-resources" class="level3">
+<h3 class="anchored" data-anchor-id="other-resources">Other resources</h3>
+<p>In case you would like to learn more about the underlying API functionalities, here are some additional resources for you to consider:</p>
+<ul>
+<li><strong>Jupyter notebook on how to access public datasets</strong></li>
+</ul>
 <div style="text-align: justify">
-<p>To access public datasets no user login is required. The following Python notebook demonstrates how to access public datasets, along with different data filtering options:<br></p>
+<p>More detailed insights into how API requests are constructed to access public datasets.<br></p>
 </div>
 <iframe src="https://nbviewer.jupyter.org/github/WorldCereal/ewoc_rdm_demo_api/blob/main/rdmApiDemo.ipynb" width="100%" height="1000px">
 </iframe>
-</section>
-<section id="how-to-retrieve-user-private-datasets" class="level3">
-<h3 class="anchored" data-anchor-id="how-to-retrieve-user-private-datasets">How to Retrieve User Private Datasets</h3>
+<ul>
+<li><strong>Jupyter notebook on how to access private datasets</strong></li>
+</ul>
 <div style="text-align: justify">
 <p>To access user uploaded private datasets through APIs, credentials are required. These credentials are the same as those that were used during <a href="../rdm/upload.html">upload of the datasets</a>. The following Python notebook demonstrates how to get user private datasets:</p>
 </div>
 <iframe src="https://nbviewer.jupyter.org/github/WorldCereal/ewoc_rdm_demo_api/blob/main/rdmApiUserDatasetsDemo.ipynb" width="100%" height="1000px">
 </iframe>
-</section>
-<section id="swagger-api-documentation" class="level3">
-<h3 class="anchored" data-anchor-id="swagger-api-documentation">Swagger API Documentation</h3>
+<ul>
+<li><strong>Swagger API Documentation</strong></li>
+</ul>
 <div style="text-align: justify">
 <p>Full documentation on the different API requests can be found on our dedicated Swagger page:</p>
 </div>
