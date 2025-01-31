@@ -6,12 +6,13 @@
 
 Throught the RDM, users can publish their uploaded reference data to make it available to others.<br>
 
-Upon sharing, users can choose to convert their private dataset into:, we make a distinction between:<br>
-- **A restricted dataset**: users decide to share their dataset only with the WorldCereal consortium, but NOT with the general public. This way, the consortium can use this dataset to improve their default cropland and crop type models for your area of interest!<br><br>
+As a reminder, there are two modalities in which data can be shared:
 
-- **A fully open dataset**: users share their dataset with the entire community, meaning anybody can view, download and use this dataset in their crop mapping applications.<br><br>
+- **A restricted dataset**: users decide to share their dataset only with the WorldCereal consortium, but NOT with the general public. This way, the consortium can use this dataset to improve their default cropland and crop type models for your area of interest! Sharing reference data in this way, is treated on [this page](./upload.md#step-4-share-your-dataset-with-worldcereal-consortium). <br><br>
 
-WorldCereal supports the general movement towards data sharing and open science. Please check the below link to learn more about WorldCereal’s view on opening reference data to society ([https://esa-worldcereal.org/en/situ-data-global-crop-mapping](https://esa-worldcereal.org/en/situ-data-global-crop-mapping)).
+- **A fully public dataset**: users share their dataset with the entire community, meaning anybody can view, download and use this dataset in their crop mapping applications. The procedure for this is explained in the section below.<br><br>
+
+WorldCereal supports the general movement towards data sharing and open science. Please check the below link to learn more about WorldCereal’s view on opening reference data to society ([https://esa-worldcereal.org/en/situ-data-global-crop-mapping](https://esa-worldcereal.org/en/reference-data)).
 
 </div>
 
