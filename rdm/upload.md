@@ -143,6 +143,4 @@ More details on this will be added once this functionality is fully operational.
 
 ## Sharing your data with the community
 
-
-
-
+If you would like to share your dataset with the general public and contribute to the move towards open data and science, please consult the associated guidelines on [this dedicated page](./publish.md).
