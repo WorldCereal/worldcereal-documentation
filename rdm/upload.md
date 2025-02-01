@@ -18,7 +18,7 @@ A user can upload a dataset by clicking the "Contribute" button on the home page
 
 Please check out our tutorial video which guides you through this procedure step-by-step:
 
-[Click to watch the video.](https://ewocstorage.blob.core.windows.net/data/ewoc_userdatasetUpload.mp4)
+<iframe width="638" height="343" src="https://www.youtube.com/embed/458soD-Gsv8" title="5 4 RDM Data Upload Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
 For completeness, the different steps have also been documented below.

@@ -57,7 +57,7 @@ The interactive RDM user interface for data exploration can be accessed [here](h
 
 Click the following image to watch our video tutorial on data exploration:
 
-[![WorldCereal RDM quick tutorial](https://img.youtube.com/vi/CmiNBUeM5WI/hqdefault.jpg)](https://www.youtube.com/watch?v=CmiNBUeM5WI&t=91s)
+<iframe width="638" height="343" src="https://www.youtube.com/embed/mI9eq5ydW7w" title="5 2 RDM Data Exploration Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
 ## Retrieve data through API
