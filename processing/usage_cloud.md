@@ -24,12 +24,11 @@ A user has the choice to run these notebooks:<br>
 - on VITO's Terrascope platform, where everything you need is pre-installed for you<br>
 - locally on your own system, after installing the worldcereal-classificaiton repository and associated Python environment<br>
 
-Detailed instructions on how to get started, can be found in this [README](https://github.com/WorldCereal/worldcereal-classification/blob/main/README.md) file.
-
+Detailed instructions on how to get started can be found in each individual notebook.
 </div>
 
-<div style="text-align: justify">
-Here is an example of a Jupyter Notebook showing how to generate a cropland map using the default WorldCereal cropland model:
-</div>
 
-<iframe src="../images/worldcereal_v1_demo_default_cropland.html" style="width:100%; height:400px; border:none; overflow:auto;"></iframe>
+**Links to notebooks:**
+- Generate a cropland mask for your area and year of interest using the pre-trained WorldCereal model --> https://github.com/WorldCereal/worldcereal-classification/blob/main/notebooks/worldcereal_default_cropland.ipynb
+- Prepare your private reference data for model training --> https://github.com/WorldCereal/worldcereal-classification/blob/main/notebooks/worldcereal_private_extractions.ipynb
+- Train and apply a custom crop type model based on public + private reference data --> https://github.com/WorldCereal/worldcereal-classification/blob/main/notebooks/worldcereal_custom_croptype.ipynb
