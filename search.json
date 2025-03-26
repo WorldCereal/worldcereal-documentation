@@ -35,9 +35,9 @@
   {
     "objectID": "vdm/launch.html",
     "href": "vdm/launch.html",
-    "title": "Launching WorldCereal processing jobs through user interfaces",
+    "title": "Launching WorldCereal Processing Jobs Through User Interfaces",
     "section": "",
-    "text": "The Visualization and Disseminaton Module is hosting specific user interfaces allowing our users to launch their processing jobs with just a few clicks.\n\n\n\n\nSoon-to-be-released\n\nUse this feature to download the WorldCereal global products for 2021 for your area and season of interest.\n\n\n\nTo be able to use the tool, you need to login first.\n\n\n\n\n\n\nHere you can find all your processes\n\n\n\n\n\n\n\n\nOn this page, you can create you new download process\n\n\n\nAs step one, select which product you want to download\n\n\n\nConfirm your selection and continue to next step\n\n\n\n\n\n\nChoose area of interest, set time range and output format and continue to next step\n\n\n\n\n\n\nCheck if everything is correct\n\n\n\nStart your new download process\n\n\n\nOnce, your download process is started, you will be redirected to list of processes, where you can monitor status of your new process",
+    "text": "The Visualization and Dissemination Module (VDM) provides user-friendly interfaces that enable users to launch processing jobs with ease. This guide outlines the steps required to create and manage download or custom product generation processes.\n\n\n\n\nThis feature allows users to download the WorldCereal global products for 2021 for a specific area and season of interest or to create and download custom products.\n\n\n\nTo access the tool, users must first log in using their CDSE account credentials.\n\n\n\n\n\n\n\nThe homepage provides basic information about the application and links to useful resources.\n\n\n\n\n\n\n\nThe “List of Processes” page displays all active and completed processes along with their details.\n\n\n\n\n\n\n\nThis section allows users to download official products for their area of interest. Currently, official products are only available for the “2021” collection.\n\n\n\n\n\nSelect the desired collection and product, then proceed to the next step.\n\n\n\n\n\n\nSpecify the area of interest (AOI) and output format, then create a new download process. Users can return to the previous step to modify their selection if needed. The download job will not start until it is confirmed in the next step.\nNote: There is a limit to the size of the area that can be selected. Current limits are displayed above the map window, and the size of the selected area is shown below the map window.\n\n\n\n\n\n\nReview the details of the process. If everything is correct, start the process. Once created, the user will be redirected to the “Your Processes” page. Additional processes can also be created and run later from the “Your Processes” tab.\n\n\n\n\n\n\n\n\nThis section allows users to generate and download custom products.\n\n\n\n\n\nSelect the desired product type and model, then proceed to the next step.\nNote: Currently, only the “Default” model and “Cropland” product are available.\n\n\n\n\n\n\nSpecify the area of interest (AOI), end month, and output format, then create a new custom product process. Users can return to the previous step to modify their selection if needed. The custom product process will not start until it is confirmed in the next step.\nNote: There is a limit to the size of the area that can be selected. Current limits are displayed above the map window, and the size of the selected area is shown below the map window. Additionally, examples are provided to indicate the estimated processing time and credit consumption for different AOI sizes.\n\n\n\n\n\n\nReview the details of the process. If everything is correct, start the process. Once created, the user will be redirected to the “Your Processes” page. Additional processes can also be created and run later from the “Your Processes” tab.\n\n\n\n\n\n\n\n\n\nThis guide provides a comprehensive walkthrough for launching download and custom product generation jobs. By following these steps, users can efficiently manage their data processing tasks.",
     "crumbs": [
       "Visualization and Dissemination Module (VDM)",
       "Launch Processing Jobs"
@@ -46,20 +46,31 @@
   {
     "objectID": "vdm/launch.html#introduction",
     "href": "vdm/launch.html#introduction",
-    "title": "Launching WorldCereal processing jobs through user interfaces",
+    "title": "Launching WorldCereal Processing Jobs Through User Interfaces",
     "section": "",
-    "text": "The Visualization and Disseminaton Module is hosting specific user interfaces allowing our users to launch their processing jobs with just a few clicks.",
+    "text": "The Visualization and Dissemination Module (VDM) provides user-friendly interfaces that enable users to launch processing jobs with ease. This guide outlines the steps required to create and manage download or custom product generation processes.",
     "crumbs": [
       "Visualization and Dissemination Module (VDM)",
       "Launch Processing Jobs"
     ]
   },
   {
-    "objectID": "vdm/launch.html#how-to-launch-a-product-download-job",
-    "href": "vdm/launch.html#how-to-launch-a-product-download-job",
-    "title": "Launching WorldCereal processing jobs through user interfaces",
+    "objectID": "vdm/launch.html#how-to-launch-a-new-process",
+    "href": "vdm/launch.html#how-to-launch-a-new-process",
+    "title": "Launching WorldCereal Processing Jobs Through User Interfaces",
     "section": "",
-    "text": "Soon-to-be-released\n\nUse this feature to download the WorldCereal global products for 2021 for your area and season of interest.\n\n\n\nTo be able to use the tool, you need to login first.\n\n\n\n\n\n\nHere you can find all your processes\n\n\n\n\n\n\n\n\nOn this page, you can create you new download process\n\n\n\nAs step one, select which product you want to download\n\n\n\nConfirm your selection and continue to next step\n\n\n\n\n\n\nChoose area of interest, set time range and output format and continue to next step\n\n\n\n\n\n\nCheck if everything is correct\n\n\n\nStart your new download process\n\n\n\nOnce, your download process is started, you will be redirected to list of processes, where you can monitor status of your new process",
+    "text": "This feature allows users to download the WorldCereal global products for 2021 for a specific area and season of interest or to create and download custom products.\n\n\n\nTo access the tool, users must first log in using their CDSE account credentials.\n\n\n\n\n\n\n\nThe homepage provides basic information about the application and links to useful resources.\n\n\n\n\n\n\n\nThe “List of Processes” page displays all active and completed processes along with their details.\n\n\n\n\n\n\n\nThis section allows users to download official products for their area of interest. Currently, official products are only available for the “2021” collection.\n\n\n\n\n\nSelect the desired collection and product, then proceed to the next step.\n\n\n\n\n\n\nSpecify the area of interest (AOI) and output format, then create a new download process. Users can return to the previous step to modify their selection if needed. The download job will not start until it is confirmed in the next step.\nNote: There is a limit to the size of the area that can be selected. Current limits are displayed above the map window, and the size of the selected area is shown below the map window.\n\n\n\n\n\n\nReview the details of the process. If everything is correct, start the process. Once created, the user will be redirected to the “Your Processes” page. Additional processes can also be created and run later from the “Your Processes” tab.\n\n\n\n\n\n\n\n\nThis section allows users to generate and download custom products.\n\n\n\n\n\nSelect the desired product type and model, then proceed to the next step.\nNote: Currently, only the “Default” model and “Cropland” product are available.\n\n\n\n\n\n\nSpecify the area of interest (AOI), end month, and output format, then create a new custom product process. Users can return to the previous step to modify their selection if needed. The custom product process will not start until it is confirmed in the next step.\nNote: There is a limit to the size of the area that can be selected. Current limits are displayed above the map window, and the size of the selected area is shown below the map window. Additionally, examples are provided to indicate the estimated processing time and credit consumption for different AOI sizes.\n\n\n\n\n\n\nReview the details of the process. If everything is correct, start the process. Once created, the user will be redirected to the “Your Processes” page. Additional processes can also be created and run later from the “Your Processes” tab.",
+    "crumbs": [
+      "Visualization and Dissemination Module (VDM)",
+      "Launch Processing Jobs"
+    ]
+  },
+  {
+    "objectID": "vdm/launch.html#notes",
+    "href": "vdm/launch.html#notes",
+    "title": "Launching WorldCereal Processing Jobs Through User Interfaces",
+    "section": "",
+    "text": "This guide provides a comprehensive walkthrough for launching download and custom product generation jobs. By following these steps, users can efficiently manage their data processing tasks.",
     "crumbs": [
       "Visualization and Dissemination Module (VDM)",
       "Launch Processing Jobs"
