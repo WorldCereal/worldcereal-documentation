@@ -12,7 +12,7 @@ Users can upload their datasets in their area of interest or in data poor region
 
 <div style="text-align: justify">
 
-*Note that in order to be able to upload your dataset, you need to sign up for a [Terrascope](https://terrascope.be/en) account. This is completely free of charge!*<br>
+*Note that in order to be able to upload your dataset, you need to sign up for a [Copernicus Data Space Ecosystem (CDSE)](https://dataspace.copernicus.eu/) account. This is completely free of charge!*<br>
 
 A user can upload a dataset by clicking the "Contribute" button on the home page of the [RDM website](https://rdm.esa-worldcereal.org/). We provide an intuitive and AI assisted workflow to facilitate fast upload and harmonization of user datasets.
 
