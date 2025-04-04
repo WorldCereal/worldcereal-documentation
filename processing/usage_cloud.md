@@ -28,7 +28,8 @@ Detailed instructions on how to get started can be found in each individual note
 </div>
 
 
-**Links to notebooks:**
-- Generate a cropland mask for your area and year of interest using the pre-trained WorldCereal model --> https://github.com/WorldCereal/worldcereal-classification/blob/main/notebooks/worldcereal_default_cropland.ipynb
-- Prepare your private reference data for model training --> https://github.com/WorldCereal/worldcereal-classification/blob/main/notebooks/worldcereal_private_extractions.ipynb
-- Train and apply a custom crop type model based on public + private reference data --> https://github.com/WorldCereal/worldcereal-classification/blob/main/notebooks/worldcereal_custom_croptype.ipynb
+**Links to notebooks:**<br>
+
+- [Generate a temporary crops mask](https://github.com/WorldCereal/worldcereal-classification/blob/main/notebooks/worldcereal_default_cropland.ipynb) for your area and year of interest using the pre-trained WorldCereal crop/no-crop model.
+- [Prepare your private reference data](https://github.com/WorldCereal/worldcereal-classification/blob/main/notebooks/worldcereal_private_extractions.ipynb) for customized crop type model training.
+- [Train and apply a custom crop type model](https://github.com/WorldCereal/worldcereal-classification/blob/main/notebooks/worldcereal_custom_croptype.ipynb) based on public and/or private reference data.
