@@ -115,7 +115,7 @@ Each harmonized vector file contains the following data attributes:<br>
 | quality_score_lc | int32 | No | 50 | A quality score ranging from 0 to 100 indicating the inherent quality of the sample with respect to its land cover label. See also [Confidence score calculations](https://rdm.esa-worldcereal.org/details/WorldCereal_ConfidenceScoreCalculations_v1_1.pdf) |
 | quality_score_ct | int32 | No | 50 | A quality score ranging from 0 to 100 indicating the inherent quality of the sample with respect to its crop type label. See also [Confidence score calculations](https://rdm.esa-worldcereal.org/details/WorldCereal_ConfidenceScoreCalculations_v1_1.pdf)  |
 | h3_l3_cell | string | No | 823967fffffffff | ID of the h3 cell (used for sub-sampling) at level 3 resolution.  |
-| sampling_ewoc_code | int32 | No | 1111020036 | Crop category label assigned to the sample during sub-sampling of the dataset.  |
+| sampling_ewoc_code | str | No | 1111020036 | Crop category label assigned to the sample during sub-sampling of the dataset.  |
 | image_time | datetime | No | 2020-10-01 (YYYY-MM-DD) | If dataset generated through interpretation of imagery: timing of the imagery used to identify land cover/crop type label.  |
 | number_validations | int | No | 46 | If dataset generated through interpretation of imagery: number of people having reviewed this observation. |
 | type_validation | string | No | Expert | If dataset generated through interpretation of imagery: type of validation used to determine land cover/crop type label (either Expert, NonExpert or Both)  |
