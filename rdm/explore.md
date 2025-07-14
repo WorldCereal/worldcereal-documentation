@@ -1,61 +1,57 @@
-# Exploring and visualizing data
+# Data exploration and access
 
-## Introducing different types of datasets
 
-<div style="text-align: justify">
-The WorldCereal Reference Data Module (RDM) is the outcome of collaborative approach to build a reference data store on reference data which can be used for land cover and crop type model training and validation. The products generated support worldwide crop monitoring. In the RDM we have two types of data storage:
+## Introduction
 
-1. Consortium data store
-2. Community data store
+The WorldCereal Reference Data Module (RDM) offers multiple tools to explore, filter, visualize and download reference data and associated metadata, either through [a web interface](#explore-data-through-our-user-interface) or [API service](#retrieve-data-through-api).<br>
 
-Datasets in both data stores can be set to be publicly available or private. Datasets that are inside the consortium data storage have been collected, harmonized, and maintained by expert moderators (project partners) and have been made available to the public according to their governing data licenses. Private datasets in consortium datastore will be available only for products generation.
+Both services can be used without authentication, initially granting users access only to publicly available reference data.
 
-The datasets that are in the Community data storage are harmonized and uploaded by Community users. The uploaded datasets can be made public with appropriate licenses and will be reviewed by moderators before being published. Private user datasets will be available only for the owner of such data sets and will not be shared for use by other users or consortium for product generation until the owner decides to make the data public. The owner decides who will be allowed to use data and under what restrictions.   
-User can choose from below license types. 
-</div> 
+Upon login with their [Copernicus Data Space Ecosystem (CDSE)](https://dataspace.copernicus.eu/) credentials, users can additionally upload, consult, filter, retrieve and share their own private datasets as well. Read more on [data upload](./upload.md) and [publication](./publish.md).
 
-<table>
-  <tr>
-    <th>License types*</th>
-    <th>Remarks</th>
-  </tr>
-  <tr>
-    <td>CC0</td>
-    <td>No Rights Reserved</td>
-  </tr>
-   <tr>
-    <td>CC BY</td>
-    <td>Attribution</td>
-  </tr>
-   <tr>
-    <td>CC BY-SA</td>
-    <td>Attribution-ShareAlike</td>
-  </tr>
-   <tr>
-    <td>CC BY-NC</td>
-    <td>Attribution-NonCommercial</td>
-  </tr>
-   <tr>
-    <td>CC BY-NC-SA</td>
-    <td>Attribution-NonCommercial-ShareAlike</td>
-  </tr>
-   <tr>
-    <td>Private</td>
-    <td>Only accessible for the owner</td>
-  </tr>
-   <tr>
-    <td>Other</td>
-    <td>To be defined by the owner</td>
-  </tr>
-</table>
 
-* [See Creative Commons licenses](https://creativecommons.org/share-your-work/cclicenses/)
+## Data use and citation
+
+Each published dataset in the RDM is properly documented using a standardized metadata form, including details on the data owner, applicable data license, required citation and harmonization procedure.
+
+When using reference data obtained through RDM in your own applications, please make sure to use the appropriate citation information as captured in the metadata of the associated datasets, as well as to include proper reference to the RDM application:
+
+*Karanam, S., Laso Bayas, J. C., Fritz, S., Boogaard, H., Pratihast, A. K., Degerickx, J., Butsko, C., Dries, J., & Van Tricht, K. (2024). WorldCereal Reference Data Module (RDM). International Institute for Applied Systems Analysis (IIASA). https://doi.org/10.60566/80p50-6z433*
+
 
 ## Explore data through our User Interface
 
 The interactive RDM user interface for data exploration can be accessed [here](https://rdm.esa-worldcereal.org/map).<br>
+The map (image below) provides a quick overview of distribution of reference datasets. Pins are colored based on data privacy levels:
+- blue for public datasets
+- yellow for fully private datasets
+- green for restricted datasets (visible to owner and WorldCereal consortium)
 
-Click the following image to watch our video tutorial on data exploration:
+The filter options in the upper right corner allow you to quickly filter reference datasets based on observation year and land cover/crop type labels.
+Clicking an individual pin shows the link to the dataset, along with the total number of observations.
+
+<p align="center">
+<img src="../images/RDM_explore_map.png" alt="refdatamap" width="500"/>
+<figcaption>Exploring reference data through the map view. Public datasets are represented by blue pins, fully private datasets by yellow pins and user datasets shared with WorldCereal consortium by green pins.</figcaption>
+</p>
+
+Upon clicking the link to a dataset, you end up on a dedicated page showing all metadata and direct download links to the different components of the dataset, including:
+- full harmonized dataset
+- subsampled harmonized dataset
+- metadata excel file
+- explanation of harmonization procedure
+- mapping of original crop labels to WorldCereal legend
+
+<p align="center">
+<img src="../images/RDM_dataset_details.png" alt="refdatamap" width="500"/>
+<figcaption>Each dataset has a dedicated page where metadata can be consulted and the data can be downloaded.</figcaption>
+</p>
+
+Alternatively, you can manually browse through the list of [public collections](https://rdm.esa-worldcereal.org/collections) or (once authenticated) [your private collections](https://rdm.esa-worldcereal.org/user-collections).
+
+
+
+Click the following image to watch our **full video tutorial on data exploration**:
 
 <iframe width="638" height="343" src="https://www.youtube.com/embed/mI9eq5ydW7w" title="5 2 RDM Data Exploration Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -64,6 +60,7 @@ Click the following image to watch our video tutorial on data exploration:
 
 The RDM provides REST APIs to access data.<br>
 The WorldCereal processing module makes use of these REST APIs to request reference data prior to training crop classification algorithms.<br>
+
 
 ### RDM demo notebook
 In [this Jupyter notebook](https://github.com/WorldCereal/worldcereal-classification/blob/main/notebooks/worldcereal_RDM_demo.ipynb) we have implemented some user-friendly functionalities in Python allowing anyone to find, query, inspect and download entire datasets, metadata and individual observations.
