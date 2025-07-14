@@ -28,7 +28,17 @@ In practice, this means:<br>
 
 </div>
 
-To illustrate this harmonization procedure, the next two figures show a screenshot of a dataset (publicly available in the RDM):
+
+<div class="alert alert-block alert-info">
+<b>Harmonization in practice</b><br>
+
+While incredibly useful, data harmonization requires some effort from data owners to comply to all standards.<br>
+With our **highly automated and user-friendly data upload and harmonization tool** we effectively lower the burden for our users to contribute data.<br>
+Read more on our tool on our dedicated [**data upload page**](./upload.md)!
+</div>
+
+
+To further illustrate the harmonization procedure, the next two figures show a screenshot of a dataset (publicly available in the RDM):
 
 
 **(a) Before harmonization**
@@ -121,13 +131,4 @@ Each harmonized vector file contains the following data attributes:<br>
 | type_validation | string | No | Expert | If dataset generated through interpretation of imagery: type of validation used to determine land cover/crop type label (either Expert, NonExpert or Both)  |
 | agreement | int | No | 5 | If dataset generated through interpretation of imagery: number of people agreeing  |
 | disagreement | int | No | 2 | If dataset generated through interpretation of imagery: number of people disagreeing  |
-</div>
-
-
-## Harmonization in practice
-
-<div style="text-align: justify">
-
-To ensure this data standardization, harmonization and documentation is done in the same way for all datasets, a **semi-automated workflow** has been set up to guide the user through this process for each dataset. Learn more about how you can add your data to the RDM and get it harmonized almost entirely automatically through our user dedicated user interface --> [**HERE**](./upload.md).
-
 </div>
