@@ -4,7 +4,7 @@
 
 <div style="text-align: justify">
 
-Throught the RDM, users can publish their uploaded reference data to make it available to others.<br>
+Through the RDM, users can publish their uploaded reference data to make it available to others.<br>
 
 As a reminder, there are two modalities in which data can be shared:
 
