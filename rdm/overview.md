@@ -70,3 +70,9 @@ More information on this framework in:<br>
 Please cite the WorldCereal Reference Data Module as follows:
 
 *Karanam, S., Laso Bayas, J. C., Fritz, S., Boogaard, H., Pratihast, A. K., Degerickx, J., Butsko, C., Dries, J., & Van Tricht, K. (2024). WorldCereal Reference Data Module (RDM). International Institute for Applied Systems Analysis (IIASA). https://doi.org/10.60566/80p50-6z433*
+
+
+## Contact and support
+
+Need dedicated support on the topic of reference data or the WorldCereal Reference Data Module?<br>
+Get in touch through the [dedicated section on our forum](https://forum.esa-worldcereal.org/c/ref-data/6).
