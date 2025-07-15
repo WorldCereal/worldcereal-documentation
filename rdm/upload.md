@@ -31,7 +31,7 @@ Users of the WorldCereal RDM may choose to share any uploaded dataset with the W
 Upon selecting this option, the contributor grants the WorldCereal consortium the permission to use the dataset for model training and validation activities performed within the context of the ESA WorldCereal project.
 Consortium members may not redistribute, sublicense, publish, or make the dataset (or any derivatives thereof) available to any third party outside the consortium.
 
-In practice, shared datasets will become visible for WorldCereal admin users of the RDM portal, but not to users outside of the WorldCereal consortium.
+In practice, shared datasets will become accessible for WorldCereal admin users of the RDM portal, but not to users outside of the WorldCereal consortium.
 
 Upon selecting this option, the contributor will be prompted to specify whether and how the contributor wants to be attributed for their effort in any official WorldCereal products and publications making use of the contributed dataset.
 
@@ -153,7 +153,7 @@ After the file is uploaded successfully the RDM processes the file and adds your
 <div style="text-align: justify">
 After successful upload, you will be encouraged to share your data with the WorldCereal consortium.<br>
 
-By accepting this, your dataset privacy level will be changed to "restricted", meaning that aside from you, only WorldCereal consortium members can access the data and use it for model training and validation activities. The data will not be visible to anyone else.
+By accepting this, your dataset privacy level will be changed to "restricted", meaning that aside from you, only WorldCereal consortium members can access the data and use it for model training and validation activities. The data will not be accessible to anyone else.
 
 As soon as you decide to share your dataset in this way, a WorldCereal moderator will be notified and conduct a quick quality check. <br>
 No additional information needs to be provided by the uploader at this point.
