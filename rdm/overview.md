@@ -22,9 +22,9 @@ The RDM hosts datasets from various providers with standardized metadata and att
 Reference datasets are either harmonized and uploaded by the WorldCereal consortium or contributed by our users.<br>
 Each dataset is characterized by a specific **data privacy level**:
 
-- **Private** (default for user datasets): only the owner of the data can view and use the data.
-- **Restricted**: the owner and WorldCereal consortium members are able to view and use the data.
-- **Public**: everyone can view and use the data in accordance with the specified data license.
+- **Private** (default for user datasets): only the owner of the data can access and use the data.
+- **Restricted**: the owner and WorldCereal consortium members are able to access and use the data.
+- **Public**: everyone can access and use the data in accordance with the specified data license.
 
 A handful of convenient tools, both through web interface and API service, are available to our users to efficiently filter, query and download reference data matching their needs.
 
