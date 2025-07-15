@@ -23,9 +23,9 @@ When using reference data obtained through RDM in your own applications, please 
 
 The interactive RDM user interface for data exploration can be accessed [here](https://rdm.esa-worldcereal.org/map).<br>
 The map (image below) provides a quick overview of distribution of reference datasets. Pins are colored based on data privacy levels:
-- blue for public datasets
-- yellow for fully private datasets
-- green for restricted datasets (visible to owner and WorldCereal consortium)
+- blue for public datasets (accessible to anyone)
+- yellow for fully private datasets (accessible to owner)
+- green for restricted datasets (accessible to owner and WorldCereal consortium)
 
 The filter options in the upper right corner allow you to quickly filter reference datasets based on observation year and land cover/crop type labels.
 Clicking an individual pin shows the link to the dataset, along with the total number of observations.
