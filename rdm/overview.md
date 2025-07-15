@@ -31,11 +31,12 @@ A handful of convenient tools, both through web interface and API service, are a
 --> [**Read more on data privacy and exploration**](./explore.md)
 
 
-## Data contribution and upload
+## Data upload and sharing with WorldCereal
 
-By contributing reference data, users can:
-- use their private data in combination with publicly available reference data to train specific crop classifiers and generate fully customized crop maps 
-- (if shared with WorldCereal consortium) help improve global WorldCereal models and get acknowledged for their contribution
+The WorldCereal system allows users to upload own reference datasets which can be combined with publicly available reference data to train specific crop classifiers and generate fully customized crop maps. All uploaded data by default remains fully private (only owner can access and use).<br>
+
+Users have the possibility to grant permission to the WorldCereal consortium to use their private data for training and validation of global crop models.<br>
+By contributing reference data in such a way, users help improve global WorldCereal crop products and receive proper attribution for their efforts.
 
 Our highly automated upload procedure through our web interface takes care of data harmonization to the WorldCereal standards, thereby effectively taking away most of the burden from the user.
 
