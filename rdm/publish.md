@@ -18,7 +18,7 @@ WorldCereal supports the general movement towards data sharing and open science.
 
 <div style="text-align: justify">
 
-Upon publication of a dataset, the contributor will be able to specify a data license, governing the way how the data can be used and distributed by others.<br>
+Upon publication of a dataset, the contributor will be able to specify a data license, governing the way how the data can be used and redistributed by others.<br>
 We highly recommend to use one of the following [Creative Commons licenses](https://creativecommons.org/share-your-work/cclicenses/), but users are free to define their custom license as well:
 
 </div> 
