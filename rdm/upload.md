@@ -155,11 +155,11 @@ After successful upload, you will be encouraged to share your data with the Worl
 
 By accepting this, your dataset privacy level will be changed to "restricted", meaning that aside from you, only WorldCereal consortium members can access the data and use it for model training and validation activities. The data will not be accessible to anyone else.
 
+You will be prompted whether and how you want to be officially attributed for the contribution of this specific dataset.<br>
+If clear attribution details are provided, you will be properly attributed in all WorldCereal publications and products for which your dataset has been used.
+
 As soon as you decide to share your dataset in this way, a WorldCereal moderator will be notified and conduct a quick quality check. <br>
 No additional information needs to be provided by the uploader at this point.
-
-You will be prompted whether and how you want to be officially attributed for the contribution of this specific dataset.<br>
-If clear attribution details are provided, you will be properly attributed in all publications for which your dataset has been used.
 
 </div> 
 
