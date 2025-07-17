@@ -26,6 +26,13 @@ To guarantee proper protection of uploaded datasets, the WorldCereal consortium 
 - once uploaded, the dataset is tied to the CDSE account of the data contributor
 - all data interaction tools provided by the RDM to explore, filter and download reference data automatically take into account data ownership: non-authenticated users can only view fully public datasets, while authenticated users only see public and their own private datasets linked to their account.
 
+<div class="alert alert-block alert-warning">
+<b>What happens if your CDSE account gets removed?</b><br> 
+Your private datasets are retained in the RDM, without any changes to their respective access policies.<br>
+To access your datasets again, you will need to create a new CDSE account with the same email id as originally used for uploading datasets.<br>
+</div>
+
+
 ### Sharing with WorldCereal consortium
 Users of the WorldCereal RDM may choose to share any uploaded dataset with the WorldCereal consortium.<br>
 Upon selecting this option, the contributor grants the WorldCereal consortium the permission to use the dataset for model training and validation activities performed within the context of the ESA WorldCereal project.
