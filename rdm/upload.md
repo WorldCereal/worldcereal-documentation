@@ -31,7 +31,8 @@ Users of the WorldCereal RDM may choose to share any uploaded dataset with the W
 Upon selecting this option, the contributor grants the WorldCereal consortium the permission to use the dataset for model training and validation activities performed within the context of the ESA WorldCereal project.
 Consortium members may not redistribute, sublicense, publish, or make the dataset (or any derivatives thereof) available to any third party outside the consortium.
 
-In practice, shared datasets will become accessible for WorldCereal admin users of the RDM portal, but not to users outside of the WorldCereal consortium.
+In practice, shared datasets will become accessible for WorldCereal admin users of the RDM portal, but not to users outside of the WorldCereal consortium.<br>
+As soon as a user shares a dataset with the consortium, the user will no longer be able to edit, nor delete the dataset.<br>
 
 Upon selecting this option, the contributor will be prompted to specify whether and how the contributor wants to be attributed for their effort in any official WorldCereal products and publications making use of the contributed dataset.
 
@@ -153,7 +154,7 @@ After the file is uploaded successfully the RDM processes the file and adds your
 <div style="text-align: justify">
 After successful upload, you will be encouraged to share your data with the WorldCereal consortium.<br>
 
-By accepting this, your dataset privacy level will be changed to "restricted", meaning that aside from you, only WorldCereal consortium members can access the data and use it for model training and validation activities. The data will not be accessible to anyone else.
+By accepting this, your dataset privacy level will be changed to "restricted", meaning that aside from you, only WorldCereal consortium members can access the data and use it for model training and validation activities. The data will not be accessible to anyone else. This also entails that the user is no longer permitted to edit, nor delete the specific dataset.
 
 You will be prompted whether and how you want to be officially attributed for the contribution of this specific dataset.<br>
 If clear attribution details are provided, you will be properly attributed in all WorldCereal publications and products for which your dataset has been used.
