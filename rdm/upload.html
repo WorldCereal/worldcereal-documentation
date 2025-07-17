@@ -264,15 +264,21 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#uploading-user-datasets-to-the-rdm" id="toc-uploading-user-datasets-to-the-rdm" class="nav-link active" data-scroll-target="#uploading-user-datasets-to-the-rdm">Uploading user datasets to the RDM</a>
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#note-on-data-license-and-protection-for-uploaded-datasets" id="toc-note-on-data-license-and-protection-for-uploaded-datasets" class="nav-link" data-scroll-target="#note-on-data-license-and-protection-for-uploaded-datasets">Note on data license and protection for uploaded datasets</a>
+  <ul class="collapse">
+  <li><a href="#default-terms-all-rights-reserved" id="toc-default-terms-all-rights-reserved" class="nav-link" data-scroll-target="#default-terms-all-rights-reserved">Default terms: All rights reserved</a></li>
+  <li><a href="#sharing-with-worldcereal-consortium" id="toc-sharing-with-worldcereal-consortium" class="nav-link" data-scroll-target="#sharing-with-worldcereal-consortium">Sharing with WorldCereal consortium</a></li>
+  <li><a href="#data-publication-options" id="toc-data-publication-options" class="nav-link" data-scroll-target="#data-publication-options">Data publication options</a></li>
+  </ul></li>
   <li><a href="#uploading-through-user-interface" id="toc-uploading-through-user-interface" class="nav-link" data-scroll-target="#uploading-through-user-interface">Uploading through User Interface</a>
   <ul class="collapse">
   <li><a href="#step-1-dataset-qualification-check" id="toc-step-1-dataset-qualification-check" class="nav-link" data-scroll-target="#step-1-dataset-qualification-check">Step 1: Dataset Qualification Check</a></li>
   <li><a href="#step-2-prepare-your-dataset" id="toc-step-2-prepare-your-dataset" class="nav-link" data-scroll-target="#step-2-prepare-your-dataset">Step 2: Prepare Your Dataset</a></li>
   <li><a href="#step-3-dataset-upload-harmonization" id="toc-step-3-dataset-upload-harmonization" class="nav-link" data-scroll-target="#step-3-dataset-upload-harmonization">Step 3: Dataset Upload &amp; Harmonization</a></li>
   <li><a href="#step-4-share-your-dataset-with-worldcereal-consortium" id="toc-step-4-share-your-dataset-with-worldcereal-consortium" class="nav-link" data-scroll-target="#step-4-share-your-dataset-with-worldcereal-consortium">Step 4: Share Your Dataset With WorldCereal Consortium</a></li>
+  <li><a href="#step-5-publish-your-data" id="toc-step-5-publish-your-data" class="nav-link" data-scroll-target="#step-5-publish-your-data">Step 5: Publish your data</a></li>
   </ul></li>
   <li><a href="#using-your-data-in-the-processing-module" id="toc-using-your-data-in-the-processing-module" class="nav-link" data-scroll-target="#using-your-data-in-the-processing-module">Using your data in the processing module</a></li>
-  <li><a href="#sharing-your-data-with-the-community" id="toc-sharing-your-data-with-the-community" class="nav-link" data-scroll-target="#sharing-your-data-with-the-community">Sharing your data with the community</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -288,9 +294,36 @@ ul.task-list li input[type="checkbox"] {
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <div style="text-align: justify">
-<p>To generate accurate cropland and crop type maps, high quality reference data is indispensable for both training classification algorithms and validation of the final products. Therefore, WorldCereal would like to engage with global agricultural community to stimulate and facilitate opening and sharing of reference data.</p>
-<p>Users can upload their datasets in their area of interest or in data poor regions to contribute to high quality global WorldCereal products, or generate their own custom, high quality maps.</p>
+<p>To generate accurate cropland and crop type maps, high quality reference data is indispensable for both training classification algorithms and validation of the final products.</p>
+<p>Users of the WorldCereal system can upload their own reference datasets to:</p>
+<ul>
+<li><strong>Create fully customized cropland and crop type models</strong> tuned to their region, season and crops of interest. Adding local, high quality reference data for the specific task at hand will always result in more accurate custom products compared to using the generic, globally representative, default WorldCereal models.</li>
+<li><strong>Contribute to high quality global WorldCereal cropland and crop type maps</strong>, particularly for your area of interest, and receive proper attribution for your valuable contributions.</li>
+</ul>
+<p>Dataset upload is accomplished through our user-friendly, highly automated web tool that takes care of data ingestion and harmonization to WorldCereal standards.<br></p>
+<p>In the following sections you find more information regarding <a href="#note-on-data-license-for-user-datasets"><strong>data licensing</strong></a>, practicial instructions on the use of the <a href="#uploading-through-user-interface"><strong>upload tool</strong></a> and how your data can be used by the <a href="#using-your-data-in-the-processing-module"><strong>WorldCereal classification module</strong></a>.</p>
 </div>
+</section>
+<section id="note-on-data-license-and-protection-for-uploaded-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="note-on-data-license-and-protection-for-uploaded-datasets">Note on data license and protection for uploaded datasets</h2>
+<section id="default-terms-all-rights-reserved" class="level3">
+<h3 class="anchored" data-anchor-id="default-terms-all-rights-reserved">Default terms: All rights reserved</h3>
+<p>Upon successful upload to the WorldCereal RDM, each user dataset is by default treated as a <strong>private dataset</strong>. This effectively means that all rights are reserved by the data contributor and no part of the dataset may be copied, reproduced, publicly displayed, distributed, published, adapted, translated, or otherwise used in any form or by any means by any other party.<br></p>
+<p>To guarantee proper protection of uploaded datasets, the WorldCereal consortium has established a dedicated <strong>authentication and data access system</strong>: - uploading of datasets can only be done after authentication through a valid <a href="https://dataspace.copernicus.eu/">Copernicus Data Space Ecosystem (CDSE)</a> account - once uploaded, the dataset is tied to the CDSE account of the data contributor - all data interaction tools provided by the RDM to explore, filter and download reference data automatically take into account data ownership: non-authenticated users can only view fully public datasets, while authenticated users only see public and their own private datasets linked to their account.</p>
+<div class="alert alert-block alert-warning">
+<p><b>What happens if your CDSE account gets removed?</b><br> Your private datasets are retained in the RDM, without any changes to their respective access policies.<br> To access your datasets again, you will need to create a new CDSE account with the same email id as originally used for uploading datasets.<br></p>
+</div>
+</section>
+<section id="sharing-with-worldcereal-consortium" class="level3">
+<h3 class="anchored" data-anchor-id="sharing-with-worldcereal-consortium">Sharing with WorldCereal consortium</h3>
+<p>Users of the WorldCereal RDM may choose to share any uploaded dataset with the WorldCereal consortium.<br> Upon selecting this option, the contributor grants the WorldCereal consortium the permission to use the dataset for model training and validation activities performed within the context of the ESA WorldCereal project. Consortium members may not redistribute, sublicense, publish, or make the dataset (or any derivatives thereof) available to any third party outside the consortium.</p>
+<p>In practice, shared datasets will become accessible for WorldCereal admin users of the RDM portal, but not to users outside of the WorldCereal consortium.<br> As soon as a user shares a dataset with the consortium, the user will no longer be able to edit, nor delete the dataset.<br></p>
+<p>Upon selecting this option, the contributor will be prompted to specify whether and how the contributor wants to be attributed for their effort in any official WorldCereal products and publications making use of the contributed dataset.</p>
+</section>
+<section id="data-publication-options" class="level3">
+<h3 class="anchored" data-anchor-id="data-publication-options">Data publication options</h3>
+<p>Data contributors are invited to publish their dataset(s) and make them available to the wider agricultural monitoring community, thereby supporting our push towards open data and science. Further instructions and data license options are specified on <a href="../rdm/publish.html">this dedicated page</a>.</p>
+</section>
 </section>
 <section id="uploading-through-user-interface" class="level2">
 <h2 class="anchored" data-anchor-id="uploading-through-user-interface">Uploading through User Interface</h2>
@@ -368,21 +401,24 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="step-4-share-your-dataset-with-worldcereal-consortium">Step 4: Share Your Dataset With WorldCereal Consortium</h3>
 <div style="text-align: justify">
 <p>After successful upload, you will be encouraged to share your data with the WorldCereal consortium.<br></p>
-<p>By accepting this, your dataset privacy level will be changed to “restricted”, meaning that aside from you, only WorldCereal consortium members can access the data and use it to finetune the global WorldCereal crop models. The data will not be visible to anyone else.</p>
+<p>By accepting this, your dataset privacy level will be changed to “restricted”, meaning that aside from you, only WorldCereal consortium members can access the data and use it for model training and validation activities. The data will not be accessible to anyone else. This also entails that the user is no longer permitted to edit, nor delete the specific dataset.</p>
+<p>You will be prompted whether and how you want to be officially attributed for the contribution of this specific dataset.<br> If clear attribution details are provided, you will be properly attributed in all WorldCereal publications and products for which your dataset has been used.</p>
 <p>As soon as you decide to share your dataset in this way, a WorldCereal moderator will be notified and conduct a quick quality check. <br> No additional information needs to be provided by the uploader at this point.</p>
+</div>
+</section>
+<section id="step-5-publish-your-data" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-publish-your-data">Step 5: Publish your data</h3>
+<div style="text-align: justify">
+<p>Datasets can be published and shared with the broader community after upload. More information and instructions are available on <a href="../rdm/publish.html">this dedicated publication page</a>.</p>
 </div>
 </section>
 </section>
 <section id="using-your-data-in-the-processing-module" class="level2">
 <h2 class="anchored" data-anchor-id="using-your-data-in-the-processing-module">Using your data in the processing module</h2>
 <div style="text-align: justify">
-<p>As soon as your private dataset has been uploaded successfully, you can either use the RDM web interface, or the RDM REST API services to interact with your data.<br> More information and dedicated guidelines can be found <a href="../rdm/explore.html#explore-data-through-our-user-interface">here</a>.</p>
-<p>Users will be able to use the uploaded datasets to train cropland/crop type models in the processing module.<br> More details on this will be added once this functionality is fully operational.</p>
+<p>As soon as your private dataset has been uploaded successfully, you can either use the <a href="../rdm/explore.html#explore-data-through-our-user-interface">RDM web interface</a>, or the <a href="../rdm/explore.html#retrieve-data-through-api">RDM REST API services</a> to interact with your data.<br></p>
+<p>Users will be able to use the uploaded datasets to train cropland/crop type models in the WorldCereal processing module.<br> A first step in this procedure would be to extract Earth Observation time series data matching the observations in your private datasets. This procedure is explained in this <a href="https://github.com/WorldCereal/worldcereal-classification/blob/main/notebooks/worldcereal_private_extractions.ipynb">interactive notebook</a>.<br> Based on the extracted data, along with publicly available reference data, users can then continue to train and apply customized crop models. A complete walk-through can be found <a href="https://github.com/WorldCereal/worldcereal-classification/blob/main/notebooks/worldcereal_custom_croptype.ipynb">here</a>.</p>
 </div>
-</section>
-<section id="sharing-your-data-with-the-community" class="level2">
-<h2 class="anchored" data-anchor-id="sharing-your-data-with-the-community">Sharing your data with the community</h2>
-<p>If you would like to share your dataset with the general public and contribute to the move towards open data and science, please consult the associated guidelines on <a href="../rdm/publish.html">this dedicated page</a>.</p>
 
 
 </section>
