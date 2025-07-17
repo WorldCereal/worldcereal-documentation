@@ -4,24 +4,65 @@
 
 <div style="text-align: justify">
 
-Through the RDM, users can publish their uploaded reference data to make it available to others.<br>
+Through the RDM, users can publish their uploaded reference data to make it available to anyone according to a specified data license.<br>
 
-As a reminder, there are two modalities in which data can be shared:
-
-- **A restricted dataset**: users decide to share their dataset only with the WorldCereal consortium, but NOT with the general public. This way, the consortium can use this dataset to improve their default cropland and crop type models for your area of interest! Sharing reference data in this way, is treated on [this page](./upload.md#step-4-share-your-dataset-with-worldcereal-consortium). <br><br>
-
-- **A fully public dataset**: users share their dataset with the entire community, meaning anybody can view, download and use this dataset in their crop mapping applications. The procedure for this is explained in the section below.<br><br>
+Note that data publication is different from sharing the data with the WorldCereal consortium (specified [here](./upload.md#sharing-with-worldcereal-consortium) and [here](./upload.md#step-4-share-your-dataset-with-worldcereal-consortium)):
+- data publication requires thorough and proper documentation of the dataset according to WorldCereal standards
+- as an additional motivation, dedicated quality checks are performed by WorldCereal moderators prior to publication, additionally boosting the quality of your dataset
 
 WorldCereal supports the general movement towards data sharing and open science. Please check the below link to learn more about WorldCereal’s view on opening reference data to society ([https://esa-worldcereal.org/en/situ-data-global-crop-mapping](https://esa-worldcereal.org/en/reference-data)).
 
 </div>
+
+## Data license
+
+<div style="text-align: justify">
+
+Upon publication of a dataset, the contributor will be able to specify a data license, governing the way how the data can be used and redistributed by others.<br>
+We highly recommend to use one of the following [Creative Commons licenses](https://creativecommons.org/share-your-work/cclicenses/), but users are free to define their custom license as well:
+
+</div> 
+
+<table>
+  <tr>
+    <th>License types*</th>
+    <th>Remarks</th>
+  </tr>
+  <tr>
+    <td>CC0</td>
+    <td>No Rights Reserved</td>
+  </tr>
+   <tr>
+    <td>CC BY</td>
+    <td>Attribution</td>
+  </tr>
+   <tr>
+    <td>CC BY-SA</td>
+    <td>Attribution-ShareAlike</td>
+  </tr>
+   <tr>
+    <td>CC BY-NC</td>
+    <td>Attribution-NonCommercial</td>
+  </tr>
+   <tr>
+    <td>CC BY-NC-SA</td>
+    <td>Attribution-NonCommercial-ShareAlike</td>
+  </tr>
+</table>
 
 
 ## Practical implications
 
 <div style="text-align: justify">
 
-Before an uploaded dataset can be published, it undergoes thorough checks by a WorldCereal data moderator.<br>
+Before an uploaded dataset can be published, the data contributor needs to ensure the dataset is properly documented according to the WorldCereal standards.<br>
+This implies that:
+- the metadata sheet, including details on data owner, data license and required citation is fully completed.<br>
+- the data harmonization procedure is properly documented, clearly describing any operations done to the original data.<br>
+
+The RDM user interface will provide the necessary tools to assist the user in both of these operations, with automated completion where possible.
+
+After preparation by the user, the dataset undergoes thorough checks by a WorldCereal data moderator.<br>
 
 The moderator:<br>
 - checks whether all required metadata has been completed<br>

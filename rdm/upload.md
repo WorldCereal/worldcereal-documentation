@@ -3,10 +3,49 @@
 ## Introduction
 
 <div style="text-align: justify">
-To generate accurate cropland and crop type maps, high quality reference data is indispensable for both training classification algorithms and validation of the final products. Therefore, WorldCereal would like to engage with global agricultural community to stimulate and facilitate opening and sharing of reference data.  
+To generate accurate cropland and crop type maps, high quality reference data is indispensable for both training classification algorithms and validation of the final products.
 
-Users can upload their datasets in their area of interest or in data poor regions to contribute to high quality global WorldCereal products, or generate their own custom, high quality maps.  
+Users of the WorldCereal system can upload their own reference datasets to:
+
+- **Create fully customized cropland and crop type models** tuned to their region, season and crops of interest. Adding local, high quality reference data for the specific task at hand will always result in more accurate custom products compared to using the generic, globally representative, default WorldCereal models.
+- **Contribute to high quality global WorldCereal cropland and crop type maps**, particularly for your area of interest, and receive proper attribution for your valuable contributions. 
+
+Dataset upload is accomplished through our user-friendly, highly automated web tool that takes care of data ingestion and harmonization to WorldCereal standards.<br>
+
+In the following sections you find more information regarding [**data licensing**](#note-on-data-license-for-user-datasets), practicial instructions on the use of the [**upload tool**](#uploading-through-user-interface) and how your data can be used by the [**WorldCereal classification module**](#using-your-data-in-the-processing-module).
+
 </div> 
+
+## Note on data license and protection for uploaded datasets
+
+### Default terms: All rights reserved
+Upon successful upload to the WorldCereal RDM, each user dataset is by default treated as a **private dataset**. This effectively means that all rights are reserved by the data contributor and no part of the dataset may be copied, reproduced, publicly displayed, distributed, published, adapted, translated, or otherwise used in any form or by any means by any other party.<br>
+
+To guarantee proper protection of uploaded datasets, the WorldCereal consortium has established a dedicated **authentication and data access system**:
+- uploading of datasets can only be done after authentication through a valid [Copernicus Data Space Ecosystem (CDSE)](https://dataspace.copernicus.eu/) account
+- once uploaded, the dataset is tied to the CDSE account of the data contributor
+- all data interaction tools provided by the RDM to explore, filter and download reference data automatically take into account data ownership: non-authenticated users can only view fully public datasets, while authenticated users only see public and their own private datasets linked to their account.
+
+<div class="alert alert-block alert-warning">
+<b>What happens if your CDSE account gets removed?</b><br> 
+Your private datasets are retained in the RDM, without any changes to their respective access policies.<br>
+To access your datasets again, you will need to create a new CDSE account with the same email id as originally used for uploading datasets.<br>
+</div>
+
+
+### Sharing with WorldCereal consortium
+Users of the WorldCereal RDM may choose to share any uploaded dataset with the WorldCereal consortium.<br>
+Upon selecting this option, the contributor grants the WorldCereal consortium the permission to use the dataset for model training and validation activities performed within the context of the ESA WorldCereal project.
+Consortium members may not redistribute, sublicense, publish, or make the dataset (or any derivatives thereof) available to any third party outside the consortium.
+
+In practice, shared datasets will become accessible for WorldCereal admin users of the RDM portal, but not to users outside of the WorldCereal consortium.<br>
+As soon as a user shares a dataset with the consortium, the user will no longer be able to edit, nor delete the dataset.<br>
+
+Upon selecting this option, the contributor will be prompted to specify whether and how the contributor wants to be attributed for their effort in any official WorldCereal products and publications making use of the contributed dataset.
+
+### Data publication options
+Data contributors are invited to publish their dataset(s) and make them available to the wider agricultural monitoring community, thereby supporting our push towards open data and science. Further instructions and data license options are specified on [this dedicated page](./publish.md).
+
 
 ## Uploading through User Interface
 
@@ -122,25 +161,31 @@ After the file is uploaded successfully the RDM processes the file and adds your
 <div style="text-align: justify">
 After successful upload, you will be encouraged to share your data with the WorldCereal consortium.<br>
 
-By accepting this, your dataset privacy level will be changed to "restricted", meaning that aside from you, only WorldCereal consortium members can access the data and use it to finetune the global WorldCereal crop models. The data will not be visible to anyone else.
+By accepting this, your dataset privacy level will be changed to "restricted", meaning that aside from you, only WorldCereal consortium members can access the data and use it for model training and validation activities. The data will not be accessible to anyone else. This also entails that the user is no longer permitted to edit, nor delete the specific dataset.
+
+You will be prompted whether and how you want to be officially attributed for the contribution of this specific dataset.<br>
+If clear attribution details are provided, you will be properly attributed in all WorldCereal publications and products for which your dataset has been used.
 
 As soon as you decide to share your dataset in this way, a WorldCereal moderator will be notified and conduct a quick quality check. <br>
 No additional information needs to be provided by the uploader at this point.
 
 </div> 
 
+### Step 5: Publish your data
+
+<div style="text-align: justify">
+
+Datasets can be published and shared with the broader community after upload. More information and instructions are available on [this dedicated publication page](./publish.md).
+
+</div> 
 
 ## Using your data in the processing module  
 
 <div style="text-align: justify">
-As soon as your private dataset has been uploaded successfully, you can either use the RDM web interface, or the RDM REST API services to interact with your data.<br>
-More information and dedicated guidelines can be found [here](./explore.md#explore-data-through-our-user-interface).
+As soon as your private dataset has been uploaded successfully, you can either use the [RDM web interface](./explore.md#explore-data-through-our-user-interface), or the [RDM REST API services](./explore.md#retrieve-data-through-api) to interact with your data.<br>
 
-Users will be able to use the uploaded datasets to train cropland/crop type models in the processing module.<br>
-More details on this will be added once this functionality is fully operational.
+Users will be able to use the uploaded datasets to train cropland/crop type models in the WorldCereal processing module.<br>
+A first step in this procedure would be to extract Earth Observation time series data matching the observations in your private datasets. This procedure is explained in this [interactive notebook](https://github.com/WorldCereal/worldcereal-classification/blob/main/notebooks/worldcereal_private_extractions.ipynb).<br>
+Based on the extracted data, along with publicly available reference data, users can then continue to train and apply customized crop models. A complete walk-through can be found [here](https://github.com/WorldCereal/worldcereal-classification/blob/main/notebooks/worldcereal_custom_croptype.ipynb).
 
 </div> 
-
-## Sharing your data with the community
-
-If you would like to share your dataset with the general public and contribute to the move towards open data and science, please consult the associated guidelines on [this dedicated page](./publish.md).

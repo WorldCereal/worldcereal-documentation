@@ -2,11 +2,56 @@
 
 
 <div style="text-align: justify">
-Availability of high-quality in-situ reference data remains one of the few bottlenecks for training and validating accurate cropland/crop type classification models. The [WorldCereal Reference Data Module (RDM)](https://rdm.esa-worldcereal.org/) is an online application that hosts a global collection of harmonized and curated in-situ reference datasets on land cover and crop type, freely accessible to anyone.   
+Availability of high-quality in-situ reference data remains one of the few bottlenecks for training and validating accurate cropland/crop type classification models. The [WorldCereal Reference Data Module (RDM)](https://rdm.esa-worldcereal.org/) is an online application hosting harmonized reference datasets on land cover and crop type. Through the RDM, users can **view, query, download, contribute, share and publish crop reference data.** All this functionality is available through an intuitive user interface and a more advanced API service.
 
-The RDM hosts datasets from various providers with standardized metadata and attributes mapped to a unified crop type legend. Built-in automated data quality checks and careful curation performed by WorldCereal data moderators ensure high and transparent data quality. Through the RDM, users can view, query, download, contribute and share in-situ reference data. An extensive set of automated tools takes care of data harmonization to the WorldCereal standards, thereby effectively taking away most of the burden from the user.
+<p align="center">
+<img src="../images/RDM_overview.png" alt="rdm" width="500"/>
+<figcaption>Visual representation of how in-situ reference data travels through the RDM.</figcaption>
+</p>
 
-All this functionality is available through an intuitive user interface and a more advanced API service. The Reference Data Module is linked to the WorldCereal classification system through means of a STAC catalogue, which is queried automatically during classification model training. Through this initiative the WorldCereal consortium aims to foster open data sharing within the agricultural monitoring community.
+
+## Harmonized crop reference data
+
+The RDM hosts datasets from various providers with standardized metadata and attributes mapped to a unified crop type legend. Built-in automated data quality checks and careful curation performed by WorldCereal data moderators ensure high and transparent data quality. 
+
+--> [**Discover more about the WorldCereal standards and harmonization procedures**](./refdata.md)
+
+
+## Data exploration and access
+
+Reference datasets are either harmonized and uploaded by the WorldCereal consortium or contributed by our users.<br>
+Each dataset is characterized by a specific **data privacy level**:
+
+- **Private** (default for user datasets): only the owner of the data can access and use the data.
+- **Restricted**: the owner and WorldCereal consortium members are able to access and use the data.
+- **Public**: everyone can access and use the data in accordance with the specified data license.
+
+A handful of convenient tools, both through web interface and API service, are available to our users to efficiently filter, query and download reference data matching their needs.
+
+--> [**Read more on data privacy and exploration**](./explore.md)
+
+
+## Data upload and sharing with WorldCereal
+
+The WorldCereal system allows users to upload own reference datasets which can be combined with publicly available reference data to train specific crop classifiers and generate fully customized crop maps. All uploaded data by default remains fully private (only owner can access and use).<br>
+
+Users have the possibility to grant permission to the WorldCereal consortium to use their private data for training and validation of global crop models.<br>
+By contributing reference data in such a way, users help improve global WorldCereal crop products and receive proper attribution for their efforts.
+
+Our highly automated upload procedure through our web interface takes care of data harmonization to the WorldCereal standards, thereby effectively taking away most of the burden from the user.
+
+--> [**Explore more details and instructions on uploading data to the RDM**](./upload.md)
+
+
+## Data publication
+
+Once data has been uploaded, users can choose to share the data openly with the community according to a specified data license.<br>
+Upon publication, additional quality control is performed by the WorldCereal data moderators.
+
+--> [**Read more on how to share your data with others**](./publish.md)
+
+ 
+Through this initiative the WorldCereal consortium aims to foster open data sharing within the agricultural monitoring community.
 </div>
 
 <p align="center">
@@ -16,24 +61,19 @@ All this functionality is available through an intuitive user interface and a mo
 
 <div style="text-align: justify">
 
-*More information on this framework in:<br>
-Boogaard, H., Pratihast, A.K., Laso Bayas, J.C., Karanam, S., Fritz, S., Van Tricht, K., Degerickx, J. and Gilliams, S., 2023. Building a community-based open harmonised reference data repository for global crop mapping. Plos one, 18(7), p.e0287731.*
+More information on this framework in:<br>
+*Boogaard, H., Pratihast, A.K., Laso Bayas, J.C., Karanam, S., Fritz, S., Van Tricht, K., Degerickx, J. and Gilliams, S., 2023. Building a community-based open harmonised reference data repository for global crop mapping. Plos one, 18(7), p.e0287731.*
 </div>
 
 
-<div style="text-align: justify">
-**Read more about the different aspects of reference data and the Reference Data Module on the following dedicated pages:**<br><br>
+## Citation of WorldCereal RDM
 
-- [**Definition and harmonization of in-situ reference data**](./refdata.md)
-- [**How to explore and retrieve data from the RDM?**](./explore.md)
-- [**How to upload data to the RDM?**](./upload.md)
-- [**How to publish your data (share your data with others)?**](./publish.md)
+Please cite the WorldCereal Reference Data Module as follows:
 
-</div>
+*Karanam, S., Laso Bayas, J. C., Fritz, S., Boogaard, H., Pratihast, A. K., Degerickx, J., Butsko, C., Dries, J., & Van Tricht, K. (2024). WorldCereal Reference Data Module (RDM). International Institute for Applied Systems Analysis (IIASA). https://doi.org/10.60566/80p50-6z433*
 
 
-<p align="center">
-<img src="../images/RDM_overview.png" alt="rdm" width="500"/>
-<figcaption>Visual representation of how in-situ reference data travels through the RDM.</figcaption>
-</p>
+## Contact and support
 
+Need dedicated support on the topic of reference data or the WorldCereal Reference Data Module?<br>
+Get in touch through the [dedicated section on our forum](https://forum.esa-worldcereal.org/c/ref-data/6).
