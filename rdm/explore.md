@@ -31,7 +31,7 @@ The filter options in the upper right corner allow you to quickly filter referen
 Clicking an individual pin shows the link to the dataset, along with the total number of observations.
 
 <p align="center">
-<img src="../images/RDM_explore_map.png" alt="refdatamap" width="500"/>
+<img src="../images/RDM_explore_map.PNG" alt="refdatamap" width="500"/>
 <figcaption>Exploring reference data through the map view. Public datasets are represented by blue pins, fully private datasets by yellow pins and user datasets shared with WorldCereal consortium by green pins.</figcaption>
 </p>
 
@@ -43,7 +43,7 @@ Upon clicking the link to a dataset, you end up on a dedicated page showing all 
 - mapping of original crop labels to WorldCereal legend
 
 <p align="center">
-<img src="../images/RDM_dataset_details.png" alt="refdatamap" width="500"/>
+<img src="../images/RDM_dataset_details.PNG" alt="refdatamap" width="500"/>
 <figcaption>Each dataset has a dedicated page where metadata can be consulted and the data can be downloaded.</figcaption>
 </p>
 
