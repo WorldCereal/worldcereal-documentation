@@ -25,7 +25,7 @@ We highly recommend to use one of the following [Creative Commons licenses](http
 
 <table>
   <tr>
-    <th>License types*</th>
+    <th>License types</th>
     <th>Remarks</th>
   </tr>
   <tr>
