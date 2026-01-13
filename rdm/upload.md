@@ -114,10 +114,13 @@ Follow the below guidelines to ensure a smooth uploading procedure:
     
     - Specify one observation time for all samples contained in the dataset. We provide [specific guidelines](https://rdm.esa-worldcereal.org/details/WorldCereal_DerivingValidityTime_v1_1.pdf) to help you assigning a reasonable observation time.
 
-    NOTE: The WorldCereal RDM does not support multi-year datasets.<br>
+    <div class="alert alert-block alert-warning">
+    <b>Multi-year datasets?</b><br> 
+    Note that the WorldCereal RDM does not support multi-year datasets.<br>
     In case your dataset contains samples gathered across multiple years, you will receive a message during upload asking which part of the dataset needs to be processed.<br>
     Alternatively, you can split your dataset according to calendar year before proceeding with the upload.<br>
-
+    </div>
+    
 4. Irrigation Status (optional):  
 
     You will be asked to select the dataset attribute containing information on irrigation (if present). You will be guided to map the original irrigation labels to the [WorldCereal irrigation legend](./refdata.md#irrigation-status-legend).
