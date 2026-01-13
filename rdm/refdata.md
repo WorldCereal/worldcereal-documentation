@@ -111,7 +111,31 @@ Even though irrigation mapping will not be officially supported by the  WorldCer
 
 </div>
 
-### Dataset attributes
+### Automated corrections
+
+<div style="text-align: justify">
+
+During dataset harmonization, we apply some basic and automated corrections, including:
+- Reprojection to WGS84 lat/lon reference system (EPSG: 4326);
+- Splitting of multi-polygon geometries into multiple single geometries;
+- Removal of records without any land cover or crop type information.
+
+</div>
+
+### Dataset subsampling
+
+<div style="text-align: justify">
+
+Especially in the case of very large datasets, very localized datasets and/or datasets with a considerable class imbalance, it generally does not make sense to use all available observations for training and validating crop mapping algorithms. To save resources when extracting associated Earth Observation data, it would be wise to select a representative subset of the data for further processing. <br>
+
+Therefore, during harmonization, we apply an automated subsampling routine in which we select a thematically and geographically balanced subset of the data. The result of this sampling routine is stored in the "extract" attribute of the harmonized dataset. Non-selected samples are NOT thrown out, but simply receive an "extract" value of 0.
+
+Our subsampling routine makes use of the hierarchical, hexagonal H3 grid cell system, originally developed by Uber, to ensure a geographically well-spread subset. <br>
+By default, 30 samples per class and per H3L3 cell are selected. To ensure optimal spatial spread, we enforce a minimum distance of 1000 m in between two selected samples and force the algorithm to select the samples across different H3 L5/6 cells.
+
+</div>
+
+### Resulting dataset attributes
 <div style="text-align: justify">
 Each harmonized vector file contains the following data attributes:<br>
 
