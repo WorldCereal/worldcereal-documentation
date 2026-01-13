@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -58,7 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -66,14 +66,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-1b994973ff5f091939ed2c5ee6172dbf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-fe109df9088e4bc838f3245ebd79869a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": true,
@@ -100,10 +101,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-<script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
 
 
 </head>
@@ -367,14 +368,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="table-example">Table example</h4>
 <p>An example table is shown below.</p>
 <div id="d5984c2ae5906f28" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-03-03T17:59:06.562588116Z&quot;,&quot;start_time&quot;:&quot;2024-03-03T17:59:06.272029322Z&quot;}}" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">"sampling_table.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">"sampling_table.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -386,7 +387,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
+<th data-quarto-table-cell-role="th">0</th>
 <td>my_sample</td>
 <td>1</td>
 <td>2024-03-01T02:00:00Z</td>
@@ -423,13 +424,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="reading-test-from-parquet" class="level2">
 <h2 class="anchored" data-anchor-id="reading-test-from-parquet">Reading test from Parquet</h2>
 <div id="bbeb442fcd6a1d38" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-03-03T13:17:21.859070282Z&quot;,&quot;start_time&quot;:&quot;2024-03-03T13:17:14.088946794Z&quot;}}" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> fsspec</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>pq_path <span class="op">=</span> <span class="st">"https://ewocstorage.blob.core.windows.net/collections/2021_PT_EUROCROP_POLY_110.parquet"</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> fsspec.<span class="bu">open</span>(pq_path) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> gpd.read_parquet(<span class="bu">file</span>,columns<span class="op">=</span>[<span class="st">"geometry"</span>,<span class="st">"CT"</span>])</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>CPU times: user 909 ms, sys: 305 ms, total: 1.21 s
 Wall time: 17.3 s</code></pre>
@@ -438,7 +439,7 @@ Wall time: 17.3 s</code></pre>
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -448,57 +449,57 @@ Wall time: 17.3 s</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
+<th data-quarto-table-cell-role="th">0</th>
 <td>MULTIPOLYGON (((-8.54796 40.56554, -8.54942 40...</td>
 <td>1200</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
+<th data-quarto-table-cell-role="th">1</th>
 <td>MULTIPOLYGON (((-8.52352 40.55686, -8.52352 40...</td>
 <td>1700</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
+<th data-quarto-table-cell-role="th">2</th>
 <td>MULTIPOLYGON (((-8.52456 40.55538, -8.52454 40...</td>
 <td>3300</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
+<th data-quarto-table-cell-role="th">3</th>
 <td>MULTIPOLYGON (((-8.52835 40.56835, -8.52837 40...</td>
 <td>2000</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
+<th data-quarto-table-cell-role="th">4</th>
 <td>MULTIPOLYGON (((-8.52781 40.57128, -8.52814 40...</td>
 <td>0</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
+<th data-quarto-table-cell-role="th">...</th>
 <td>...</td>
 <td>...</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">99995</td>
+<th data-quarto-table-cell-role="th">99995</th>
 <td>MULTIPOLYGON (((-6.46866 41.43669, -6.46832 41...</td>
 <td>0</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">99996</td>
+<th data-quarto-table-cell-role="th">99996</th>
 <td>MULTIPOLYGON (((-6.46797 41.43497, -6.46778 41...</td>
 <td>0</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">99997</td>
+<th data-quarto-table-cell-role="th">99997</th>
 <td>MULTIPOLYGON (((-7.45134 41.73074, -7.45134 41...</td>
 <td>1200</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">99998</td>
+<th data-quarto-table-cell-role="th">99998</th>
 <td>MULTIPOLYGON (((-6.47482 41.44217, -6.47480 41...</td>
 <td>0</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">99999</td>
+<th data-quarto-table-cell-role="th">99999</th>
 <td>MULTIPOLYGON (((-6.47503 41.44182, -6.47504 41...</td>
 <td>9520</td>
 </tr>
@@ -510,12 +511,12 @@ Wall time: 17.3 s</code></pre>
 </div>
 </div>
 <div id="480b5d4d37988431" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-03-03T13:19:00.603050531Z&quot;,&quot;start_time&quot;:&quot;2024-03-03T13:19:00.561887845Z&quot;}}" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df.groupby([<span class="st">'CT'</span>]).count()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df.groupby([<span class="st">'CT'</span>]).count()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -528,47 +529,47 @@ Wall time: 17.3 s</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
+<th data-quarto-table-cell-role="th">0</th>
 <td>37673</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">1100</td>
+<th data-quarto-table-cell-role="th">1100</th>
 <td>191</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">1200</td>
+<th data-quarto-table-cell-role="th">1200</th>
 <td>4475</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">1300</td>
+<th data-quarto-table-cell-role="th">1300</th>
 <td>271</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">1500</td>
+<th data-quarto-table-cell-role="th">1500</th>
 <td>69</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
+<th data-quarto-table-cell-role="th">...</th>
 <td>...</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">9300</td>
+<th data-quarto-table-cell-role="th">9300</th>
 <td>10</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">9320</td>
+<th data-quarto-table-cell-role="th">9320</th>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">9500</td>
+<th data-quarto-table-cell-role="th">9500</th>
 <td>8</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">9520</td>
+<th data-quarto-table-cell-role="th">9520</th>
 <td>971</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">9920</td>
+<th data-quarto-table-cell-role="th">9920</th>
 <td>4</td>
 </tr>
 </tbody>
@@ -579,10 +580,10 @@ Wall time: 17.3 s</code></pre>
 </div>
 </div>
 <div id="1cd1bd4841d7a315" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-03-03T17:59:20.025853202Z&quot;,&quot;start_time&quot;:&quot;2024-03-03T17:59:19.720077694Z&quot;}}" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> duckdb</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>db <span class="op">=</span> duckdb.<span class="ex">connect</span>()</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>db.execute(<span class="st">'select count(*) from read_parquet("https://ewocstorage.blob.core.windows.net/collections/2021_PT_EUROCROP_POLY_110.parquet")'</span>).fetchall()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>db.execute(<span class="st">'select count(*) from read_parquet("https://ewocstorage.blob.core.windows.net/collections/2021_PT_EUROCROP_POLY_110.parquet")'</span>).fetchall()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>CPU times: user 255 ms, sys: 4.75 ms, total: 260 ms
 Wall time: 294 ms</code></pre>
@@ -592,8 +593,8 @@ Wall time: 294 ms</code></pre>
 </div>
 </div>
 <div id="98d8c8e5912b5c6f" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-03-03T13:45:27.291933229Z&quot;,&quot;start_time&quot;:&quot;2024-03-03T13:45:26.896784328Z&quot;}}" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>db.query(<span class="st">'select CT,count(*) from read_parquet("https://ewocstorage.blob.core.windows.net/collections/2021_PT_EUROCROP_POLY_110.parquet") GROUP BY CT'</span>).to_df()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>db.query(<span class="st">'select CT,count(*) from read_parquet("https://ewocstorage.blob.core.windows.net/collections/2021_PT_EUROCROP_POLY_110.parquet") GROUP BY CT'</span>).to_df()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>CPU times: user 48.1 ms, sys: 17.3 ms, total: 65.3 ms
 Wall time: 597 ms</code></pre>
@@ -602,7 +603,7 @@ Wall time: 597 ms</code></pre>
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -612,57 +613,57 @@ Wall time: 597 ms</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
+<th data-quarto-table-cell-role="th">0</th>
 <td>9100</td>
 <td>21039</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
+<th data-quarto-table-cell-role="th">1</th>
 <td>2000</td>
 <td>1976</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
+<th data-quarto-table-cell-role="th">2</th>
 <td>3530</td>
 <td>153</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
+<th data-quarto-table-cell-role="th">3</th>
 <td>7100</td>
 <td>188</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
+<th data-quarto-table-cell-role="th">4</th>
 <td>4380</td>
 <td>11</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
+<th data-quarto-table-cell-role="th">...</th>
 <td>...</td>
 <td>...</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">56</td>
+<th data-quarto-table-cell-role="th">56</th>
 <td>1200</td>
 <td>4475</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">57</td>
+<th data-quarto-table-cell-role="th">57</th>
 <td>9520</td>
 <td>971</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">58</td>
+<th data-quarto-table-cell-role="th">58</th>
 <td>7300</td>
 <td>16</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">59</td>
+<th data-quarto-table-cell-role="th">59</th>
 <td>2190</td>
 <td>1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">60</td>
+<th data-quarto-table-cell-role="th">60</th>
 <td>3490</td>
 <td>4</td>
 </tr>
@@ -674,14 +675,14 @@ Wall time: 597 ms</code></pre>
 </div>
 </div>
 <div id="5911c73f33b6431e" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-03-03T17:59:31.164599239Z&quot;,&quot;start_time&quot;:&quot;2024-03-03T17:59:31.094515891Z&quot;}}" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>db.execute(<span class="st">'INSTALL spatial;LOAD spatial;'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>db.execute(<span class="st">'INSTALL spatial;LOAD spatial;'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>&lt;duckdb.duckdb.DuckDBPyConnection at 0x70e94825ff30&gt;</code></pre>
 </div>
 </div>
 <div id="38f17b0f03c25f0b" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-03-03T18:05:17.281166536Z&quot;,&quot;start_time&quot;:&quot;2024-03-03T18:05:12.126019758Z&quot;}}" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>db.query(<span class="st">'select ST_centroid(ST_GeomFromWKB(geometry)) from read_parquet("https://ewocstorage.blob.core.windows.net/collections/2021_PT_EUROCROP_POLY_110.parquet") USING SAMPLE 100 ROWS '</span>).to_df()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>db.query(<span class="st">'select ST_centroid(ST_GeomFromWKB(geometry)) from read_parquet("https://ewocstorage.blob.core.windows.net/collections/2021_PT_EUROCROP_POLY_110.parquet") USING SAMPLE 100 ROWS '</span>).to_df()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id":"142621d84f574b1d9a561de5e1a60a01","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
@@ -695,7 +696,7 @@ Wall time: 11.8 s</code></pre>
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -704,47 +705,47 @@ Wall time: 11.8 s</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
+<th data-quarto-table-cell-role="th">0</th>
 <td>[0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,...</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
+<th data-quarto-table-cell-role="th">1</th>
 <td>[0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,...</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
+<th data-quarto-table-cell-role="th">2</th>
 <td>[0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,...</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
+<th data-quarto-table-cell-role="th">3</th>
 <td>[0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,...</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
+<th data-quarto-table-cell-role="th">4</th>
 <td>[0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,...</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
+<th data-quarto-table-cell-role="th">...</th>
 <td>...</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">95</td>
+<th data-quarto-table-cell-role="th">95</th>
 <td>[0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,...</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">96</td>
+<th data-quarto-table-cell-role="th">96</th>
 <td>[0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,...</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">97</td>
+<th data-quarto-table-cell-role="th">97</th>
 <td>[0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,...</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">98</td>
+<th data-quarto-table-cell-role="th">98</th>
 <td>[0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,...</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">99</td>
+<th data-quarto-table-cell-role="th">99</th>
 <td>[0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,...</td>
 </tr>
 </tbody>
@@ -819,13 +820,14 @@ Wall time: 11.8 s</code></pre>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

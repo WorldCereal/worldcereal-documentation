@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,14 +33,15 @@ ul.task-list li input[type="checkbox"] {
 <link href="../rdm/overview.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-1b994973ff5f091939ed2c5ee6172dbf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-fe109df9088e4bc838f3245ebd79869a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": true,
@@ -269,7 +270,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#dataset-naming-convention" id="toc-dataset-naming-convention" class="nav-link" data-scroll-target="#dataset-naming-convention">Dataset naming convention</a></li>
   <li><a href="#hierarchical-land-covercrop-type-legend" id="toc-hierarchical-land-covercrop-type-legend" class="nav-link" data-scroll-target="#hierarchical-land-covercrop-type-legend">Hierarchical land cover/crop type legend</a></li>
   <li><a href="#irrigation-status-legend" id="toc-irrigation-status-legend" class="nav-link" data-scroll-target="#irrigation-status-legend">Irrigation status legend</a></li>
-  <li><a href="#dataset-attributes" id="toc-dataset-attributes" class="nav-link" data-scroll-target="#dataset-attributes">Dataset attributes</a></li>
+  <li><a href="#automated-corrections" id="toc-automated-corrections" class="nav-link" data-scroll-target="#automated-corrections">Automated corrections</a></li>
+  <li><a href="#dataset-subsampling" id="toc-dataset-subsampling" class="nav-link" data-scroll-target="#dataset-subsampling">Dataset subsampling</a></li>
+  <li><a href="#resulting-dataset-attributes" id="toc-resulting-dataset-attributes" class="nav-link" data-scroll-target="#resulting-dataset-attributes">Resulting dataset attributes</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -342,8 +345,22 @@ ul.task-list li input[type="checkbox"] {
 <p>Even though irrigation mapping will not be officially supported by the WorldCereal system, many of the datasets currently present in the WorldCereal Refernece Data Module hold information on irrigation practices. As we would like to conserve this information as much as possible, taking into account potential future extensions of the system, we decided to keep the irrigation label as an optional data attribute. The same irrigation legend is adopted as was introduced during WorldCereal Phase I and can be consulted through <a href="https://artifactory.vgt.vito.be/artifactory/auxdata-public/worldcereal/legend/WorldCereal_IRR_legend_latest.pdf"><strong>this link</strong></a>.</p>
 </div>
 </section>
-<section id="dataset-attributes" class="level3">
-<h3 class="anchored" data-anchor-id="dataset-attributes">Dataset attributes</h3>
+<section id="automated-corrections" class="level3">
+<h3 class="anchored" data-anchor-id="automated-corrections">Automated corrections</h3>
+<div style="text-align: justify">
+<p>During dataset harmonization, we apply some basic and automated corrections, including: - Reprojection to WGS84 lat/lon reference system (EPSG: 4326); - Splitting of multi-polygon geometries into multiple single geometries; - Removal of records without any land cover or crop type information.</p>
+</div>
+</section>
+<section id="dataset-subsampling" class="level3">
+<h3 class="anchored" data-anchor-id="dataset-subsampling">Dataset subsampling</h3>
+<div style="text-align: justify">
+<p>Especially in the case of very large datasets, very localized datasets and/or datasets with a considerable class imbalance, it generally does not make sense to use all available observations for training and validating crop mapping algorithms. To save resources when extracting associated Earth Observation data, it would be wise to select a representative subset of the data for further processing. <br></p>
+<p>Therefore, during harmonization, we apply an automated subsampling routine in which we select a thematically and geographically balanced subset of the data. The result of this sampling routine is stored in the “extract” attribute of the harmonized dataset. Non-selected samples are NOT thrown out, but simply receive an “extract” value of 0.</p>
+<p>Our subsampling routine makes use of the hierarchical, hexagonal H3 grid cell system, originally developed by Uber, to ensure a geographically well-spread subset. <br> By default, 30 samples per class and per H3L3 cell are selected. To ensure optimal spatial spread, we enforce a minimum distance of 1000 m in between two selected samples and force the algorithm to select the samples across different H3 L5/6 cells.</p>
+</div>
+</section>
+<section id="resulting-dataset-attributes" class="level3">
+<h3 class="anchored" data-anchor-id="resulting-dataset-attributes">Resulting dataset attributes</h3>
 <div style="text-align: justify">
 <p>Each harmonized vector file contains the following data attributes:<br></p>
 <table class="caption-top table">
@@ -516,13 +533,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

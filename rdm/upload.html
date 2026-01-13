@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,14 +33,15 @@ ul.task-list li input[type="checkbox"] {
 <link href="../rdm/explore.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-1b994973ff5f091939ed2c5ee6172dbf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-fe109df9088e4bc838f3245ebd79869a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": true,
@@ -372,7 +373,9 @@ ul.task-list li input[type="checkbox"] {
 <p>Supported data types for this attribute: Date or String.You will be asked to select the dataset attribute that contains the observation date for each individual sample.</p></li>
 <li><p>Specify one observation time for all samples contained in the dataset. We provide <a href="https://rdm.esa-worldcereal.org/details/WorldCereal_DerivingValidityTime_v1_1.pdf">specific guidelines</a> to help you assigning a reasonable observation time.</p></li>
 </ul>
-<p>NOTE: The WorldCereal RDM does not support multi-year datasets.<br> In case your dataset contains samples gathered across multiple years, you will receive a message during upload asking which part of the dataset needs to be processed.<br> Alternatively, you can split your dataset according to calendar year before proceeding with the upload.<br></p></li>
+<div class="alert alert-block alert-warning">
+<b>Multi-year datasets?</b><br> Note that the WorldCereal RDM does not support multi-year datasets.<br> In case your dataset contains samples gathered across multiple years, you will receive a message during upload asking which part of the dataset needs to be processed.<br> Alternatively, you can split your dataset according to calendar year before proceeding with the upload.<br>
+</div></li>
 <li><p>Irrigation Status (optional):</p>
 <p>You will be asked to select the dataset attribute containing information on irrigation (if present). You will be guided to map the original irrigation labels to the <a href="../rdm/refdata.html#irrigation-status-legend">WorldCereal irrigation legend</a>.</p>
 <p>Supported data types for this attribute: String (preferred) or Integer.</p></li>
@@ -476,13 +479,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
