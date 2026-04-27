@@ -63,6 +63,19 @@ website:
             text: Usage of the Cloud System
           - href: processing/usage_standalone.md
             text: Usage of the Standalone System
+
+      - section: "Yield Modelling"
+        contents:
+          - href: yield/overview.md
+            text: Overview
+          - href: yield/arya_background.md
+            text: Background context on ARYA 
+          - href: yield/worldcereal_integration.md
+            text: Usage of the WorldCereal products in ARYA
+          - href: yield/getting_started.md
+            text: Practical guidelines for getting started with DEMOs
+          - href: yield/arya_new_country_requirements.md
+            text: Requirements to run ARYA in a different country       
       
       - section: "Visualization and Dissemination Module (VDM)"
         contents:
