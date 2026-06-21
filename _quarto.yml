@@ -55,6 +55,17 @@ website:
           - href: rdm/publish.md
             text: Publish Your Data
 
+      - section: "Crop Calendars"
+        contents:
+          - href: cropcalendars/overview.md
+            text: Overview
+          - href: cropcalendars/methodology.md
+            text: Methodology
+          - href: cropcalendars/data_access.md
+            text: Data Access (Zenodo)
+          - href: cropcalendars/usage.md
+            text: Repository Usage
+
       - section: "Processing Module (PM)"
         contents:
           - href: processing/overview.md
